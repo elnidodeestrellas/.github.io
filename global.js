@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ----------------------------------------------------
-// 7. SISTEMA BLINDADO DE REGISTRO DE CLICS (EXCLUYENDO MENÚ)
+// 7. SISTEMA BLINDADO DE REGISTRO DE CLICS (CONTENIDO DE LA WEB)
 // ----------------------------------------------------
 function registrarClicSeguro(clave) {
     try {
@@ -255,8 +255,8 @@ function registrarClicSeguro(clave) {
 }
 
 document.addEventListener("click", function(e) {
-    // Si el clic viene del menú principal, dejamos que lo gestione su propio script (nav.js)
-    if (e.target.closest('nav') || e.target.classList.contains('menu-link')) {
+    // Si el clic viene del menú principal, dejamos que lo gestione exclusivamente nav.js
+    if (e.target.closest('nav')) {
         return;
     }
 
@@ -343,7 +343,6 @@ document.addEventListener("click", function(e) {
     if (clave) {
         registrarClicSeguro(clave);
 
-        // Si navega internamente en la misma pestaña
         if (!enlace.getAttribute('target') && !hrefOriginal.startsWith('mailto:') && !hrefOriginal.startsWith('http://') && !hrefOriginal.startsWith('https://') && !hrefOriginal.includes('pdf/')) {
             e.preventDefault();
             setTimeout(() => {

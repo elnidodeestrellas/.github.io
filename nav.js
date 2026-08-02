@@ -31,22 +31,24 @@ document.addEventListener("DOMContentLoaded", function() {
         contenedorNav.innerHTML = navHTML;
     }
 
-    // Sistema con retardo de seguridad para móviles y ordenadores
+    // Sistema con retardo de seguridad para registrar clics del menú perfectamente
     const enlacesNav = document.querySelectorAll('nav a');
     enlacesNav.forEach(enlace => {
         enlace.addEventListener('click', function(e) {
             let destino = this.getAttribute('href');
             if (!destino || destino.startsWith('http') || destino.startsWith('#')) return;
 
-            // Evitamos que salte de página de inmediato
             e.preventDefault();
 
-            // Guardamos el clic de forma local con total seguridad
+            // Clave exacta que espera el panel de estadísticas (ej. clic_nido_index.html)
             let clave = 'clic_nido_' + destino;
-            let actual = parseInt(localStorage.getItem(clave) || 0);
-            localStorage.setItem(clave, actual + 1);
+            try {
+                let actual = parseInt(localStorage.getItem(clave) || 0);
+                localStorage.setItem(clave, actual + 1);
+            } catch (err) {
+                console.error("Error al registrar clic en menú:", err);
+            }
 
-            // Damos un margen de 200 milisegundos para que se guarde bien y cambiamos de página
             setTimeout(() => {
                 window.location.href = destino;
             }, 200);
