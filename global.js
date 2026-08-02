@@ -259,11 +259,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Usamos pointerdown para capturar tanto el clic de PC como el toque inicial del dedo en móviles
     document.addEventListener('pointerdown', function(e) {
         if (e.target.closest('nav')) return;
 
-        // Detección de botones interactivos (puzles)
         let botonPuzzle = e.target.closest('button');
         if (botonPuzzle) {
             let textoBoton = botonPuzzle.textContent.toLowerCase();
@@ -332,6 +330,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (clave) {
             registrarClicSeguro(clave);
+
+            if (!enlace.target && !hrefOriginal.startsWith('http') && !hrefOriginal.startsWith('mailto:')) {
+                e.preventDefault();
+                setTimeout(() => {
+                    window.location.href = hrefOriginal;
+                }, 100);
+            }
         }
     });
 });
