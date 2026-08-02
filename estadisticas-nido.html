@@ -11,12 +11,10 @@
         button { background: #f1c442; color: #1a1a2e; border: none; padding: 9px 15px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px; }
         button:hover { background: #e0b330; }
         
-        /* Sistema de pestañas superiores mejorado */
         .pestanas-container { display: flex; gap: 4px; margin-bottom: 15px; background: #0f172a; padding: 4px; border-radius: 8px; flex-wrap: wrap; justify-content: center; }
         .btn-pestana { background: transparent; color: #a0aec0; border: none; padding: 7px 8px; font-size: 11px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
         .btn-pestana.activo { background: #f1c442; color: #1a1a2e; }
 
-        /* Tarjeta de sección estrella */
         .card-estrella {
             background: linear-gradient(135deg, #2a2356, #1f2947);
             border: 1px solid #f1c442;
@@ -28,12 +26,10 @@
         .card-estrella h3 { margin: 0 0 3px 0; color: #f1c442; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
         .card-estrella p { margin: 0; font-size: 14px; font-weight: bold; color: #fff; }
 
-        /* Contenedor de lista con scroll si hay muchos elementos */
         .scroll-lista { max-height: 250px; overflow-y: auto; padding-right: 5px; margin-bottom: 15px; }
         .scroll-lista::-webkit-scrollbar { width: 6px; }
         .scroll-lista::-webkit-scrollbar-thumb { background: #2a3b6c; border-radius: 3px; }
 
-        /* Botones de acción inferior */
         .botones-container { display: flex; gap: 8px; margin-top: 10px; }
         .btn-accion { flex: 1; font-size: 12px; padding: 8px; }
         .btn-actualizar { background: #3182ce; color: white; }
@@ -49,7 +45,6 @@
         .enlace-web a:hover { text-decoration: underline; }
         .info-tiempo { text-align: center; font-size: 11px; color: #a0aec0; margin-top: 8px; }
 
-        /* Lista y barras visuales */
         .lista-stats { list-style: none; padding: 0; margin: 0; }
         .item-stat {
             background: #0f172a;
@@ -77,11 +72,10 @@
         <p id="error-pass" style="color: #fc8181; font-size: 12px; margin-top: 12px;"></p>
     </div>
 
-    <!-- Panel de Estadísticas con Pestañas -->
+    <!-- Panel de Estadísticas -->
     <div class="card oculto" id="panel-stats">
         <h2>📊 Panel de Rendimiento</h2>
 
-        <!-- Pestañas de Navegación del Panel -->
         <div class="pestanas-container">
             <button class="btn-pestana activo" id="tab-menu" onclick="cambiarVista('menu')">🏠 Menú</button>
             <button class="btn-pestana" id="tab-index" onclick="cambiarVista('index')">📄 Inicio</button>
@@ -95,21 +89,19 @@
             <button class="btn-pestana" id="tab-tuvoz" onclick="cambiarVista('tuvoz')">⭐ Tu voz</button>
         </div>
         
-        <!-- Tarjeta Destacada -->
         <div class="card-estrella">
             <h3 id="titulo-estrella">🏆 Más Popular</h3>
             <p id="elemento-estrella">Calculando...</p>
         </div>
         
-        <!-- Contenedor con scroll para las listas -->
         <div class="scroll-lista">
             <ul class="lista-stats" id="contenedor-lista"></ul>
         </div>
         
         <div class="botones-container">
             <button class="btn-accion btn-actualizar" onclick="cargarEstadisticas()">Actualizar</button>
-            <button class="btn-accion btn-exportar" onclick="exportarDatos()" title="Guardar copia de seguridad en archivo">Exportar</button>
-            <button class="btn-accion btn-reset" onclick="reiniciarStats()" title="Poner contadores a cero">Reiniciar</button>
+            <button class="btn-accion btn-exportar" onclick="exportarDatos()">Exportar</button>
+            <button class="btn-accion btn-reset" onclick="reiniciarStats()">Reiniciar</button>
         </div>
 
         <div class="info-tiempo" id="info-tiempo">Última actualización: --:--:--</div>
@@ -217,8 +209,7 @@
         ];
 
         const datosPuzzles = [
-            { nombre: "🧩 Mezclar Puzle", clave: "clic_puzzles" },
-            { nombre: "🔄 Cambiar Cuento de Puzle", clave: "clic_puzzle_cambiar" }
+            { nombre: "🧩 Puzle 1", clave: "clic_puzzle_1" }
         ];
 
         const datosLectura = [
@@ -343,20 +334,7 @@
 
         function reiniciarStats() {
             let listaElementos = obtenerListaActual();
-            let nombresVistas = {
-                'menu': "del Menú Principal",
-                'index': "de los Botones de Inicio",
-                'cuentos': "de la Sección de Cuentos General",
-                'audios': "de los Audios de Cuentos",
-                'recursos': "de los Recursos para Padres",
-                'podcast': "de los Episodios del Podcast",
-                'puzzles': "de los Puzles Mágicos",
-                'lectura': "del Rincón de Lectura",
-                'contacto': "de la Sección de Contacto",
-                'tuvoz': "de la Sección Tu Voz"
-            };
-            
-            if (confirm(`¿Quieres poner a cero los contadores ${nombresVistas[vistaActual]}?`)) {
+            if (confirm(`¿Quieres poner a cero los contadores de esta sección?`)) {
                 listaElementos.forEach(item => {
                     localStorage.removeItem(item.clave);
                 });
@@ -367,8 +345,7 @@
 
         function exportarDatos() {
             let reporte = "=== COPIA DE SEGURIDAD ESTADÍSTICAS EL NIDO DE ESTRELLAS ===\n\n";
-            reporte += `Fecha de exportación: ${new Date().toLocaleString()}\n`;
-            reporte += `Fecha de inicio de conteo: ${localStorage.getItem('nido_fecha_inicio') || 'N/A'}\n\n`;
+            reporte += `Fecha de exportación: ${new Date().toLocaleString()}\n\n`;
 
             const todasLasSecciones = [...datosMenu, ...datosIndex, ...datosCuentos, ...datosAudios, ...datosRecursos, ...datosPodcast, ...datosPuzzles, ...datosLectura, ...datosContacto, ...datosTuVoz];
             todasLasSecciones.forEach(item => {
