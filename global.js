@@ -323,7 +323,7 @@ document.addEventListener("click", function(e) {
     // 6. Inicio (Index)
     else if (hrefOriginal.toLowerCase().includes('rutina')) {
         clave = 'clic_index_rutina';
-    } else if (hrefOriginal.toLowerCase().includes('coleccion') || hrefOriginal.toLowerCase().includes('explorar')) {
+    } else if (hrefOriginal.toLowerCase().includes('coleccion') || hrefOriginal.toLowerCase().includes('explorar') || hrefOriginal.toLowerCase().includes('cuentos.html')) {
         clave = 'clic_index_coleccion';
     } 
     // 7. Puzles
