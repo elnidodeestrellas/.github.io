@@ -240,107 +240,88 @@ document.addEventListener("DOMContentLoaded", function() {
     elementoDestino.style.backgroundPosition = "center";
     elementoDestino.style.backgroundRepeat = "no-repeat";
     elementoDestino.style.backgroundAttachment = "fixed";
-});
 
-// ----------------------------------------------------
-// 7. SISTEMA BLINDADO DE REGISTRO DE CLICS (MÓVIL Y PC)
-// ----------------------------------------------------
-function registrarClicSeguro(clave) {
-    try {
-        let actual = parseInt(localStorage.getItem(clave) || 0);
-        localStorage.setItem(clave, actual + 1);
-    } catch (e) {
-        console.error("Error al registrar clic:", e);
-    }
-}
-
-document.addEventListener("click", function(e) {
-    // Si el clic viene del menú principal, dejamos que lo gestione exclusivamente nav.js
-    if (e.target.closest('nav')) {
-        return;
+    // ----------------------------------------------------
+    // 7. SISTEMA DE CLICS DIRECTO PARA MÓVIL Y PC (POINTERDOWN)
+    // ----------------------------------------------------
+    function registrarClicSeguro(clave) {
+        try {
+            let actual = parseInt(localStorage.getItem(clave) || 0);
+            localStorage.setItem(clave, actual + 1);
+        } catch (e) {
+            console.error("Error al registrar clic:", e);
+        }
     }
 
-    // 1. Detección de botones interactivos (puzles)
-    let botonPuzzle = e.target.closest('button');
-    if (botonPuzzle) {
-        let textoBoton = botonPuzzle.textContent.toLowerCase();
-        let onclickAttr = botonPuzzle.getAttribute('onclick') || '';
-        
+    // Vinculación directa a enlaces mediante pointerdown (inmediato al tocar la pantalla del móvil)
+    const enlaces = document.querySelectorAll('a');
+    enlaces.forEach(enlace => {
+        if (enlace.closest('nav')) return; // El menú se gestiona aparte
+
+        enlace.addEventListener('pointerdown', function() {
+            let hrefOriginal = enlace.getAttribute('href');
+            if (!hrefOriginal || hrefOriginal.startsWith('#')) return;
+
+            let clave = '';
+
+            if (hrefOriginal.toLowerCase().includes('podcast') || hrefOriginal.toLowerCase().includes('episodio')) {
+                if (hrefOriginal.includes('rabietas')) {
+                    clave = 'clic_podcast_1';
+                } else if (hrefOriginal.includes('mapa-buenas-noches')) {
+                    clave = 'clic_podcast_2';
+                } else if (hrefOriginal.includes('celos-hermanos')) {
+                    clave = 'clic_podcast_3';
+                } else {
+                    let match = hrefOriginal.match(/(\d+)/);
+                    clave = match ? 'clic_podcast_' + match[1] : 'clic_podcast';
+                }
+            } else if (hrefOriginal.toLowerCase().includes('recurso') || hrefOriginal.toLowerCase().includes('pdf/')) {
+                let destinoLimpio = hrefOriginal.split('/').pop().replace('.pdf', '').replace('.html', '');
+                clave = 'clic_recurso_' + destinoLimpio.replace(/recurso[_-]/, '');
+            } else if (hrefOriginal.toLowerCase().includes('contacto') || hrefOriginal.toLowerCase().includes('mailto:') || hrefOriginal.toLowerCase().includes('pinterest')) {
+                if (hrefOriginal.toLowerCase().includes('pinterest')) {
+                    clave = 'clic_contacto_pinterest';
+                } else if (hrefOriginal.toLowerCase().includes('mailto:')) {
+                    clave = 'clic_contacto_correo';
+                } else {
+                    clave = 'clic_contacto';
+                }
+            } else if (hrefOriginal.toLowerCase().includes('audios')) {
+                clave = 'clic_cuentos_audios';
+            } else if (hrefOriginal.toLowerCase().includes('texto') || hrefOriginal.toLowerCase().includes('lectura-texto')) {
+                clave = 'clic_cuentos_texto';
+            } else if (hrefOriginal.toLowerCase().includes('lectura') || hrefOriginal.toLowerCase().includes('cuento')) {
+                let match = hrefOriginal.match(/(\d+)/);
+                clave = match ? 'clic_lectura_' + match[1] : '';
+            } else if (hrefOriginal.toLowerCase().includes('rutina')) {
+                clave = 'clic_index_rutina';
+            } else if (hrefOriginal.toLowerCase().includes('coleccion') || hrefOriginal.toLowerCase().includes('explorar') || hrefOriginal.toLowerCase().includes('cuentos.html')) {
+                clave = 'clic_index_coleccion';
+            } else if (hrefOriginal.toLowerCase().includes('puzzle') || hrefOriginal.toLowerCase().includes('puzle')) {
+                clave = 'clic_puzzles';
+            } else if (hrefOriginal.toLowerCase().includes('tuvoz') || hrefOriginal.toLowerCase().includes('voz')) {
+                clave = 'clic_tuvoz_enviar';
+            } else {
+                let destinoLimpio = hrefOriginal.split('/').pop().replace('.html', '');
+                clave = 'clic_' + (destinoLimpio || 'enlace');
+            }
+
+            if (clave) {
+                registrarClicSeguro(clave);
+            }
+        });
+    });
+
+    // Detección específica para botones táctiles de puzles
+    const botones = document.querySelectorAll('button');
+    botones.forEach(boton => {
+        let textoBoton = boton.textContent.toLowerCase();
+        let onclickAttr = boton.getAttribute('onclick') || '';
+
         if (textoBoton.includes('mezclar') || onclickAttr.includes('mezclarPuzzle')) {
-            registrarClicSeguro('clic_puzzles');
-            return;
+            boton.addEventListener('pointerdown', () => registrarClicSeguro('clic_puzzles'));
         } else if (textoBoton.includes('cambiar') || onclickAttr.includes('siguienteCuento')) {
-            registrarClicSeguro('clic_puzzle_cambiar');
-            return;
+            boton.addEventListener('pointerdown', () => registrarClicSeguro('clic_puzzle_cambiar'));
         }
-    }
-
-    let enlace = e.target.closest('a');
-    if (!enlace) return;
-
-    let hrefOriginal = enlace.getAttribute('href');
-    if (!hrefOriginal || hrefOriginal.startsWith('#')) return;
-
-    let clave = '';
-
-    // 2. Podcast
-    if (hrefOriginal.toLowerCase().includes('podcast') || hrefOriginal.toLowerCase().includes('episodio')) {
-        if (hrefOriginal.includes('rabietas')) {
-            clave = 'clic_podcast_1';
-        } else if (hrefOriginal.includes('mapa-buenas-noches')) {
-            clave = 'clic_podcast_2';
-        } else if (hrefOriginal.includes('celos-hermanos')) {
-            clave = 'clic_podcast_3';
-        } else {
-            let match = hrefOriginal.match(/(\d+)/);
-            clave = match ? 'clic_podcast_' + match[1] : 'clic_podcast';
-        }
-    } 
-    // 3. Recursos y PDFs
-    else if (hrefOriginal.toLowerCase().includes('recurso') || hrefOriginal.toLowerCase().includes('pdf/')) {
-        let destinoLimpio = hrefOriginal.split('/').pop().replace('.pdf', '').replace('.html', '');
-        clave = 'clic_recurso_' + destinoLimpio.replace(/recurso[_-]/, '');
-    } 
-    // 4. Contacto
-    else if (hrefOriginal.toLowerCase().includes('contacto') || hrefOriginal.toLowerCase().includes('mailto:') || hrefOriginal.toLowerCase().includes('pinterest')) {
-        if (hrefOriginal.toLowerCase().includes('pinterest')) {
-            clave = 'clic_contacto_pinterest';
-        } else if (hrefOriginal.toLowerCase().includes('mailto:')) {
-            clave = 'clic_contacto_correo';
-        } else {
-            clave = 'clic_contacto';
-        }
-    } 
-    // 5. Cuentos y Lecturas
-    else if (hrefOriginal.toLowerCase().includes('audios')) {
-        clave = 'clic_cuentos_audios';
-    } else if (hrefOriginal.toLowerCase().includes('texto') || hrefOriginal.toLowerCase().includes('lectura-texto')) {
-        clave = 'clic_cuentos_texto';
-    } else if (hrefOriginal.toLowerCase().includes('lectura') || hrefOriginal.toLowerCase().includes('cuento')) {
-        let match = hrefOriginal.match(/(\d+)/);
-        clave = match ? 'clic_lectura_' + match[1] : '';
-    } 
-    // 6. Inicio (Index)
-    else if (hrefOriginal.toLowerCase().includes('rutina')) {
-        clave = 'clic_index_rutina';
-    } else if (hrefOriginal.toLowerCase().includes('coleccion') || hrefOriginal.toLowerCase().includes('explorar') || hrefOriginal.toLowerCase().includes('cuentos.html')) {
-        clave = 'clic_index_coleccion';
-    } 
-    // 7. Puzles
-    else if (hrefOriginal.toLowerCase().includes('puzzle') || hrefOriginal.toLowerCase().includes('puzle')) {
-        clave = 'clic_puzzles';
-    } 
-    // 8. Tu voz
-    else if (hrefOriginal.toLowerCase().includes('tuvoz') || hrefOriginal.toLowerCase().includes('voz')) {
-        clave = 'clic_tuvoz_enviar';
-    } 
-    // 9. Por defecto
-    else {
-        let destinoLimpio = hrefOriginal.split('/').pop().replace('.html', '');
-        clave = 'clic_' + (destinoLimpio || 'enlace');
-    }
-
-    if (clave) {
-        registrarClicSeguro(clave);
-    }
+    });
 });
