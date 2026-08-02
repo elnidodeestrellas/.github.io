@@ -307,7 +307,8 @@
             let maxClics = 1;
 
             listaElementos.forEach(item => {
-                let total = parseInt(localStorage.getItem(item.clave) || 0);
+                let valorAlmacenado = localStorage.getItem(item.clave);
+                let total = valorAlmacenado ? parseInt(valorAlmacenado, 10) : 0;
                 datosProcesados.push({ nombre: item.nombre, total: total, clave: item.clave });
                 if (total > maxClics) maxClics = total;
             });
@@ -378,7 +379,8 @@
 
             const todasLasSecciones = [...datosMenu, ...datosIndex, ...datosCuentos, ...datosAudios, ...datosRecursos, ...datosPodcast, ...datosPuzzles, ...datosLectura, ...datosContacto, ...datosTuVoz];
             todasLasSecciones.forEach(item => {
-                let total = localStorage.getItem(item.clave) || 0;
+                let valor = localStorage.getItem(item.clave);
+                let total = valor ? parseInt(valor, 10) : 0;
                 reporte += `${item.nombre}: ${total} clics\n`;
             });
 
