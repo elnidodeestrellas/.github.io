@@ -1,0 +1,1501 @@
+/* ==========================================
+   1. VARIABLES GLOBALES Y RESETEO
+   ================================---------- */
+:root {
+    --azul-cosmos: #070b14;
+    --azul-noche: #0f1626;
+    --azul-tarjeta: #141d33;
+    --lavanda-magico: #dcd6eb;
+    --dorado-botones: #f1c442;
+    --dorado-hover: #d9af34;
+    --texto-principal: #ffffff;
+    --texto-secundario: #a0aec0;
+    --transicion: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--azul-cosmos);
+    color: var(--texto-principal);
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('img/fondoestrellado.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   2. ESTRUCTURA GENERAL (NAVEGACIÓN Y FOOTER)
+   ================================---------- */
+nav {
+    background-color: rgba(7, 11, 20, 0.75);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-area h2 {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dorado-botones);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--dorado-botones);
+    box-shadow: 0 0 10px rgba(241, 196, 66, 0.3);
+}
+
+.menu-links {
+    display: flex;
+    gap: 15px;
+}
+
+.menu-links a {
+    background-color: var(--dorado-botones);
+    color: #070b14;
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transicion);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-links a:hover {
+    background-color: var(--dorado-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(241, 196, 66, 0.25);
+}
+
+footer {
+    background-color: #04060d;
+    color: var(--texto-secundario);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto;
+}
+
+footer a {
+    color: var(--dorado-botones);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ==========================================
+   3. COMPONENTES Y BOTONES COMUNES
+   ================================---------- */
+h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.5rem;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: var(--dorado-botones);
+    color: #070b14;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(241, 196, 66, 0.2);
+    transition: var(--transicion);
+}
+
+.btn-principal:hover {
+    background-color: var(--dorado-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(241, 196, 66, 0.3);
+}
+
+.boton-area-centrada {
+    text-align: center;
+    margin: 50px 0 20px 0;
+}
+
+.cabecera-imagen {
+    max-width: 800px;
+    margin: 20px auto 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cabecera-imagen img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ==========================================
+   4. PÁGINA DE INICIO
+   ================================---------- */
+.main-content {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 30px;
+}
+
+.encabezado-inicio {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.encabezado-inicio h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--dorado-botones);
+    margin-bottom: 25px;
+    text-shadow: 0 0 30px rgba(241, 196, 66, 0.15);
+}
+
+.hero-imagen-wrapper {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+}
+
+.hero-imagen-wrapper img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-imagen-wrapper img:hover {
+    transform: scale(1.02);
+}
+
+.introduccion-texto {
+    margin: 15px 0 50px 0;
+}
+
+.introduccion-texto h2 {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dorado-botones);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.introduccion-texto p {
+    font-size: 1.15rem;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.detalles-grid {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.detalle-ilustracion {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+    background-color: rgba(20, 29, 51, 0.4);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.detalle-ilustracion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detalle-lista {
+    flex: 2;
+    min-width: 320px;
+}
+
+.detalle-lista h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+
+.beneficio-item {
+    margin-bottom: 25px;
+}
+
+.beneficio-item strong {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dorado-botones);
+    font-size: 1.1rem;
+}
+
+.beneficio-item p {
+    color: var(--texto-secundario);
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+/* ==========================================
+   5. PÁGINA DE PROYECTO
+   ================================---------- */
+.proyecto-container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 25px;
+}
+
+.titulo-premium {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dorado-botones);
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.proposito-texto p {
+    font-size: 1.15rem;
+    color: var(--texto-secundario);
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.como-trabajamos-seccion {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.imagen-pilares-wrapper {
+    flex: 1;
+    min-width: 320px;
+    max-width: 440px;
+    aspect-ratio: 4/3;
+    background-color: rgba(20, 29, 51, 0.4);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+}
+
+.imagen-pilares-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pilares-lista-wrapper {
+    flex: 2;
+    min-width: 320px;
+}
+
+.subtitulo-premium {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.pilares-descripcion {
+    color: var(--texto-secundario);
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+.pilar-item {
+    background-color: rgba(20, 29, 51, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 20px 25px;
+    border-radius: 16px;
+    border-left: 4px solid var(--dorado-botones);
+    margin-bottom: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: var(--transicion);
+}
+
+.pilar-item:hover {
+    transform: translateX(4px);
+    background-color: rgba(20, 29, 51, 0.8);
+}
+
+.pilar-item strong {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dorado-botones);
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.pilar-item p {
+    color: #e2e8f0;
+    font-size: 0.98rem;
+    font-weight: 300;
+}
+
+/* ==========================================
+   6. BIBLIOTECA Y TARJETAS DE CUENTOS
+   ================================---------- */
+.selector-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(20, 29, 51, 0.45);
+    border: 2px solid var(--dorado-botones);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
+    backdrop-filter: blur(8px);
+    transition: var(--transicion);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(241, 196, 66, 0.15);
+}
+
+.card h2 {
+    color: var(--dorado-botones);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+}
+
+.card a {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--dorado-botones);
+    color: var(--azul-cosmos);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: var(--transicion);
+}
+
+.card a:hover {
+    background-color: var(--dorado-hover);
+    transform: scale(1.05);
+}
+
+.biblioteca-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 25px;
+}
+
+.biblioteca-cabecera {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.biblioteca-cabecera h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.6rem;
+    color: var(--dorado-botones);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.biblioteca-cabecera p {
+    font-size: 1.15rem;
+    color: var(--texto-secundario);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cuentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+    margin-bottom: 60px;
+}
+
+.cuento-card {
+    background-color: rgba(20, 29, 51, 0.45);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transicion);
+}
+
+.cuento-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(241, 196, 66, 0.3);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+}
+
+.cuento-imagen-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: rgba(7, 11, 20, 0.5);
+    overflow: hidden;
+}
+
+.cuento-imagen-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicion);
+}
+
+.cuento-card:hover .cuento-imagen-wrapper img {
+    transform: scale(1.03);
+}
+
+.cuento-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cuento-info h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.35rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.pilar-tag {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: rgba(241, 196, 66, 0.1);
+    color: var(--dorado-botones);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border: 1px solid rgba(241, 196, 66, 0.15);
+}
+
+.cuento-info p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.btn-reproducir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--dorado-botones);
+    color: var(--azul-cosmos);
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--transicion);
+}
+
+.btn-reproducir:hover {
+    background-color: var(--dorado-hover);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   7. LISTADOS DE LECTURA Y CUENTOS INDIVIDUALES
+   ================================---------- */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 25px;
+    text-align: center;
+}
+
+.container h1 {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dorado-botones);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.lista-lectura {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-lectura li {
+    margin-bottom: 20px;
+}
+
+.lista-lectura a {
+    display: block;
+    padding: 20px;
+    background: rgba(20, 29, 51, 0.45);
+    border: 1px solid rgba(241, 196, 66, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: var(--transicion);
+}
+
+.lista-lectura a:hover {
+    background: rgba(241, 196, 66, 0.1);
+    border-color: var(--dorado-botones);
+    transform: translateY(-2px);
+}
+
+.cuento-caja {
+    background: rgba(20, 29, 51, 0.6);
+    padding: 45px;
+    border-radius: 20px;
+    border: 1px solid rgba(241, 196, 66, 0.1);
+    display: block;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+}
+
+.cuento-caja h1,
+.cuento-caja h2,
+.cuento-caja h3 {
+    color: var(--dorado-botones);
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.cuento-caja p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.cuento-caja .btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--dorado-botones);
+    color: var(--azul-cosmos);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 25px;
+    width: fit-content;
+    transition: var(--transicion);
+}
+
+.cuento-caja .btn-volver:hover {
+    background-color: var(--dorado-hover);
+    transform: translateX(-4px);
+}
+
+.img-cuento {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 40px auto;
+    border-radius: 15px;
+    border: 2px solid rgba(241, 196, 66, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: var(--transicion);
+}
+
+.img-cuento:hover {
+    transform: scale(1.01);
+}
+
+/* ==========================================
+   8. PÁGINA DE CONTACTO
+   ================================---------- */
+.contacto-page-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 25px;
+}
+
+.contacto-bloque {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(15, 22, 38, 0.45);
+    backdrop-filter: blur(8px);
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contacto-grafico-circulo {
+    flex: 1;
+    min-width: 260px;
+    max-width: 280px;
+    aspect-ratio: 1/1;
+    background-color: rgba(20, 29, 51, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 4.5rem;
+}
+
+.contacto-contenido {
+    flex: 2;
+    min-width: 320px;
+}
+
+.contacto-contenido h1 {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dorado-botones);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-align: left;
+    margin-top: 0;
+}
+
+.contacto-contenido h3 {
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+}
+
+.botones-contacto-grupo {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn-enlace-directo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--dorado-botones);
+    color: var(--azul-cosmos);
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transicion);
+}
+
+.btn-enlace-directo:hover {
+    background-color: var(--dorado-hover);
+    transform: translateY(-2px);
+}
+
+.btn-pinterest {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-pinterest:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--dorado-botones);
+}
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px; /* menos padding en el menú de móvil */
+    }
+
+    .main-content,
+    .container,
+    .proyecto-container,
+    .biblioteca-container,
+    .contacto-page-container {
+        padding: 0 20px; /* márgenes laterales seguros en móvil */
+        margin: 40px auto;
+    }
+
+    .cuento-caja {
+        padding: 30px 20px; /* caja de lectura más adaptada al ancho del móvil */
+    }
+}
+/* ==========================================
+   9. MEJORAS DE ELEGANCIA Y EFECTOS
+   ================================---------- */
+
+/* Resplandor dorado estelar en la imagen principal */
+.hero-imagen-wrapper.glow-efecto {
+    position: relative;
+    box-shadow: 0 0 35px rgba(241, 196, 66, 0.25), 0 20px 45px rgba(0, 0, 0, 0.5);
+    transition: var(--transicion);
+}
+
+.hero-imagen-wrapper.glow-efecto:hover {
+    box-shadow: 0 0 50px rgba(241, 196, 66, 0.4), 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Efecto de entrada suave al cargar la página */
+.main-content {
+    animation: fadeInSuave 0.8s ease-out forwards;
+}
+
+@keyframes fadeInSuave {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Interacción de elevación prémium en los bloques */
+.pilar-item, 
+.detalle-ilustracion,
+.contacto-bloque {
+    transition: var(--transicion);
+}
+
+.pilar-item:hover, 
+.detalle-ilustracion:hover {
+    border-color: rgba(241, 196, 66, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(241, 196, 66, 0.1);
+}
+/* ==========================================
+   10. AJUSTE DE LA IMAGEN VERTICAL DEL NIDO
+   ========================================== */
+
+/* Asegura que la caja de la ilustración se estire y adapte a la altura de la lista de texto */
+.detalles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Da un poco más de espacio a la derecha si es necesario */
+    align-items: center; /* Centra verticalmente ambos lados */
+    gap: 40px;
+}
+
+.detalle-ilustracion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detalle-ilustracion img {
+    width: 100%;
+    max-height: 520px; /* Controla la altura máxima para que sea imponente pero no gigante */
+    height: auto;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Para que en móviles se vea bien en columna normal */
+@media (max-width: 768px) {
+    .detalles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Limpieza definitiva del contenedor de la ilustración */
+.detalle-ilustracion {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajuste limpio de la imagen para que no sobresalga nada */
+.detalle-ilustracion img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+}
+/* ==========================================
+   11. MODO LECTURA NOCTURNO INMERSIVO
+   ========================================== */
+
+/* Estilos del botón flotante */
+#btn-modo-nocturno {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    background: rgba(20, 29, 51, 0.85);
+    border: 1px solid rgba(241, 196, 66, 0.3);
+    color: #f1c442;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: var(--transicion);
+    backdrop-filter: blur(8px);
+}
+
+#btn-modo-nocturno:hover {
+    transform: scale(1.1);
+    background: rgba(30, 42, 74, 0.95);
+    border-color: rgba(241, 196, 66, 0.6);
+    box-shadow: 0 0 20px rgba(241, 196, 66, 0.3);
+}
+
+/* Clases que transforman la web en modo super-nocturno inmersivo */
+body.modo-nocturno-profundo {
+    background-color: #050811 !important; /* Fondo todavía más oscuro y profundo */
+}
+
+body.modo-nocturno-profundo nav,
+body.modo-nocturno-profundo footer {
+    background-color: #03050a !important;
+    border-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Atenuación de las tarjetas y elementos para evitar deslumbramientos */
+body.modo-nocturno-profundo .pilar-item,
+body.modo-nocturno-profundo .detalle-ilustracion img,
+body.modo-nocturno-profundo .hero-imagen-wrapper {
+    filter: brightness(0.85); /* Baja ligeramente el brillo de las imágenes */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Textos un pelín más suaves para la vista cansada por la noche */
+body.modo-nocturno-profundo p {
+    color: #b0bac9 !important;
+}
+/* --- toque mágico: micro-interacciones estelares --- */
+
+/* efecto base para botones y tarjetas */
+button, .tarjeta, .cuento-card, .btn-magico {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* brillo estelar al pasar el cursor */
+button:hover, .tarjeta:hover, .cuento-card:hover, .btn-magico:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(138, 43, 226, 0.15);
+    border-color: rgba(255, 215, 0, 0.6);
+}
+
+/* destello de luz móvil (partícula sutil) */
+button::after, .tarjeta::after, .cuento-card::after, .btn-magico::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    transform: scale(0.5);
+}
+
+button:hover::after, .tarjeta:hover::after, .cuento-card:hover::after, .btn-magico:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+/* --- Reproductor de audio ambiental discreto --- */
+.audio-flotante {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(20, 20, 35, 0.85);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.audio-flotante:hover {
+    border-color: rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.audio-flotante button {
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.audio-flotante button:hover {
+    transform: scale(1.2);
+}
+
+.audio-flotante span {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+    color: #e0e0e0;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+/* ==========================================
+   REPRODUCTOR FLOTANTE (Abajo a la izquierda)
+   ================================---------- */
+.audio-flotante {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(20, 29, 35, 0.85);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.audio-flotante:hover {
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.audio-flotante button {
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.audio-flotante button:hover {
+    transform: scale(1.15);
+}
+
+.audio-flotante span {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+    color: #e0e0e0;
+    letter-spacing: 0.5px;
+    user-select: none;
+    white-space: nowrap;
+}
+/* ==========================================
+   ESTILOS PARA LA IMAGEN DE NUESTRO PROPÓSITO
+   ================================---------- */
+.proposito-imagen-contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; /* Espacio de separación antes del título */
+}
+
+.img-proposito {
+    max-width: 650px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 18px;
+    /* Efecto de haz y resplandor dorado sutil */
+    border: 1px solid rgba(241, 196, 66, 0.4);
+    box-shadow: 0 10px 40px rgba(241, 196, 66, 0.25), 0 0 20px rgba(241, 196, 66, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-proposito:hover {
+    transform: scale(1.01);
+    /* Un brillo un punto más vivo al pasar el ratón */
+    box-shadow: 0 12px 45px rgba(241, 196, 66, 0.35), 0 0 25px rgba(241, 196, 66, 0.2);
+}
+/* ==========================================
+   ESTILOS PARA LA IMAGEN DE CONTACTO
+   ================================---------- */
+.contacto-imagen-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-contacto-redonda {
+    width: 220px; /* Puedes ajustar el tamaño según tus necesidades */
+    height: 220px;
+    border-radius: 50%; /* Esto recorta la imagen en un círculo perfecto */
+    object-fit: cover;
+    border: 2px solid rgba(255, 215, 0, 0.3); /* Un sutil borde dorado acorde a la web */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.img-contacto-redonda:hover {
+    transform: scale(1.03);
+    border-color: rgba(255, 215, 0, 0.6);
+}
+/* ==========================================
+   ESTILOS PARA LA SECCIÓN DE RECURSOS
+   ================================---------- */
+.recursos-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.recursos-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.recursos-descripcion {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 15px auto 0 auto;
+    line-height: 1.6;
+}
+
+.tarjetas-recursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.recurso-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.recurso-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241, 196, 66, 0.5);
+    box-shadow: 0 10px 30px rgba(241, 196, 66, 0.15);
+}
+
+.recurso-card h3 {
+    font-family: 'Quicksand', sans-serif;
+    color: #f1c442;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.recurso-card p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.btn-descarga {
+    display: inline-block;
+    background-color: rgba(241, 196, 66, 0.15);
+    color: #f1c442;
+    border: 1px solid rgba(241, 196, 66, 0.4);
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-descarga:hover {
+    background-color: #f1c442;
+    color: #0f1626;
+    transform: scale(1.02);
+}
+
+.proximamente-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+    font-style: italic;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+/* ==========================================
+   ESTILOS MEJORADOS PARA TARJETAS CON IMAGEN
+   ================================---------- */
+
+.recurso-card-visual {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 16px;
+    overflow: 16px; /* Importante para que la imagen respete los bordes redondeados */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Para que todas las tarjetas de la fila tengan la misma altura */
+}
+
+.recurso-card-visual:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241, 196, 66, 0.5);
+    box-shadow: 0 10px 30px rgba(241, 196, 66, 0.15);
+}
+
+/* Contenedor de la imagen */
+.recurso-card-imagen {
+    width: 100%;
+    height: 180px; /* Altura fija para la imagen */
+    object-fit: cover; /* La imagen se recorta para llenar el espacio sin deformarse */
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+.seccion-sobre-proyecto {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.seccion-sobre-proyecto {
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.07), transparent 60%), rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.05);
+}
+
+.seccion-sobre-proyecto h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #f3e5ab; /* Tono dorado suave y elegante */
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.seccion-sobre-proyecto p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+/* Nueva guia de recursos premios */
+.banner-recurso-gratis {
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 70%), rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem auto;
+    max-width: 800px;
+    text-align: center;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+}
+
+.banner-recurso-gratis h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #f3e5ab;
+}
+
+.banner-recurso-gratis p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+/* ==========================================
+   12. BARRA DE PROGRESO DE LECTURA SUPERIOR
+   ================================---------- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--dorado-botones);
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
+.btn-secundario {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: #f3e5ab;
+    border: 1px solid #f3e5ab;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secundario:hover {
+    background-color: #f3e5ab;
+    color: #0f172a;
+}
+/* --- NAVEGACIÓN PRINCIPAL MODERNA (OPCIÓN 1: MENÚ + DESPLEGABLE "MÁS") --- */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(26, 38, 57, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.logo-area h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+    margin: 0;
+}
+
+.menu-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu-links > a, .dropdown > button {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-links > a:hover, .dropdown > button:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.menu-links > a.active {
+    color: #63b3ed;
+    background-color: rgba(99, 179, 237, 0.1);
+    font-weight: 600;
+}
+
+/* --- CONTENEDOR DESPLEGABLE "MÁS" --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #1a2639;
+    min-width: 170px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 6px;
+    z-index: 1000;
+    margin-top: 8px;
+    backdrop-filter: blur(16px);
+}
+
+.dropdown-content a {
+    color: #cbd5e0;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+/* Clase para mostrar el desplegable mediante JavaScript */
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* Botón especial de acción destacado ("Tu voz") */
+.menu-links a.nav-estelar-btn {
+    background: linear-gradient(135deg, #3182ce, #2b6cb0);
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(49, 130, 206, 0.3);
+    margin-left: 6px;
+}
+
+.menu-links a.nav-estelar-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4);
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+}
+/* --- CORRECCIÓN DE COLORES Y BRILLOS DEL DESPLEGABLE --- */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: rgba(26, 38, 57, 0.95); /* Fondo translúcido oscuro coherente */
+    min-width: 170px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 6px;
+    z-index: 1000;
+    margin-top: 8px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.dropdown-content a {
+    color: #cbd5e0 !important; /* Forzamos el color de texto claro */
+    background: transparent !important; /* Eliminamos cualquier fondo amarillo heredado */
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important; /* Brillo suave al pasar el ratón */
+    color: #ffffff !important;
+}

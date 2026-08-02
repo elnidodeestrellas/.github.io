@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Cuentos | El Nido de Estrellas</title>
+    <meta name="description" content="Explora nuestra biblioteca de cuentos infantiles organizados para acompañar las emociones, el descanso y la imaginación de los más pequeños.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        /* Cuadrícula de dos columnas con identidad propia para la sección de cuentos */
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .cuento-card-cuentos {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: #1a1226;
+            border: 1px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 15px;
+            gap: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .cuento-imagen-wrapper-cuentos {
+            flex: 0 0 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .cuento-imagen-wrapper-cuentos img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cuento-info-cuentos {
+            flex: 1;
+            text-align: left;
+        }
+        .cuento-info-cuentos h2 {
+            font-size: 1.1rem;
+            margin: 5px 0 8px 0;
+            color: #ffffff;
+        }
+        .cuento-info-cuentos p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #f3e8ff;
+            margin-bottom: 10px;
+        }
+        .btn-cuentos {
+            display: inline-block;
+            background-color: #8b5cf6;
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+        .btn-cuentos:hover {
+            background-color: #7c3aed;
+        }
+    </style>
+</head>
+<body>
+
+   <nav>
+    <div class="logo-area">
+        <img src="img/logo3d.webp" alt="El Nido de Estrellas" class="logo-img">
+        <h2>El Nido de Estrellas</h2>
+    </div>
+    <div class="menu-links">
+        <a href="index.html">🏠 Inicio</a>
+        <a href="proyecto.html">📊 Proyecto</a>
+        <a href="cuentos.html" class="active">📁 Cuentos</a>
+        <a href="recursos.html">📚 Recursos</a>
+        
+        <!-- Menú desplegable agrupado para futuras secciones -->
+        <div class="dropdown" id="moreDropdown">
+            <button onclick="toggleDropdown(event)">Más ▾</button>
+            <div class="dropdown-content">
+                <a href="podcast.html">🎙️ Podcast</a>
+                <a href="puzzles.html">🧩 Puzzles</a>
+                <a href="rinconlectura.html">📖 Lectura</a>
+                <a href="contacto.html">✉️ Contacto</a>
+            </div>
+        </div>
+
+        <a href="tuvoz.html" class="nav-estelar-btn">⭐ Tu voz</a>
+    </div>
+</nav>
+
+    <main class="main-content">
+        <section class="biblioteca-header" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="color: #ffffff; font-family: 'Quicksand', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">Biblioteca de Cuentos</h1>
+            <p style="color: #e9d8fd; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Un refugio de historias y palabras cuidadas para acunar la imaginación y el mundo emocional de la infancia.</p>
+        </section>
+
+        <!-- BLOQUE: CUENTOS DEL 1 AL 5 -->
+        <div class="seccion-bloque">
+            <h3 style="color: #f6ad55; border-bottom: 1px solid #8b5cf6; padding-bottom: 8px; margin: 30px 0 20px 0; font-family: 'Quicksand', sans-serif; font-size: 1.3rem;">Primeros Cuentos (1 al 5)</h3>
+
+            <div class="cuentos-grid">
+                <!-- CUENTO 1 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento1.webp" alt="El Viaje al Nido de Estrellas"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Inicios</span>
+                        <h2>1. El Viaje al Nido de Estrellas</h2>
+                        <p>La historia principal que da la bienvenida al canal, guiando hacia un refugio seguro.</p>
+                        <a href="lectura1.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+
+                <!-- CUENTO 2 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento2.webp" alt="La Estrellita que Tenía Miedo a la Oscuridad"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Inicios</span>
+                        <h2>2. La Estrellita que Tenía Miedo a la Oscuridad</h2>
+                        <p>Un cuento tierno para aprender que la noche también guarda su propia luz.</p>
+                        <a href="lectura2.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+
+                <!-- CUENTO 3 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento3.webp" alt="La Nube de los Susurros"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Inicios</span>
+                        <h2>3. La Nube de los Susurros</h2>
+                        <p>Un viaje suave entre palabras calladas para calmar el pensamiento antes de dormir.</p>
+                        <a href="lectura3.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+
+                <!-- CUENTO 4 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento4.webp" alt="El Abecedario de las Estrellas"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Inicios</span>
+                        <h2>4. El Abecedario de las Estrellas</h2>
+                        <p>Recorriendo letras y constelaciones para acunar la imaginación.</p>
+                        <a href="lectura4.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+
+                <!-- CUENTO 5 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento5.webp" alt="El Árbol que quería ser Nube"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Inicios</span>
+                        <h2>5. El Árbol que quería ser Nube</h2>
+                        <p>Una historia sobre la paciencia, las formas del cielo y el descanso profundo.</p>
+                        <a href="lectura5.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- BLOQUE: CUENTOS DEL 6 AL 9 -->
+        <div class="seccion-bloque">
+            <h3 style="color: #f6ad55; border-bottom: 1px solid #8b5cf6; padding-bottom: 8px; margin: 30px 0 20px 0; font-family: 'Quicksand', sans-serif; font-size: 1.3rem;">Nuevos Cuentos (6 al 9)</h3>
+
+            <div class="cuentos-grid">
+                <!-- CUENTO 6 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento6.webp" alt="La canción de las olas dormilonas"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Emociones</span>
+                        <h2>6. La canción de las olas dormilonas</h2>
+                        <p>El ritmo pausado del mar para mecer los sueños de los más pequeños.</p>
+                        <a href="lectura6.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+
+                <!-- CUENTO 7 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento7.webp" alt="El pequeño astronauta de papel"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Emociones</span>
+                        <h2>7. El pequeño astronauta de papel</h2>
+                        <p>Un viaje por galaxias imaginarias directo hacia la tranquilidad de la noche.</p>
+                        <a href="lectura7.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+
+                <!-- CUENTO 8 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento8.webp" alt="La biblioteca secreta del bosque"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Emociones</span>
+                        <h2>8. La biblioteca secreta del bosque</h2>
+                        <p>Historias compartidas al calor del hogar para acunar el alma y descansar.</p>
+                        <a href="lectura8.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+
+                <!-- CUENTO 9 -->
+                <article class="cuento-card-cuentos">
+                    <div class="cuento-imagen-wrapper-cuentos"><img src="cuento9.webp" alt="El cofre de los sueños"></div>
+                    <div class="cuento-info-cuentos">
+                        <span class="pilar-tag" style="background: rgba(139,92,246,0.2); color: #d8b4fe; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Acompañamiento</span>
+                        <h2>9. El cofre de los sueños</h2>
+                        <p>Un viaje hacia el escondite secreto de los sueños y el guardián de los globos de cristal.</p>
+                        <a href="lectura9.html" class="btn-cuentos">📖 Leer</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+<script src="global.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colección de Cuentos | El Nido de Estrellas</title>
+    <meta name="description" content="Explora nuestra colección de cuentos infantiles para la hora de dormir. Historias diseñadas para relajar, inspirar y acompañar el sueño de los más pequeños.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- Menú de navegación automatizado mediante nav.js -->
+    <div id="menu-container"></div>
+
+    <main class="biblioteca-container">
+        <div class="biblioteca-cabecera">
+            <h1>Nuestros Cuentos Meditativos</h1>
+            <p>Elige la historia perfecta para esta noche. Cada relato combina fantasía dulce con herramientas de relajación guiada.</p>
+        </div>
+
+        <div class="cuentos-grid">
+            <!-- CUENTO 1 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento1.webp" alt="El viaje al Nido de Estrellas"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Acompañamiento</span>
+                    <h2>El viaje al Nido de Estrellas</h2>
+                    <p>La historia principal que da la bienvenida al canal, guiando a los niños hacia un refugio seguro de paz profunda.</p>
+                    <a href="https://www.youtube.com/watch?v=Tycj6aQu5Jg" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_viaje-nido') || 0); localStorage.setItem('clic_cuento_viaje-nido', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+
+            <!-- CUENTO 2 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento2.webp" alt="La estrellita que tenía miedo a la oscuridad"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Gestión emocional</span>
+                    <h2>La estrellita que tenía miedo a la oscuridad</h2>
+                    <p>Una dulce metáfora visual para ayudar a los más pequeños a validar sus temores nocturnos, transformando el miedo en autoconfianza.</p>
+                    <a href="https://www.youtube.com/watch?v=Kbc9rM2cpig" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_estrellita-oscuridad') || 0); localStorage.setItem('clic_cuento_estrellita-oscuridad', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+
+            <!-- CUENTO 3 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento3.webp" alt="La nube de los susurros"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Higiene del sueño</span>
+                    <h2>La nube de los susurros</h2>
+                    <p>Relato enfocado en la relajación progresiva y la respiración pausada, ideal para liberar tensiones del día.</p>
+                    <a href="https://www.youtube.com/watch?v=ubL1kuhffow" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_nube-susurros') || 0); localStorage.setItem('clic_cuento_nube-susurros', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+
+            <!-- CUENTO 4 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento4.webp" alt="El abecedario de las estrellas"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Mindfulness</span>
+                    <h2>El abecedario de las estrellas</h2>
+                    <p>Un recorrido poético por las letras del firmamento, diseñado para enfocar la mente y facilitar la transición al sueño.</p>
+                    <a href="https://www.youtube.com/watch?v=lKziXdNpv5o" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_abecedario-estrellas') || 0); localStorage.setItem('clic_cuento_abecedario-estrellas', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+
+            <!-- CUENTO 5 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento5.webp" alt="El árbol que quería ser nube"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Gestión emocional</span>
+                    <h2>El árbol que quería ser nube</h2>
+                    <p>Una fábula sobre la aceptación y el crecimiento personal, cerrando el día con pensamientos positivos.</p>
+                    <a href="https://www.youtube.com/watch?v=IcFsDmB1GpM" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_arbol-nube') || 0); localStorage.setItem('clic_cuento_arbol-nube', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+
+            <!-- CUENTO 6 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento6.webp" alt="La canción de las olas dormilonas"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Higiene del sueño</span>
+                    <h2>La canción de las olas dormilonas</h2>
+                    <p>Travesía rítmica inspirada en el vaivén del mar, ideal para acompasar el ritmo cardíaco y la respiración.</p>
+                    <a href="https://www.youtube.com/watch?v=I-RxQ72av1U" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_olas-dormilonas') || 0); localStorage.setItem('clic_cuento_olas-dormilonas', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+
+            <!-- CUENTO 7 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento7.webp" alt="El pequeño astronauta de papel"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Acompañamiento</span>
+                    <h2>El pequeño astronauta de papel</h2>
+                    <p>Un viaje imaginario por constelaciones tranquilas que fomenta la seguridad interna antes de apagar la luz.</p>
+                    <a href="https://www.youtube.com/watch?v=tw49ww7_-eI" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_astronauta-papel') || 0); localStorage.setItem('clic_cuento_astronauta-papel', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+            
+            <!-- CUENTO 8 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento8.webp" alt="La biblioteca secreta del bosque"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Acompañamiento</span>
+                    <h2>La biblioteca secreta del bosque</h2>
+                    <p>Una ardilla curiosa, un búho sabio y un pequeño zorro descubren juntos que las historias y la bondad son más brillantes cuando se comparten.</p>
+                    <a href="https://youtu.be/e2rnMQOdDaM" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_biblioteca-bosque') || 0); localStorage.setItem('clic_cuento_biblioteca-bosque', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+            
+            <!-- CUENTO 9 -->
+            <article class="cuento-card">
+                <div class="cuento-imagen-wrapper"><img src="cuento9.webp" alt="El cofre de los sueños"></div>
+                <div class="cuento-info">
+                    <span class="pilar-tag">Acompañamiento</span>
+                    <h2>El cofre de los sueños</h2>
+                    <p>Un viaje hacia el escondite secreto de los sueños y el guardián de los globos de cristal, diseñado para calmar la mente de los niños y guiarles hacia un sueño profundo y seguro.</p>
+                    <a href="https://youtu.be/DPrzVr2-Wd8" target="_blank" class="btn-reproducir" onclick="let actual = parseInt(localStorage.getItem('clic_cuento_cofre-suenos') || 0); localStorage.setItem('clic_cuento_cofre-suenos', actual + 1);">▶ Escuchar cuento</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
+```[cite: 5]

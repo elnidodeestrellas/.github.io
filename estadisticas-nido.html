@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Estadísticas - El Nido de Estrellas</title>
+    <style>
+        body { background-color: #1a1a2e; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: #16213e; padding: 25px; border-radius: 12px; border: 1px solid #f1c442; width: 520px; box-shadow: 0 4px 25px rgba(0,0,0,0.7); }
+        h2 { color: #f1c442; margin-top: 0; font-size: 20px; text-align: center; }
+        input { padding: 10px; border-radius: 6px; border: 1px solid #444; background: #0f172a; color: #fff; width: 85%; margin-bottom: 15px; font-size: 14px; }
+        button { background: #f1c442; color: #1a1a2e; border: none; padding: 9px 15px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px; }
+        button:hover { background: #e0b330; }
+        
+        /* Sistema de pestañas superiores mejorado */
+        .pestanas-container { display: flex; gap: 4px; margin-bottom: 15px; background: #0f172a; padding: 4px; border-radius: 8px; flex-wrap: wrap; justify-content: center; }
+        .btn-pestana { background: transparent; color: #a0aec0; border: none; padding: 7px 8px; font-size: 11px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
+        .btn-pestana.activo { background: #f1c442; color: #1a1a2e; }
+
+        /* Tarjeta de sección estrella */
+        .card-estrella {
+            background: linear-gradient(135deg, #2a2356, #1f2947);
+            border: 1px solid #f1c442;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .card-estrella h3 { margin: 0 0 3px 0; color: #f1c442; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .card-estrella p { margin: 0; font-size: 14px; font-weight: bold; color: #fff; }
+
+        /* Contenedor de lista con scroll si hay muchos elementos */
+        .scroll-lista { max-height: 250px; overflow-y: auto; padding-right: 5px; margin-bottom: 15px; }
+        .scroll-lista::-webkit-scrollbar { width: 6px; }
+        .scroll-lista::-webkit-scrollbar-thumb { background: #2a3b6c; border-radius: 3px; }
+
+        /* Botones de acción inferior */
+        .botones-container { display: flex; gap: 8px; margin-top: 10px; }
+        .btn-accion { flex: 1; font-size: 12px; padding: 8px; }
+        .btn-actualizar { background: #3182ce; color: white; }
+        .btn-actualizar:hover { background: #2b6cb0; }
+        .btn-exportar { background: #2b6cb0; color: white; }
+        .btn-exportar:hover { background: #2c5282; }
+        .btn-reset { background: #9b2c2c; color: white; }
+        .btn-reset:hover { background: #822727; }
+
+        .oculto { display: none; }
+        .enlace-web { margin-top: 15px; font-size: 12px; text-align: center; }
+        .enlace-web a { color: #90cdf4; text-decoration: none; }
+        .enlace-web a:hover { text-decoration: underline; }
+        .info-tiempo { text-align: center; font-size: 11px; color: #a0aec0; margin-top: 8px; }
+
+        /* Lista y barras visuales */
+        .lista-stats { list-style: none; padding: 0; margin: 0; }
+        .item-stat {
+            background: #0f172a;
+            margin-bottom: 8px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+        .item-info { display: flex; justify-content: space-between; margin-bottom: 4px; font-weight: bold; }
+        .item-info span:last-child { color: #48bb78; }
+        
+        .barra-fondo { background: #1a202c; height: 6px; border-radius: 3px; overflow: hidden; width: 100%; }
+        .barra-progreso { background: linear-gradient(90deg, #48bb78, #f1c442); height: 100%; width: 0%; border-radius: 3px; transition: width 0.5s ease-in-out; }
+    </style>
+</head>
+<body>
+
+    <!-- Pantalla de Login -->
+    <div class="card" id="pantalla-login" style="text-align: center;">
+        <h2>Panel Privado</h2>
+        <p style="font-size: 13px; color: #cbd5e0; margin-bottom: 20px;">Introduce tu contraseña:</p>
+        <input type="password" id="input-pass" placeholder="Contraseña...">
+        <br>
+        <button onclick="verificarPassword()">Entrar</button>
+        <p id="error-pass" style="color: #fc8181; font-size: 12px; margin-top: 12px;"></p>
+    </div>
+
+    <!-- Panel de Estadísticas con Pestañas -->
+    <div class="card oculto" id="panel-stats">
+        <h2>📊 Panel de Rendimiento</h2>
+
+        <!-- Pestañas de Navegación del Panel -->
+        <div class="pestanas-container">
+            <button class="btn-pestana activo" id="tab-menu" onclick="cambiarVista('menu')">🏠 Menú</button>
+            <button class="btn-pestana" id="tab-index" onclick="cambiarVista('index')">📄 Inicio</button>
+            <button class="btn-pestana" id="tab-cuentos" onclick="cambiarVista('cuentos')">📁 Cuentos</button>
+            <button class="btn-pestana" id="tab-audios" onclick="cambiarVista('audios')">🎧 Audios</button>
+            <button class="btn-pestana" id="tab-recursos" onclick="cambiarVista('recursos')">📚 Recursos</button>
+            <button class="btn-pestana" id="tab-podcast" onclick="cambiarVista('podcast')">🎙️ Podcast</button>
+            <button class="btn-pestana" id="tab-puzzles" onclick="cambiarVista('puzzles')">🧩 Puzles</button>
+            <button class="btn-pestana" id="tab-lectura" onclick="cambiarVista('lectura')">📖 Lectura</button>
+            <button class="btn-pestana" id="tab-contacto" onclick="cambiarVista('contacto')">✉️ Contacto</button>
+            <button class="btn-pestana" id="tab-tuvoz" onclick="cambiarVista('tuvoz')">⭐ Tu voz</button>
+        </div>
+        
+        <!-- Tarjeta Destacada -->
+        <div class="card-estrella">
+            <h3 id="titulo-estrella">🏆 Más Popular</h3>
+            <p id="elemento-estrella">Calculando...</p>
+        </div>
+        
+        <!-- Contenedor con scroll para las listas -->
+        <div class="scroll-lista">
+            <ul class="lista-stats" id="contenedor-lista"></ul>
+        </div>
+        
+        <div class="botones-container">
+            <button class="btn-accion btn-actualizar" onclick="cargarEstadisticas()">Actualizar</button>
+            <button class="btn-accion btn-exportar" onclick="exportarDatos()" title="Guardar copia de seguridad en archivo">Exportar</button>
+            <button class="btn-accion btn-reset" onclick="reiniciarStats()" title="Poner contadores a cero">Reiniciar</button>
+        </div>
+
+        <div class="info-tiempo" id="info-tiempo">Última actualización: --:--:--</div>
+        <div class="info-tiempo" id="info-reinicio" style="color: #f6ad55;">Fecha de inicio de conteo: --/--/----</div>
+        
+        <div class="enlace-web">
+            <a href="https://elnidodeestrellas.com" target="_blank">🌐 Ir a la página web</a>
+        </div>
+    </div>
+
+    <script>
+        const PASSWORD_CORRECTA = "1234";
+        let vistaActual = 'menu';
+
+        const datosMenu = [
+            { nombre: "🏠 Inicio", clave: "clic_nido_index.html" },
+            { nombre: "📊 Proyecto", clave: "clic_nido_proyecto.html" },
+            { nombre: "📁 Cuentos", clave: "clic_nido_cuentos.html" },
+            { nombre: "📚 Recursos", clave: "clic_nido_recursos.html" },
+            { nombre: "🎙️ Podcast", clave: "clic_nido_podcast.html" },
+            { nombre: "🧩 Puzles", clave: "clic_nido_puzzles.html" },
+            { nombre: "📖 Lectura", clave: "clic_nido_rinconlectura.html" },
+            { nombre: "✉️ Contacto", clave: "clic_nido_contacto.html" },
+            { nombre: "⭐ Tu voz", clave: "clic_nido_tuvoz.html" }
+        ];
+
+        const datosIndex = [
+            { nombre: "📥 Descargar Rutina Nocturna", clave: "clic_index_rutina" },
+            { nombre: "🚀 Explorar la Colección", clave: "clic_index_coleccion" }
+        ];
+
+        const datosCuentos = [
+            { nombre: "🎧 Ir a Audios", clave: "clic_cuentos_audios" },
+            { nombre: "📖 Ir a Lectura", clave: "clic_cuentos_texto" },
+            { nombre: "1️⃣ Lectura: Viaje al Nido", clave: "clic_lectura_1" },
+            { nombre: "2️⃣ Lectura: Estrellita Miedo", clave: "clic_lectura_2" },
+            { nombre: "3️⃣ Lectura: Nube Susurros", clave: "clic_lectura_3" },
+            { nombre: "4️⃣ Lectura: Abecedario", clave: "clic_lectura_4" },
+            { nombre: "5️⃣ Lectura: Árbol Nube", clave: "clic_lectura_5" },
+            { nombre: "6️⃣ Lectura: Olas Dormilonas", clave: "clic_lectura_6" },
+            { nombre: "7️⃣ Lectura: Astronauta Papel", clave: "clic_lectura_7" },
+            { nombre: "8️⃣ Lectura: Biblioteca Bosque", clave: "clic_lectura_8" },
+            { nombre: "9️⃣ Lectura: Cofre Sueños", clave: "clic_lectura_9" }
+        ];
+
+        const datosAudios = [
+            { nombre: "🎧 Cuento: Viaje al Nido de Estrellas", clave: "clic_cuento_viaje-nido" },
+            { nombre: "🎧 Cuento: Estrellita Miedo a la Oscuridad", clave: "clic_cuento_estrellita-oscuridad" },
+            { nombre: "🎧 Cuento: Nube de los Susurros", clave: "clic_cuento_nube-susurros" },
+            { nombre: "🎧 Cuento: Abecedario de las Estrellas", clave: "clic_cuento_abecedario-estrellas" },
+            { nombre: "🎧 Cuento: Árbol que Quería Ser Nube", clave: "clic_cuento_arbol-nube" },
+            { nombre: "🎧 Cuento: Olas Dormilonas", clave: "clic_cuento_olas-dormilonas" },
+            { nombre: "🎧 Cuento: Pequeño Astronauta de Papel", clave: "clic_cuento_astronauta-papel" },
+            { nombre: "🎧 Cuento: Biblioteca Secreta del Bosque", clave: "clic_cuento_biblioteca-bosque" },
+            { nombre: "🎧 Cuento: Cofre de los Sueños", clave: "clic_cuento_cofre-suenos" }
+        ];
+
+        const datosRecursos = [
+            { nombre: "🌙 Mapa Buenas Noches", clave: "clic_recurso_mapa_noches" },
+            { nombre: "🌙 Ritual Sueño Tranquilo", clave: "clic_recurso_ritual_sueno" },
+            { nombre: "⭐ Miedos Nocturnos", clave: "clic_recurso_miedos" },
+            { nombre: "🌙 Rabietas al Atardecer", clave: "clic_recurso_rabietas_tarde" },
+            { nombre: "✨ Respiración y Calma", clave: "clic_recurso_respiracion" },
+            { nombre: "🧸 Transición a la Cama", clave: "clic_recurso_transicion" },
+            { nombre: "✨ Sueño Infantil Nocturno", clave: "clic_recurso_sueno_infantil" },
+            { nombre: "🌙 Hermanos y Sueño", clave: "clic_recurso_hermanos_sueno" },
+            { nombre: "☀️ Fin de las Siestas", clave: "clic_recurso_fin_siestas" },
+            { nombre: "🌙 Pesadillas y Terrores", clave: "clic_recurso_pesadillas" },
+            { nombre: "🎒 Rabietas Públicas", clave: "clic_recurso_rabietas_publicas" },
+            { nombre: "🧩 Frustración y Empatía", clave: "clic_recurso_frustracion" },
+            { nombre: "📱 Límites con Pantallas", clave: "clic_recurso_pantallas" },
+            { nombre: "💬 Emociones Difíciles", clave: "clic_recurso_emociones_dificiles" },
+            { nombre: "🤝 Celos entre Hermanos", clave: "clic_recurso_celos" },
+            { nombre: "🛡️ Normas sin Gritos", clave: "clic_recurso_normas_gritos" },
+            { nombre: "❤️ Culpa en la Crianza", clave: "clic_recurso_culpa" },
+            { nombre: "🧩 Juego Autónomo", clave: "clic_recurso_juego_autonomo" },
+            { nombre: "🤝 Comunicación Colegio", clave: "clic_recurso_comunicacion_colegio" },
+            { nombre: "🩹 Primeros Auxilios Emocionales", clave: "clic_recurso_auxilios_emocionales" },
+            { nombre: "🚽 Control de Esfínteres", clave: "clic_recurso_esfinteres" },
+            { nombre: "🍎 Alimentación Respetuosa", clave: "clic_recurso_alimentacion" },
+            { nombre: "🎒 Adaptación Escolar", clave: "clic_recurso_adaptacion" }
+        ];
+
+        const datosPodcast = [
+            { nombre: "🎧 Ep 1: Cerebro en rabieta", clave: "clic_podcast_1" },
+            { nombre: "🎧 Ep 2: Mapa buenas noches", clave: "clic_podcast_2" },
+            { nombre: "🎧 Ep 3: Celos entre hermanos", clave: "clic_podcast_3" },
+            { nombre: "🎧 Ep 4: Respiración y calma", clave: "clic_podcast_4" },
+            { nombre: "🎧 Ep 5: Juego autónomo", clave: "clic_podcast_5" },
+            { nombre: "🎧 Ep 6: Pantallas antes de dormir", clave: "clic_podcast_6" },
+            { nombre: "🎧 Ep 7: Límites con amor", clave: "clic_podcast_7" },
+            { nombre: "🎧 Ep 8: Miedos nocturnos", clave: "clic_podcast_8" },
+            { nombre: "🎧 Ep 9: Culpa en la crianza", clave: "clic_podcast_9" },
+            { nombre: "🎧 Ep 10: Desarrollo del lenguaje", clave: "clic_podcast_10" },
+            { nombre: "🎧 Ep 11: Hora de comer sin peleas", clave: "clic_podcast_11" },
+            { nombre: "🎧 Ep 12: Transiciones difíciles", clave: "clic_podcast_12" },
+            { nombre: "🎧 Ep 13: Sueño fragmentado", clave: "clic_podcast_13" },
+            { nombre: "🎧 Ep 14: Aceptar sus lágrimas", clave: "clic_podcast_14" },
+            { nombre: "🎧 Ep 15: Vínculo de apego seguro", clave: "clic_podcast_15" },
+            { nombre: "🎧 Ep 16: Hermanos y juguetes", clave: "clic_podcast_16" },
+            { nombre: "🎧 Ep 17: Rabietas en públicos", clave: "clic_podcast_17" },
+            { nombre: "🎧 Ep 18: Cuentos y regulación", clave: "clic_podcast_18" },
+            { nombre: "🎧 Ep 19: Estimulación respetuosa", clave: "clic_podcast_19" },
+            { nombre: "🎧 Ep 20: Creciendo juntos", clave: "clic_podcast_20" }
+        ];
+
+        const datosPuzzles = [
+            { nombre: "🧩 Puzle 1: Viaje al Nido (c1-img1)", clave: "clic_puzzle_1" },
+            { nombre: "🧩 Puzle 2: Nube Susurros (c3-img1)", clave: "clic_puzzle_2" },
+            { nombre: "🧩 Puzle 3: Nube Susurros (c3-img4)", clave: "clic_puzzle_3" },
+            { nombre: "🧩 Puzle 4: Abecedario (c4-img4)", clave: "clic_puzzle_4" },
+            { nombre: "🧩 Puzle 5: Olas Dormilonas (c6-img1)", clave: "clic_puzzle_5" },
+            { nombre: "🧩 Puzle 6: Olas Dormilonas (c6-img5)", clave: "clic_puzzle_6" },
+            { nombre: "🧩 Puzle 7: Astronauta Papel (c7-img6)", clave: "clic_puzzle_7" },
+            { nombre: "🧩 Puzle 8: Astronauta Papel (c7-img9)", clave: "clic_puzzle_8" },
+            { nombre: "🧩 Puzle 9: Cofre Sueños (c9-img1)", clave: "clic_puzzle_9" }
+        ];
+
+        const datosLectura = [
+            { nombre: "🌙 Hábitos: Ritual de lectura", clave: "clic_lectura_habitos_1" },
+            { nombre: "🌙 Hábitos: Rincón acogedor", clave: "clic_lectura_habitos_2" },
+            { nombre: "🏫 Primeros Pasos: Guardería sin angustia", clave: "clic_lectura_entorno_1" },
+            { nombre: "🏫 Primeros Pasos: Del gesto a palabras", clave: "clic_lectura_entorno_2" },
+            { nombre: "🏫 Primeros Pasos: Celos de protagonismo", clave: "clic_lectura_entorno_3" },
+            { nombre: "🧸 Crecimiento: Cepillo de dientes", clave: "clic_lectura_rutinas_1" },
+            { nombre: "🧸 Crecimiento: Mesa sin tensiones", clave: "clic_lectura_rutinas_2" },
+            { nombre: "🧸 Crecimiento: Chupete y pañales", clave: "clic_lectura_rutinas_3" },
+            { nombre: "💙 Emociones: Acompañar rabietas", clave: "clic_lectura_emociones_1" },
+            { nombre: "💙 Emociones: Chuches y azúcar", clave: "clic_lectura_emociones_2" },
+            { nombre: "💙 Emociones: Consecuencias lógicas", clave: "clic_lectura_emociones_3" },
+            { nombre: "🤝 Vínculos: Llegada de hermanos", clave: "clic_lectura_vinculos_1" },
+            { nombre: "🤝 Vínculos: Apego seguro y palabra", clave: "clic_lectura_vinculos_2" },
+            { nombre: "🎲 Juego: Juego libre", clave: "clic_lectura_juego_1" },
+            { nombre: "🎲 Juego: Enseñar sin lecciones", clave: "clic_lectura_juego_2" },
+            { nombre: "🌿 Salud: Desconexión digital", clave: "clic_lectura_salud_1" },
+            { nombre: "🌿 Salud: Ritmo natural infancia", clave: "clic_lectura_salud_2" },
+            { nombre: "📚 Elección: Menos moralejas", clave: "clic_lectura_criterios_1" },
+            { nombre: "📚 Elección: Importancia ilustraciones", clave: "clic_lectura_criterios_2" }
+        ];
+
+        const datosContacto = [
+            { nombre: "✉️ Clic en Correo de Contacto", clave: "clic_contacto_correo" },
+            { nombre: "📌 Clic en Enlace de Pinterest", clave: "clic_contacto_pinterest" }
+        ];
+
+        const datosTuVoz = [
+            { nombre: "⭐ Envío de Experiencia / Opinión", clave: "clic_tuvoz_enviar" }
+        ];
+
+        function verificarPassword() {
+            if (document.getElementById('input-pass').value === PASSWORD_CORRECTA) {
+                document.getElementById('pantalla-login').classList.add('oculto');
+                document.getElementById('panel-stats').classList.remove('oculto');
+                cargarEstadisticas();
+            } else {
+                document.getElementById('error-pass').textContent = "Contraseña incorrecta";
+            }
+        }
+
+        document.getElementById('input-pass').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') verificarPassword();
+        });
+
+        function cambiarVista(vista) {
+            vistaActual = vista;
+            document.getElementById('tab-menu').classList.toggle('activo', vista === 'menu');
+            document.getElementById('tab-index').classList.toggle('activo', vista === 'index');
+            document.getElementById('tab-cuentos').classList.toggle('activo', vista === 'cuentos');
+            document.getElementById('tab-audios').classList.toggle('activo', vista === 'audios');
+            document.getElementById('tab-recursos').classList.toggle('activo', vista === 'recursos');
+            document.getElementById('tab-podcast').classList.toggle('activo', vista === 'podcast');
+            document.getElementById('tab-puzzles').classList.toggle('activo', vista === 'puzzles');
+            document.getElementById('tab-lectura').classList.toggle('activo', vista === 'lectura');
+            document.getElementById('tab-contacto').classList.toggle('activo', vista === 'contacto');
+            document.getElementById('tab-tuvoz').classList.toggle('activo', vista === 'tuvoz');
+            cargarEstadisticas();
+        }
+
+        function obtenerListaActual() {
+            if (vistaActual === 'menu') return datosMenu;
+            if (vistaActual === 'index') return datosIndex;
+            if (vistaActual === 'cuentos') return datosCuentos;
+            if (vistaActual === 'audios') return datosAudios;
+            if (vistaActual === 'recursos') return datosRecursos;
+            if (vistaActual === 'podcast') return datosPodcast;
+            if (vistaActual === 'puzzles') return datosPuzzles;
+            if (vistaActual === 'lectura') return datosLectura;
+            if (vistaActual === 'contacto') return datosContacto;
+            return datosTuVoz;
+        }
+
+        function cargarEstadisticas() {
+            let listaElementos = obtenerListaActual();
+            let datosProcesados = [];
+            let maxClics = 1;
+
+            listaElementos.forEach(item => {
+                let total = parseInt(localStorage.getItem(item.clave) || 0);
+                datosProcesados.push({ nombre: item.nombre, total: total, clave: item.clave });
+                if (total > maxClics) maxClics = total;
+            });
+
+            datosProcesados.sort((a, b) => b.total - a.total);
+
+            let estrella = datosProcesados[0];
+            let textoEstrella = estrella.total > 0 ? `${estrella.nombre} (${estrella.total} clics)` : "Todavía sin registros";
+            document.getElementById('elemento-estrella').textContent = textoEstrella;
+
+            let htmlFinal = '';
+            datosProcesados.forEach(item => {
+                let porcentaje = Math.round((item.total / maxClics) * 100);
+                let anchoBarra = item.total > 0 ? Math.max(porcentaje, 6) : 0;
+
+                htmlFinal += `
+                    <li class="item-stat">
+                        <div class="item-info">
+                            <span>${item.nombre}</span>
+                            <span>${item.total} clics</span>
+                        </div>
+                        <div class="barra-fondo">
+                            <div class="barra-progreso" style="width: ${anchoBarra}%;"></div>
+                        </div>
+                    </li>
+                `;
+            });
+
+            document.getElementById('contenedor-lista').innerHTML = htmlFinal;
+            document.getElementById('info-tiempo').textContent = `Última actualización: ${new Date().toLocaleTimeString()}`;
+
+            let fechaInicio = localStorage.getItem('nido_fecha_inicio');
+            if (!fechaInicio) {
+                fechaInicio = new Date().toLocaleDateString();
+                localStorage.setItem('nido_fecha_inicio', fechaInicio);
+            }
+            document.getElementById('info-reinicio').textContent = `Fecha de inicio de conteo: ${fechaInicio}`;
+        }
+
+        function reiniciarStats() {
+            let listaElementos = obtenerListaActual();
+            let nombresVistas = {
+                'menu': "del Menú Principal",
+                'index': "de los Botones de Inicio",
+                'cuentos': "de la Sección de Cuentos General",
+                'audios': "de los Audios de Cuentos",
+                'recursos': "de los Recursos para Padres",
+                'podcast': "de los Episodios del Podcast",
+                'puzzles': "de los Puzles Mágicos",
+                'lectura': "del Rincón de Lectura",
+                'contacto': "de la Sección de Contacto",
+                'tuvoz': "de la Sección Tu Voz"
+            };
+            
+            if (confirm(`¿Quieres poner a cero los contadores ${nombresVistas[vistaActual]}?`)) {
+                listaElementos.forEach(item => {
+                    localStorage.removeItem(item.clave);
+                });
+                localStorage.setItem('nido_fecha_inicio', new Date().toLocaleDateString());
+                cargarEstadisticas();
+            }
+        }
+
+        function exportarDatos() {
+            let reporte = "=== COPIA DE SEGURIDAD ESTADÍSTICAS EL NIDO DE ESTRELLAS ===\n\n";
+            reporte += `Fecha de exportación: ${new Date().toLocaleString()}\n`;
+            reporte += `Fecha de inicio de conteo: ${localStorage.getItem('nido_fecha_inicio') || 'N/A'}\n\n`;
+
+            const todasLasSecciones = [...datosMenu, ...datosIndex, ...datosCuentos, ...datosAudios, ...datosRecursos, ...datosPodcast, ...datosPuzzles, ...datosLectura, ...datosContacto, ...datosTuVoz];
+            todasLasSecciones.forEach(item => {
+                let total = localStorage.getItem(item.clave) || 0;
+                reporte += `${item.nombre}: ${total} clics\n`;
+            });
+
+            let blob = new Blob([reporte], { type: 'text/plain;charset=utf-8' });
+            let url = URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = `estadisticas-nido-${new Date().toISOString().slice(0,10)}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>

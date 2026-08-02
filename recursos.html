@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos para Padres | El Nido de Estrellas</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- Menú de navegación automatizado mediante nav.js -->
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <!-- BANNER SUPERIOR DE RECURSOS -->
+<div style="width: 100%; background-color: #120d1a; border-radius: 12px; margin-bottom: 30px; border: 1px solid #6b46c1; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center; overflow: hidden;">
+    <img src="img/imagenRecursos.webp" alt="Recursos pedagógicos El Nido de Estrellas" style="width: 100%; max-height: 350px; object-fit: contain; display: block; margin: 0 auto;">
+</div>
+        <section class="recursos-intro">
+            <h1 class="titulo-premium">Rincón de Familias</h1>
+            <p class="recursos-descripcion">Guías prácticas, pautas de higiene del sueño y herramientas emocionales descargables gratuitas para acompañar vuestras rutinas.</p>
+        </section>
+
+        <!-- MENÚ DE BOTONES DE FILTRADO POR TEMÁTICA -->
+        <div class="filter-container" style="text-align: center; margin-bottom: 30px;">
+            <button class="filter-btn active" data-filter="all" style="background-color: #ecc94b; color: #121826; border: none; padding: 10px 20px; margin: 5px; border-radius: 20px; font-weight: bold; cursor: pointer;">Todas</button>
+            <button class="filter-btn" data-filter="sueno" style="background-color: #1a202c; color: #cbd5e0; border: 1px solid #2d3748; padding: 10px 20px; margin: 5px; border-radius: 20px; cursor: pointer;">Sueño y Rutinas</button>
+            <button class="filter-btn" data-filter="emociones" style="background-color: #1a202c; color: #cbd5e0; border: 1px solid #2d3748; padding: 10px 20px; margin: 5px; border-radius: 20px; cursor: pointer;">Gestión Emocional</button>
+            <button class="filter-btn" data-filter="salud" style="background-color: #1a202c; color: #cbd5e0; border: 1px solid #2d3748; padding: 10px 20px; margin: 5px; border-radius: 20px; cursor: pointer;">Salud y Crecimiento</button>
+        </div>
+
+        <!-- SECCIÓN 1: SUEÑO Y RUTINAS -->
+        <div class="category-section" data-section="sueno">
+            <div class="category-header" style="margin-top: 30px; margin-bottom: 15px;">
+                <h2 style="color: #ecc94b; font-size: 1.3rem; border-bottom: 2px solid #d69e2e; padding-bottom: 6px;">🌙 Sueño y Rutinas</h2>
+            </div>
+            <!-- Guía nueva (Sueño - Rutina Visual) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #d69e2e; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">🗺️ Mi Mapa de las Buenas Noches</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Una guía visual paso a paso para acompañar a los más pequeños hacia un descanso tranquilo y reducir la ansiedad nocturna.</p>
+                    <a href="pdf/mapa-buenas-noches.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_mapa_noches') || 0); localStorage.setItem('clic_recurso_mapa_noches', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+            <div class="tarjetas-recursos-grid resources-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px;">
+                <!-- Guía 1 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">🌙 Ritual de Sueño Tranquilo</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Guía práctica de 4 fases y claves de higiene del sueño para transformar la hora de dormir en un espacio de conexión.</p>
+                    <a href="pdf/ritual-sueno.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_ritual_sueno') || 0); localStorage.setItem('clic_recurso_ritual_sueno', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 2 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">⭐ Acompañando los Miedos Nocturnos</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Estrategias amables y herramientas emocionales para ayudar a los niños a transitar la oscuridad y ganar seguridad.</p>
+                    <a href="pdf/miedos-nocturnos.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_miedos') || 0); localStorage.setItem('clic_recurso_miedos', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 3 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">🌙 Gestión de Rabietas al Atardecer</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Cómo manejar el cansancio acumulado del día antes de dormir sin entrar en conflictos y fomentando la calma.</p>
+                    <a href="pdf/rabietas-atardecer.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_rabietas_tarde') || 0); localStorage.setItem('clic_recurso_rabietas_tarde', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 4 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">✨ El ritual de la respiración y la calma</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Ejercicios breves de mindfulness y relajación corporal para hacer en la cama.</p>
+                    <a href="pdf/respiracion-calma.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_respiracion') || 0); localStorage.setItem('clic_recurso_respiracion', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 5 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">🧸 La transición a la cama sin resistencia</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Estrategias amables para establecer límites y rutinas de sueño estables.</p>
+                    <a href="pdf/transicion-cama.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_transicion') || 0); localStorage.setItem('clic_recurso_transicion', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 6 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">✨ Sueño infantil y despertares nocturnos</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Estrategias y comprensión para acompañar el descanso respetuoso y gestionar los despertares.</p>
+                    <a href="pdf/sueno-infantil-nocturno.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_sueno_infantil') || 0); localStorage.setItem('clic_recurso_sueno_infantil', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 7 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">🌙 Hermanos y Sueño: La Llegada del Bebé</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Estrategias y pautas emocionales para acompañar al hermano mayor y evitar regresiones nocturnas.</p>
+                    <a href="pdf/hermanos-y-sueno.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_hermanos_sueno') || 0); localStorage.setItem('clic_recurso_hermanos_sueno', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 8 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">☀️ El Fin de las Siestas Diurnas</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Cómo identificar cuándo el niño está preparado para dejar la siesta y gestionar el cansancio acumulado al final de la tarde.</p>
+                    <a href="pdf/fin-de-siestas.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_fin_siestas') || 0); localStorage.setItem('clic_recurso_fin_siestas', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 9 (Sueño) -->
+                <div class="resource-card recurso-card" data-category="sueno" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #ecc94b; margin-top: 0;">🌙 Pesadillas y Terrores Nocturnos</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Diferencias clave entre ambos fenómenos y pautas de actuación exacta para los padres durante el episodio.</p>
+                    <a href="pdf/pesadillas-y-terrores-nocturnos.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_pesadillas') || 0); localStorage.setItem('clic_recurso_pesadillas', actual + 1);" style="color: #ecc94b; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: GESTIÓN EMOCIONAL -->
+        <div class="category-section" data-section="emociones">
+            <div class="category-header" style="margin-top: 30px; margin-bottom: 15px;">
+                <h2 style="color: #319795; font-size: 1.3rem; border-bottom: 2px solid #2c7a7b; padding-bottom: 6px;">🧩 Gestión Emocional</h2>
+            </div>
+            <div class="tarjetas-recursos-grid resources-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px;">
+                <!-- Guía 1 (Gestión Emocional) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #319795; margin-top: 0;">🎒 Manejo de Rabietas en Espacios Públicos</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Pautas prácticas para gestionar el desborde emocional fuera de casa con calma, empatía y asertividad.</p>
+                    <a href="pdf/rabietas-publicas.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_rabietas_publicas') || 0); localStorage.setItem('clic_recurso_rabietas_publicas', actual + 1);" style="color: #319795; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 2 (Gestión Emocional) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #319795; margin-top: 0;">🧩 Empatía y Tolerancia a la Frustración</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Herramientas prácticas para ayudar a los niños a aceptar el error como parte del aprendizaje y a regular sus emociones.</p>
+                    <a href="pdf/frustracion-empatia.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_frustracion') || 0); localStorage.setItem('clic_recurso_frustracion', actual + 1);" style="color: #319795; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 3 (Gestión Emocional) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #319795; margin-top: 0;">📱 Límites Saludables con Pantallas</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Pautas para gestionar el tiempo digital, proteger el descanso nocturno y evitar conflictos en las transiciones.</p>
+                    <a href="pdf/pantallas-limites.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_pantallas') || 0); localStorage.setItem('clic_recurso_pantallas', actual + 1);" style="color: #319795; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 4 (Gestión Emocional) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #319795; margin-top: 0;">💬 Cómo Hablar de las Emociones Difíciles</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Herramientas para ayudar a los niños a identificar y expresar la tristeza, la rabia o la frustración sin juzgarlas.</p>
+                    <a href="pdf/emociones-dificiles.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_emociones_dificiles') || 0); localStorage.setItem('clic_recurso_emociones_dificiles', actual + 1);" style="color: #319795; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 5 (Gestión Emocional y Conducta) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #047857; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #319795; margin-top: 0;">🤝 Celos entre Hermanos</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Estrategias respetuosas para gestionar la rivalidad, validar el espacio individual y fomentar el vínculo afectivo.</p>
+                    <a href="pdf/celos-entre-hermanos.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_celos') || 0); localStorage.setItem('clic_recurso_celos', actual + 1);" style="color: #319795; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 6 (Gestión Emocional y Conducta) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #047857; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #319795; margin-top: 0;">🛡️ Normas y Límites sin Gritos</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Cómo establecer consecuencias lógicas y mantener la firmeza afectiva sin recurrir a castigos ni amenazas.</p>
+                    <a href="pdf/normas-y-limites-sin-gritos.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_normas_gritos') || 0); localStorage.setItem('clic_recurso_normas_gritos', actual + 1);" style="color: #319795; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 7 (Gestión Emocional y Conducta) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #047857; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #319795; margin-top: 0;">❤️ La Gestión de la Culpa en la Crianza</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Un enfoque orientado a los padres para perdonar los desbordes propios y reparar el vínculo con los hijos.</p>
+                    <a href="pdf/gestion-de-la-culpa-en-la-crianza.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_culpa') || 0); localStorage.setItem('clic_recurso_culpa', actual + 1);" style="color: #319795; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: SALUD Y CRECIMIENTO -->
+        <div class="category-section" data-section="salud">
+            <div class="category-header" style="margin-top: 30px; margin-bottom: 15px;">
+                <h2 style="color: #3182ce; font-size: 1.3rem; border-bottom: 2px solid #2b6cb0; padding-bottom: 6px;">🩺 Salud y Crecimiento</h2>
+            </div>
+            <div class="tarjetas-recursos-grid resources-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px;">
+                <!-- Guía 10 (Salud y Crecimiento - Control de Esfínteres) -->
+                <div class="resource-card recurso-card" data-category="salud" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #3182ce; margin-top: 0;">🚽 Control de Esfínteres sin Prisas</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Pautas para acompañar el proceso respetando la madurez biológica, sin castigos ni presiones innecesarias.</p>
+                    <a href="pdf/control-esfinteres.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_esfinteres') || 0); localStorage.setItem('clic_recurso_esfinteres', actual + 1);" style="color: #3182ce; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 11 (Salud y Crecimiento - Alimentación Infantil) -->
+                <div class="resource-card recurso-card" data-category="salud" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #3182ce; margin-top: 0;">🍎 Alimentación Infantil Respetuosa</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Cómo gestionar la neofobia y el rechazo a nuevos alimentos sin presiones, respetando las señales de saciedad.</p>
+                    <a href="pdf/alimentacion-infantil.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_alimentacion') || 0); localStorage.setItem('clic_recurso_alimentacion', actual + 1);" style="color: #3182ce; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+
+                <!-- Guía 12 (Salud y Crecimiento - Adaptación Escolar) -->
+                <div class="resource-card recurso-card" data-category="salud" style="background-color: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #3182ce; margin-top: 0;">🎒 Adaptación Escolar sin Ansiedad</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Estrategias para calmar la ansiedad por separación, realizar despedidas breves y transmitir seguridad desde casa.</p>
+                    <a href="pdf/adaptacion-escolar.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_adaptacion') || 0); localStorage.setItem('clic_recurso_adaptacion', actual + 1);" style="color: #3182ce; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 9 (Gestión Emocional y Conducta) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #1e3a8a; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #60a5fa; margin-top: 0;">🧩 El Juego Autónomo y el Aburrimiento</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Por qué es vital que los niños aprendan a aburrirse y cómo fomentar su creatividad e independencia sin depender de la atención constante del adulto.</p>
+                    <a href="pdf/juego-autonomo-y-aburrimiento.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_juego_autonomo') || 0); localStorage.setItem('clic_recurso_juego_autonomo', actual + 1);" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 11 (Gestión Emocional y Conducta) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #1e3a8a; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #60a5fa; margin-top: 0;">🤝 La comunicación asertiva con el colegio</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Pautas para mantener un puente de colaboración fluido y constructivo con los docentes ante cualquier dificultad del niño.</p>
+                    <a href="pdf/comunicacion-asertiva-colegio.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_comunicacion_colegio') || 0); localStorage.setItem('clic_recurso_comunicacion_colegio', actual + 1);" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+                <!-- Guía 10 (Gestión Emocional y Conducta) -->
+                <div class="resource-card recurso-card" data-category="emociones" style="background-color: #1a202c; border: 1px solid #1e3a8a; border-radius: 8px; padding: 20px;">
+                    <h3 style="color: #60a5fa; margin-top: 0;">🩹 Primeros auxilios emocionales en casa</h3>
+                    <p style="color: #cbd5e0; font-size: 9.5pt;">Cómo reaccionar de manera inmediata ante un susto, una caída o un ataque de ansiedad infantil para transmitir calma instantánea.</p>
+                    <a href="pdf/primeros-auxilios-emocionales.pdf" class="btn-descarga" target="_blank" rel="noopener noreferrer" onclick="let actual = parseInt(localStorage.getItem('clic_recurso_auxilios_emocionales') || 0); localStorage.setItem('clic_recurso_auxilios_emocionales', actual + 1);" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 9pt;">📥 Descargar Guía (PDF)</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".filter-btn");
+            const sections = document.querySelectorAll(".category-section");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Cambiar estilo visual del botón activo
+                    buttons.forEach(btn => {
+                        btn.style.backgroundColor = "#1a202c";
+                        btn.style.color = "#cbd5e0";
+                        btn.style.border = "1px solid #2d3748";
+                    });
+                    this.style.backgroundColor = "#ecc94b";
+                    this.style.color = "#121826";
+                    this.style.border = "none";
+
+                    // Filtrar secciones enteras (título + rejilla)
+                    const filterValue = this.getAttribute("data-filter");
+
+                    sections.forEach(section => {
+                        if (filterValue === "all" || section.getAttribute("data-section") === filterValue) {
+                            section.style.display = "block";
+                        } else {
+                            section.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```[cite: 4]

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu voz | El Nido de Estrellas</title>
+    <meta name="description" content="Ayúdanos a mejorar el rincón de estrellas con tu opinión en un par de clics.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+    <!-- Importación de tipografías premium desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .survey-container {
+            max-width: 650px;
+            margin: 40px auto;
+            background: #1a2639;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid #2c3e50;
+            color: #f7f9fc;
+        }
+        .survey-container h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            text-align: center;
+        }
+        .survey-container p.intro-text {
+            font-size: 15px;
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .survey-container label.field-title {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #edf2f7;
+        }
+        .survey-container input[type="text"],
+        .survey-container input[type="email"],
+        .survey-container select,
+        .survey-container textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #4a5568;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            background-color: #243348;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .survey-container input[type="text"]::placeholder,
+        .survey-container input[type="email"]::placeholder,
+        .survey-container textarea::placeholder {
+            color: #a0aec0;
+        }
+        .survey-container input[type="text"]:focus,
+        .survey-container input[type="email"]:focus,
+        .survey-container select:focus,
+        .survey-container textarea:focus {
+            outline: none;
+            border-color: #63b3ed;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .radio-label {
+            font-weight: normal;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            color: #e2e8f0;
+        }
+        #campo-mejora {
+            display: none;
+            margin-top: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        button.submit-btn {
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+            font-family: 'Quicksand', sans-serif;
+            margin-top: 10px;
+        }
+        button.submit-btn:hover {
+            background-color: #2b6cb0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegación automatizado mediante nav.js -->
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <!-- BANNER SUPERIOR DE TU VOZ -->
+        <div style="width: 100%; background-color: #120d1a; border-radius: 12px; margin-bottom: 30px; border: 1px solid #6b46c1; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center; overflow: hidden;">
+            <img src="img/imagenTuvoz.webp" alt="Tu Voz y Encuestas El Nido de Estrellas" style="width: 100%; max-height: 380px; object-fit: contain; display: block; margin: 0 auto;">
+        </div>
+        <div class="survey-container">
+            <h1>Tu opinión guía nuestro rumbo</h1>
+            <p class="intro-text">
+                En este rincón queremos crecer y mejorar contigo. Nos encantaría conocer tu experiencia para seguir creando historias y recursos que acompañen a las familias de la mejor manera posible. ¡Te llevará solo un minuto!
+            </p>
+            
+            <form action="https://formspree.io/f/xgogbwja" method="POST">
+                <div class="form-group">
+                    <label class="field-title" for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                </div>
+
+                <div class="form-group">
+                    <label class="field-title" for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@correo.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="field-title">¿Qué te parece el diseño y la facilidad para moverte por la página?</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="diseno" value="intuitiva" onclick="toggleMejora(false)"> Muy intuitiva</label>
+                        <label class="radio-label"><input type="radio" name="diseno" value="normal" onclick="toggleMejora(false)"> Normal</label>
+                        <label class="radio-label"><input type="radio" name="diseno" value="mejorable" onclick="toggleMejora(true)"> Mejorable</label>
+                    </div>
+                    
+                    <div id="campo-mejora">
+                        <label class="field-title" for="detalle_mejora" style="margin-top: 12px; font-weight: normal; color: #cbd5e0;">¿En qué podríamos mejorar brevemente?</label>
+                        <textarea id="detalle_mejora" name="detalle_mejora" rows="3" placeholder="Cuéntanos brevemente qué te gustaría cambiar o mejorar..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-title">¿Qué contenido disfrutas más en nuestra comunidad?</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_leidos"> Cuentos infantiles leídos</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_video"> Cuentos en vídeo</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="recursos_crianza"> Recursos de crianza</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="podcast"> Podcast</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="puzzles"> Puzzles</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-title" for="youtube_rating">Si has visitado nuestro canal de YouTube, ¿cómo valorarías la experiencia del 1 al 10?</label>
+                    <select id="youtube_rating" name="youtube_rating">
+                        <option value="">Selecciona una puntuación (opcional)</option>
+                        <option value="10">10 - Excelente</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5 - Regular</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-title">Valora tu experiencia general</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="estrellas" value="5"> ⭐⭐⭐⭐⭐ Excelente</label>
+                        <label class="radio-label"><input type="radio" name="estrellas" value="4"> ⭐⭐⭐⭐ Muy buena</label>
+                        <label class="radio-label"><input type="radio" name="estrellas" value="3"> ⭐⭐⭐ Buena</label>
+                        <label class="radio-label"><input type="radio" name="estrellas" value="2"> ⭐⭐ Regular</label>
+                        <label class="radio-label"><input type="radio" name="estrellas" value="1"> ⭐ Necesita mejora</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar mis respuestas</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script>
+        function toggleMejora(mostrar) {
+            const campoMejora = document.getElementById('campo-mejora');
+            if (mostrar) {
+                campoMejora.style.display = 'block';
+            } else {
+                campoMejora.style.display = 'none';
+                document.getElementById('detalle_mejora').value = '';
+            }
+        }
+    </script>
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

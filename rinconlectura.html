@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rincón de Lectura | El Nido de Estrellas</title>
+    <meta name="description" content="Reflexiones breves, psicología infantil y claves sobre literatura y crianza respetuosa en familia.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .reading-container {
+            max-width: 750px;
+            margin: 40px auto;
+            background: #1a2639;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid #2c3e50;
+            color: #f7f9fc;
+        }
+        .reading-container h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            text-align: center;
+        }
+        .reading-container p.intro-text {
+            font-size: 15px;
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        /* Pestañas de navegación por temática */
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background-color: #243348;
+            color: #cbd5e0;
+            border: 1px solid #4a5568;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .tab-btn:hover {
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+        .tab-btn.active {
+            background-color: #3182ce;
+            color: white;
+            border-color: #3182ce;
+        }
+        /* Contenido de las pestañas */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .article-card {
+            background-color: #243348;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #63b3ed;
+        }
+        .article-card h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .article-card p {
+            font-size: 14px;
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        /* Caja de consejo clave destacada */
+        .tip-box {
+            background-color: rgba(99, 179, 237, 0.1);
+            border: 1px dashed #63b3ed;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #90cdf4;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="scroll-progress"></div>
+
+    <!-- Menú de navegación automatizado mediante nav.js -->
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <!-- BANNER SUPERIOR DE RINCÓN DE LECTURA -->
+        <div style="width: 100%; background-color: #120d1a; border-radius: 12px; margin-bottom: 30px; border: 1px solid #6b46c1; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center; overflow: hidden;">
+            <img src="img/imagenLectura.webp" alt="Rincón de Lectura El Nido de Estrellas" style="width: 100%; max-height: 380px; object-fit: contain; display: block; margin: 0 auto;">
+        </div>
+        <div class="reading-container">
+            <h1>Rincón de Lectura</h1>
+            <p class="intro-text">
+                Un espacio de inspiración, psicología infantil y reflexiones breves sobre literatura y crianza respetuosa para acompañar el desarrollo de los peques.
+            </p>
+
+            <!-- Pestañas de categorías -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="switchTab(event, 'habitos')">🌙 Hábitos</button>
+                <button class="tab-btn" onclick="switchTab(event, 'entorno')">🏫 Primeros Pasos</button>
+                <button class="tab-btn" onclick="switchTab(event, 'rutinas')">🧸 Crecimiento</button>
+                <button class="tab-btn" onclick="switchTab(event, 'emociones')">💙 Emociones y Límites</button>
+                <button class="tab-btn" onclick="switchTab(event, 'vinculos')">🤝 Vínculos</button>
+                <button class="tab-btn" onclick="switchTab(event, 'juego')">🎲 Juego</button>
+                <button class="tab-btn" onclick="switchTab(event, 'salud')">🌿 Salud</button>
+                <button class="tab-btn" onclick="switchTab(event, 'criterios')">📚 Elección</button>
+            </div>
+
+            <!-- Contenido: Hábitos y Descanso -->
+            <div id="habitos" class="tab-content active">
+                <div class="article-card">
+                    <h2>El ritual de la lectura antes de dormir</h2>
+                    <p>Leer juntos al final del día marca una frontera natural frente al bullicio y las pantallas. La voz pausada del adulto actúa como un anclaje de seguridad que facilita la transición hacia el descanso.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> No corras para terminar la historia. El objetivo no es avanzar páginas, sino compartir un espacio de calma conjunta.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>Crear un rincón acogedor en casa</h2>
+                    <p>No se necesita un espacio grande ni costoso; basta con un rincón con buena luz indirecta, unos cojines cómodos y los libros al alcance de sus manos para despertar su autonomía.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Deja que sea el propio niño quien elija qué libro quiere hojear hoy, fomentando su capacidad de decisión.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido: Primeros Pasos y Entorno -->
+            <div id="entorno" class="tab-content">
+                <div class="article-card">
+                    <h2>La adaptación a la guardería sin angustia</h2>
+                    <p>La entrada a la escuela infantil supone un gran cambio en su mundo seguro. Los cuentos que abordan las despedidas y los reencuentros diarios ayudan a procesar el miedo al abandono temporal.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Despídete siempre con seguridad, con una sonrisa y sin alargar el momento; la firmeza tranquila transmite confianza al niño.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>Del gesto a las primeras palabras</h2>
+                    <p>El lenguaje oral florece en entornos ricos en interacciones de calidad, canciones y lectura compartida. Más que corregir constantemente, el secreto reside en ampliar lo que el niño intenta comunicar.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Si el peque señala y dice "agua", respóndele de forma natural: "Sí, quieres agua fresquita", validando y enriqueciendo su vocabulario.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>Gestionar el centro de atención y los celos de protagonismo</h2>
+                    <p>A veces los niños buscan acaparar las miradas a través de conductas demandantes o llamadas de atención intensas. Detrás de ese comportamiento suele haber una necesidad profunda de validación afectiva.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Reconoce y atiende sus pequeños logros antes de que recurra a la rabieta para conseguir que lo mires.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido: Crecimiento -->
+            <div id="rutinas" class="tab-content">
+                <div class="article-card">
+                    <h2>El primer cepillo de dientes y la higiene divertida</h2>
+                    <p>Convertir el cepillado o el baño en una aventura compartida ayuda a despojarse de las luchas de poder cotidianas. Los libros ilustrados sobre rutinas de aseo permiten normalizar el cuidado personal desde el juego.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Asocia la higiene a canciones breves o pequeños rituales divertidos frente al espejo para que participen con ilusión.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>La mesa sin tensiones: primeros sabores y alimentación</h2>
+                    <p>El momento de comer debe ser un espacio de encuentro y no una fuente de ansiedad. Descubrir los primeros sabores requiere paciencia, respetando las señales de saciedad del niño sin presiones.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Evita obligar a comer; introduce nuevos alimentos a través de la curiosidad y el ejemplo compartido en la mesa familiar.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>Despedir el chupete y dejar los pañales sin prisa</h2>
+                    <p>Las transiciones evolutivas clave funcionan mejor cuando se acompañan respetando el ritmo madurativo de cada niño, utilizando cuentos que externalicen el proceso de dejar atrás etapas.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Nunca compares su evolución con la de otros peques; celebra los pequeños avances y valida sus inseguridades ante los cambios.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido: Emociones y Límites -->
+            <div id="emociones" class="tab-content">
+                <div class="article-card">
+                    <h2>Acompañar las rabietas sin perder el norte</h2>
+                    <p>Una rabieta no es una manipulación, sino una desconexión y desbordamiento del cerebro emocional del niño. En ese momento, no sirven los razonamientos lógicos, sino la presencia calmada del adulto.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Mantén la calma, reduce los estímulos y oﬀrécele un espacio seguro donde sepa que estás ahí para sostenerle sin juzgarle.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>El dilema de las chuches y los límites con el azúcar</h2>
+                    <p>Gestionar el consumo de chucherías y dulces suele generar conflictos recurrentes. Convertirlo en algo prohibido suele aumentar el deseo; la clave está en el equilibrio y la educación nutricional sin drama.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Establece pautas claras y previsibles sobre cuándo se consumen, evitando usarlas como premio o castigo afectivo.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>Más allá de los castigos: consecuencias lógicas</h2>
+                    <p>Los castigos tradicionales y las amenazas generan miedo o distancia, pero no enseñan responsabilidad. Las consecuencias naturales y lógicas ayudan al niño a entender el impacto real de sus actos.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Si ensucia o rompe algo de forma consciente, implícale directamente en su reparación o limpieza de manera guiada y calmada.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido: Vínculos Afectivos -->
+            <div id="vinculos" class="tab-content">
+                <div class="article-card">
+                    <h2>Acompañar los celos y la llegada de hermanos</h2>
+                    <p>Los cambios en la estructura familiar generan inseguridades lógicas. Los cuentos que abordan la llegada de un nuevo miembro permiten canalizar los miedos a perder el afecto de los adultos sin desatar conflictos.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Refuerza los momentos de exclusividad con el hermano mayor a través de la lectura individualizada, afianzando su seguridad afectiva.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>El apego seguro a través de la palabra</h2>
+                    <p>El contacto visual, la cercanía física y la atención plena mientras leemos transmiten un mensaje subconsciente muy potente: "estoy aquí para ti, me importas".</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Deja que el niño se acurruque a tu lado o se apoye en tu regazo durante la lectura para potenciar la oxitocina y el vínculo seguro.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido: Juego y Enseñanza -->
+            <div id="juego" class="tab-content">
+                <div class="article-card">
+                    <h2>El juego libre como motor de aprendizaje</h2>
+                    <p>El juego no es un mero pasatiempo; es la herramienta principal mediante la cual los niños procesan el mundo, experimentan leyes físicas y resuelven conflictos cognitivos sin directrices rígidas.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Permite que se aburran y diseñen sus propias normas de juego; de ahí surge la creatividad y el pensamiento crítico.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>Enseñar sin lecciones magistrales</h2>
+                    <p>Los conceptos complejos se interiorizan mucho mejor cuando se experimentan a través de metáforas narrativas y vivencias lúdicas que mediante explicaciones adultas abstractas.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Convierte el aprendizaje en un descubrimiento conjunto guiado por preguntas abiertas en lugar de respuestas cerradas.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido: Salud y Bienestar -->
+            <div id="salud" class="tab-content">
+                <div class="article-card">
+                    <h2>Desconexión digital y descanso mental</h2>
+                    <p>El exceso de estímulos visuales rápidos satura el sistema nervioso infantil. Sustituir los dispositivos antes de dormir por la lectura pausada reduce los niveles de cortisol y mejora la calidad del sueño profundo.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Establece una tregua digital al menos una hora antes de ir a la cama, sustituyéndola por un cuento en papel o voz baja.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>El ritmo natural de la infancia</h2>
+                    <p>Los niños necesitan aburrirse y disponer de tiempo libre no estructurado. La lectura compartida respeta ese ritmo pausado frente a las prisas cotidianas del entorno moderno.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> No satures su agenda semanal; reserva espacios fijos donde la única norma sea relajarse y compartir tiempo en familia.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido: Elección de Cuentos -->
+            <div id="criterios" class="tab-content">
+                <div class="article-card">
+                    <h2>Menos moralejas rígidas, más empatía</h2>
+                    <p>Los mejores libros infantiles no sermonean ni dan lecciones morales evidentes; invitan a sentir, empatizar y comprender las motivaciones de los protagonistas desde el respeto.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Prioriza historias con ritmo y musicalidad en los primeros años frente a tramas excesivamente aleccionadoras.
+                    </div>
+                </div>
+                <div class="article-card">
+                    <h2>La importancia de las ilustraciones</h2>
+                    <p>En las primeras etapas, las imágenes cuentan tanto o más que las palabras. Un buen álbum ilustrado permite al niño interpretar gestos, expresiones y detalles que enriquecen la comprensión lectora.</p>
+                    <div class="tip-box">
+                        <strong>Clave práctica:</strong> Detente en las ilustraciones y pregunta al peque qué cree que sienten los personajes mirando solo sus caras.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección final de interacción y comunidad -->
+            <div class="footer-interaccion" style="margin-top: 40px; padding-top: 25px; border-top: 1px solid #2c3e50; text-align: center;">
+                <p style="font-size: 14px; color: #cbd5e0; margin-bottom: 15px;">
+                    ¿Te ha resultado útil esta reflexión para tu día a día en familia?
+                </p>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 25px;">
+                    <button onclick="window.goatcounter && window.goatcounter.count({path: 'valoracion-lectura-util', title: 'Valoración: Sí ha ayudado', event: true}); alert('¡Muchas gracias por tu valoración!');" style="background-color: #243348; color: #90cdf4; border: 1px solid #4a5568; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-family: 'Quicksand', sans-serif; transition: all 0.2s;">
+                        👍 Sí, me ha ayudado
+                    </button>
+                </div>
+                
+                <div style="background-color: rgba(49, 130, 206, 0.1); border: 1px solid #3182ce; padding: 16px; border-radius: 12px;">
+                    <p style="font-size: 14px; color: #ffffff; margin-bottom: 8px; font-weight: 500;">
+                        📺 ¿Quieres descubrir nuestros cuentos en vídeo?
+                    </p>
+                    <p style="font-size: 13px; color: #cbd5e0; margin-bottom: 12px;">
+                        Explora los cuentos y relatos narrados en el canal oficial de YouTube de El Nido de Estrellas.
+                    </p>
+                    <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank" style="display: inline-block; background-color: #3182ce; color: #ffffff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-family: 'Quicksand', sans-serif; font-weight: 600;">
+                        Visitar Canal de YouTube
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script>
+        function switchTab(evt, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

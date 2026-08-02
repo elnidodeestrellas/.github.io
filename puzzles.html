@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzles Mágicos | El Nido de Estrellas</title>
+    <meta name="description" content="Diviértete ordenando las piezas de nuestros cuentos en esta sección de puzles mágicos para niños.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .puzzle-main-container {
+            max-width: 700px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        #tablero-puzzle {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 6px;
+            width: 450px;
+            height: 300px;
+            margin: 20px auto;
+            border: 4px solid #f1c442;
+            background: #222;
+            padding: 6px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            transition: border-color 0.4s;
+        }
+        .tablero-completado {
+            border: 4px solid #27ae60 !important;
+            gap: 0px !important;
+            padding: 0px !important;
+        }
+        .pieza-puzzle {
+            background-size: 450px 300px;
+            cursor: grab;
+            border-radius: 6px;
+            transition: transform 0.1s, border-color 0.3s, border-radius 0.3s;
+        }
+        .pieza-puzzle:active {
+            cursor: grabbing;
+            transform: scale(0.98);
+        }
+        .pieza-correcta {
+            border: 3px solid #27ae60;
+        }
+        .pieza-incorrecta {
+            border: 3px solid #e74c3c;
+        }
+        .pieza-seleccionada-clic {
+            border: 3px solid #f1c442 !important;
+            transform: scale(0.96);
+        }
+        .sin-bordes {
+            border: none !important;
+            border-radius: 0px !important;
+        }
+        #mensaje-victoria {
+            font-size: 20px;
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 15px;
+            min-height: 30px;
+        }
+        .acciones-puzle {
+            margin-top: 20px;
+        }
+        .btn-puzzle {
+            background: #f1c442;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .btn-puzzle:hover {
+            background: #d4ac37;
+        }
+    </style>
+</head>
+<body>
+
+   <div id="menu-container"></div>
+
+    <main class="main-content puzzle-main-container">
+        <h2>🧩 Puzles Mágicos</h2>
+        <p>Ordena las piezas para completar el cuento. ¡Al terminar, se unirá toda la ilustración como premio!</p>
+        
+        <div id="tablero-puzzle"></div>
+        <div id="mensaje-victoria"></div>
+        
+        <div class="acciones-puzle">
+            <button class="btn-puzzle" onclick="mezclarPuzzle()">Mezclar piezas</button>
+            <button class="btn-puzzle" onclick="siguienteCuento()">Cambiar de cuento</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        // Array sincronizado exactamente con las claves de tu panel de estadísticas
+        const listaPuzzles = [
+            { imagen: 'img/cuentos/c1-img1.webp', clave: 'clic_puzzle_1' },
+            { imagen: 'img/cuentos/c3-img1.webp', clave: 'clic_puzzle_2' },
+            { imagen: 'img/cuentos/c3-img4.webp', clave: 'clic_puzzle_3' },
+            { imagen: 'img/cuentos/c4-img4.webp', clave: 'clic_puzzle_4' },
+            { imagen: 'img/cuentos/c6-img1.webp', clave: 'clic_puzzle_5' },
+            { imagen: 'img/cuentos/c6-img5.webp', clave: 'clic_puzzle_6' },
+            { imagen: 'img/cuentos/c7-img6.webp', clave: 'clic_puzzle_7' },
+            { imagen: 'img/cuentos/c7-img9.webp', clave: 'clic_puzzle_8' },
+            { imagen: 'img/cuentos/c9-img1.webp', clave: 'clic_puzzle_9' }
+        ];
+
+        let indicePuzzleActual = 0;
+        const filas = 2;
+        const columnas = 3;
+        let piezas = [];
+        let piezaSeleccionada = null;
+        let indiceArrastrado = null;
+
+        function iniciarPuzzle() {
+            // Registra el clic de forma específica en la clave del puzle actual que exige el panel
+            const puzzleActual = listaPuzzles[indicePuzzleActual];
+            let actual = parseInt(localStorage.getItem(puzzleActual.clave) || 0);
+            localStorage.setItem(puzzleActual.clave, actual + 1);
+
+            const tablero = document.getElementById('tablero-puzzle');
+            tablero.classList.remove('tablero-completado');
+            tablero.innerHTML = '';
+            piezas = [];
+
+            for (let i = 0; i < (filas * columnas); i++) {
+                piezas.push(i);
+            }
+
+            mezclarArray(piezas);
+            renderizarTablero();
+        }
+
+        function mezclarArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function renderizarTablero() {
+            const tablero = document.getElementById('tablero-puzzle');
+            tablero.innerHTML = '';
+            document.getElementById('mensaje-victoria').innerText = '';
+
+            const ganado = piezas.every((indiceOriginal, indiceActual) => indiceOriginal === indiceActual);
+
+            if (ganado) {
+                tablero.classList.add('tablero-completado');
+                document.getElementById('mensaje-victoria').innerText = '🎉 ¡Enhorabuena, puzle completado! 🎉';
+            } else {
+                tablero.classList.remove('tablero-completado');
+            }
+
+            const urlImagen = listaPuzzles[indicePuzzleActual].imagen;
+
+            piezas.forEach((indiceOriginal, indiceActual) => {
+                const pieza = document.createElement('div');
+                pieza.className = 'pieza-puzzle';
+                pieza.draggable = true;
+                
+                if (ganado) {
+                    pieza.classList.add('sin-bordes');
+                } else {
+                    if (indiceOriginal === indiceActual) {
+                        pieza.classList.add('pieza-correcta');
+                    } else {
+                        pieza.classList.add('pieza-incorrecta');
+                    }
+                }
+
+                if (piezaSeleccionada === indiceActual) {
+                    pieza.classList.add('pieza-seleccionada-clic');
+                }
+                
+                const x = (indiceOriginal % columnas) * (100 / (columnas - 1));
+                const y = Math.floor(indiceOriginal / columnas) * (100 / (filas - 1));
+                
+                pieza.style.backgroundImage = `url('${urlImagen}')`;
+                pieza.style.backgroundPosition = `${x}% ${y}%`;
+                
+                pieza.onclick = () => seleccionarPieza(indiceActual);
+
+                pieza.addEventListener('dragstart', (e) => {
+                    indiceArrastrado = indiceActual;
+                    e.dataTransfer.effectAllowed = 'move';
+                });
+
+                pieza.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                });
+
+                pieza.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    if (indiceArrastrado !== null && indiceArrastrado !== indiceActual) {
+                        intercambiarPiezas(indiceArrastrado, indiceActual);
+                    }
+                });
+
+                tablero.appendChild(pieza);
+            });
+        }
+
+        function seleccionarPieza(indice) {
+            if (piezaSeleccionada === null) {
+                piezaSeleccionada = indice;
+                renderizarTablero();
+            } else {
+                intercambiarPiezas(piezaSeleccionada, indice);
+                piezaSeleccionada = null;
+            }
+        }
+
+        function intercambiarPiezas(de, a) {
+            [piezas[de], piezas[a]] = [piezas[a], piezas[de]];
+            renderizarTablero();
+        }
+
+        function mezclarPuzzle() {
+            mezclarArray(piezas);
+            piezaSeleccionada = null;
+            renderizarTablero();
+        }
+
+        function siguienteCuento() {
+            indicePuzzleActual = (indicePuzzleActual + 1) % listaPuzzles.length;
+            piezaSeleccionada = null;
+            iniciarPuzzle();
+        }
+
+        window.onload = iniciarPuzzle;
+    </script>
+</body>
+</html>

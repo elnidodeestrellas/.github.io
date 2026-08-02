@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Rincón de Familias | El Nido de Estrellas</title>
+    <meta name="description" content="Espacios de audio dedicados a la crianza respetuosa, el desarrollo infantil, el sueño y la calma en familia.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .podcast-card {
+            background-color: #1a1528;
+            border: 1px solid #6b46c1;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .podcast-card:hover {
+            border-color: #b794f4;
+        }
+        .podcast-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            background-color: #6b46c1;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .podcast-btn:hover {
+            background-color: #d6bcfa !important;
+            color: #1a1528 !important;
+        }
+        .badge-proximo {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: rgba(236, 201, 75, 0.15);
+            color: #ecc94b;
+            border: 1px solid #ecc94b;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .badge-activo {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: rgba(107, 70, 193, 0.3);
+            color: #d6bcfa;
+            border: 1px solid #b794f4;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegación automatizado mediante nav.js -->
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <!-- BANNER SUPERIOR DE PODCAST -->
+        <div style="width: 100%; background-color: #120d1a; border-radius: 12px; margin-bottom: 30px; border: 1px solid #6b46c1; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center; overflow: hidden;">
+            <img src="img/imagenPodcast.webp" alt="Podcast El Nido de Estrellas" style="width: 100%; max-height: 350px; object-fit: contain; display: block; margin: 0 auto;">
+        </div>
+
+        <!-- ENCABEZADO DE LA SECCIÓN -->
+        <div class="encabezado-inicio" style="text-align: center; margin-bottom: 40px;">
+            <h1 class="titulo-premium" style="color: #ecc94b; font-size: 2.2rem; margin-bottom: 10px;">🎙️ Rincón de Familias | Podcast</h1>
+            <p class="recursos-descripcion" style="color: #e9d8fd; max-width: 700px; margin: 0 auto; font-size: 1.05rem;">Espacios de audio dedicados a la crianza respetuosa, el desarrollo infantil, el sueño y la calma en familia.</p>
+        </div>
+
+        <!-- LISTADO DE EPISODIOS EN DOS COLUMNAS -->
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div class="podcast-grid">
+                
+                <!-- EPISODIO 01 (ACTIVO) -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 01 • ⏱️ 24 min</span>
+                            <span class="badge-activo">🎧 Disponible ahora</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">El cerebro del niño en plena rabieta</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Por qué se produce el apagón biológico masivo, el papel de la amígdala y cómo actuar como un ancla de calma cuando estalla el desborde emocional.</p>
+                    </div>
+                    <a href="episodio-rabietas.html" class="podcast-btn">Escuchar episodio →</a>
+                </div>
+
+                <!-- EPISODIO 02 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 02 • ⏱️ 25 min</span>
+                            <span class="badge-activo">🎧 Disponible ahora</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">El mapa de las buenas noches: rutinas visuales para un sueño sin resistencia</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Por qué los niños pequeños necesitan anticipar el descanso mediante apoyos visuales y cómo estructurar los 5 pasos previos a la cama para reducir la ansiedad de la transición.</p>
+                    </div>
+                    <a href="episodio-mapa-buenas-noches.html" class="podcast-btn">Escuchar episodio →</a>
+                </div>
+
+                <!-- EPISODIO 03 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 03 • ⏱️ 16 min</span>
+                            <span class="badge-activo">🎧 Disponible ahora</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Celos entre hermanos: cómo gestionar la rivalidad desde el respeto</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Analizamos por qué los niños perciben el amor como un recurso limitado. Aprende pautas prácticas para ofrecer atención exclusiva y fomentar la cooperación.</p>
+                    </div>
+                    <a href="episodio-celos-hermanos.html" class="podcast-btn">Escuchar episodio →</a>
+                </div>
+
+                <!-- EPISODIO 04 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 04 • ⏱️ 21 min</span>
+                            <span class="badge-activo">🎧 Disponible ahora</span>
+                            </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">El puente de la calma: respirar y fundirse para dormir</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Técnicas de mindfulness y relajación corporal en la cama, desde la respiración de la flor y la vela hasta el juego del chocolate derretido.</p>
+                    </div>
+                    <div>
+                        <a href="episodio-respiracion-chocolate.html" class="btn-descarga podcast-btn" style="display: block; text-align: center; background-color: #6b46c1; color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.3s;">Escuchar episodio →</a>
+                    </div>
+                    </div>
+
+                <!-- EPISODIO 05 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 05 • ⏱️ 12 min</span>
+                            <span class="badge-activo">🎧 Disponible ahora</span>
+                            </div>
+                            <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">El poder del juego autónomo: cómo fomentar que jueguen solos sin culpa</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Claves para acompañar el juego independiente, reduciendo la dependencia constante del adulto y permitiendo que desarrollen su creatividad.</p>
+                    </div>
+                    <div>
+                        <a href="episodio-juego-autonomo.html" class="btn-descarga podcast-btn" style="display: block; text-align: center; background-color: #6b46c1; color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.3s;">Escuchar episodio →</a>
+                    </div>
+                    </div>
+
+                <!-- EPISODIO 06 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 06 • ⏱️ 25 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Pantallas y cerebro infantil: el impacto invisible antes de dormir</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Qué ocurre a nivel neurológico cuando la luz azul y la sobreestimulación digital invaden las últimas horas del día, y pautas amables de desconexión.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 07 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 07 • ⏱️ 21 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Límites con amor: decir "no" sin perder los nervios ni caer en gritos</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Cómo establecer normas claras y firmes desde la empatía y la seguridad interna, entendiendo que poner límites no es castigar, sino guiar.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 08 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 08 • ⏱️ 19 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Miedos nocturnos y monstruos en la habitación: qué hacer y qué evitar</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Cómo validar los temores nocturnos típicos de la infancia sin invalidar su imaginación, transformando la oscuridad en un espacio seguro.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 09 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 09 • ⏱️ 16 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">La culpa en la crianza: cómo perdonarnos cuando perdemos la paciencia</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Un espacio reflexivo sobre la gestión de las expectativas, la reparación del vínculo tras un grito y la importancia fundamental del autocuidado adulto.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 10 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 10 • ⏱️ 23 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Desarrollo del lenguaje y la expresión emocional en la primera infancia</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Herramientas lingüísticas para ayudar a los niños a poner palabras a lo que sienten, reduciendo la frustración cuando aún no se expresan con claridad.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 11 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 11 • ⏱️ 20 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">La hora de comer sin peleas: superando las altas exigencias en la mesa</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Cómo afrontar la selectividad alimentaria y las tensiones en las comidas desde una perspectiva respetuosa, devolviendo la autonomía al niño.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 12 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 12 • ⏱️ 17 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Transiciones difíciles: de la rampa del parque a casa sin dramas</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Estrategias de anticipación y juegos de transición para evitar el clásico pulso cuando llega el momento de cambiar de actividad.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 13 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 13 • ⏱️ 26 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">El sueño fragmentado de los más pequeños: expectativas reales vs. mitos</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Desmontando falsas creencias sobre el sueño infantil y entendiendo la maduración biológica del descanso nocturno durante los primeros años.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 14 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 14 • ⏱️ 18 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Empatía y validación emocional: qué significa realmente "aceptar sus lágrimas"</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Por qué frases comunes como "no pasa nada" o "no llores" bloquean la expresión emocional y cómo sustituirlas por alternativas seguras.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 15 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 15 • ⏱️ 24 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">El vínculo de apego seguro: la base invisible de toda conducta</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Cómo se construye la seguridad emocional en el día a día y de qué manera una base sólida permite al niño explorar el mundo con confianza.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 16 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 16 • ⏱️ 16 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Hermanos y juguetes: compartir no siempre significa obligación</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Respetar los espacios de propiedad personal y enseñar el concepto de la reciprocidad y el turno de manera orgánica frente a la imposición forzada.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 17 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 17 • ⏱️ 21 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">La gestión de las rabietas en lugares públicos: miradas ajenas y paz mental</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Cómo blindarte frente al juicio externo del entorno y mantener el foco exclusivamente en la regulación y el acompañamiento de tu hijo.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 18 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 18 • ⏱️ 19 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">El poder de los cuentos en la regulación emocional nocturna</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Por qué las historias y metáforas actúan como un puente directo al inconsciente infantil, facilitando la integración de vivencias del día.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 19 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 19 • ⏱️ 22 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Estimulación respetuosa: juguetes sencillos para mentes creativas</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Por qué menos es más en el entorno de juego de un niño y cómo los materiales abiertos potencian la imaginación sin sobreestimular.</p>
+                    </div>
+                </div>
+
+                <!-- EPISODIO 20 -->
+                <div class="podcast-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <span style="color: #ecc94b; font-size: 0.9rem; font-weight: bold;">Episodio 20 • ⏱️ 25 min</span>
+                            <span class="badge-proximo">🟡 Próximamente</span>
+                        </div>
+                        <h2 style="color: #ecc94b; font-size: 1.3rem; margin-top: 0; margin-bottom: 10px;">Creciendo juntos: el balance emocional de acompañar la infancia</h2>
+                        <p style="color: #e9d8fd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Una mirada reflexiva al viaje compartido entre padres e hijos, recordando que educar es, ante todo, un proceso de transformación mutua.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
