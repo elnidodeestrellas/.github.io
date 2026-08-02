@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ----------------------------------------------------
-// 7. SISTEMA BLINDADO DE REGISTRO DE CLICS (CONTENIDO DE LA WEB)
+// 7. SISTEMA BLINDADO DE REGISTRO DE CLICS (MÓVIL Y PC)
 // ----------------------------------------------------
 function registrarClicSeguro(clave) {
     try {
@@ -342,12 +342,5 @@ document.addEventListener("click", function(e) {
 
     if (clave) {
         registrarClicSeguro(clave);
-
-        if (!enlace.getAttribute('target') && !hrefOriginal.startsWith('mailto:') && !hrefOriginal.startsWith('http://') && !hrefOriginal.startsWith('https://') && !hrefOriginal.includes('pdf/')) {
-            e.preventDefault();
-            setTimeout(() => {
-                window.location.href = hrefOriginal;
-            }, 150);
-        }
     }
 });
