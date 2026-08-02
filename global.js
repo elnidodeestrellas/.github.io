@@ -207,7 +207,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const hoy = new Date();
     const mes = hoy.getMonth() + 1;
     const dia = hoy.getDate();
-    const carpeta = "fondosweb/";
+    
+    const estaEnSubcarpeta = window.location.pathname.includes('/cuentos/') || 
+                              window.location.pathname.includes('/recursos/') || 
+                              window.location.pathname.includes('/podcast/') ||
+                              window.location.pathname.split('/').filter(Boolean).length > 1;
+    const carpeta = estaEnSubcarpeta ? "../fondosweb/" : "fondosweb/";
+
     const reglasFondos = [
         { inicio: [1, 1], fin: [2, 10], archivo: "invierno.webp" },
         { inicio: [2, 11], fin: [2, 20], archivo: "sanValentin.webp" },
@@ -242,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function() {
     elementoDestino.style.backgroundAttachment = "fixed";
 
     // ----------------------------------------------------
-    // 7. SISTEMA DE CLICS DIRECTO PARA MÓVIL Y PC (POINTERDOWN)
+    // 7. SISTEMA DE CLICS UNIVERSAL (PC Y MÓVIL / RAÍZ Y SUBCARPETAS)
     // ----------------------------------------------------
     function registrarClicSeguro(clave) {
         try {
@@ -253,75 +259,79 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Vinculación directa a enlaces mediante pointerdown (inmediato al tocar la pantalla del móvil)
-    const enlaces = document.querySelectorAll('a');
-    enlaces.forEach(enlace => {
-        if (enlace.closest('nav')) return; // El menú se gestiona aparte
+    // Usamos pointerdown para capturar tanto el clic de PC como el toque inicial del dedo en móviles
+    document.addEventListener('pointerdown', function(e) {
+        if (e.target.closest('nav')) return;
 
-        enlace.addEventListener('pointerdown', function() {
-            let hrefOriginal = enlace.getAttribute('href');
-            if (!hrefOriginal || hrefOriginal.startsWith('#')) return;
+        // Detección de botones interactivos (puzles)
+        let botonPuzzle = e.target.closest('button');
+        if (botonPuzzle) {
+            let textoBoton = botonPuzzle.textContent.toLowerCase();
+            let onclickAttr = botonPuzzle.getAttribute('onclick') || '';
+            
+            if (textoBoton.includes('mezclar') || onclickAttr.includes('mezclarPuzzle')) {
+                registrarClicSeguro('clic_puzzles');
+                return;
+            } else if (textoBoton.includes('cambiar') || onclickAttr.includes('siguienteCuento')) {
+                registrarClicSeguro('clic_puzzle_cambiar');
+                return;
+            }
+        }
 
-            let clave = '';
+        let enlace = e.target.closest('a');
+        if (!enlace) return;
 
-            if (hrefOriginal.toLowerCase().includes('podcast') || hrefOriginal.toLowerCase().includes('episodio')) {
-                if (hrefOriginal.includes('rabietas')) {
-                    clave = 'clic_podcast_1';
-                } else if (hrefOriginal.includes('mapa-buenas-noches')) {
-                    clave = 'clic_podcast_2';
-                } else if (hrefOriginal.includes('celos-hermanos')) {
-                    clave = 'clic_podcast_3';
-                } else {
-                    let match = hrefOriginal.match(/(\d+)/);
-                    clave = match ? 'clic_podcast_' + match[1] : 'clic_podcast';
-                }
-            } else if (hrefOriginal.toLowerCase().includes('recurso') || hrefOriginal.toLowerCase().includes('pdf/')) {
-                let destinoLimpio = hrefOriginal.split('/').pop().replace('.pdf', '').replace('.html', '');
-                clave = 'clic_recurso_' + destinoLimpio.replace(/recurso[_-]/, '');
-            } else if (hrefOriginal.toLowerCase().includes('contacto') || hrefOriginal.toLowerCase().includes('mailto:') || hrefOriginal.toLowerCase().includes('pinterest')) {
-                if (hrefOriginal.toLowerCase().includes('pinterest')) {
-                    clave = 'clic_contacto_pinterest';
-                } else if (hrefOriginal.toLowerCase().includes('mailto:')) {
-                    clave = 'clic_contacto_correo';
-                } else {
-                    clave = 'clic_contacto';
-                }
-            } else if (hrefOriginal.toLowerCase().includes('audios')) {
-                clave = 'clic_cuentos_audios';
-            } else if (hrefOriginal.toLowerCase().includes('texto') || hrefOriginal.toLowerCase().includes('lectura-texto')) {
-                clave = 'clic_cuentos_texto';
-            } else if (hrefOriginal.toLowerCase().includes('lectura') || hrefOriginal.toLowerCase().includes('cuento')) {
-                let match = hrefOriginal.match(/(\d+)/);
-                clave = match ? 'clic_lectura_' + match[1] : '';
-            } else if (hrefOriginal.toLowerCase().includes('rutina')) {
-                clave = 'clic_index_rutina';
-            } else if (hrefOriginal.toLowerCase().includes('coleccion') || hrefOriginal.toLowerCase().includes('explorar') || hrefOriginal.toLowerCase().includes('cuentos.html')) {
-                clave = 'clic_index_coleccion';
-            } else if (hrefOriginal.toLowerCase().includes('puzzle') || hrefOriginal.toLowerCase().includes('puzle')) {
-                clave = 'clic_puzzles';
-            } else if (hrefOriginal.toLowerCase().includes('tuvoz') || hrefOriginal.toLowerCase().includes('voz')) {
-                clave = 'clic_tuvoz_enviar';
+        let hrefOriginal = enlace.getAttribute('href');
+        if (!hrefOriginal || hrefOriginal.startsWith('#')) return;
+
+        let clave = '';
+        let hrefLower = hrefOriginal.toLowerCase();
+        let rutaLimpiaPdfOHtml = hrefOriginal.split('/').pop().split('?')[0].toLowerCase();
+
+        if (hrefLower.includes('podcast') || hrefLower.includes('episodio') || rutaLimpiaPdfOHtml.includes('podcast') || rutaLimpiaPdfOHtml.includes('episodio')) {
+            if (hrefLower.includes('rabietas')) {
+                clave = 'clic_podcast_1';
+            } else if (hrefLower.includes('mapa-buenas-noches')) {
+                clave = 'clic_podcast_2';
+            } else if (hrefLower.includes('celos-hermanos')) {
+                clave = 'clic_podcast_3';
             } else {
-                let destinoLimpio = hrefOriginal.split('/').pop().replace('.html', '');
-                clave = 'clic_' + (destinoLimpio || 'enlace');
+                let match = hrefOriginal.match(/(\d+)/);
+                clave = match ? 'clic_podcast_' + match[1] : 'clic_podcast';
             }
-
-            if (clave) {
-                registrarClicSeguro(clave);
+        } else if (hrefLower.includes('recurso') || hrefLower.includes('pdf/') || rutaLimpiaPdfOHtml.endsWith('.pdf')) {
+            let destinoLimpio = rutaLimpiaPdfOHtml.replace('.pdf', '').replace('.html', '');
+            clave = 'clic_recurso_' + destinoLimpio.replace(/recurso[_-]/, '');
+        } else if (hrefLower.includes('contacto') || hrefLower.includes('mailto:') || hrefLower.includes('pinterest')) {
+            if (hrefLower.includes('pinterest')) {
+                clave = 'clic_contacto_pinterest';
+            } else if (hrefLower.includes('mailto:')) {
+                clave = 'clic_contacto_correo';
+            } else {
+                clave = 'clic_contacto';
             }
-        });
-    });
+        } else if (hrefLower.includes('audios')) {
+            clave = 'clic_cuentos_audios';
+        } else if (hrefLower.includes('texto') || hrefLower.includes('lectura-texto')) {
+            clave = 'clic_cuentos_texto';
+        } else if (hrefLower.includes('lectura') || hrefLower.includes('cuento')) {
+            let match = hrefOriginal.match(/(\d+)/);
+            clave = match ? 'clic_lectura_' + match[1] : 'clic_cuento';
+        } else if (hrefLower.includes('rutina')) {
+            clave = 'clic_index_rutina';
+        } else if (hrefLower.includes('coleccion') || hrefLower.includes('explorar') || rutaLimpiaPdfOHtml === 'cuentos.html') {
+            clave = 'clic_index_coleccion';
+        } else if (hrefLower.includes('puzzle') || hrefLower.includes('puzle')) {
+            clave = 'clic_puzzles';
+        } else if (hrefLower.includes('tuvoz') || hrefLower.includes('voz')) {
+            clave = 'clic_tuvoz_enviar';
+        } else {
+            let destinoLimpio = rutaLimpiaPdfOHtml.replace('.html', '');
+            clave = 'clic_' + (destinoLimpio || 'enlace');
+        }
 
-    // Detección específica para botones táctiles de puzles
-    const botones = document.querySelectorAll('button');
-    botones.forEach(boton => {
-        let textoBoton = boton.textContent.toLowerCase();
-        let onclickAttr = boton.getAttribute('onclick') || '';
-
-        if (textoBoton.includes('mezclar') || onclickAttr.includes('mezclarPuzzle')) {
-            boton.addEventListener('pointerdown', () => registrarClicSeguro('clic_puzzles'));
-        } else if (textoBoton.includes('cambiar') || onclickAttr.includes('siguienteCuento')) {
-            boton.addEventListener('pointerdown', () => registrarClicSeguro('clic_puzzle_cambiar'));
+        if (clave) {
+            registrarClicSeguro(clave);
         }
     });
 });
