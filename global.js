@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const listaAudios = [
         "audio/alex-morgan-background-music-545525.mp3",
-        "audio/alex-morgan-gentle-baby-sleep-lullaby-548646.mp3",
+        "audio/alex-morgan-nana-sueño-suave-para-bebés-548646.mp3",
         "audio/alex-morgan-gentle-baby-sleep-lullaby-dream-548647.mp3",
         "audio/alex-morgan-lofi-study-rainy-night-568166.mp3",
         "audio/alex-morgan-lofi-sunny-cafe-568156.mp3",
