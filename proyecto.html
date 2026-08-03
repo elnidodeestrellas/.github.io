@@ -4,69 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Proyecto | El Nido de Estrellas</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Script de análisis (GoatCounter) -->
     <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
-    <!-- Importación de tipografías premium desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Conexión al archivo de estilos centralizado -->
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        .manifiesto-container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .bloque-historia {
+            background: rgba(22, 33, 62, 0.8);
+            border: 1px solid rgba(241, 196, 66, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+        .bloque-historia h1, .bloque-historia h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #f1c442;
+            margin-top: 0;
+        }
+        .bloque-historia p {
+            color: #e2e8f0;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .valor-card {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c442;
+        }
+        .valor-card h3 {
+            color: #f1c442;
+            font-size: 16px;
+            margin-top: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .valor-card p {
+            font-size: 14px;
+            color: #cbd5e0;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        .imagen-nino-proyecto {
+            margin: 30px 0 10px 0;
+            text-align: center;
+        }
+        .imagen-nino-proyecto img {
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid rgba(241, 196, 66, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Menú de navegación automatizado mediante nav.js -->
     <div id="menu-container"></div>
 
-    <main class="proyecto-container">
+    <main class="manifiesto-container">
         
-        <!-- NUESTRO PROPÓSITO -->
-        <section class="proposito-seccion">
-            
-            <!-- La imagen colocada correctamente aquí, justo encima del título -->
-            <div class="proposito-imagen-contenedor">
-                <img src="img/fondoproyecto.webp" alt="Nuestro Propósito - El Nido de Estrellas" class="img-proposito">
+        <div class="bloque-historia" style="text-align: center;">
+            <div class="proposito-imagen-contenedor" style="margin-bottom: 25px;">
+                <img src="img/fondoproyecto.webp" alt="El Nido de Estrellas" class="img-proposito" style="max-height: 300px; border-radius: 12px; object-fit: cover; width: 100%;">
             </div>
+            <h1>Detrás de este Nido</h1>
+            <p style="font-size: 18px; color: #f1c442; font-weight: 500;">Un espacio creado con vocación de servicio, calma y cero ruido comercial.</p>
+        </div>
 
-            <h1 class="titulo-premium">Nuestro Propósito</h1>
+        <div class="bloque-historia">
+            <h2>El origen real</h2>
+            <p>Este proyecto no nació en una oficina de marketing ni responde a un plan corporativo. Nació de la forma más natural del mundo: observando de cerca el día a día de las familias, escuchando las pequeñas dudas cotidianas y viendo qué es lo que de verdad alienta a un hogar cuando cae la noche.</p>
+            <p>Aunque no soy padre, mi rol de tío me ha permitido compartir risas, abrazos, miedos nocturnos y descubrimientos con los más pequeños. Esa cercanía me enseñó algo fundamental: los niños no necesitan estímulos estridentes antes de dormir; necesitan refugio, paciencia y relatos que validen lo que sienten.</p>
+            <p>Así ideé <strong>El Nido de Estrellas</strong>, un rincón digital limpio, seguro y respetuoso diseñado para acompañar ese momento íntimo del día.</p>
             
-            <div class="proposito-texto">
-                <p>¿Qué es El Nido de Estrellas? El Nido de Estrellas nace del deseo de transformar el momento de ir a dormir en un espacio de conexión y serenidad.</p>
-                <p>Más que simples relatos, nuestros cuentos están diseñados como herramientas terapéuticas que acompañan a los niños en su mundo emocional, ayudándoles a cerrar el día con calma y seguridad.</p>
+            <!-- Fotografía del niño integrada con elegancia -->
+            <div class="imagen-nino-proyecto">
+                <img src="img/niño-durmiendo.webp" alt="Niño descansando plácidamente en El Nido de Estrellas" loading="lazy">
             </div>
-        </section>
+        </div>
 
-        <!-- CÓMO TRABAJAMOS + PILARES -->
-        <section class="como-trabajamos-seccion">
+        <div class="bloque-historia">
+            <h2>Nuestros tres pilares fundamentales</h2>
+            <p>Cada cuento, audio y recurso que publicamos se rige estrictamente por tres compromisos:</p>
             
-            <!-- Aquí se muestra tu imagen del niño durmiendo -->
-            <div class="imagen-pilares-wrapper">
-                <img src="img/niño-durmiendo.webp" alt="Niño descansando plácidamente" loading="lazy">
-            </div>
-            
-            <div class="pilares-lista-wrapper">
-                <h2 class="subtitulo-premium">¿Cómo trabajamos?</h2>
-                <p class="pilares-descripcion">Nuestras historias integran tres pilares fundamentales que facilitan un descanso reparador:</p>
-                
-                <div class="pilar-item">
-                    <strong>Gestión emocional:</strong>
-                    <p>Convertimos los miedos y preocupaciones en personajes y aventuras que el niño puede comprender y procesar, sintiéndose siempre acompañado y validado.</p>
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <h3>💙 Gestión Emocional</h3>
+                    <p>Convertimos los miedos cotidianos y la frustración en historias comprensibles donde cada emoción del niño es escuchada y validada.</p>
                 </div>
-
-                <div class="pilar-item">
-                    <strong>Higiene del sueño:</strong>
-                    <p>Cada narración está estructurada con un ritmo suave que incorpora técnicas de respiración y mindfulness, preparando el cuerpo y la mente para el descanso natural.</p>
+                <div class="valor-card">
+                    <h3>🌙 Higiene del Sueño</h3>
+                    <p>Estructuramos las narraciones con un ritmo pausado, integrando respiración y calma para preparar el cerebro de forma natural para el descanso.</p>
                 </div>
-
-                <div class="pilar-item">
-                    <strong>Acompañamiento positivo:</strong>
-                    <p>Buscamos que el final del día no sea una rutina de tensiones, sino un ritual amoroso donde la calma y la imaginación sean las protagonistas.</p>
+                <div class="valor-card">
+                    <h3>✨ Acompañamiento Positivo</h3>
+                    <p>Buscamos desterrar las tensiones de la noche para que el final de la jornada se convierta en un recuerdo amoroso de conexión familiar.</p>
                 </div>
             </div>
-        </section>
+        </div>
 
     </main>
 

@@ -5,19 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Nido de Estrellas | Cuentos Infantiles para Dormir</title>
     <meta name="description" content="Descubre cuentos infantiles cortos y relajantes para ayudar a los niños a dormir plácidamente antes de acostarse. Historias llenas de magia y tranquilidad.">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Script de análisis (GoatCounter) -->
     <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
-    <!-- Importación de tipografías premium desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+
+        /* Estilos de diseño elegante y depurado para el Inicio */
+        .encabezado-inicio {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .encabezado-inicio h1 {
+            font-family: 'Quicksand', sans-serif;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        /* Tarjetas con efecto glassmorphism sutil y profundidad */
+        .introduccion-texto, .detalles-grid, .invitacion-proyecto-card, .banner-recurso-gratis {
+            background: rgba(22, 33, 62, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 196, 66, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .introduccion-texto h2, .detalles-grid h3, .invitacion-proyecto-card h3, .banner-recurso-gratis h3 {
+            font-family: 'Quicksand', sans-serif;
+            color: #f1c442;
+            margin-top: 0;
+        }
+
+        .introduccion-texto p, .detalle-lista p, .invitacion-proyecto-card p, .banner-recurso-gratis p {
+            color: #e2e8f0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Ajuste específico para la cuadrícula de beneficios */
+        .detalles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .detalles-grid {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+        }
+        .detalle-ilustracion img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .beneficio-item {
+            margin-bottom: 20px;
+        }
+        .beneficio-item:last-child {
+            margin-bottom: 0;
+        }
+        .beneficio-item strong {
+            color: #f1c442;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .beneficio-item p {
+            font-size: 14px;
+            margin: 0;
+            color: #cbd5e0;
+        }
+
+        /* Tarjeta de invitación al proyecto */
+        .invitacion-proyecto-card {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(42, 35, 86, 0.5), rgba(22, 33, 62, 0.7));
+        }
+        .invitacion-proyecto-card p {
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+
+        /* Banner de recurso destacado */
+        .banner-recurso-gratis {
+            text-align: center;
+        }
+        .banner-recurso-gratis p {
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+
+        /* Transiciones fluidas en botones */
+        .btn-principal, .btn-secundario {
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+        }
+        .btn-principal:hover, .btn-secundario:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(241, 196, 66, 0.3);
+        }
+
+        .boton-area-centrada {
+            text-align: center;
+            margin: 50px 0;
+        }
+    </style>
 </head>
 <body>
-
    <!-- Menú de navegación automatizado mediante nav.js -->
    <div id="menu-container"></div>
 
@@ -25,23 +132,21 @@
         
         <div class="encabezado-inicio">
             <h1>El Nido de Estrellas</h1>
-            <!-- Imagen de portada panorámica ancha -->
-           <div class="hero-imagen-wrapper glow-efecto">
+            <div class="hero-imagen-wrapper glow-efecto">
                 <img src="img/inicio-portada.webp" alt="El Nido de Estrellas - Cuentos infantiles para dormir" loading="lazy">
             </div>
         </div>
 
-        <!-- TEXTOS EXACTOS DE TU CAPTURA -->
+        <!-- INTRODUCCIÓN PRINCIPAL -->
         <section class="introduccion-texto">
-            <h2>Un refugio de calma para el final del día.</h2>
+            <h2>Un refugio de calma para el final del día</h2>
             <p>Acompañamos a tus hijos en el viaje hacia el descanso, transformando la rutina nocturna en un momento de conexión, aprendizaje y paz profunda.</p>
             <p>Bienvenido a El Nido de Estrellas, un espacio creado con el propósito de brindar serenidad al hogar. Sabemos que el momento de dormir es crucial para el desarrollo de los más pequeños, y por eso hemos diseñado una serie de cuentos terapéuticos que van más allá del entretenimiento.</p>
         </section>
 
-        <!-- SECCIÓN DIVIDIDA CON TU LISTA DE BENEFICIOS -->
+        <!-- SECCIÓN DE BENEFICIOS CON LA ILUSTRACIÓN -->
         <section class="detalles-grid">
             <div class="detalle-ilustracion">
-                <!-- Vinculamos tu ilustración del nido con la luna -->
                 <img src="img/nido-luna.webp" alt="Ilustración de El Nido de Estrellas" loading="lazy">
             </div>
             
@@ -65,11 +170,11 @@
             </div>
         </section>
 
-        <!-- NUEVA SECCIÓN SOBRE EL PROYECTO -->
-        <section class="seccion-sobre-proyecto">
-            <h2>Sobre este rincón</h2>
-            <p>Este espacio no nació de un gran plan corporativo, sino de la forma más orgánica posible: rodeado de pequeños, escuchando las dudas de familias cercanas y viendo de cerca lo que realmente se necesita en el día a día.</p>
-            <p>Aunque no soy padre, como tío he compartido risas, descubrimientos y momentos cotidianos con los más pequeños. Sé lo valioso que es encontrar recursos que aporten calma y cuentos que conecten de verdad. Por eso creé este lugar: un nido digital tranquilo y sin ruido para acompañar a las familias.</p>
+        <!-- TARJETA DE INVITACIÓN AL PROYECTO -->
+        <section class="invitacion-proyecto-card">
+            <h3>¿Quién hay detrás de este nido?</h3>
+            <p>Este espacio no responde a grandes planes corporativos, sino a la observación cercana de las necesidades reales de las familias. Si quieres conocer nuestra filosofía, el origen del proyecto y el propósito humano que lo impulsa, te invitamos a leerlo con calma.</p>
+            <a href="proyecto.html" class="btn-secundario">Conocer Nuestro Proyecto</a>
         </section>
 
         <!-- BANNER DE RECURSO DESTACADO -->

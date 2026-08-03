@@ -1,6 +1,75 @@
 document.addEventListener("DOMContentLoaded", function() {
     // ----------------------------------------------------
-    // 1. MODO NOCTURNO
+    // 1. INYECCIÓN AUTOMÁTICA DEL FAVICON
+    // ----------------------------------------------------
+    let faviconLink = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    faviconLink.type = 'image/x-icon';
+    faviconLink.rel = 'icon';
+    faviconLink.href = 'favicon.ico';
+    document.head.appendChild(faviconLink);
+
+    // ----------------------------------------------------
+    // 2. MENÚ DE NAVEGACIÓN Y LOGO 3D FLOTANTE
+    // ----------------------------------------------------
+    const navHTML = `
+    <nav>
+        <div class="logo-area">
+            <img src="img/logo3d.webp" alt="El Nido de Estrellas" class="logo-img">
+            <h2>El Nido de Estrellas</h2>
+        </div>
+        <div class="menu-links">
+            <a href="index.html">🏠 Inicio</a>
+            <a href="proyecto.html">📊 Proyecto</a>
+            <a href="cuentos.html">📁 Cuentos</a>
+            <a href="recursos.html">📚 Recursos</a>
+            
+            <div class="dropdown" id="moreDropdown">
+                <button onclick="toggleDropdown(event)">Más ▾</button>
+                <div class="dropdown-content">
+                    <a href="podcast.html">🎙️ Podcast</a>
+                    <a href="puzzles.html">🧩 Puzles</a>
+                    <a href="rinconlectura.html">📖 Lectura</a>
+                    <a href="contacto.html">✉️ Contacto</a>
+                </div>
+            </div>
+
+            <a href="tuvoz.html" class="nav-estelar-btn">⭐ Tu voz</a>
+        </div>
+    </nav>
+    `;
+
+    let contenedorNav = document.getElementById('menu-container');
+    if (!contenedorNav) {
+        contenedorNav = document.createElement('div');
+        contenedorNav.id = 'menu-container';
+        document.body.prepend(contenedorNav);
+    }
+    contenedorNav.innerHTML = navHTML;
+
+    const enlacesNav = document.querySelectorAll('nav a');
+    enlacesNav.forEach(enlace => {
+        enlace.addEventListener('click', function(e) {
+            let destino = this.getAttribute('href');
+            if (!destino || destino.startsWith('http') || destino.startsWith('#')) return;
+
+            e.preventDefault();
+
+            let clave = 'clic_nido_' + destino;
+            try {
+                let actual = parseInt(localStorage.getItem(clave) || 0);
+                localStorage.setItem(clave, actual + 1);
+            } catch (err) {
+                console.error("Error al registrar clic en menú:", err);
+            }
+
+            setTimeout(() => {
+                window.location.href = destino;
+            }, 200);
+        });
+    });
+
+    // ----------------------------------------------------
+    // 3. MODO NOCTURNO
     // ----------------------------------------------------
     if (!document.getElementById('btn-modo-nocturno')) {
         const btn = document.createElement('button');
@@ -32,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ----------------------------------------------------
-    // 2. REPRODUCTOR FLOTANTE DE AUDIO
+    // 4. REPRODUCTOR FLOTANTE DE AUDIO
     // ----------------------------------------------------
     const reproductorHTML = `
         <div class="audio-flotante" id="reproductorAudio">
@@ -142,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ----------------------------------------------------
-    // 3. BARRA DE PROGRESO DE SCROLL
+    // 5. BARRA DE PROGRESO DE SCROLL
     // ----------------------------------------------------
     if (!document.getElementById('scroll-progress')) {
         const progressBar = document.createElement('div');
@@ -161,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ----------------------------------------------------
-    // 4. ENLACES RELACIONADOS EN ARTÍCULOS DE LECTURA
+    // 6. ENLACES RELACIONADOS EN ARTÍCULOS DE LECTURA
     // ----------------------------------------------------
     const articleCards = document.querySelectorAll('.article-card');
     articleCards.forEach(card => {
@@ -179,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ----------------------------------------------------
-    // 5. CONTROL DEL MENÚ DESPLEGABLE "MÁS"
+    // 7. CONTROL DEL MENÚ DESPLEGABLE "MÁS"
     // ----------------------------------------------------
     window.toggleDropdown = function(event) {
         event.stopPropagation();
@@ -202,17 +271,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ----------------------------------------------------
-    // 6. DINÁMICA DE FONDOS ESTACIONALES
+    // 8. DINÁMICA DE FONDOS ESTACIONALES
     // ----------------------------------------------------
     const hoy = new Date();
     const mes = hoy.getMonth() + 1;
     const dia = hoy.getDate();
     
-    const estaEnSubcarpeta = window.location.pathname.includes('/cuentos/') || 
-                              window.location.pathname.includes('/recursos/') || 
-                              window.location.pathname.includes('/podcast/') ||
-                              window.location.pathname.split('/').filter(Boolean).length > 1;
-    const carpeta = estaEnSubcarpeta ? "../fondosweb/" : "fondosweb/";
+    const esLocal = window.location.protocol === 'file:';
+    const segmentosRuta = window.location.pathname.split('/').filter(Boolean);
+    const estaEnSubcarpeta = segmentosRuta.length > 1 && !window.location.pathname.endsWith('.html');
+    
+    let carpeta = "fondosweb/";
+    if (estaEnSubcarpeta && !esLocal) {
+        carpeta = "../fondosweb/";
+    }
 
     const reglasFondos = [
         { inicio: [1, 1], fin: [2, 10], archivo: "invierno.webp" },
@@ -240,15 +312,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    const elementoDestino = document.querySelector(".main-background") || document.body;
-    elementoDestino.style.backgroundImage = `url('${carpeta}${archivoSeleccionado}')`;
-    elementoDestino.style.backgroundSize = "cover";
-    elementoDestino.style.backgroundPosition = "center";
-    elementoDestino.style.backgroundRepeat = "no-repeat";
-    elementoDestino.style.backgroundAttachment = "fixed";
+    const rutaFinalFondo = `${carpeta}${archivoSeleccionado}`;
+    
+    document.body.style.backgroundImage = `url('${rutaFinalFondo}')`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundAttachment = "fixed";
 
     // ----------------------------------------------------
-    // 7. SISTEMA DE CLICS UNIVERSAL (PC Y MÓVIL / RAÍZ Y SUBCARPETAS)
+    // 9. SISTEMA DE CLICS UNIVERSAL
     // ----------------------------------------------------
     function registrarClicSeguro(clave) {
         try {

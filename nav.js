@@ -1,9 +1,33 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // ----------------------------------------------------
+    // 1. INYECCIÓN AUTOMÁTICA DEL FAVICON
+    // ----------------------------------------------------
+    let faviconLink = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    faviconLink.type = 'image/x-icon';
+    faviconLink.rel = 'icon';
+    faviconLink.href = 'favicon.ico';
+    document.head.appendChild(faviconLink);
+
+    // ----------------------------------------------------
+    // 2. INYECCIÓN AUTOMÁTICA DEL LOGO FLOTANTE
+    // ----------------------------------------------------
+    if (!document.querySelector('.nido-flotante')) {
+        const divFlotante = document.createElement('div');
+        divFlotante.className = 'nido-flotante';
+        divFlotante.innerHTML = `<img src="img/logo3dlimpio.png" alt="El Nido de Estrellas" loading="lazy">`;
+        document.body.prepend(divFlotante);
+    }
+
+    // ----------------------------------------------------
+    // 3. MENÚ DE NAVEGACIÓN Y LOGO 3D
+    // ----------------------------------------------------
     const navHTML = `
     <nav>
         <div class="logo-area">
-            <img src="img/logo3d.webp" alt="El Nido de Estrellas" class="logo-img">
-            <h2>El Nido de Estrellas</h2>
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="img/logo3dlimpio.png" alt="El Nido de Estrellas" class="logo-img" style="width: 50px; height: 50px; object-fit: contain;">
+                <h2>El Nido de Estrellas</h2>
+            </a>
         </div>
         <div class="menu-links">
             <a href="index.html">🏠 Inicio</a>
@@ -31,7 +55,28 @@ document.addEventListener("DOMContentLoaded", function() {
         contenedorNav.innerHTML = navHTML;
     }
 
-    // Sistema con retardo de seguridad para registrar clics del menú perfectamente
+    // Control del menú desplegable "Más"
+    window.toggleDropdown = function(event) {
+        event.stopPropagation();
+        const dropdown = document.getElementById('moreDropdown');
+        if (dropdown) {
+            dropdown.classList.toggle('show');
+        }
+    };
+
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.dropdown button')) {
+            const dropdowns = document.getElementsByClassName("dropdown");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    });
+
+    // Sistema de registro de clics para el menú
     const enlacesNav = document.querySelectorAll('nav a');
     enlacesNav.forEach(enlace => {
         enlace.addEventListener('click', function(e) {
@@ -40,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             e.preventDefault();
 
-            // Clave exacta que espera el panel de estadísticas (ej. clic_nido_index.html)
             let clave = 'clic_nido_' + destino;
             try {
                 let actual = parseInt(localStorage.getItem(clave) || 0);
