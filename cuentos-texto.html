@@ -75,31 +75,8 @@
 </head>
 <body>
 
-   <nav>
-    <div class="logo-area">
-        <img src="img/logo3d.webp" alt="El Nido de Estrellas" class="logo-img">
-        <h2>El Nido de Estrellas</h2>
-    </div>
-    <div class="menu-links">
-        <a href="index.html">🏠 Inicio</a>
-        <a href="proyecto.html">📊 Proyecto</a>
-        <a href="cuentos.html" class="active">📁 Cuentos</a>
-        <a href="recursos.html">📚 Recursos</a>
-        
-        <!-- Menú desplegable agrupado para futuras secciones -->
-        <div class="dropdown" id="moreDropdown">
-            <button onclick="toggleDropdown(event)">Más ▾</button>
-            <div class="dropdown-content">
-                <a href="podcast.html">🎙️ Podcast</a>
-                <a href="puzzles.html">🧩 Puzzles</a>
-                <a href="rinconlectura.html">📖 Lectura</a>
-                <a href="contacto.html">✉️ Contacto</a>
-            </div>
-        </div>
-
-        <a href="tuvoz.html" class="nav-estelar-btn">⭐ Tu voz</a>
-    </div>
-</nav>
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
 
     <main class="main-content">
         <section class="biblioteca-header" style="text-align: center; margin-bottom: 40px;">
@@ -225,6 +202,8 @@
     <footer>
         <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
     </footer>
+
 <script src="global.js"></script>
+<script src="nav.js"></script>
 </body>
 </html>
