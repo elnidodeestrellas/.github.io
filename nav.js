@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <a href="proyecto.html">📊 Proyecto</a>
             <a href="cuentos.html">📁 Cuentos</a>
             <a href="recursos.html">📚 Recursos</a>
+            <a href="diabetesInfantil.html">🩺 Diabetes</a>
             
             <div class="dropdown" id="moreDropdown">
                 <button onclick="toggleDropdown(event)">Más ▾</button>
