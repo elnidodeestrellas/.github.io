@@ -1,7 +1,7 @@
-// nav.js - código completo integrado
+// nav.js - estructura optimizada y profesional
 
 document.addEventListener("DOMContentLoaded", () => {
-    const headerContainer = document.getElementById("menu-container"); // o el selector que uses para inyectar
+    const headerContainer = document.getElementById("menu-container");
 
     if (headerContainer) {
         headerContainer.innerHTML = `
@@ -19,28 +19,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="menu-links" id="navMenuLinks">
                 <a href="index.html">🏠 Inicio</a>
-                <a href="proyecto.html">📊 Proyecto</a>
                 <a href="cuentos.html">📁 Cuentos</a>
-                <a href="recursos.html">📚 Recursos</a>
-                <a href="diabetesInfantil.html">🩺 Diabetes</a>
+                <a href="proyecto.html">📊 Proyecto</a>
                 
-                <div class="dropdown" id="moreDropdown">
-                    <button class="dropbtn" onclick="toggleDropdown(event)">Más ▾</button>
+                <div class="dropdown" id="healthDropdown">
+                    <button class="dropbtn" onclick="toggleDropdown(event)">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
-                        <a href="podcast.html">🎙️ Podcast</a>
-                        <a href="puzzles.html">🧩 Puzles</a>
-                        <a href="rinconlectura.html">📖 Lectura</a>
-                        <a href="contacto.html">✉️ Contacto</a>
+                        <a href="diabetesInfantil.html">🩺 Diabetes Infantil</a>
+                        <a href="obesidadinfantil.html">🥗 Obesidad Infantil</a>
+                        <a href="cancerinfantil.html">🎗️ Cáncer Infantil</a>
+                        <a href="rinconlectura.html">📖 Rincón de Lectura</a>
                     </div>
                 </div>
 
-                <a href="tuvoz.html" class="nav-estelar-btn">⭐ Tu voz</a>
+                <div class="dropdown" id="creativeDropdown">
+                    <button class="dropbtn" onclick="toggleDropdown(event)">✨ Creativo ▾</button>
+                    <div class="dropdown-content">
+                        <a href="podcast.html">🎙️ Podcast</a>
+                        <a href="puzzles.html">🧩 Puzles</a>
+                    </div>
+                </div>
+
+                <div class="dropdown" id="communityDropdown">
+                    <button class="dropbtn" onclick="toggleDropdown(event)">💬 Comunidad ▾</button>
+                    <div class="dropdown-content">
+                        <a href="tuvoz.html">⭐ Tu voz</a>
+                        <a href="contacto.html">✉️ Contacto</a>
+                    </div>
+                </div>
             </div>
         </nav>
         `;
     }
 
-    // control del menú hamburguesa en móviles
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navMenuLinks");
 
@@ -51,16 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// función global para el desplegable de "más"
 function toggleDropdown(event) {
     event.stopPropagation();
     const dropdown = event.target.closest('.dropdown');
+    document.querySelectorAll('.dropdown').forEach(drop => {
+        if (drop !== dropdown) drop.classList.remove('show');
+    });
     if (dropdown) {
         dropdown.classList.toggle('show');
     }
 }
 
-// cerrar el desplegable si se hace clic fuera
 window.addEventListener('click', () => {
     document.querySelectorAll('.dropdown').forEach(drop => {
         drop.classList.remove('show');

@@ -1008,7 +1008,7 @@ button:hover::after, .tarjeta:hover::after, .cuento-card:hover::after, .btn-magi
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 215, 0, 0.2);
     border-radius: 16px;
-    overflow: hidden; /* Corregido desde el valor en píxeles anterior */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1232,7 +1232,8 @@ body.modo-nocturno-profundo p {
     border-radius: 12px;
     padding: 6px;
     z-index: 1000;
-    margin-top: 8px;
+    margin-top: 0px;
+    padding-top: 15px; /* Puente invisible que evita que se cierre el menú al mover el ratón */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
 }
@@ -1323,6 +1324,7 @@ body.modo-nocturno-profundo p {
         box-shadow: none;
         background-color: transparent;
         display: none;
+        padding-top: 6px;
     }
 
     .dropdown.show .dropdown-content {
@@ -1362,13 +1364,29 @@ body.modo-nocturno-profundo p {
         height: 40px;
     }
 }
+
 @media (max-width: 480px) {
     #btn-modo-nocturno {
         top: 75px !important;
-        right: 20px !important;
         left: auto !important;
-        bottom: auto !important;
+        right: auto !important;
+        margin-left: calc(100vw - 65px) !important; 
         width: 38px !important;
         height: 38px !important;
+    }
+}
+
+/* Comportamiento de los desplegables */
+.dropdown .dropdown-content {
+    display: none;
+}
+
+.dropdown.show .dropdown-content {
+    display: block !important;
+}
+
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block !important;
     }
 }
