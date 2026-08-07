@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    // 1. Configuración del botón hamburguesa móvil
+    // 1. Configuración robusta del botón hamburguesa móvil
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navMenuLinks");
 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Configuración de los desplegables adaptada a pantallas táctiles
+    // 2. Configuración de los desplegables con soporte táctil mejorado y delegación segura
     const dropBtns = document.querySelectorAll('.dropbtn');
     dropBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -72,17 +72,21 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const dropdown = btn.closest('.dropdown');
             
+            // Cierra los demás desplegables abiertos
             document.querySelectorAll('.dropdown').forEach(drop => {
-                if (drop !== dropdown) drop.classList.remove('show');
+                if (drop !== dropdown) {
+                    drop.classList.remove('show');
+                }
             });
             
+            // Alterna el estado del desplegable actual
             if (dropdown) {
                 dropdown.classList.toggle('show');
             }
         });
     });
 
-    // 3. Cierre automático al hacer tap fuera del menú
+    // 3. Cierre automático al hacer clic o tap fuera del menú o de los desplegables
     window.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
             document.querySelectorAll('.dropdown').forEach(drop => {
@@ -94,6 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!navLinks.contains(e.target) && toggleBtn && !toggleBtn.contains(e.target)) {
                 navLinks.classList.remove('active');
             }
+        }
+    });
+
+    // 4. Soporte para orientación o cambios de tamaño (cierra el menú móvil si se pasa a escritorio)
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
         }
     });
 });
