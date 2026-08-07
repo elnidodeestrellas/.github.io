@@ -9,67 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(faviconLink);
 
     // ----------------------------------------------------
-    // 2. MENÚ DE NAVEGACIÓN Y LOGO 3D FLOTANTE
-    // ----------------------------------------------------
-    const navHTML = `
-    <nav>
-        <div class="logo-area">
-            <img src="img/logo3d.webp" alt="El Nido de Estrellas" class="logo-img">
-            <h2>El Nido de Estrellas</h2>
-        </div>
-        <div class="menu-links">
-            <a href="index.html">🏠 Inicio</a>
-            <a href="proyecto.html">📊 Proyecto</a>
-            <a href="cuentos.html">📁 Cuentos</a>
-            <a href="recursos.html">📚 Recursos</a>
-            
-            <div class="dropdown" id="moreDropdown">
-                <button onclick="toggleDropdown(event)">Más ▾</button>
-                <div class="dropdown-content">
-                    <a href="podcast.html">🎙️ Podcast</a>
-                    <a href="puzzles.html">🧩 Puzles</a>
-                    <a href="rinconlectura.html">📖 Lectura</a>
-                    <a href="contacto.html">✉️ Contacto</a>
-                </div>
-            </div>
-
-            <a href="tuvoz.html" class="nav-estelar-btn">⭐ Tu voz</a>
-        </div>
-    </nav>
-    `;
-
-    let contenedorNav = document.getElementById('menu-container');
-    if (!contenedorNav) {
-        contenedorNav = document.createElement('div');
-        contenedorNav.id = 'menu-container';
-        document.body.prepend(contenedorNav);
-    }
-    contenedorNav.innerHTML = navHTML;
-
-    const enlacesNav = document.querySelectorAll('nav a');
-    enlacesNav.forEach(enlace => {
-        enlace.addEventListener('click', function(e) {
-            let destino = this.getAttribute('href');
-            if (!destino || destino.startsWith('http') || destino.startsWith('#')) return;
-
-            e.preventDefault();
-
-            let clave = 'clic_nido_' + destino;
-            try {
-                let actual = parseInt(localStorage.getItem(clave) || 0);
-                localStorage.setItem(clave, actual + 1);
-            } catch (err) {
-                console.error("Error al registrar clic en menú:", err);
-            }
-
-            setTimeout(() => {
-                window.location.href = destino;
-            }, 200);
-        });
-    });
-
-    // ----------------------------------------------------
-    // 3. MODO NOCTURNO
+    // 2. MODO NOCTURNO
     // ----------------------------------------------------
     if (!document.getElementById('btn-modo-nocturno')) {
         const btn = document.createElement('button');
@@ -101,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ----------------------------------------------------
-    // 4. REPRODUCTOR FLOTANTE DE AUDIO
+    // 3. REPRODUCTOR FLOTANTE DE AUDIO
     // ----------------------------------------------------
     const reproductorHTML = `
         <div class="audio-flotante" id="reproductorAudio">
@@ -211,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ----------------------------------------------------
-    // 5. BARRA DE PROGRESO DE SCROLL
+    // 4. BARRA DE PROGRESO DE SCROLL
     // ----------------------------------------------------
     if (!document.getElementById('scroll-progress')) {
         const progressBar = document.createElement('div');
@@ -230,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ----------------------------------------------------
-    // 6. ENLACES RELACIONADOS EN ARTÍCULOS DE LECTURA
+    // 5. ENLACES RELACIONADOS EN ARTÍCULOS DE LECTURA
     // ----------------------------------------------------
     const articleCards = document.querySelectorAll('.article-card');
     articleCards.forEach(card => {
@@ -248,30 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ----------------------------------------------------
-    // 7. CONTROL DEL MENÚ DESPLEGABLE "MÁS"
-    // ----------------------------------------------------
-    window.toggleDropdown = function(event) {
-        event.stopPropagation();
-        const dropdown = document.getElementById('moreDropdown');
-        if (dropdown) {
-            dropdown.classList.toggle('show');
-        }
-    };
-
-    window.addEventListener('click', function(event) {
-        if (!event.target.matches('.dropdown button')) {
-            const dropdowns = document.getElementsByClassName("dropdown");
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    });
-
-    // ----------------------------------------------------
-    // 8. DINÁMICA DE FONDOS ESTACIONALES
+    // 6. DINÁMICA DE FONDOS ESTACIONALES
     // ----------------------------------------------------
     const hoy = new Date();
     const mes = hoy.getMonth() + 1;
@@ -319,97 +236,4 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundAttachment = "fixed";
-
-    // ----------------------------------------------------
-    // 9. SISTEMA DE CLICS UNIVERSAL
-    // ----------------------------------------------------
-    function registrarClicSeguro(clave) {
-        try {
-            let actual = parseInt(localStorage.getItem(clave) || 0);
-            localStorage.setItem(clave, actual + 1);
-        } catch (e) {
-            console.error("Error al registrar clic:", e);
-        }
-    }
-
-    document.addEventListener('pointerdown', function(e) {
-        if (e.target.closest('nav')) return;
-
-        let botonPuzzle = e.target.closest('button');
-        if (botonPuzzle) {
-            let textoBoton = botonPuzzle.textContent.toLowerCase();
-            let onclickAttr = botonPuzzle.getAttribute('onclick') || '';
-            
-            if (textoBoton.includes('mezclar') || onclickAttr.includes('mezclarPuzzle')) {
-                registrarClicSeguro('clic_puzzles');
-                return;
-            } else if (textoBoton.includes('cambiar') || onclickAttr.includes('siguienteCuento')) {
-                registrarClicSeguro('clic_puzzle_cambiar');
-                return;
-            }
-        }
-
-        let enlace = e.target.closest('a');
-        if (!enlace) return;
-
-        let hrefOriginal = enlace.getAttribute('href');
-        if (!hrefOriginal || hrefOriginal.startsWith('#')) return;
-
-        let clave = '';
-        let hrefLower = hrefOriginal.toLowerCase();
-        let rutaLimpiaPdfOHtml = hrefOriginal.split('/').pop().split('?')[0].toLowerCase();
-
-        if (hrefLower.includes('podcast') || hrefLower.includes('episodio') || rutaLimpiaPdfOHtml.includes('podcast') || rutaLimpiaPdfOHtml.includes('episodio')) {
-            if (hrefLower.includes('rabietas')) {
-                clave = 'clic_podcast_1';
-            } else if (hrefLower.includes('mapa-buenas-noches')) {
-                clave = 'clic_podcast_2';
-            } else if (hrefLower.includes('celos-hermanos')) {
-                clave = 'clic_podcast_3';
-            } else {
-                let match = hrefOriginal.match(/(\d+)/);
-                clave = match ? 'clic_podcast_' + match[1] : 'clic_podcast';
-            }
-        } else if (hrefLower.includes('recurso') || hrefLower.includes('pdf/') || rutaLimpiaPdfOHtml.endsWith('.pdf')) {
-            let destinoLimpio = rutaLimpiaPdfOHtml.replace('.pdf', '').replace('.html', '');
-            clave = 'clic_recurso_' + destinoLimpio.replace(/recurso[_-]/, '');
-        } else if (hrefLower.includes('contacto') || hrefLower.includes('mailto:') || hrefLower.includes('pinterest')) {
-            if (hrefLower.includes('pinterest')) {
-                clave = 'clic_contacto_pinterest';
-            } else if (hrefLower.includes('mailto:')) {
-                clave = 'clic_contacto_correo';
-            } else {
-                clave = 'clic_contacto';
-            }
-        } else if (hrefLower.includes('audios')) {
-            clave = 'clic_cuentos_audios';
-        } else if (hrefLower.includes('texto') || hrefLower.includes('lectura-texto')) {
-            clave = 'clic_cuentos_texto';
-        } else if (hrefLower.includes('lectura') || hrefLower.includes('cuento')) {
-            let match = hrefOriginal.match(/(\d+)/);
-            clave = match ? 'clic_lectura_' + match[1] : 'clic_cuento';
-        } else if (hrefLower.includes('rutina')) {
-            clave = 'clic_index_rutina';
-        } else if (hrefLower.includes('coleccion') || hrefLower.includes('explorar') || rutaLimpiaPdfOHtml === 'cuentos.html') {
-            clave = 'clic_index_coleccion';
-        } else if (hrefLower.includes('puzzle') || hrefLower.includes('puzle')) {
-            clave = 'clic_puzzles';
-        } else if (hrefLower.includes('tuvoz') || hrefLower.includes('voz')) {
-            clave = 'clic_tuvoz_enviar';
-        } else {
-            let destinoLimpio = rutaLimpiaPdfOHtml.replace('.html', '');
-            clave = 'clic_' + (destinoLimpio || 'enlace');
-        }
-
-        if (clave) {
-            registrarClicSeguro(clave);
-
-            if (!enlace.target && !hrefOriginal.startsWith('http') && !hrefOriginal.startsWith('mailto:')) {
-                e.preventDefault();
-                setTimeout(() => {
-                    window.location.href = hrefOriginal;
-                }, 100);
-            }
-        }
-    });
 });

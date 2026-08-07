@@ -1,7 +1,7 @@
-function initMenu() {
+document.addEventListener("DOMContentLoaded", () => {
     const headerContainer = document.getElementById("menu-container");
 
-    if (headerContainer && !headerContainer.hasChildNodes()) {
+    if (headerContainer) {
         headerContainer.innerHTML = `
         <nav class="main-nav">
             <div class="logo-area">
@@ -57,8 +57,7 @@ function initMenu() {
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navMenuLinks");
 
-    if (toggleBtn && navLinks && !toggleBtn.dataset.bound) {
-        toggleBtn.dataset.bound = "true";
+    if (toggleBtn && navLinks) {
         toggleBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             navLinks.classList.toggle("active");
@@ -68,47 +67,33 @@ function initMenu() {
     // 2. Configuración de los desplegables adaptada a pantallas táctiles
     const dropBtns = document.querySelectorAll('.dropbtn');
     dropBtns.forEach(btn => {
-        if (!btn.dataset.bound) {
-            btn.dataset.bound = "true";
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                const dropdown = btn.closest('.dropdown');
-                
-                document.querySelectorAll('.dropdown').forEach(drop => {
-                    if (drop !== dropdown) drop.classList.remove('show');
-                });
-                
-                if (dropdown) {
-                    dropdown.classList.toggle('show');
-                }
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            const dropdown = btn.closest('.dropdown');
+            
+            document.querySelectorAll('.dropdown').forEach(drop => {
+                if (drop !== dropdown) drop.classList.remove('show');
             });
-        }
+            
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
+        });
     });
 
     // 3. Cierre automático al hacer tap fuera del menú
-    if (!window.navGlobalClickListenerSet) {
-        window.navGlobalClickListenerSet = true;
-        window.addEventListener('click', (e) => {
-            if (!e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown').forEach(drop => {
-                    drop.classList.remove('show');
-                });
+    window.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(drop => {
+                drop.classList.remove('show');
+            });
+        }
+        
+        if (navLinks && navLinks.classList.contains('active')) {
+            if (!navLinks.contains(e.target) && toggleBtn && !toggleBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
             }
-            
-            const currentToggle = document.getElementById("mobileMenuToggle");
-            const currentNavLinks = document.getElementById("navMenuLinks");
-            if (currentNavLinks && currentNavLinks.classList.contains('active')) {
-                if (!currentNavLinks.contains(e.target) && currentToggle && !currentToggle.contains(e.target)) {
-                    currentNavLinks.classList.remove('active');
-                }
-            }
-        });
-    }
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMenu);
-} else {
-    initMenu();
-}
+        }
+    });
+});
