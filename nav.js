@@ -48,11 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </nav>
         <div class="nido-flotante">
-            <img src="img/logo3dlimpio.png" alt="El Nido de Estrellas">
+            <img src="img/nido.webp" alt="El Nido de Estrellas">
         </div>
         `;
     }
 
+    // Configuración del botón hamburguesa móvil
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navMenuLinks");
 
@@ -64,17 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// Función global para manejar los desplegables asegurando compatibilidad táctil
 function toggleDropdown(event) {
     event.stopPropagation();
+    event.preventDefault(); // Previene comportamientos táctiles raros en móviles
     const dropdown = event.target.closest('.dropdown');
+    
+    // Cierra los demás desplegables abiertos
     document.querySelectorAll('.dropdown').forEach(drop => {
         if (drop !== dropdown) drop.classList.remove('show');
     });
+    
     if (dropdown) {
         dropdown.classList.toggle('show');
     }
 }
 
+// Cierre al hacer tap fuera del menú en pantallas táctiles
 window.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
         document.querySelectorAll('.dropdown').forEach(drop => {
