@@ -1083,7 +1083,7 @@ button:hover::after, .tarjeta:hover::after, .cuento-card:hover::after, .btn-magi
 }
 
 /* ==========================================
-   11. ELEMENTOS FLOTANTES Y EXTRAS (MODO NOCTURNO, AUDIO, ETC.)
+   11. ELEMENTOS FLOTANTES Y EXTRAS
    ================================---------- */
 #scroll-progress {
     position: fixed;
@@ -1233,7 +1233,7 @@ body.modo-nocturno-profundo p {
     padding: 6px;
     z-index: 1000;
     margin-top: 0px;
-    padding-top: 15px; /* Puente invisible que evita que se cierre el menú al mover el ratón */
+    padding-top: 15px; 
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
 }
@@ -1253,10 +1253,6 @@ body.modo-nocturno-profundo p {
 .dropdown-content a:hover {
     background-color: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
-}
-
-.dropdown.show .dropdown-content {
-    display: block;
 }
 
 .menu-links a.nav-estelar-btn {
@@ -1319,16 +1315,25 @@ body.modo-nocturno-profundo p {
         text-align: left;
     }
 
+    .dropdown {
+        width: 100%;
+    }
+
     .dropdown-content {
-        position: relative;
-        box-shadow: none;
-        background-color: transparent;
+        position: relative !important;
+        top: 0 !important;
+        right: auto !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        background-color: rgba(15, 22, 38, 0.6) !important;
+        border: none !important;
+        margin-top: 5px !important;
+        padding-top: 6px !important;
         display: none;
-        padding-top: 6px;
     }
 
     .dropdown.show .dropdown-content {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
     }
 
@@ -1358,15 +1363,6 @@ body.modo-nocturno-profundo p {
     }
 
     #btn-modo-nocturno {
-        top: 80px;
-        left: 15px;
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    #btn-modo-nocturno {
         top: 75px !important;
         left: auto !important;
         right: auto !important;
@@ -1374,15 +1370,6 @@ body.modo-nocturno-profundo p {
         width: 38px !important;
         height: 38px !important;
     }
-}
-
-/* Comportamiento de los desplegables */
-.dropdown .dropdown-content {
-    display: none;
-}
-
-.dropdown.show .dropdown-content {
-    display: block !important;
 }
 
 @media (min-width: 769px) {
