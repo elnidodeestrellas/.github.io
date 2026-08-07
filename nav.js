@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </nav>
         <div class="nido-flotante">
-            <img src="img/nido.webp" alt="El Nido de Estrellas">
+            <img src="img/logo3dlimpio.png" alt="El Nido de Estrellas">
         </div>
         `;
     }
@@ -76,14 +76,12 @@ function toggleDropdown(event) {
 }
 
 window.addEventListener('click', (e) => {
-    // Cerrar los desplegables si se hace clic fuera de ellos
     if (!e.target.closest('.dropdown')) {
         document.querySelectorAll('.dropdown').forEach(drop => {
             drop.classList.remove('show');
         });
     }
     
-    // Cerrar el menú móvil solo si se hace clic fuera del menú y fuera del botón hamburguesa
     const navLinks = document.getElementById("navMenuLinks");
     const toggleBtn = document.getElementById("mobileMenuToggle");
     if (navLinks && navLinks.classList.contains('active')) {
