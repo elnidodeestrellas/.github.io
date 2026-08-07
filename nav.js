@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="proyecto.html">📊 Proyecto</a>
                 
                 <div class="dropdown" id="healthDropdown">
-                    <button class="dropbtn" type="button" onclick="toggleDropdown(event)">🩺 Salud y Bienestar ▾</button>
+                    <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
                         <a href="diabetesInfantil.html">🩺 Diabetes Infantil</a>
                         <a href="obesidadinfantil.html">🥗 Obesidad Infantil</a>
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 <div class="dropdown" id="creativeDropdown">
-                    <button class="dropbtn" type="button" onclick="toggleDropdown(event)">✨ Creativo ▾</button>
+                    <button class="dropbtn" type="button">✨ Creativo ▾</button>
                     <div class="dropdown-content">
                         <a href="podcast.html">🎙️ Podcast</a>
                         <a href="puzzles.html">🧩 Puzles</a>
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 <div class="dropdown" id="communityDropdown">
-                    <button class="dropbtn" type="button" onclick="toggleDropdown(event)">💬 Comunidad ▾</button>
+                    <button class="dropbtn" type="button">💬 Comunidad ▾</button>
                     <div class="dropdown-content">
                         <a href="tuvoz.html">⭐ Tu voz</a>
                         <a href="contacto.html">✉️ Contacto</a>
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    // Configuración del botón hamburguesa móvil
+    // 1. Configuración del botón hamburguesa móvil
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navMenuLinks");
 
@@ -63,37 +63,39 @@ document.addEventListener("DOMContentLoaded", () => {
             navLinks.classList.toggle("active");
         });
     }
-});
 
-// Función global para manejar los desplegables asegurando compatibilidad táctil
-function toggleDropdown(event) {
-    event.stopPropagation();
-    event.preventDefault(); // Previene comportamientos táctiles raros en móviles
-    const dropdown = event.target.closest('.dropdown');
-    
-    // Cierra los demás desplegables abiertos
-    document.querySelectorAll('.dropdown').forEach(drop => {
-        if (drop !== dropdown) drop.classList.remove('show');
-    });
-    
-    if (dropdown) {
-        dropdown.classList.toggle('show');
-    }
-}
-
-// Cierre al hacer tap fuera del menú en pantallas táctiles
-window.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown').forEach(drop => {
-            drop.classList.remove('show');
+    // 2. Configuración de los desplegables adaptada a pantallas táctiles
+    const dropBtns = document.querySelectorAll('.dropbtn');
+    dropBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            const dropdown = btn.closest('.dropdown');
+            
+            // Cierra el resto de desplegables abiertos
+            document.querySelectorAll('.dropdown').forEach(drop => {
+                if (drop !== dropdown) drop.classList.remove('show');
+            });
+            
+            // Alterna el estado del desplegable actual
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
         });
-    }
-    
-    const navLinks = document.getElementById("navMenuLinks");
-    const toggleBtn = document.getElementById("mobileMenuToggle");
-    if (navLinks && navLinks.classList.contains('active')) {
-        if (!navLinks.contains(e.target) && toggleBtn && !toggleBtn.contains(e.target)) {
-            navLinks.classList.remove('active');
+    });
+
+    // 3. Cierre automático al hacer tap fuera del menú
+    window.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(drop => {
+                drop.classList.remove('show');
+            });
         }
-    }
+        
+        if (navLinks && navLinks.classList.contains('active')) {
+            if (!navLinks.contains(e.target) && toggleBtn && !toggleBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        }
+    });
 });
