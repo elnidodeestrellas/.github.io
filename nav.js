@@ -1,19 +1,17 @@
-// nav.js - estructura optimizada y profesional
-
 document.addEventListener("DOMContentLoaded", () => {
     const headerContainer = document.getElementById("menu-container");
 
     if (headerContainer) {
         headerContainer.innerHTML = `
-        <nav>
+        <nav class="main-nav">
             <div class="logo-area">
-                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                    <img src="img/logo3dlimpio.png" alt="El Nido de Estrellas" class="logo-img" style="width: 50px; height: 50px; object-fit: contain;">
+                <a href="index.html" class="logo-link">
+                    <img src="img/logo3dlimpio.png" alt="El Nido de Estrellas" class="logo-img">
                     <h2>El Nido de Estrellas</h2>
                 </a>
             </div>
             
-            <button class="menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú">
+            <button class="menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú" type="button">
                 ☰
             </button>
 
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="proyecto.html">📊 Proyecto</a>
                 
                 <div class="dropdown" id="healthDropdown">
-                    <button class="dropbtn" onclick="toggleDropdown(event)">🩺 Salud y Bienestar ▾</button>
+                    <button class="dropbtn" type="button" onclick="toggleDropdown(event)">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
                         <a href="diabetesInfantil.html">🩺 Diabetes Infantil</a>
                         <a href="obesidadinfantil.html">🥗 Obesidad Infantil</a>
@@ -33,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 <div class="dropdown" id="creativeDropdown">
-                    <button class="dropbtn" onclick="toggleDropdown(event)">✨ Creativo ▾</button>
+                    <button class="dropbtn" type="button" onclick="toggleDropdown(event)">✨ Creativo ▾</button>
                     <div class="dropdown-content">
                         <a href="podcast.html">🎙️ Podcast</a>
                         <a href="puzzles.html">🧩 Puzles</a>
@@ -41,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 <div class="dropdown" id="communityDropdown">
-                    <button class="dropbtn" onclick="toggleDropdown(event)">💬 Comunidad ▾</button>
+                    <button class="dropbtn" type="button" onclick="toggleDropdown(event)">💬 Comunidad ▾</button>
                     <div class="dropdown-content">
                         <a href="tuvoz.html">⭐ Tu voz</a>
                         <a href="contacto.html">✉️ Contacto</a>
@@ -49,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         </nav>
+        <div class="nido-flotante">
+            <img src="img/logo3dlimpio.png" alt="El Nido de Estrellas">
+        </div>
         `;
     }
 
@@ -56,7 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.getElementById("navMenuLinks");
 
     if (toggleBtn && navLinks) {
-        toggleBtn.addEventListener("click", () => {
+        toggleBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle("active");
         });
     }
@@ -77,4 +79,8 @@ window.addEventListener('click', () => {
     document.querySelectorAll('.dropdown').forEach(drop => {
         drop.classList.remove('show');
     });
+    const navLinks = document.getElementById("navMenuLinks");
+    if (navLinks && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+    }
 });
