@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </nav>
         <div class="nido-flotante">
-            <img src="img/nido.webp" alt="El Nido de Estrellas">
+            <img src="img/logo3dlimpio.png" alt="El Nido de Estrellas">
         </div>
         `;
     }
