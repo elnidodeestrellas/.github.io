@@ -60,6 +60,13 @@ nav {
     gap: 12px;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+}
+
 .logo-area h2 {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
