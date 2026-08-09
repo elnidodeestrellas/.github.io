@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cáncer infantil: Próximamente | El Nido de Estrellas</title>
-    <meta name="description" content="Estamos preparando este espacio con rigor y sensibilidad. Próximamente disponible en El Nido de Estrellas.">
+    <title>Caminar con esperanza: comprendiendo el cáncer infantil | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía humana, rigurosa y profundamente empática para acompañar a las familias en el camino del cáncer infantil, desde el diagnóstico hasta la vida después.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -12,15 +12,33 @@
     <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
             async src="https://gc.zgo.at/count.js"></script>
     <style>
+        /* Paleta y diseño especial y cálido para este espacio */
+        body {
+            background-color: #f7f5f0;
+            color: #2c3e50;
+        }
         .cuento-caja {
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            text-align: center;
-            padding: 40px 20px;
+            background-color: #ffffff !important;
+            border: 1px solid rgba(184, 148, 74, 0.3) !important;
+            box-shadow: 0 12px 35px rgba(44, 62, 80, 0.08) !important;
+            color: #2c3e50 !important;
+        }
+        .cuento-caja h1, .hito-info h2 {
+            color: #1e293b !important;
+        }
+        .cuento-caja p {
+            color: #475569 !important;
+        }
+        .camino-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-top: 30px;
+            margin-bottom: 40px;
         }
         .header-imagen-wrapper {
             width: 100%;
-            max-height: 420px;
+            max-height: 440px;
             overflow: hidden;
             border-radius: 12px;
             margin-bottom: 25px;
@@ -31,50 +49,104 @@
             object-fit: cover;
             display: block;
         }
-        .contenido-articulo {
-            line-height: 1.8;
-            color: #e2e8f0;
-            max-width: 700px;
-            margin: 0 auto;
+        /* Bloque de agradecimientos con fondo tenue y elegante */
+        .bloque-agradecimientos {
+            background: #faf8f5;
+            border: 1px solid rgba(184, 148, 74, 0.25);
+            border-left: 4px solid #b8944a;
+            padding: 24px;
+            border-radius: 0 10px 10px 0;
+            margin: 25px 0 35px 0;
+            box-shadow: inset 0 0 15px rgba(184, 148, 74, 0.04);
         }
-        .contenido-articulo h1 {
+        .bloque-agradecimientos p {
+            margin: 0;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #475569 !important;
+        }
+        /* Tarjeta horizontal con tonos cálidos y acogedores */
+        .hito-card {
+            display: flex;
+            background: #faf8f5;
+            border: 1px solid rgba(184, 148, 74, 0.25);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hito-card:hover {
+            transform: translateY(-2px);
+            border-color: #b8944a;
+            background: #ffffff;
+            box-shadow: 0 6px 20px rgba(184, 148, 74, 0.12);
+        }
+        /* Estilo destacado exclusivo para la tarjeta especial de tipos de cáncer */
+        .hito-card-especial {
+            background: linear-gradient(135deg, rgba(184, 148, 74, 0.12), #faf8f5);
+            border: 2px solid #b8944a;
+        }
+        .hito-imagen {
+            width: 320px;
+            min-width: 320px;
+            overflow: hidden;
+        }
+        .hito-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .hito-card:hover .hito-imagen img {
+            transform: scale(1.03);
+        }
+        .hito-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hito-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9a732a;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .hito-info h2 {
             font-family: 'Quicksand', sans-serif;
-            font-size: 2rem;
-            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .hito-info p {
+            color: #64748b !important;
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 15px;
         }
-        .subrayado-titulo {
-            display: block;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--color-acento, #d4af37), transparent);
-            margin: 0 auto 25px auto;
-            width: 150px;
-        }
-        .contenido-articulo p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-        .caja-reflexion {
-            background-color: rgba(212, 175, 55, 0.08);
-            border-left: 3px solid var(--color-acento, #d4af37);
-            padding: 22px;
-            margin: 30px 0;
-            border-radius: 0 8px 8px 0;
-            color: #fff;
-            text-align: left;
-            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05);
-        }
-        .boton-volver {
-            display: inline-block;
-            margin-top: 25px;
+        .hito-enlace {
             font-weight: 600;
-            color: var(--color-acento, #d4af37);
-            text-decoration: none;
-            transition: opacity 0.2s;
+            font-size: 0.9rem;
+            color: #9a732a;
         }
-        .boton-volver:hover {
-            opacity: 0.8;
-            text-decoration: underline;
+        footer {
+            color: #64748b;
+        }
+        footer a {
+            color: #9a732a !important;
+        }
+        @media (max-width: 768px) {
+            .hito-card {
+                flex-direction: column;
+            }
+            .hito-imagen {
+                width: 100%;
+                height: 200px;
+                min-width: unset;
+            }
         }
     </style>
 </head>
@@ -86,26 +158,150 @@
     <main class="main-content">
         <article class="cuento-caja">
             
+            <!-- Imagen de cabecera integrada -->
             <div class="header-imagen-wrapper">
-                <img src="imgcancer/cancerinfantil.webp" alt="Ilustración provisional indicando que estamos trabajando en este contenido">
+                <img src="imgcancer/portada.webp" alt="Fotografía evocadora de luz y esperanza en la infancia">
             </div>
 
-            <span class="pilar-tag">Próximamente</span>
-            <h1>Sección en desarrollo</h1>
-            <div class="subrayado-titulo"></div>
+            <h1>Caminar con esperanza: comprendiendo el cáncer infantil</h1>
             
-            <div class="contenido-articulo">
-                <p>Estamos trabajando con todo el rigor, el cuidado y la sensibilidad que este tema merece para ofrecerte una guía completa, basada en fuentes oficiales y redactada con la cercanía que nos caracteriza.</p>
-
-                <div class="caja-reflexion">
-                    <p style="margin: 0; font-style: italic;">“Cada contenido requiere su tiempo de gestación para asegurar que aporte un valor real y humano a quienes nos visitan.”</p>
-                </div>
-
-                <p>Muy pronto habilitaremos este espacio con toda la información necesaria. Gracias por tu paciencia y confianza.</p>
-
-                <a href="index.html" class="boton-volver">➔ Volver al inicio</a>
+            <p>Este es un espacio que nace desde lo más hondo de las entrañas y del corazón, un recorrido que me toca muy de cerca en lo personal. Afrontar el cáncer en la infancia es el reto más difícil al que puede enfrentarse una familia, y por eso he querido reunir aquí una guía construida con el respeto más absoluto, el rigor médico necesario y un acompañamiento humano inquebrantable. Un mapa paso a paso para disipar miedos, entender los tratamientos, cuidar la unión familiar y sostener la esperanza en cada etapa del camino. Pincha en cada etapa para profundizar.</p>
+            
+            <!-- BLOQUE DE AGRADECIMIENTOS CON FONDO TENUE -->
+            <div class="bloque-agradecimientos">
+                <p><strong>Un profundo agradecimiento:</strong> Esta guía no existiría sin la labor incansable, la vocación y la humanidad desbordante de los médicos, oncólogos pediátricos, enfermeras, psicooncólogos y personal sanitario que sostienen cada día los hospitales. Nuestro más sincero reconocimiento también a las asociaciones de cáncer infantil, voluntarios y entidades sociales que acompañan sin descanso a las familias, convirtiendo la ciencia y la solidaridad en un auténtico faro de esperanza.</p>
             </div>
 
+            <div class="camino-grid">
+                
+                <!-- TARJETA ESPECIAL: TIPOS DE CÁNCER -->
+                <a href="cancer-tipos.html" class="hito-card hito-card-especial">
+                    <div class="hito-imagen"><img src="imgcancer/tipos.webp" alt="Representación clara y divulgativa de los tipos de cáncer infantil"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Sección Especial</span>
+                        <h2>Comprendiendo los tipos de cáncer infantil</h2>
+                        <p>Un recorrido divulgativo, riguroso y accesible para entender las principales tipologías tumorales en la infancia (leucemias, linfomas, tumores cerebrales y óseos), despojando a los términos médicos de su complejidad.</p>
+                        <span class="hito-enlace">Explorar sección especial ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 1 -->
+                <a href="cancer-introduccion.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/introduccion.webp" alt="Imagen de luz y acogida familiar"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 01</span>
+                        <h2>La luz en medio de la tormenta</h2>
+                        <p>Cómo afrontar el impacto inicial del diagnóstico, perdiendo el miedo al nombre de la enfermedad y transformando el desconcierto en una red de apoyo firme y amorosa.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 2 -->
+                <a href="cancer-medicos.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/medicos.webp" alt="Entorno hospitalario humano y cercano"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 02</span>
+                        <h2>Nuestros aliados en el camino</h2>
+                        <p>La importancia vital de confiar en los especialistas en oncología pediátrica, entender los procesos clínicos sin saturarse y convertir el hospital en un entorno seguro.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 3 -->
+                <a href="cancer-realidad.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/explicar.webp" alt="Comunicación sincera y cercana en familia"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 03</span>
+                        <h2>Poner nombre a la realidad</h2>
+                        <p>La importancia de comunicar el diagnóstico con honestidad, claridad y lenguaje adaptado a la infancia para disipar miedos y construir un vínculo de confianza inquebrantable.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 4 -->
+                <a href="cancer-sencillo.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/sencillo.webp" alt="Explicar los tratamientos médicos con cercanía"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 04</span>
+                        <h2>Hacer sencillo lo complejo</h2>
+                        <p>Estrategias y metáforas sencillas para explicar los tratamientos médicos oncológicos a los niños sin tecnicismos ni miedos innecesarios.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 5 -->
+                <a href="cancer-tratamientos.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/tratamientos.webp" alt="Rutinas y momentos de calma en casa"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 05</span>
+                        <h2>Rutinas y resiliencia en casa</h2>
+                        <p>Cómo gestionar las quimioterapias, las bajadas de defensas y los cambios en la rutina diaria manteniendo espacios vivos de normalidad, juego y afecto.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 6 -->
+                <a href="cancer-emocional.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/emocional.webp" alt="Abrazo de apoyo y contención familiar"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 06</span>
+                        <h2>Sostenernos para poder sostener</h2>
+                        <p>Cuidar la salud mental de los padres, gestionar la incertidumbre cotidiana y atender con delicadeza las necesidades emocionales de los hermanos.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 7 -->
+                <a href="cancer-colegio.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/colegio.webp" alt="Conexión cálida con el entorno escolar"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 07</span>
+                        <h2>El vínculo con la escuela</h2>
+                        <p>Cómo coordinar la continuidad escolar, el contacto cercano con los profesores y compañeros, y mantener vivo el sentido de pertenencia al grupo.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 8 -->
+                <a href="cancer-alimentacion.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/alimentacion.webp" alt="Bienestar físico y nutrición adaptada"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 08</span>
+                        <h2>Nutrir la fuerza y la energía</h2>
+                        <p>Pautas oncológicas adaptadas para cuidar la alimentación, el descanso, el confort corporal y la energía durante las distintas fases del tratamiento.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 9 -->
+                <a href="cancer-crisis.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/crisis.webp" alt="Calma y seguridad en momentos difíciles"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 09</span>
+                        <h2>Navegando los días difíciles</h2>
+                        <p>Cómo actuar ante la fiebre, las complicaciones o los momentos de mayor desgaste físico, encontrando siempre un ancla firme en la esperanza médica.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+                <!-- HITO 10 -->
+                <a href="cancer-futuro.html" class="hito-card">
+                    <div class="hito-imagen"><img src="imgcancer/futuro.webp" alt="Mirada hacia un futuro lleno de horizontes abiertos"></div>
+                    <div class="hito-info">
+                        <span class="hito-tag">Capítulo 10</span>
+                        <h2>Mirando hacia el futuro</h2>
+                        <p>La vuelta progresiva a la normalidad, la superación de los controles médicos periódicos y la construcción de una infancia llena de horizontes abiertos.</p>
+                        <span class="hito-enlace">Acompañar este paso ➔</span>
+                    </div>
+                </a>
+
+            </div>
+            <!-- Enlace de retorno al final del artículo -->
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(184, 148, 74, 0.2); text-align: left;">
+            <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: #e2b763; text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                <span>← Volver a Guías de Salud y Bienestar</span>
+            </a>
+        </div>
         </article>
     </main>
 

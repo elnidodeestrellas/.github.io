@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprendiendo los tipos de cáncer infantil | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía clínica clara, divulgativa y profundamente humana para entender las principales tipologías del cáncer infantil sin tecnicismos innecesarios.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        /* Forzar colores oscuros y legibles para este espacio claro */
+        body, p, li, span {
+            color: #475569 !important;
+        }
+        h1, h2, h3 {
+            color: #1e293b !important;
+        }
+        body {
+            background-color: #f7f5f0;
+        }
+        .cuento-caja {
+            background-color: #ffffff !important;
+            border: 1px solid rgba(184, 148, 74, 0.3) !important;
+            box-shadow: 0 12px 35px rgba(44, 62, 80, 0.08) !important;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 440px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .contenido-articulo {
+            line-height: 1.8;
+            color: #475569 !important;
+        }
+        .contenido-articulo h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+        .contenido-articulo h2 {
+            margin-top: 45px;
+            margin-bottom: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contenido-articulo h2::before {
+            content: "✦";
+            color: #b8944a;
+            font-size: 1.1rem;
+        }
+        .subrayado-titulo {
+            display: block;
+            height: 2px;
+            background: linear-gradient(90deg, #b8944a, transparent);
+            margin-bottom: 25px;
+            margin-top: 5px;
+            width: 100%;
+        }
+        .contenido-articulo p {
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        .contenido-articulo ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        .contenido-articulo li {
+            margin-bottom: 10px;
+            color: #475569 !important;
+        }
+        
+        /* Cajas destacadas de gran visibilidad para cada tipo de cáncer */
+        .bloque-tipo-cancer {
+            background: #faf8f5;
+            border-left: 4px solid #b8944a;
+            border-top: 1px solid rgba(184, 148, 74, 0.2);
+            border-right: 1px solid rgba(184, 148, 74, 0.2);
+            border-bottom: 1px solid rgba(184, 148, 74, 0.2);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.04);
+        }
+        .bloque-tipo-cancer h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            color: #1e293b !important;
+            margin-top: 0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .bloque-tipo-cancer p {
+            margin-bottom: 15px;
+        }
+        .bloque-tipo-cancer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .caja-reflexion {
+            background-color: rgba(184, 148, 74, 0.08);
+            border-left: 3px solid #b8944a;
+            padding: 22.5px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: inset 0 0 15px rgba(184, 148, 74, 0.05);
+        }
+        .caja-reflexion p {
+            margin: 0;
+            font-style: italic;
+            color: #334155 !important;
+        }
+        .boton-volver {
+            display: inline-block;
+            margin-top: 35px;
+            font-weight: 600;
+            color: #9a732a !important;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .boton-volver:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        footer {
+            color: #64748b !important;
+        }
+        footer a {
+            color: #9a732a !important;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <!-- Imagen de cabecera integrada -->
+            <div class="header-imagen-wrapper">
+                <img src="imgcancer/tipos.webp" alt="Representación científica clara, divulgativa y accesible de los tipos de cáncer infantil">
+            </div>
+
+            <div class="contenido-articulo">
+                <h1>Sección Especial: Comprendiendo los tipos de cáncer infantil</h1>
+                
+                <p>Cuando se pronuncia por primera vez la palabra "cáncer", la mente tiende a visualizar un bloque único y amenazante. Sin embargo, en el ámbito de la pediatría, esta realidad es muy diversa. A diferencia del cáncer en los adultos —que suele estar estrechamente vinculado a factores ambientales o hábitos de vida—, los tumores infantiles se originan fundamentalmente por alteraciones en el desarrollo celular durante el crecimiento.</p>
+                
+                <p>Conocer los grandes grupos tumorales sin perderse en tecnicismos médicos es una herramienta de incalculable valor para los padres. Perder el miedo a los nombres clínicos ayuda a entender qué ocurre en el organismo y por qué los tratamientos actuales alcanzan tasas de curación tan elevadas.</p>
+
+                <h2>Los grandes grupos de la oncología pediátrica</h2>
+                <div class="subrayado-titulo"></div>
+                
+                <p>Los tumores infantiles se clasifican principalmente según el tejido o la zona del cuerpo donde se originan. A continuación, desglosamos de forma clara y accesible las cuatro tipologías principales que agrupan a la gran mayoría de los casos:</p>
+
+                <!-- BLOQUE 1: LEUCEMIAS -->
+                <div class="bloque-tipo-cancer">
+                    <h3>1. Leucemias (Cáncer en la sangre y médula ósea)</h3>
+                    <p><strong>Qué son:</strong> Son con diferencia los tumores más fréquentes en la infancia (representan cerca de un tercio de todos los casos). No forman un bulto o tumor sólido, sino que se originan en la médula ósea —la fábrica interna de la sangre—, provocando que los glóbulos blancos se multipliquen de forma desordenada y pierdan su capacidad de defender al organismo.</p>
+                    <p><strong>Cómo se manifiestan:</strong> Suelen detectarse debido a un cansancio persistente, palidez, aparición de pequeños hematomas sin causa aparente, pequeñas manchas rojas en la piel (petequias) o fiebres de origen desconocido.</p>
+                    <p><strong>Enfoque clínico:</strong> Al no requerir cirugía para extirpar un tumor localizado, el tratamiento se basa fundamentalmente en protocolos de quimioterapia sistémica muy avanzados que limpian la médula y restablecen la producción sana de sangre.</p>
+                </div>
+
+                <!-- BLOQUE 2: TUMORES CEREBRALES -->
+                <div class="bloque-tipo-cancer">
+                    <h3>2. Tumores del sistema nervioso central (Cerebro y médula espinal)</h3>
+                    <p><strong>Qué son:</strong> Representan el segundo grupo más frecuente en los niños. Se originan en las células del tejido cerebral o del cerebelo. Al encontrarse dentro del cráneo, el espacio es reducido, por lo que los síntomas suelen derivar de la presión que el tumor ejerce sobre las estructuras vecinas.</p>
+                    <p><strong>Cómo se manifiestan:</strong> Dolores de cabeza frecuentes (especialmente por las mañanas), náuseas o vómitos al despertar, alteraciones en la visión, pérdida de equilibrio, torpeza al caminar o cambios bruscos en el rendimiento escolar y la coordinación motora.</p>
+                    <p><strong>Enfoque clínico:</strong> Requieren un abordaje multidisciplinar muy preciso que combina la neurocirugía especializada para extirpar la mayor parte posible del tejido afectado, apoyada posteriormente por tratamientos de radioterapia (según la edad del niño) y quimioterapia.</p>
+                </div>
+
+                <!-- BLOQUE 3: LINFOMAS -->
+                <div class="bloque-tipo-cancer">
+                    <h3>3. Linfomas (Cáncer del sistema linfático)</h3>
+                    <p><strong>Qué son:</strong> Los linfomas afectan al sistema linfático, que es la red de defensa del cuerpo encargada de combatir las infecciones (incluyendo los ganglios linfáticos, el bazo y la médula ósea). Se dividen principalmente en dos grandes subtipos: linfoma de Hodgkin y linfoma no Hodgkin.</p>
+                    <p><strong>Cómo se manifiestan:</strong> El signo más común es la inflamación indolora de los ganglios linfáticos, especialmente en el cuello, las axilas o las ingles. A veces se acompaña de sudores nocturnos intensos, pérdida inexplicable de peso o fiebre prolongada.</p>
+                    <p><strong>Enfoque clínico:</strong> Responden de manera muy favorable a los tratamientos actuales. Su abordaje principal se apoya en ciclos de quimioterapia altamente eficaces, combinados en ocasiones con radioterapia localizada.</p>
+                </div>
+
+                <!-- BLOQUE 4: TUMORES SÓLIDOS Y ÓSEOS -->
+                <div class="bloque-tipo-cancer">
+                    <h3>4. Tumores sólidos y óseos (Neuroblastomas, sarcomas y otros)</h3>
+                    <p><strong>Qué son:</strong> Este grupo abarca una gran variedad de masas tumorales que crecen en órganos o tejidos concretos. Entre ellos destacan el <em>neuroblastoma</em> (que se origina en el sistema nervioso simpático, a menudo en las glándulas suprarrenales), el <em>tumor de Wilms</em> (en los riñones) y los sarcomas óseos (que afectan a los huesos en crecimiento).</p>
+                    <p><strong>Cómo se manifiestan:</strong> Suelen presentarse como bultos o masas palpables en el abdomen, dolores óseos localizados que cojean o empeoran por la noche, o inflamaciones inusuales en las extremidades.</p>
+                    <p><strong>Enfoque clínico:</strong> Su tratamiento suele ser combinado e integral: incluye cirugía para extirpar el tumor sólido, ciclos de quimioterapia para reducir su tamaño o eliminar células dispersas, y radioterapia según la localización exacta.</p>
+                </div>
+
+                <div class="caja-reflexion">
+                    <p>"Detrás de cada nombre clínico, de cada clasificación médica y de cada protocolo hay una realidad individual: un niño o niña con nombre propio cuya fuerza interior supera con creces cualquier estadística."</p>
+                </div>
+
+                <h2>La ciencia al servicio de la esperanza</h2>
+                <div class="subrayado-titulo"></div>
+                
+                <p>Comprender estas tipologías no busca generar un exceso de información técnica, sino disipar el misterio paralizante que a veces acompaña al diagnóstico. La oncología pediátrica actual es uno de los campos de la medicina que mayor evolución y éxito ha experimentado en las últimas décadas, logrando que una amplísima mayoría de los pequeños pacientes superen la enfermedad y recuperen una vida plena.</p>
+
+                <a href="cancerinfantil.html" class="boton-volver">➔ Volver al índice general de la guía</a>
+            </div>
+            
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
