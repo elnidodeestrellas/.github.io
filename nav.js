@@ -23,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="dropdown" id="healthDropdown">
                     <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
-                        <a href="diabetesInfantil.html">🩺 Diabetes Infantil</a>
-                        <a href="obesidadinfantil.html">🥗 Obesidad Infantil</a>
-                        <a href="cancerinfantil.html">🎗️ Cáncer Infantil</a>
+                        <a href="guiasSalud.html">📋 Guías de Salud</a>
                         <a href="rinconlectura.html">📖 Rincón de Lectura</a>
                     </div>
                 </div>

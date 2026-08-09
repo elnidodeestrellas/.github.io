@@ -17,7 +17,6 @@
     <style>
         .main-content { background-color: transparent !important; }
 
-        /* Estilos de diseño elegante y depurado para el Inicio */
         .encabezado-inicio {
             text-align: center;
             margin-bottom: 50px;
@@ -28,8 +27,7 @@
             margin-bottom: 25px;
         }
 
-        /* Tarjetas con efecto glassmorphism sutil y profundidad */
-        .introduccion-texto, .detalles-grid, .invitacion-proyecto-card, .banner-recurso-gratis {
+        .introduccion-texto, .detalles-grid, .invitacion-proyecto-card, .banner-recurso-gratis, .banner-guias-salud {
             background: rgba(22, 33, 62, 0.45);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(241, 196, 66, 0.2);
@@ -40,19 +38,19 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .introduccion-texto h2, .detalles-grid h3, .invitacion-proyecto-card h3, .banner-recurso-gratis h3 {
+        .introduccion-texto h2, .detalles-grid h3, .invitacion-proyecto-card h3, .banner-recurso-gratis h3, .banner-guias-salud h3 {
             font-family: 'Quicksand', sans-serif;
             color: #f1c442;
             margin-top: 0;
         }
 
-        .introduccion-texto p, .detalle-lista p, .invitacion-proyecto-card p, .banner-recurso-gratis p {
+        .introduccion-texto p, .detalle-lista p, .invitacion-proyecto-card p, .banner-recurso-gratis p, .banner-guias-salud p {
             color: #e2e8f0;
             font-size: 16px;
             line-height: 1.8;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Ajuste específico para la cuadrícula de beneficios */
         .detalles-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -89,7 +87,6 @@
             color: #cbd5e0;
         }
 
-        /* Tarjeta de invitación al proyecto */
         .invitacion-proyecto-card {
             text-align: center;
             background: linear-gradient(135deg, rgba(42, 35, 86, 0.5), rgba(22, 33, 62, 0.7));
@@ -99,7 +96,6 @@
             margin: 0 auto 25px auto;
         }
 
-        /* Banner de recurso destacado */
         .banner-recurso-gratis {
             text-align: center;
         }
@@ -108,7 +104,20 @@
             margin: 0 auto 25px auto;
         }
 
-        /* Transiciones fluidas en botones */
+        /* Estilo unificado y armónico para el banner de guías de salud */
+        .banner-guias-salud {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(184, 148, 74, 0.15), rgba(22, 33, 62, 0.7));
+            border-color: rgba(184, 148, 74, 0.4);
+        }
+        .banner-guias-salud h3 {
+            color: #f1c442;
+        }
+        .banner-guias-salud p {
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+
         .btn-principal, .btn-secundario {
             transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
             display: inline-block;
@@ -125,7 +134,6 @@
     </style>
 </head>
 <body>
-   <!-- Menú de navegación automatizado mediante nav.js -->
    <div id="menu-container"></div>
 
     <main class="main-content">
@@ -137,54 +145,56 @@
             </div>
         </div>
 
-        <!-- INTRODUCCIÓN PRINCIPAL -->
         <section class="introduccion-texto">
-            <h2>Un refugio de calma para el final del día</h2>
+            <h2>Un refugio de calma y apoyo para las familias</h2>
             <p>Acompañamos a tus hijos en el viaje hacia el descanso, transformando la rutina nocturna en un momento de conexión, aprendizaje y paz profunda.</p>
-            <p>Bienvenido a El Nido de Estrellas, un espacio creado con el propósito de brindar serenidad al hogar. Sabemos que el momento de dormir es crucial para el desarrollo de los más pequeños, y por eso hemos diseñado una serie de cuentos terapéuticos que van más allá del entretenimiento.</p>
+            <p>Bienvenido a El Nido de Estrellas, un espacio creado con el propósito de brindar serenidad al hogar. Más allá de nuestras historias para dormir, nuestro compromiso es ofrecer a los padres un apoyo integral y riguroso, abordando a través de guías especializadas los temas más importantes sobre la salud, el desarrollo y el bienestar en la infancia.</p>
         </section>
 
-        <!-- SECCIÓN DE BENEFICIOS CON LA ILUSTRACIÓN -->
         <section class="detalles-grid">
             <div class="detalle-ilustracion">
                 <img src="img/nido-luna.webp" alt="Ilustración de El Nido de Estrellas" loading="lazy">
             </div>
             
             <div class="detalle-lista">
-                <h3>A través de nuestras historias, ayudamos a los niños a:</h3>
+                <h3>A través de nuestros contenidos, ayudamos a las familias a:</h3>
                 
                 <div class="beneficio-item">
-                    <strong>• Gestionar sus emociones:</strong>
+                    <strong>• Gestionar las emociones:</strong>
                     <p>Desde los miedos cotidianos hasta las alegrías compartidas, ofrecemos un lugar seguro donde cada sentimiento es validado.</p>
                 </div>
 
                 <div class="beneficio-item">
-                    <strong>• Practicar la higiene del sueño:</strong>
-                    <p>Integramos técnicas de mindfulness y respiración guiada para que la mente se despeje y el cuerpo se relaje de forma natural.</p>
+                    <strong>• Cuidar el descanso y la salud:</strong>
+                    <p>Integramos técnicas de higiene del sueño y guías médicas y de desarrollo accesibles para acompañar cada etapa del crecimiento infantil.</p>
                 </div>
 
                 <div class="beneficio-item">
-                    <strong>• Construir hábitos saludables:</strong>
-                    <p>Nuestras narraciones, de ritmo pausado y envolvente, preparan al cerebro para un descanso reparador, facilitando una transición tranquila hacia el sueño.</p>
+                    <strong>• Construir un hogar sereno:</strong>
+                    <p>Nuestras narraciones de ritmo pausado y nuestros recursos prácticos preparan el terreno para una convivencia respetuosa y un descanso reparador.</p>
                 </div>
             </div>
         </section>
 
-        <!-- TARJETA DE INVITACIÓN AL PROYECTO -->
         <section class="invitacion-proyecto-card">
             <h3>¿Quién hay detrás de este nido?</h3>
             <p>Este espacio no responde a grandes planes corporativos, sino a la observación cercana de las necesidades reales de las familias. Si quieres conocer nuestra filosofía, el origen del proyecto y el propósito humano que lo impulsa, te invitamos a leerlo con calma.</p>
             <a href="proyecto.html" class="btn-secundario">Conocer Nuestro Proyecto</a>
         </section>
 
-        <!-- BANNER DE RECURSO DESTACADO -->
         <section class="banner-recurso-gratis">
             <h3>¿Te cuesta preparar la rutina de la noche?</h3>
             <p>Hemos creado una plantilla visual descargable paso a paso para que los más pequeños anticipen el momento de ir a dormir con calma.</p>
             <a href="recursos.html" class="btn-secundario">Descargar Rutina Nocturna Gratis</a>
         </section>
 
-        <!-- BOTÓN DE ACCIÓN FINAL -->
+        <!-- BANNER DESTACADO: GUÍAS DE SALUD Y BIENESTAR -->
+        <section class="banner-guias-salud">
+            <h3>🩺 Apoyo y orientación para las familias</h3>
+            <p>Más allá de los cuentos, hemos creado un espacio riguroso y accesible con guías especializadas sobre salud infantil, neurodesarrollo, nutrición y bienestar.</p>
+            <a href="guiasSalud.html" class="btn-secundario">Explorar Guías de Salud</a>
+        </section>
+
         <div class="boton-area-centrada">
             <a href="cuentos.html" class="btn-principal">Explorar la Colección</a>
         </div>
