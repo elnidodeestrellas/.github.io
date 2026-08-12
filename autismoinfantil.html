@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autismo (TEA) e integración sensorial | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía amable, rigurosa y empática para comprender el espectro autista y acompañar las necesidades sensoriales en la infancia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --tea-acento: #70a1ff;
+            --tea-borde: rgba(112, 161, 255, 0.3);
+            --tea-fondo-caja: rgba(112, 161, 255, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--tea-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(112, 161, 255, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--tea-acento);
+            box-shadow: 0 8px 25px rgba(112, 161, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--tea-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--tea-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--tea-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgguiasalud/autismo.webp" alt="Ilustración representativa de integración sensorial y apoyo en el autismo infantil">
+            </div>
+
+            <h1>Autismo (TEA) e integración sensorial: comprender el mundo desde su piel</h1>
+            
+            <p>El Trastorno del Espectro Autista (TEA) no es una forma incorrecta de ver la realidad, sino una manera radicalmente diferente de procesar los sentidos, la comunicación y el entorno. Comprender el autismo en la infancia nos invita a mirar más allá de las conductas visibles para entender cómo perciben el mundo y qué apoyos sensoriales y emocionales necesitan para sentirse seguros. He reunido aquí una guía serena para acompañar su desarrollo con respeto y empatía. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- BLOQUE 1 -->
+                <a href="autismo-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/acogida.webp" alt="Familia compartiendo un momento de calma"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Aceptar sin miedo el diagnóstico</h2>
+                        <p>Recibir el diagnóstico de TEA es el inicio de un camino de comprensión. Abordemos la noticia desde la serenidad para conectar de verdad con su singularidad.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="autismo-sentidos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/mundosensorial.webp" alt="Procesamiento sensorial y calma"></div>
+                        <span class="pilar-tag">Mundo Sensorial</span>
+                        <h2>El universo de los sentidos</h2>
+                        <p>Descubre cómo influye la hiper o hipersensibilidad táctil, auditiva y visual en su día a día y por qué el entorno puede saturar o calmar su sistema nervioso.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 2 -->
+                <a href="autismo-espacio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/hogar.webp" alt="Entorno estructurado y predecible"></div>
+                        <span class="pilar-tag">Rutinas y hogar</span>
+                        <h2>Estructurar el espacio y la calma</h2>
+                        <p>La predictibilidad aporta seguridad. Aprende a diseñar un hogar adaptado que reduzca la ansiedad y facilite las transiciones cotidianas sin fricciones.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="autismo-comunicacion.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/comunicacion.webp" alt="Comunicación y apoyos visuales"></div>
+                        <span class="pilar-tag">Comunicación</span>
+                        <h2>Puentes hacia la conexión</h2>
+                        <p>Explora herramientas de comunicación alternativa y apoyos visuales respetuosos que facilitan la expresión y reducen la frustración en la convivencia.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 3 -->
+                <a href="autismo-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/colegio.webp" alt="Entorno escolar inclusivo"></div>
+                        <span class="pilar-tag">Colegio inclusivo</span>
+                        <h2>Alianzas y apoyos en el aula</h2>
+                        <p>Fomentar la adaptación metodológica y la comprensión del profesorado garantiza un entorno escolar respetuoso, seguro y libre de sobreestimulación.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="autismo-crisis.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/regulacion.webp" alt="Regulación emocional y crisis"></div>
+                        <span class="pilar-tag">Regulación</span>
+                        <h2>Acompañar las crisis sensoriales</h2>
+                        <p>Comprende la diferencia entre una rabieta y una saturación o colapso sensorial, aprendiendo a ofrecer un refugio seguro de calma y contención.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 4 -->
+                <a href="autismo-respeto.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/interaccion.webp" alt="Interacción social respetuosa"></div>
+                        <span class="pilar-tag">Interacción social</span>
+                        <h2>Respetar sus tiempos de vínculo</h2>
+                        <p>Comprender cómo se relacionan y disfrutan del juego con los demás, validando sus propios ritmos sociales sin forzar dinámicas que les agoten.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="autismo-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgautismo/bienestar.webp" alt="Autonomía y bienestar personal"></div>
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Autonomía y autoestima positiva</h2>
+                        <p>Potenciar sus intereses genuinos, celebrar cada pequeño avance y fomentar su independencia construye una autopercepción firme y segura.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tea-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(112, 161, 255, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tea-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

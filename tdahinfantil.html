@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprender y acompañar: TDAH y pautas de apoyo | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía amable, rigurosa y empática para acompañar a las familias y al entorno escolar en la comprensión y el manejo cotidiano del TDAH en la infancia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --tdah-acento: #70a1ff;
+            --tdah-borde: rgba(112, 161, 255, 0.3);
+            --tdah-fondo-caja: rgba(112, 161, 255, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--tdah-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        /* Ajuste de tarjetas de TDAH con el acento azul y efecto hover adaptado */
+        .cuento-card {
+            border: 1px solid rgba(112, 161, 255, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cuento-card:hover {
+            border-color: var(--tdah-acento);
+            box-shadow: 0 8px 25px rgba(112, 161, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--tdah-acento) !important;
+        }
+        .pilar-tag {
+            color: var(--tdah-acento) !important;
+        }
+        .cuento-caja > h1 {
+            color: var(--tdah-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <!-- Contenedor principal con diseño de caja alineado a la estética de la web -->
+        <article class="cuento-caja">
+            
+            <!-- Imagen de cabecera integrada -->
+            <div class="header-imagen-wrapper">
+                <img src="imgguiasalud/tdah.webp" alt="Fotografía profesional de apoyo y bienestar cognitivo infantil">
+            </div>
+
+            <h1>Comprender y acompañar: TDAH y pautas de apoyo</h1>
+            
+            <p>El Trastorno por Déficit de Atención e Hiperactividad (TDAH) es una condición neurobiológica que influye en cómo el cerebro procesa los estímulos, gestiona la atención, regula los impulsos y modula el nivel de actividad. Abordarlo en la infancia requiere mirar más allá de la etiqueta para entender el mundo desde su perspectiva. He reunido aquí una guía serena y práctica para disipar dudas, estructurar el día a día en casa y colaborar estrechamente con el colegio. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- BLOQUE 1 -->
+                <a href="tdah-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/acogida.webp" alt="Fotografía de una familia compartiendo un momento de calma"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Aceptar sin alarmas</h2>
+                        <p>El diagnóstico de TDAH no define el futuro del menor. Abordemos la noticia desde la serenidad, transformando el desconcierto inicial en una actitud de apoyo constructivo.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+
+                <a href="tdah-conceptos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/conceptos.webp" alt="Representación visual de la mente y las funciones ejecutivas"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Conceptos clave</span>
+                        <h2>¿Cómo funciona su mente?</h2>
+                        <p>Entender las funciones ejecutivas —atención, control de impulsos y memoria de trabajo— nos ayuda a comprender sus conductas cotidianas con empatía y claridad.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+
+                <!-- BLOQUE 2 -->
+                <a href="tdah-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/primerospasos.webp" alt="Fotografía de un niño observando su entorno con atención"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Primeros pasos</span>
+                        <h2>Detectar las señales cotidianas</h2>
+                        <p>Reconocer la diferencia entre la vitalidad propia de la edad y los patrones del TDAH facilita una consulta temprana con el especialista para orientar el acompañamiento.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+
+                <a href="tdah-hogar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/hogar.webp" alt="Fotografía de un hogar ordenado y estructurado"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Entorno y hogar</span>
+                        <h2>Adaptar el hogar y las rutinas</h2>
+                        <p>Crear espacios estructurados en casa, reducir estímulos distractores y establecer rutinas predecibles aporta la estabilidad que el niño necesita para su día a día.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+
+                <!-- BLOQUE 3 -->
+                <a href="tdah-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/colegio.webp" alt="Fotografía de un aula escolar inclusiva y ordenada"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Colegio seguro</span>
+                        <h2>Alianzas firmes con la escuela</h2>
+                        <p>La comunicación constante con el profesorado y la aplicación de pautas metodológicas respetuosas aseguran un entorno de aprendizaje inclusivo y motivador.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+
+                <a href="tdah-estudio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/estudio.webp" alt="Fotografía de material de estudio organizado y claro"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Estrategias de estudio</span>
+                        <h2>Facilitar el aprendizaje sin fricciones</h2>
+                        <p>Fragmentar tareas largas en pequeños pasos, usar apoyos visuales y aplicar un refuerzo positivo constante ayuda a mantener la motivación durante los deberes.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+
+                <!-- BLOQUE 4 -->
+                <a href="tdah-frustracion.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/portada.webp" alt="Fotografía gestionando la calma y la regulación emocional"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Regulación</span>
+                        <h2>Gestionar la frustración y la calma</h2>
+                        <p>Acompañar las desregulaciones emocionales con paciencia y pautas claras previene crisis de impulsividad y transmite una profunda sensación de seguridad.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+
+                <a href="tdah-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div class="cuento-imagen-wrapper"><img src="imgtdah/bienestar.webp" alt="Fotografía de bienestar y autoestima infantil"></div>
+                    <div class="cuento-info">
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Autonomía y autoestima sólida</h2>
+                        <p>Celebrar sus logros cotidianos, potenciar sus talentos naturales e impulsar su independencia construye una autopercepción firme, segura y positiva.</p>
+                        <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdah-acento);">Descubrir más ➔</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Enlace de retorno al final del artículo -->
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(112, 161, 255, 0.2); text-align: left;">
+            <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tdah-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                <span>← Volver a Guías de Salud y Bienestar</span>
+            </a>
+        </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

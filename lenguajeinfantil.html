@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trastorno del desarrollo del lenguaje (TEL/TDL) | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía amable, rigurosa y empática para comprender las dificultades en la expresión y comprensión del lenguaje en la infancia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --tdl-acento: #70a1ff;
+            --tdl-borde: rgba(112, 161, 255, 0.3);
+            --tdl-fondo-caja: rgba(112, 161, 255, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--tdl-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(112, 161, 255, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--tdl-acento);
+            box-shadow: 0 8px 25px rgba(112, 161, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--tdl-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--tdl-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--tdl-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgguiasalud/lenguaje.webp" alt="Ilustración representativa de comunicación y desarrollo del lenguaje infantil">
+            </div>
+
+            <h1>Trastorno del desarrollo del lenguaje (TEL/TDL): comprender y acompañar</h1>
+            
+            <p>El Trastorno del Desarrollo del Lenguaje (TDL), anteriormente conocido como TEL, afecta a la manera en que el niño adquiere y procesa la expresión y la comprensión verbal. No se trata de una falta de esfuerzo o de un problema de audición, sino de una dificultad específica que influye en su comunicación cotidiana. He reunido aquí una guía serena para disipar dudas, entender sus necesidades y ofrecer un apoyo respetuoso tanto en casa como en el colegio. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- BLOQUE 1 -->
+                <a href="lenguaje-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/acogida.webp" alt="Familia compartiendo un momento de calma"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Aceptar sin alarmas el diagnóstico</h2>
+                        <p>Abordar las dificultades de lenguaje desde la serenidad inicial, transformando la preocupación en un apoyo constructivo y cercano.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="lenguaje-conceptos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/conceptos.webp" alt="Procesamiento y comprensión verbal"></div>
+                        <span class="pilar-tag">Conceptos clave</span>
+                        <h2>¿Qué es el TDL y cómo se manifiesta?</h2>
+                        <p>Diferenciar entre un retraso evolutivo simple y un trastorno específico del lenguaje para entender mejor su mundo interior.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 2 -->
+                <a href="lenguaje-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/senales.webp" alt="Observación de señales cotidianas"></div>
+                        <span class="pilar-tag">Primeros pasos</span>
+                        <h2>Detectar las señales cotidianas</h2>
+                        <p>Reconocer los indicadores en la comprensión de consignas y en la estructuración de frases para una orientación temprana.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="lenguaje-hogar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/hogar.webp" alt="Comunicación fluida en el hogar"></div>
+                        <span class="pilar-tag">Entorno y hogar</span>
+                        <h2>Facilitar la comunicación en casa</h2>
+                        <p>Estrategias sencillas de habla clara, uso de apoyos visuales y escucha paciente para enriquecer el diálogo cotidiano.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 3 -->
+                <a href="lenguaje-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/colegio.webp" alt="Entorno escolar inclusivo"></div>
+                        <span class="pilar-tag">Colegio seguro</span>
+                        <h2>Alianzas firmes con la escuela</h2>
+                        <p>Colaborar estrechamente con los docentes y especialistas en audición y lenguaje para garantizar un aprendizaje accesible.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="lenguaje-estudio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/estrategia.webp" alt="Apoyo en el aprendizaje escolar"></div>
+                        <span class="pilar-tag">Estrategias de apoyo</span>
+                        <h2>Adaptar el aprendizaje sin fricciones</h2>
+                        <p>Cómo simplificar instrucciones complejas y fomentar la comprensión lectora y escrita respetando sus tiempos.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 4 -->
+                <a href="lenguaje-frustracion.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/regulacion.webp" alt="Gestión de la frustración y calma emocional"></div>
+                        <span class="pilar-tag">Regulación</span>
+                        <h2>Gestionar la frustración expresiva</h2>
+                        <p>Acompañar los momentos en que las palabras no salen, previniendo la angustia y ofreciendo un refugio de seguridad.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="lenguaje-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imglenguaje/bienestar.webp" alt="Bienestar y autoestima sólida"></div>
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Autonomía y autoestima sólida</h2>
+                        <p>Potenciar sus capacidades expresivas alternativas y celebrar sus logros para construir una autopercepción segura.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--tdl-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(112, 161, 255, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tdl-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
