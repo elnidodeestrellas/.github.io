@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud bucodental infantil: prevención y primeros hábitos | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía práctica, rigurosa y empática para familias sobre la prevención temprana de caries, hábitos de higiene y primeras visitas al odontopediatra.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --dental-acento: #68d391;
+            --dental-borde: rgba(104, 211, 145, 0.3);
+            --dental-fondo-caja: rgba(104, 211, 145, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--dental-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(104, 211, 145, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--dental-acento);
+            box-shadow: 0 8px 25px rgba(104, 211, 145, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--dental-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--dental-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--dental-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgguiasalud/bucodental.webp" alt="Salud bucodental infantil y prevención temprana">
+            </div>
+
+            <h1>Salud bucodental: claves para una sonrisa sana</h1>
+            
+            <p>Cuidar la salud oral desde los primeros meses de vida sienta las bases de una sonrisa fuerte y previene complicaciones futuras. La aparición de los primeros dientes y la introducción de nuevos alimentos marcan el inicio de hábitos de higiene esenciales que acompañarán al menor en su crecimiento. He reunido aquí una guía completa para abordar la prevención de caries, el cepillado diario y las visitas al odontopediatra con absoluta tranquilidad. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- TEMA 1 -->
+                <a href="dental-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/acogida.webp" alt="Familia cuidando la salud dental con serenidad"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Comprender la importancia de los dientes de leche</h2>
+                        <p>Descubre por qué la salud de la dentición temporal es vital para la correcta masticación, el habla y la guía de los futuros dientes definitivos.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 2 -->
+                <a href="dental-conceptos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/conceptos.webp" alt="Anatomía bucal infantil y desarrollo de la dentición"></div>
+                        <span class="pilar-tag">Conceptos clave</span>
+                        <h2>El desarrollo dental y la erupción de los primeros dientes</h2>
+                        <p>Conoce las etapas de salida de la dentición infantil, los síntomas habituales y cómo calmar las molestias de las encías de forma natural.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 3 -->
+                <a href="dental-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/senales.webp" alt="Prevención temprana de la caries de biberón"></div>
+                        <span class="pilar-tag">Primeros pasos</span>
+                        <h2>Prevención temprana de la caries y la placa bacteriana</h2>
+                        <p>Pautas sencillas para evitar la caries de biberón, cuidar los espacios interdentales y proteger el esmalte desde la primera infancia.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 4 -->
+                <a href="dental-hogar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/hogar.webp" alt="Hábitos de higiene bucodental en el hogar"></div>
+                        <span class="pilar-tag">Entorno y hogar</span>
+                        <h2>El ritual diario del cepillado dental en familia</h2>
+                        <p>Cómo introducir el uso del cepillo y las cantidades adecuadas de pasta fluorada según la edad para convertir la higiene en un hábito divertido.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 5 -->
+                <a href="dental-rutinas.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/rutinas.webp" alt="Alimentación saludable y salud dental infantil"></div>
+                        <span class="pilar-tag">Cuidado diario</span>
+                        <h2>Alimentación protectora y control de azúcares</h2>
+                        <p>Estrategias nutricionales para limitar los azúcares libres y fomentar alimentos crujientes que estimulen la limpieza natural de los dientes.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 6 -->
+                <a href="dental-terrores.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/terrores.webp" alt="Primera visita al odontopediatra sin miedo"></div>
+                        <span class="pilar-tag">Primera visita</span>
+                        <h2>La primera visita al odontopediatra: sin miedo</h2>
+                        <p>Cuándo realizar la primera revisión dental (alrededor del primer año), cómo preparar al menor y elegir un entorno de confianza.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 7 -->
+                <a href="dental-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/colegio.webp" alt="Hábitos para la etapa escolar y prevención de golpes dentales"></div>
+                        <span class="pilar-tag">Etapa escolar</span>
+                        <h2>Protección dental ante golpes y hábitos orales</h2>
+                        <p>Cómo actuar ante traumatismos dentales infantiles en el parque o el colegio y la gestión del uso prolongado del chupete o la succión digital.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 8 -->
+                <a href="dental-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgdental/bienestar.webp" alt="Autoestima y bienestar con una sonrisa saludable"></div>
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Cuidar la sonrisa con naturalidad y confianza</h2>
+                        <p>Fomentar una actitud positiva hacia la salud bucodental que transmita seguridad y autonomía al menor en su crecimiento.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--dental-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(104, 211, 145, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--dental-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
