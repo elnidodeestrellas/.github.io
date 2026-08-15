@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celiaquía e intolerancias alimentarias | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía práctica, rigurosa y empática para familias sobre alimentación segura, lectura de etiquetas y adaptación del hogar ante la celiaquía y las intolerancias.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --celiaquia-acento: #68d391;
+            --celiaquia-borde: rgba(104, 211, 145, 0.3);
+            --celiaquia-fondo-caja: rgba(104, 211, 145, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--celiaquia-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(104, 211, 145, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--celiaquia-acento);
+            box-shadow: 0 8px 25px rgba(104, 211, 145, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--celiaquia-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--celiaquia-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--celiaquia-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgguiasalud/celiaquia.webp" alt="Alimentación segura y libre de gluten en familia">
+            </div>
+
+            <h1>Celiaquía e intolerancias: guía práctica para familias</h1>
+            
+            <p>Afrontar el diagnóstico de celiaquía o una intolerancia alimentaria en la infancia supone un cambio importante en la dinámica familiar. Más allá de retirar ciertos alimentos, implica transformar el hogar en un espacio seguro y aprender a descifrar el etiquetado para proteger la salud digestiva del menor sin miedos innecesarios. He reunido aquí una guía serena para organizar la despensa, evitar la contaminación cruzada y cocinar con tranquilidad. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- BLOQUE 1 -->
+                <a href="celiaquia-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/acogida.webp" alt="Familia afrontando el diagnóstico con serenidad"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Aceptar el diagnóstico sin temor</h2>
+                        <p>Transformar la incertidumbre inicial ante la celiaquía en una oportunidad para cuidar la salud y el bienestar digestivo del menor con serenidad.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="celiaquia-conceptos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/conceptos.webp" alt="Diferencia entre celiaquía e intolerancias"></div>
+                        <span class="pilar-tag">Conceptos clave</span>
+                        <h2>¿Qué es la celiaquía y qué son las intolerancias?</h2>
+                        <p>Diferenciar con claridad entre una reacción autoinmune como el gluten y otras sensibilidades digestivas para entender sus necesidades reales.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 2 -->
+                <a href="celiaquia-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/senales.webp" alt="Detección de síntomas digestivos cotidianos"></div>
+                        <span class="pilar-tag">Primeros pasos</span>
+                        <h2>Detectar las señales y síntomas cotidianos</h2>
+                        <p>Reconocer las manifestaciones digestivas y generales más frecuentes en la infancia para orientar una valoración médica precisa.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="celiaquia-hogar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/hogar.webp" alt="Cocina segura y prevención de contaminación cruzada"></div>
+                        <span class="pilar-tag">Entorno y hogar</span>
+                        <h2>Adaptar la cocina y evitar la contaminación cruzada</h2>
+                        <p>Pautas sencillas para organizar la despensa, utensilios y superficies de forma que el hogar sea un entorno 100% seguro.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 3 -->
+                <a href="celiaquia-etiquetas.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/etiquetas.webp" alt="Lectura de etiquetas y etiquetado sin gluten"></div>
+                        <span class="pilar-tag">Compra segura</span>
+                        <h2>Leer etiquetas sin errores</h2>
+                        <p>Aprender a descifrar la lista de ingredientes, alérgenos ocultos y los sellos de garantía sin gluten al hacer la compra.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="celiaquia-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/colegio.webp" alt="Comedor escolar seguro e inclusión"></div>
+                        <span class="pilar-tag">Colegio seguro</span>
+                        <h2>Alianzas con el comedor y la escuela</h2>
+                        <p>Coordinarse con el centro educativo y el servicio de comedor para garantizar una alimentación protegida e inclusiva.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 4 -->
+                <a href="celiaquia-social.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/social.webp" alt="Celebraciones y vida social sin riesgos"></div>
+                        <span class="pilar-tag">Vida social</span>
+                        <h2>Celebraciones, cumpleaños y viajes seguros</h2>
+                        <p>Estrategias para disfrutar de los eventos sociales, cumpleaños y comidas fuera de casa sin descuidar la seguridad alimentaria.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="celiaquia-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgceliaquia/bienestar.webp" alt="Autonomía y autoestima del menor frente a restricciones"></div>
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Autonomía y autoestima frente a la restricción</h2>
+                        <p>Fomentar una actitud positiva y segura en el niño para que gestione su dieta con naturalidad y confianza en sí mismo.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--celiaquia-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(104, 211, 145, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--celiaquia-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
