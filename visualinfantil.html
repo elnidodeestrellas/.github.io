@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud visual infantil: prevención de fatiga digital y detección precoz | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía práctica, rigurosa y empática para familias sobre la prevención de la fatiga digital por pantallas y la detección precoz de problemas de visión.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --visual-acento: #68d391;
+            --visual-borde: rgba(104, 211, 145, 0.3);
+            --visual-fondo-caja: rgba(104, 211, 145, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--visual-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(104, 211, 145, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--visual-acento);
+            box-shadow: 0 8px 25px rgba(104, 211, 145, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--visual-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--visual-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--visual-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgguiasalud/visual.webp" alt="Salud visual infantil y prevención de fatiga digital">
+            </div>
+
+            <h1>Salud visual: claves para cuidar la visión infantil</h1>
+            
+            <p>El desarrollo de la visión en la infancia es un proceso fascinante que condiciona el aprendizaje, la lectura y la interacción con el mundo. En la era digital actual, la sobreexposición a pantallas y el uso prolongado de dispositivos electrónicos plantean nuevos retos para la salud ocular de los menores. He reunido aquí una guía completa para prevenir la fatiga visual, detectar indicios tempranos de problemas refractivos y fomentar hábitos saludables al aire libre. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- TEMA 1 -->
+                <a href="visual-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/acogida.webp" alt="Familia cuidando la salud visual con serenidad"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Comprender el desarrollo de la visión en la infancia</h2>
+                        <p>Descubre cómo madura el sistema visual desde los primeros meses de vida y por qué proteger los ojos en la infancia es clave para el futuro.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 2 -->
+                <a href="visual-conceptos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/conceptos.webp" alt="Anatomía ocular infantil y defectos refractivos"></div>
+                        <span class="pilar-tag">Conceptos clave</span>
+                        <h2>Miopía, hipermetropía y astigmatismo infantil</h2>
+                        <p>Conoce los principales defectos visuales en la infancia, cómo detectarlos a tiempo y su evolución durante el crecimiento escolar.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 3 -->
+                <a href="visual-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/senales.webp" alt="Señales de alerta de problemas de visión en niños"></div>
+                        <span class="pilar-tag">Primeros pasos</span>
+                        <h2>Señales de alerta ante problemas visuales ocultos</h2>
+                        <p>Aprende a identificar indicios sutiles como acercarse demasiado al leer, frotarse los ojos con frecuencia o los dolores de cabeza tensionales.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 4 -->
+                <a href="visual-hogar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/hogar.webp" alt="Prevención de la fatiga digital por pantallas"></div>
+                        <span class="pilar-tag">Entorno y hogar</span>
+                        <h2>Prevención de la fatiga digital y uso de pantallas</h2>
+                        <p>Pautas sencillas para regular la distancia de lectura, aplicar la regla 20-20-20 y limitar el tiempo de exposición a dispositivos electrónicos.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 5 -->
+                <a href="visual-rutinas.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/rutinas.webp" alt="Iluminación adecuada y descanso visual en el estudio"></div>
+                        <span class="pilar-tag">Cuidado diario</span>
+                        <h2>Iluminación y hábitos saludables para el estudio</h2>
+                        <p>Cómo preparar el espacio de lectura en casa con luz natural y artificial adecuada para evitar el esfuerzo ocular excesivo.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 6 -->
+                <a href="visual-terrores.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/terrores.webp" alt="Primera revisión oftalmológica y optometría pediátrica"></div>
+                        <span class="pilar-tag">Revisión médica</span>
+                        <h2>La primera revisión oftalmológica sin miedo</h2>
+                        <p>Cuándo acudir al optometrista u oftalmólogo pediátrico, cómo son las pruebas iniciales y por qué la detección precoz marca la diferencia.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 7 -->
+                <a href="visual-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/colegio.webp" alt="Beneficios de la luz natural y actividades al aire libre"></div>
+                        <span class="pilar-tag">Etapa escolar</span>
+                        <h2>Luz natural y actividades al aire libre contra la miopía</h2>
+                        <p>La importancia científica del tiempo al aire libre para frenar la progresión de la miopía infantil y relajar la acomodación visual.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 8 -->
+                <a href="visual-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvisual/bienestar.webp" alt="Bienestar emocional y adaptación a gafas infantiles"></div>
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Acompañar el uso de gafas y el bienestar visual</h2>
+                        <p>Estrategias respetuosas para que el niño acepte el uso de gafas correctoras con naturalidad, seguridad y autoestima positiva.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--visual-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(104, 211, 145, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--visual-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

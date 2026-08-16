@@ -52,14 +52,22 @@
         .card-neuro {
             border: 1px dashed rgba(99, 179, 237, 0.4) !important;
         }
+        .card-neuro:hover {
+            border-color: #63b3ed !important;
+            box-shadow: 0 6px 20px rgba(99, 179, 237, 0.15) !important;
+        }
 
-        /* 3. Nutrición (Verde) */
+        /* 3. Nutrición y Salud Física (Verde) */
         .seccion-nutricion {
             border-bottom: 2px solid #68d391 !important;
             color: #9ae6b4 !important;
         }
-        .card-nutricion {
+        .card-nutricion, .card-dermatitis, .card-sueno, .card-dental, .card-visual {
             border: 1px dashed rgba(104, 211, 145, 0.4) !important;
+        }
+        .card-nutricion:hover, .card-dermatitis:hover, .card-sueno:hover, .card-dental:hover, .card-visual:hover {
+            border-color: #68d391 !important;
+            box-shadow: 0 6px 20px rgba(104, 211, 145, 0.15) !important;
         }
 
         /* 4. Emocional (Rojo / Coral) */
@@ -69,6 +77,10 @@
         }
         .card-emocional {
             border: 1px dashed rgba(252, 129, 129, 0.4) !important;
+        }
+        .card-emocional:hover {
+            border-color: #fc8181 !important;
+            box-shadow: 0 6px 20px rgba(252, 129, 129, 0.15) !important;
         }
 
         .seccion-titulo {
@@ -279,82 +291,81 @@
             <h2 class="seccion-titulo seccion-neuro">🧠 Neurodesarrollo y aprendizaje</h2>
             <div class="guias-grid">
                 <a href="tdahinfantil.html" class="guia-card card-neuro" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/tdah.webp" alt="TDAH"></div>
-            <h3>TDAH y pautas de apoyo</h3>
-        </div>
-        <p>Estrategias prácticas para la atención, la hiperactividad y el acompañamiento positivo en casa.</p>
-    </div>
-    <span class="guia-enlace">Ver guía ➔</span>
-</a>
+                    <div>
+                        <div class="guia-card-header">
+                            <div class="guia-miniatura"><img src="imgguiasalud/tdah.webp" alt="TDAH"></div>
+                            <h3>TDAH y pautas de apoyo</h3>
+                        </div>
+                        <p>Estrategias prácticas para la atención, la hiperactividad y el acompañamiento positivo en casa.</p>
+                    </div>
+                    <span class="guia-enlace">Ver guía ➔</span>
+                </a>
                 <a href="autismoinfantil.html" class="guia-card card-neuro" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/autismo.webp" alt="Autismo"></div>
-            <h3>Autismo (TEA) e integración sensorial</h3>
-        </div>
-        <p>Estrategias de apoyo, comprensión del entorno y adaptación a las necesidades sensoriales.</p>
-    </div>
-    <span class="guia-enlace">Ver guía ➔</span>
-</a>
+                    <div>
+                        <div class="guia-card-header">
+                            <div class="guia-miniatura"><img src="imgguiasalud/autismo.webp" alt="Autismo"></div>
+                            <h3>Autismo (TEA) e integración sensorial</h3>
+                        </div>
+                        <p>Estrategias de apoyo, comprensión del entorno y adaptación a las necesidades sensoriales.</p>
+                    </div>
+                    <span class="guia-enlace">Ver guía ➔</span>
+                </a>
                 <a href="lenguajeinfantil.html" class="guia-card card-neuro" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/lenguaje.webp" alt="Trastorno del desarrollo del lenguaje"></div>
-            <h3>Trastorno del desarrollo del lenguaje (TEL/TDL)</h3>
-        </div>
-        <p>Una guía amable, rigurosa y empática para comprender las dificultades en la expresión y comprensión del lenguaje en la infancia.</p>
-    </div>
-    <span class="guia-enlace">Ver guía ➔</span>
-</a>
+                    <div>
+                        <div class="guia-card-header">
+                            <div class="guia-miniatura"><img src="imgguiasalud/lenguaje.webp" alt="Trastorno del desarrollo del lenguaje"></div>
+                            <h3>Trastorno del desarrollo del lenguaje (TEL/TDL)</h3>
+                        </div>
+                        <p>Una guía amable, rigurosa y empática para comprender las dificultades en la expresión y comprensión del lenguaje en la infancia.</p>
+                    </div>
+                    <span class="guia-enlace">Ver guía ➔</span>
+                </a>
             </div>
 
             <!-- CATEGORÍA 3: NUTRICIÓN Y SALUD FÍSICA -->
             <h2 class="seccion-titulo seccion-nutricion">🥗 Nutrición, piel y bienestar físico</h2>
             <div class="guias-grid">
                 <a href="celiaquiainfantil.html" class="guia-card card-nutricion" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/celiaquia.webp" alt="Celiaquía"></div>
-            <h3>Celiaquía e intolerancias</h3>
-        </div>
-        <p>Guía práctica para familias sobre alimentación segura, etiquetas y adaptación del hogar.</p>
-    </div>
-    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-</a>
-
+                    <div>
+                        <div class="guia-card-header">
+                            <div class="guia-miniatura"><img src="imgguiasalud/celiaquia.webp" alt="Celiaquía"></div>
+                            <h3>Celiaquía e intolerancias</h3>
+                        </div>
+                        <p>Guía práctica para familias sobre alimentación segura, etiquetas y adaptación del hogar.</p>
+                    </div>
+                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                </a>
                 <a href="dermatitisinfantil.html" class="guia-card card-dermatitis" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/dermatitis.webp" alt="Dermatitis atópica"></div>
-            <h3>Dermatitis atópica</h3>
-        </div>
-        <p>Cuidados específicos para la piel sensible, prevención de brotes y alivio del picor.</p>
-    </div>
-    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-</a>
+                    <div>
+                        <div class="guia-card-header">
+                            <div class="guia-miniatura"><img src="imgguiasalud/dermatitis.webp" alt="Dermatitis atópica"></div>
+                            <h3>Dermatitis atópica</h3>
+                        </div>
+                        <p>Cuidados específicos para la piel sensible, prevención de brotes y alivio del picor.</p>
+                    </div>
+                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                </a>
                 <a href="suenoinfantil.html" class="guia-card card-sueno" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/trastornos.webp" alt="Trastornos del sueño"></div>
-            <h3>Trastornos del sueño</h3>
-        </div>
-        <p>Abordaje del insomnio infantil, rutinas de descanso reparador y terrores nocturnos.</p>
-    </div>
-    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-</a>
+                    <div>
+                        <div class="guia-card-header">
+                            <div class="guia-miniatura"><img src="imgguiasalud/trastornos.webp" alt="Trastornos del sueño"></div>
+                            <h3>Trastornos del sueño</h3>
+                        </div>
+                        <p>Abordaje del insomnio infantil, rutinas de descanso reparador y terrores nocturnos.</p>
+                    </div>
+                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                </a>
                 <a href="dentalinfantil.html" class="guia-card card-dental" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/bucodental.webp" alt="Salud bucodental"></div>
-            <h3>Salud bucodental</h3>
-        </div>
-        <p>Prevención temprana de caries, hábitos de higiene y primeras visitas al odontopediatra.</p>
-    </div>
-    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-</a>
-                <div class="guia-card guia-card-proximamente card-nutricion">
+                    <div>
+                        <div class="guia-card-header">
+                            <div class="guia-miniatura"><img src="imgguiasalud/bucodental.webp" alt="Salud bucodental"></div>
+                            <h3>Salud bucodental</h3>
+                        </div>
+                        <p>Prevención temprana de caries, hábitos de higiene y primeras visitas al odontopediatra.</p>
+                    </div>
+                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                </a>
+                <a href="saludvisual.html" class="guia-card card-visual" style="text-decoration: none; color: inherit;">
                     <div>
                         <div class="guia-card-header">
                             <div class="guia-miniatura"><img src="imgguiasalud/visual.webp" alt="Salud visual"></div>
@@ -362,8 +373,8 @@
                         </div>
                         <p>Prevención de la fatiga digital por pantallas y detección precoz de problemas de visión.</p>
                     </div>
-                    <span class="guia-proximamente-tag">🔒 Próximamente</span>
-                </div>
+                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                </a>
             </div>
 
             <!-- CATEGORÍA 4: SALUD EMOCIONAL Y PREVENCIÓN -->
