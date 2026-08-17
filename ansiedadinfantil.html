@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansiedad infantil: gestión del estrés y los miedos | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía práctica, rigurosa y empática para familias sobre herramientas y recursos cotidianos para la gestión del estrés y los miedos en la infancia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --ansiedad-acento: #f687b3;
+            --ansiedad-borde: rgba(246, 135, 179, 0.3);
+            --ansiedad-fondo-caja: rgba(246, 135, 179, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--ansiedad-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px dashed rgba(246, 135, 179, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--ansiedad-acento);
+            box-shadow: 0 8px 25px rgba(246, 135, 179, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--ansiedad-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--ansiedad-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--ansiedad-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgguiasalud/ansiedad.webp" alt="Ansiedad infantil y gestión emocional en la infancia">
+            </div>
+
+            <h1>Ansiedad infantil: gestión del estrés y los miedos</h1>
+            
+            <p>La ansiedad en la infancia es una respuesta natural del organismo ante situaciones percibidas como amenazantes o inciertas, pero cuando se prolonga o intensifica, puede interferir de forma notable en el bienestar diario del menor. Acompañar estos momentos con empatía, validación emocional y recursos prácticos ayuda a transformar el miedo en seguridad. He reunido aquí una guía completa para comprender el estrés infantil, reconocer sus señales y ofrecer herramientas de regulación emocional en el hogar. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- TEMA 1 -->
+                <a href="ansiedad-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/acogida.webp" alt="Familia acogiendo las emociones infantiles con serenidad"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Comprender la ansiedad y el miedo en la infancia</h2>
+                        <p>Descubre por qué surgen los miedos evolutivos y de qué manera la comprensión empática alivia la tensión emocional del menor.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 2 -->
+                <a href="ansiedad-conceptos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/conceptos.webp" alt="Neurobiología del estrés y la respuesta de lucha o huida"></div>
+                        <span class="pilar-tag">Conceptos clave</span>
+                        <h2>La respuesta de estrés y el cerebro emocional infantil</h2>
+                        <p>Conoce cómo funciona la amígdala y el sistema nervioso ante la sobrecarga de estímulos, y cómo devolver la calma al organismo.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 3 -->
+                <a href="ansiedad-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/senales.webp" alt="Señales tempranas de estrés y ansiedad en niños"></div>
+                        <span class="pilar-tag">Primeros pasos</span>
+                        <h2>Identificar señales de alerta y somatizaciones</h2>
+                        <p>Aprende a reconocer indicios físicos del estrés como dolores de cabeza, molestias estomacales o cambios repentinos en la conducta.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 4 -->
+                <a href="ansiedad-hogar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/hogar.webp" alt="Crear un refugio seguro de calma en el hogar"></div>
+                        <span class="pilar-tag">Entorno y hogar</span>
+                        <h2>Crear un refugio seguro de calma en el hogar</h2>
+                        <p>Estrategias prácticas para diseñar espacios y rutinas predecibles que reduzcan la incertidumbre y aporten seguridad afectiva.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 5 -->
+                <a href="ansiedad-rutinas.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/rutinas.webp" alt="Técnicas de respiración y relajación para niños"></div>
+                        <span class="pilar-tag">Cuidado diario</span>
+                        <h2>Técnicas de respiración y regulación emocional</h2>
+                        <p>Juegos de respiración consciente, el rincón de la calma y herramientas lúdicas para liberar la tensión acumulada durante el día.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 6 -->
+                <a href="ansiedad-terrores.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/terrores.webp" alt="Acompañar miedos nocturnos y pensamientos recurrentes"></div>
+                        <span class="pilar-tag">Apoyo emocional</span>
+                        <h2>Acompañar miedos nocturnos y pensamientos recurrentes</h2>
+                        <p>Cómo gestionar la preocupación nocturna, la resistencia a dormir solo y los temores irracionales desde una perspectiva respetuosa.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 7 -->
+                <a href="ansiedad-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/colegio.webp" alt="Gestión de la ansiedad escolar y social"></div>
+                        <span class="pilar-tag">Etapa escolar</span>
+                        <h2>Afrontar la ansiedad escolar y social</h2>
+                        <p>Herramientas para la transición al colegio, el miedo al rendimiento académico y la integración en grupos de iguales.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 8 -->
+                <a href="ansiedad-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgansiedad/bienestar.webp" alt="Fortalecer la resiliencia y la autoestima infantil"></div>
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Fortalecer la resiliencia y la seguridad personal</h2>
+                        <p>Fomentar la confianza en los propios recursos internos para que el menor afronte los retos cotidianos con autonomía y tranquilidad.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ansiedad-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(246, 135, 179, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--ansiedad-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
