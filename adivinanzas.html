@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinanzas Mágicas | El Nido de Estrellas</title>
+    <meta name="description" content="Un divertido juego de adivinanzas infantiles para estimular el razonamiento y la lectura.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .adivinanzas-main-container {
+            max-width: 700px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .tarjeta-adivinanza {
+            background: #131c31;
+            border: 4px solid #f1c442;
+            border-radius: 16px;
+            padding: 30px 25px;
+            margin: 20px auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            max-width: 550px;
+        }
+        .texto-pregunta {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .opciones-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .btn-opcion {
+            background: #1a253a;
+            color: #ffffff;
+            border: 2px solid rgba(241, 196, 66, 0.4);
+            padding: 14px 15px;
+            border-radius: 10px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-opcion:hover {
+            border-color: #f1c442;
+            background: #22304d;
+            transform: translateY(-2px);
+        }
+        .btn-opcion.correcto {
+            background: #27ae60 !important;
+            border-color: #27ae60 !important;
+            color: white;
+        }
+        .btn-opcion.incorrecto {
+            background: #c0392b !important;
+            border-color: #c0392b !important;
+            color: white;
+        }
+        #mensaje-adivinanza {
+            font-size: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            margin-top: 20px;
+            min-height: 30px;
+        }
+        .acciones-adivinanza {
+            margin-top: 25px;
+        }
+        .btn-accion {
+            background: #f1c442;
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-family: 'Quicksand', sans-serif;
+            transition: background 0.2s;
+            display: none;
+        }
+        .btn-accion:hover {
+            background: #d4ac37;
+        }
+    </style>
+</head>
+<body>
+
+   <div id="menu-container"></div>
+
+    <main class="main-content adivinanzas-main-container">
+        <h2>🧩 Adivinanzas Mágicas</h2>
+        <div class="edad-badge">📖 Recomendado a partir de 6 años (Lectura y razonamiento)</div>
+        <p>Lee con atención la pista y descubre de qué se trata[cite: 4].</p>
+        
+        <div class="tarjeta-adivinanza">
+            <div class="texto-pregunta" id="textoPregunta">
+                Cargando adivinanza...
+            </div>
+            
+            <div class="opciones-grid" id="opcionesGrid">
+                <!-- Los botones de opciones se cargan por JS -->
+            </div>
+        </div>
+
+        <div id="mensaje-adivinanza"></div>
+        
+        <div class="acciones-adivinanza">
+            <button class="btn-accion" id="btnSiguiente" onclick="siguienteAdivinanza()">Siguiente adivinanza ➔</button>
+            <button class="btn-accion" id="btnReiniciar" onclick="iniciarJuegoAdivinanzas()">Volver a jugar 🔄</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        // Gran catálogo de 35 adivinanzas infantiles ligeras y seguras[cite: 4]
+        const bancoAdivinanzas = [
+            {
+                pregunta: "🌟 Salgo de noche a alumbrar, con mis primas las estrellas en el cielo a bailar. ¿Quién soy?",
+                respuestaCorrecta: "La luna",
+                opciones: ["El sol", "La luna", "Una nube"]
+            },
+            {
+                pregunta: "📚 Tengo hojas y no soy un árbol, te cuento mil historias sin hablar. ¿Qué soy?",
+                respuestaCorrecta: "Un cuento",
+                opciones: ["Un peluche", "Una ventana", "Un cuento"]
+            },
+            {
+                pregunta: "🌲 Vivo en el bosque callado, las hadas y duendes me han visitado. ¿Quién soy?",
+                respuestaCorrecta: "Un gran árbol mágico",
+                opciones: ["Un gran árbol mágico", "Un coche veloz", "Un castillo de arena"]
+            },
+            {
+                pregunta: "☁️ Floto despacio de color blanco por el cielo azul, y a veces traigo lluvia de luz. ¿Qué soy?",
+                respuestaCorrecta: "Una nube",
+                opciones: ["Una nube", "Una cometa", "Un avión"]
+            },
+            {
+                pregunta: "🧸 Soy blando y de peluche fiel, te acompaño a dormir cada noche en el papel. ¿Quién soy?",
+                respuestaCorrecta: "Tu osito de peluche",
+                opciones: ["Tu osito de peluche", "Una almohada fría", "Un reloj de pared"]
+            },
+            {
+                pregunta: "✨ Brillo mucho en la oscuridad fugaz, cruzo el cielo y te pido un deseo paz. ¿Qué soy?",
+                respuestaCorrecta: "Una estrella fugaz",
+                opciones: ["Una bombilla", "Una estrella fugaz", "Una linterna"]
+            },
+            {
+                pregunta: "🌊 Cantan sin voz y corren sin pies, cruzan los valles y llegan al revés. ¿Qué son?",
+                respuestaCorrecta: "Las olas del mar",
+                opciones: ["Las olas del mar", "El viento fuerte", "Las nubes grises"]
+            },
+            {
+                pregunta: "☀️ Salgo temprano y me acuesto tarde, doy calorcito y el día verde arde. ¿Quién soy?",
+                respuestaCorrecta: "El sol",
+                opciones: ["La luna", "El sol", "Una estrella"]
+            },
+            {
+                pregunta: "🦉 Tengo grandes ojos y plumas de color, despierto de noche buscando un rumor. ¿Quién soy?",
+                respuestaCorrecta: "Un búho sabio",
+                opciones: ["Un búho sabio", "Un perrito fiel", "Un pez dorado"]
+            },
+            {
+                pregunta: "🌈 De colores pinto el cielo tras la tempestad, salgo despacito llenando de paz. ¿Qué soy?",
+                respuestaCorrecta: "Un arcoíris",
+                opciones: ["Un arcoíris", "Un rayo de sol", "Una tormenta"]
+            },
+            {
+                pregunta: "🏰 Vivo escondido en un cuento medieval, con dragones buenos y un reino leal. ¿Qué lugar soy?",
+                respuestaCorrecta: "Un castillo encantado",
+                opciones: ["Un castillo encantado", "Una ciudad de metal", "Un garaje oscuro"]
+            },
+            {
+                pregunta: "💧 Caigo del cielo bajando despacito, riego las flores y baño al arroyito. ¿Qué soy?",
+                respuestaCorrecta: "La lluvia",
+                opciones: ["La lluvia", "La nieve dura", "El viento soplando"]
+            },
+            {
+                pregunta: "🚪 Si giras mi pomo con mucho cuidado, abro los mundos que habías soñado. ¿Qué soy?",
+                respuestaCorrecta: "Una puerta secreta",
+                opciones: ["Una ventana alta", "Una puerta secreta", "Una caja fuerte"]
+            },
+            {
+                pregunta: "🕯️ Aunque no tengo vida ni voz ni calor, ilumino tu cuarto con dulce primor. ¿Qué soy?",
+                respuestaCorrecta: "Una velita mágica",
+                opciones: ["Una linterna rota", "Una velita mágica", "Un espejo viejo"]
+            },
+            {
+                pregunta: "🍃 Zumbando en el aire de flor en flor, recojo el polen con gran amor. ¿Quién soy?",
+                respuestaCorrecta: "Una abejita",
+                opciones: ["Una abejita", "Una mariposa gris", "Un saltamontes"]
+            },
+            {
+                pregunta: "🚂 Voy por la vía haciendo chucu-chú, llevo pasajeros como tú y como tú. ¿Quién soy?",
+                respuestaCorrecta: "Un trenecito de juguete",
+                opciones: ["Un coche veloz", "Un trenecito de juguete", "Un avión de papel"]
+            },
+            {
+                pregunta: "🎨 Tengo muchos colores en una fila atada, pinto tus dibujos sin decir nada. ¿Qué soy?",
+                respuestaCorrecta: "Una caja de ceras",
+                opciones: ["Una caja de ceras", "Una libreta en blanco", "Una mochila azul"]
+            },
+            {
+                pregunta: "⏱️ Tengo manecillas pero no sé tocar, marco las horas sin parar de girar. ¿Qué soy?",
+                respuestaCorrecta: "Un reloj",
+                opciones: ["Un reloj", "Un despertador loco", "Una rueda pequeña"]
+            },
+            {
+                pregunta: "🐟 Nado en el agua sin dar ningún ruido, tengo escamas de oro y vivo divertido. ¿Quién soy?",
+                respuestaCorrecta: "Un pececito de colores",
+                opciones: ["Un pececito de colores", "Un pato de goma", "Una rana saltarina"]
+            },
+            {
+                pregunta: "🐸 Doy grandes saltos y canto en la charca, cuando llega el día mi canción se marcha. ¿Quién soy?",
+                respuestaCorrecta: "Una rana verde",
+                opciones: ["Un conejo blanco", "Una rana verde", "Un grillo cantante"]
+            },
+            {
+                pregunta: "🍎 Soy roja y redonda, crezco en el frutal, Blancanieves me probó y le sentó mal. ¿Qué fruta soy?",
+                respuestaCorrecta: "Una manzana envenenada",
+                opciones: ["Una manzana envenenada", "Una pera dulce", "Una naranja jugosa"]
+            },
+            {
+                pregunta: "🦊 De pelo rojizo y cola muy larga, vivo en el bosque sin prisa ni carga. ¿Quién soy?",
+                respuestaCorrecta: "Un zorro astuto",
+                opciones: ["Un lobo feroz", "Un zorro astuto", "Un oso pardo"]
+            },
+            {
+                pregunta: "🛏️ Me buscas de noche con gran ilusión, para descansar y dormir un montón. ¿Qué soy?",
+                respuestaCorrecta: "La cama calentita",
+                opciones: ["La alfombra del salón", "La cama calentita", "El sillón grande"]
+            },
+            {
+                pregunta: "🔑 Soy pequeña de metal brillante, abro el cofre del tesoro elegante. ¿Qué soy?",
+                respuestaCorrecta: "Una llave secreta",
+                opciones: ["Una llave secreta", "Un clavo oxidado", "Una moneda de oro"]
+            },
+            {
+                pregunta: "👑 Llevo pedrería y brillo en la frente, de los reyes magos y príncipes valientes. ¿Qué soy?",
+                respuestaCorrecta: "Una corona dorada",
+                opciones: ["Un sombrero de copa", "Una corona dorada", "Una diadema de flores"]
+            },
+            {
+                pregunta: "🐢 Camino despacio cargando mi casa, no tengo prisa por nada que pasa. ¿Quién soy?",
+                respuestaCorrecta: "Una tortuga",
+                opciones: ["Una tortuga", "Un caracol marino", "Un erizo pequeño"]
+            },
+            {
+                pregunta: "🌙 En la oscura noche te doy mi regazo, para que duermas con un gran abrazo. ¿Quién soy?",
+                respuestaCorrecta: "La almohada suave",
+                opciones: ["La almohada suave", "La manta de lana", "La cortina azul"]
+            },
+            {
+                pregunta: "⛵ Navego en la bañera con viento de papel, transportando a tus juguetes en un dos por tres. ¿Qué soy?",
+                respuestaCorrecta: "Un barquito de papel",
+                opciones: ["Un barquito de papel", "Un submarino amarillo", "Una lancha rápida"]
+            },
+            {
+                pregunta: "🎺 Hago música dulce soplando al soplar, en las fiestas del bosque me pongo a tocar. ¿Qué instrumento soy?",
+                respuestaCorrecta: "Una flauta mágica",
+                opciones: ["Un tambor ruidoso", "Una flauta mágica", "Una campana vieja"]
+            },
+            {
+                pregunta: "🦋 Nací de un gusanito y ahora sé volar, con mis alas de seda cruzo el olivar. ¿Quién soy?",
+                respuestaCorrecta: "Una mariposa",
+                opciones: ["Una abeja reina", "Una mariposa", "Un pájaro cantor"]
+            },
+            {
+                pregunta: "🍄 Tengo sombrerito y piso el prado verde, el que me pisa despiste pierde. ¿Qué soy?",
+                respuestaCorrecta: "Un hongo del bosque",
+                opciones: ["Un hongo del bosque", "Una flor silvestre", "Una hoja seca"]
+            },
+            {
+                pregunta: "🌙 Tengo una sonrisa redonda de plata, que en el cielo negro de noche se dilata. ¿Quién soy?",
+                respuestaCorrecta: "La luna creciente",
+                opciones: ["La luna creciente", "Una moneda brillante", "Un lucero del alba"]
+            },
+            {
+                pregunta: "🎩 Sale de mi chistera con un gran salto y magia, el conejo blanco que al público contagia. ¿Quién soy?",
+                respuestaCorrecta: "Un mago ilusionista",
+                opciones: ["Un duende travieso", "Un mago ilusionista", "Un payaso alegre"]
+            },
+            {
+                pregunta: "🦷 Un ratoncito me viene a buscar, cuando te caes y me dejas debajo del lugar. ¿Qué soy?",
+                respuestaCorrecta: "Un diente de leche",
+                opciones: ["Una moneda brillante", "Un diente de leche", "Un chupete viejo"]
+            },
+            {
+                pregunta: "❄️ De copos de azúcar o de hielo cristalino, cubro las montañas y abrigo el camino. ¿Qué soy?",
+                respuestaCorrecta: "La nieve de invierno",
+                opciones: ["La nieve de invierno", "Una nube helada", "Un charco de rocío"]
+            }
+        ];
+
+        let adivinanzasActuales = [];
+        let indiceActual = 0;
+        let juegoTerminado = false;
+
+        function iniciarJuegoAdivinanzas() {
+            // Selecciona aleatoriamente 7 adivinanzas del catálogo total para la partida actual[cite: 4]
+            const mezcla = [...bancoAdivinanzas].sort(() => Math.random() - 0.5);
+            adivinanzasActuales = mezcla.slice(0, 7); 
+            
+            indiceActual = 0;
+            juegoTerminado = false;
+            document.getElementById('btnReiniciar').style.display = 'none';
+            cargarAdivinanza();
+        }
+
+        function cargarAdivinanza() {
+            const actual = adivinanzasActuales[indiceActual];
+            const textoElement = document.getElementById('textoPregunta');
+            const grid = document.getElementById('opcionesGrid');
+            const mensaje = document.getElementById('mensaje-adivinanza');
+            const btnSiguiente = document.getElementById('btnSiguiente');
+
+            textoElement.innerText = actual.pregunta;
+            mensaje.innerText = '';
+            btnSiguiente.style.display = 'none';
+            grid.innerHTML = '';
+
+            // Mezclar opciones para que la respuesta correcta varíe de posición[cite: 4]
+            const opcionesMezcladas = [...actual.opciones].sort(() => Math.random() - 0.5);
+
+            opcionesMezcladas.forEach(opcion => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-opcion';
+                btn.innerText = opcion;
+                btn.onclick = () => comprobarRespuesta(opcion, actual.respuestaCorrecta, btn);
+                grid.appendChild(btn);
+            });
+        }
+
+        function comprobarRespuesta(seleccionada, correcta, botonSeleccionado) {
+            if (juegoTerminado) return;
+
+            const mensaje = document.getElementById('mensaje-adivinanza');
+            const botones = document.querySelectorAll('.btn-opcion');
+
+            // Desactivar botones momentáneamente[cite: 4]
+            botones.forEach(b => b.style.pointerEvents = 'none');
+
+            if (seleccionada === correcta) {
+                juegoTerminado = true;
+                botonSeleccionado.classList.add('correcto');
+                mensaje.style.color = '#27ae60';
+                mensaje.innerText = '🎉 ¡Has acertado! ¡Muy bien!';
+                
+                const btnSiguiente = document.getElementById('btnSiguiente');
+                const btnReiniciar = document.getElementById('btnReiniciar');
+
+                if (indiceActual < adivinanzasActuales.length - 1) {
+                    btnSiguiente.style.display = 'inline-block';
+                } else {
+                    btnSiguiente.style.display = 'none';
+                    btnReiniciar.style.display = 'inline-block';
+                    mensaje.innerText += ' ¡Has completado todas las adivinanzas! 🌟';
+                }
+            } else {
+                botonSeleccionado.classList.add('incorrecto');
+                mensaje.style.color = '#e74c3c';
+                mensaje.innerText = '❌ ¡Casi! Prueba otra vez.';
+                
+                setTimeout(() => {
+                    botones.forEach(b => {
+                        b.style.pointerEvents = 'auto';
+                        b.classList.remove('incorrecto');
+                    });
+                    mensaje.innerText = '';
+                }, 1000);
+            }
+        }
+
+        function siguienteAdivinanza() {
+            indiceActual++;
+            juegoTerminado = false;
+            cargarAdivinanza();
+        }
+
+        window.onload = iniciarJuegoAdivinanzas;
+    </script>
+</body>
+</html>

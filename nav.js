@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="menu-links" id="navMenuLinks">
                 <a href="index.html">🏠 Inicio</a>
                 <a href="cuentos.html">📁 Cuentos</a>
+                <a href="podcast.html">🎙️ Podcast</a>
                 <a href="proyecto.html">📊 Proyecto</a>
                 
                 <div class="dropdown" id="healthDropdown">
@@ -28,15 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <div class="dropdown" id="creativeDropdown">
-                    <button class="dropbtn" type="button">✨ Creativo ▾</button>
+                <div class="dropdown" id="gamesDropdown">
+                    <button class="dropbtn" type="button">🎮 Juegos ▾</button>
                     <div class="dropdown-content">
-                        <a href="podcast.html">🎙️ Podcast</a>
-                        <a href="puzzles.html">🧩 Puzles</a>
+                        <a href="puzzles.html">🧩 Puzzles Mágicos</a>
+                        <a href="memoria.html">✨ Memoria Mágica</a>
+                        <a href="adivinanzas.html">🔮 Adivinanzas</a>
+                        <a href="aventura.html">🧭 Aventura</a>
                     </div>
                 </div>
-
-                <div class="dropdown" id="communityDropdown">
+                    <div class="dropdown" id="communityDropdown">
                     <button class="dropbtn" type="button">💬 Comunidad ▾</button>
                     <div class="dropdown-content">
                         <a href="tuvoz.html">⭐ Tu voz</a>

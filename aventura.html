@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura Mágica | El Nido de Estrellas</title>
+    <meta name="description" content="Una aventura interactiva de decisiones donde cada elección cambia tu destino.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .aventura-main-container {
+            max-width: 750px;
+            margin: 30px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .edad-badge {
+            display: inline-block;
+            background: rgba(241, 196, 66, 0.1);
+            color: #f1c442;
+            border: 1px dashed rgba(241, 196, 66, 0.4);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .progreso-wrapper {
+            background: #1a253a;
+            border: 2px solid rgba(241, 196, 66, 0.3);
+            border-radius: 12px;
+            padding: 8px 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Quicksand', sans-serif;
+            color: #ffffff;
+            font-size: 0.95rem;
+        }
+        .barra-contenedor {
+            flex-grow: 1;
+            height: 10px;
+            background: #0d1424;
+            border-radius: 5px;
+            margin: 0 15px;
+            overflow: hidden;
+            border: 1px solid rgba(241, 196, 66, 0.2);
+        }
+        .barra-relleno {
+            height: 100%;
+            background: #f1c442;
+            width: 20%;
+            transition: width 0.4s ease;
+        }
+        .tarjeta-aventura {
+            background: linear-gradient(145deg, #131c31 0%, #0d1424 100%);
+            border: 4px solid #f1c442;
+            border-radius: 20px;
+            padding: 35px 30px;
+            margin: 20px auto;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .capitulo-badge {
+            display: inline-block;
+            background: rgba(241, 196, 66, 0.15);
+            color: #f1c442;
+            border: 1px solid rgba(241, 196, 66, 0.4);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .escena-titulo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .escena-descripcion {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            color: #d1d8e0;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .opciones-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-top: 20px;
+        }
+        .btn-decision {
+            background: #1a253a;
+            color: #ffffff;
+            border: 2px solid rgba(241, 196, 66, 0.3);
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+        }
+        .btn-decision::before {
+            content: "➔";
+            color: #f1c442;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .btn-decision:hover {
+            border-color: #f1c442;
+            background: #22304d;
+            transform: translateX(4px);
+        }
+        .fade-in {
+            animation: fadeInAnim 0.4s ease forwards;
+        }
+        @keyframes fadeInAnim {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content aventura-main-container">
+        <h2>🧭 Aventura Mágica</h2>
+        <div class="edad-badge">✨ Lectura recomendada a partir de 7-8 años</div>
+        <p>Tus decisiones guiarán el destino de esta historia fantástica.</p>
+        
+        <div class="progreso-wrapper">
+            <span id="textoProgresoEtapa">Viaje: 1 / 5 pasos</span>
+            <div class="barra-contenedor">
+                <div class="barra-relleno" id="barraRelleno"></div>
+            </div>
+            <span id="textoProgresoPorcentaje">20%</span>
+        </div>
+
+        <div class="tarjeta-aventura fade-in" id="tarjetaEscena">
+            <div class="capitulo-badge" id="badgeCapitulo">Capítulo 1</div>
+            <h3 class="escena-titulo" id="tituloEscena">Cargando aventura...</h3>
+            <p class="escena-descripcion" id="descripcionEscena"></p>
+            
+            <div class="opciones-grid" id="opcionesGrid"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        /* Banco de historias independientes para que cada partida elija una aleatoria */
+        const bancoHistorias = [
+            // Trama 1: El Valle de los Ecos (Estrellas y Bosque)
+            {
+                inicio: {
+                    progreso: 20, etapa: "Paso 1 de 5", capitulo: "El Despertar", titulo: "El Valle de los Ecos",
+                    descripcion: "Te despiertas bajo una luna gigantesca. Ante ti se cruzan dos senderos: uno de neblina brillante y otro hacia un bosque cantarín.",
+                    opciones: [
+                        { texto: "Tomar el sendero de la neblina brillante", destino: "neblina" },
+                        { texto: "Adentrarse en el bosque cantarín", destino: "bosque_cantarin" }
+                    ]
+                },
+                neblina: {
+                    progreso: 40, etapa: "Paso 2 de 5", capitulo: "El Portal Estelar", titulo: "El Misterio de la Neblina",
+                    descripcion: "La neblina es un portal de polvo estelar. Encuentras un cofre antiguo y una extraña flauta de cristal.",
+                    opciones: [
+                        { texto: "Tocar la flauta de cristal", destino: "flauta" },
+                        { texto: "Forzar la cerradura con una rama", destino: "cofre_roto" }
+                    ]
+                },
+                bosque_cantarin: {
+                    progreso: 40, etapa: "Paso 2 de 5", capitulo: "La Melodía Oculta", titulo: "El Bosque Susurrante",
+                    descripcion: "Un zorro plateado te lanza un acertijo: 'No tengo voz pero hablo con todos, no tengo patas pero corro por el lodo'.",
+                    opciones: [
+                        { texto: "Responder: 'El Viento'", destino: "acertijo_acertado" },
+                        { texto: "Responder: 'Un Río'", destino: "acertijo_fallido" }
+                    ]
+                },
+                flauta: {
+                    progreso: 60, etapa: "Paso 3 de 5", capitulo: "La Melodía Mágica", titulo: "El Puente de Luz",
+                    descripcion: "La flauta abre el cofre y revela un mapa estelar. Frente a ti aparece un puente de luz sobre un gran cañón.",
+                    opciones: [
+                        { texto: "Cruzar el puente de luz", destino: "puente_luz" },
+                        { texto: "Rodear el cañón por la senda oscura", destino: "sendera_oscura" }
+                    ]
+                },
+                cofre_roto: {
+                    progreso: 20, etapa: "Reiniciado", capitulo: "Callejón sin salida", titulo: "Trampa mágica",
+                    descripcion: "La rama se rompe y el cofre te devuelve al inicio por intentar forzar las cosas.",
+                    opciones: [{ texto: "↩️ Volver a intentar desde el inicio", destino: "inicio" }]
+                },
+                acertijo_acertado: {
+                    progreso: 60, etapa: "Paso 3 de 5", capitulo: "El Puente Secreto", titulo: "El Zorro de Plata",
+                    descripcion: "El zorro convierte su cola en una constelación que ilumina un camino seguro hacia el Templo.",
+                    opciones: [
+                        { texto: "Cruzare el puente estelar hacia el templo", destino: "templo_estrellas" },
+                        { texto: "Explorar la cueva oculta bajo el puente", destino: "cueva_subterranea" }
+                    ]
+                },
+                acertijo_fallido: {
+                    progreso: 20, etapa: "Reiniciado", capitulo: "Tropiezo", titulo: "Camino bloqueado",
+                    descripcion: "El zorro niega con la cabeza y el sendero desaparece. Debes reintentarlo.",
+                    opciones: [{ texto: "↩️ Volver a intentar desde el inicio", destino: "inicio" }]
+                },
+                puente_luz: {
+                    progreso: 80, etapa: "Paso 4 de 5", capitulo: "Las Puertas", titulo: "La Prueba Final",
+                    descripcion: "Llegas ante las puertas doradas del observatorio. Elige la constelación correcta.",
+                    opciones: [
+                        { texto: "Elegir el Cisne Dorado", destino: "final_maestro" },
+                        { texto: "Elegir el Dragón Dormido", destino: "final_alternativo" }
+                    ]
+                },
+                sendera_oscura: {
+                    progreso: 80, etapa: "Paso 4 de 5", capitulo: "Valle Sombrío", titulo: "La Senda Rocosa",
+                    descripcion: "La senda te lleva directo a la parte trasera del observatorio.",
+                    opciones: [{ texto: "Escalera secreta trasera", destino: "final_alternativo" }]
+                },
+                templo_estrellas: {
+                    progreso: 80, etapa: "Paso 4 de 5", capitulo: "El Santuario", titulo: "El Altar Mayor",
+                    descripcion: "Una esfera de luz pura flota en el centro del templo esperando tu contacto.",
+                    opciones: [{ texto: "Tocar la esfera de luz pura", destino: "final_maestro" }]
+                },
+                cueva_subterranea: {
+                    progreso: 80, etapa: "Paso 4 de 5", capitulo: "Los Cristales", titulo: "Gruta Brillante",
+                    descripcion: "Encuentras cristales antiguos que guardan secretos del nido estelar.",
+                    opciones: [{ texto: "Salir al observatorio", destino: "final_alternativo" }]
+                },
+                final_maestro: {
+                    progreso: 100, etapa: "¡Completado!", capitulo: "Gran Final", titulo: "¡Guardián del Nido de Estrellas!",
+                    descripcion: "¡Has completado la travesía con éxito! El observatorio se ilumina con una lluvia de estrellas fugaces.",
+                    opciones: [{ texto: "🔄 Jugar otra aventura diferente", destino: "reiniciar_aleatorio" }]
+                },
+                final_alternativo: {
+                    progreso: 100, etapa: "¡Completado!", capitulo: "Gran Final", titulo: "¡El Sabio del Cosmos!",
+                    descripcion: "Has encontrado una ruta llena de sabiduría. El valle entero celebra tu ingenio sin igual.",
+                    opciones: [{ texto: "🔄 Jugar otra aventura diferente", destino: "reiniciar_aleatorio" }]
+                }
+            },
+
+            // Trama 2: El Reino Submarino de los Susurros
+            {
+                inicio: {
+                    progreso: 20, etapa: "Paso 1 de 5", capitulo: "El Océano", titulo: "La Orilla de Cristal",
+                    descripcion: "Apareces en una playa de arena plateada. Frente al mar, una tortuga gigante te invita a sumergirte o a seguir por los acantilados.",
+                    opciones: [
+                        { texto: "Sumergirse en el mar hacia la ciudad coralina", destino: "mar" },
+                        { texto: "Subir por los acantilados de los vientos", destino: "acantilados" }
+                    ]
+                },
+                mar: {
+                    progreso: 40, etapa: "Paso 2 de 5", capitulo: "Fondo Marino", titulo: "El Templo Sumergido",
+                    descripcion: "Bajo el agua respiras con magia. Un delfín te pide ayuda para abrir una ostra que guarda la perla del lucero.",
+                    opciones: [
+                        { texto: "Usar un canto suave para que la ostra se abra sola", destino: "ostra_canto" },
+                        { texto: "Tirar con fuerza de la concha", destino: "ostra_error" }
+                    ]
+                },
+                acantilados: {
+                    progreso: 40, etapa: "Paso 2 de 5", capitulo: "Las Alturas", titulo: "El Nido del Águila",
+                    descripcion: "En lo alto encuentras un pergamino antiguo custodiado por un halcón que te pide una adivinanza.",
+                    opciones: [
+                        { texto: "Resolver el acertijo del viento", destino: "halcon_acierto" },
+                        { texto: "Intentar arrebatar el pergamino", destino: "ostra_error" }
+                    ]
+                },
+                ostra_canto: {
+                    progreso: 60, etapa: "Paso 3 de 5", capitulo: "La Perla", titulo: "El Jardín de Coral",
+                    descripcion: "La ostra se abre con música y te entrega la perla brillante. Ahora puedes cruzar la gran corriente.",
+                    opciones: [
+                        { texto: "Nadar hacia la torre del mar", destino: "torre_mar" },
+                        { texto: "Descansar en el arrecife de luz", destino: "arrecife" }
+                    ]
+                },
+                ostra_error: {
+                    progreso: 20, etapa: "Reiniciado", capitulo: "Fin de ruta", titulo: "La Corriente",
+                    descripcion: "La fuerza del agua o del halcón te devuelve a la orilla inicial. ¡Inténtalo de nuevo!",
+                    opciones: [{ texto: "↩️ Volver a intentar", destino: "inicio" }]
+                },
+                halcon_acierto: {
+                    progreso: 60, etapa: "Paso 3 de 5", capitulo: "El Pergamino", titulo: "Sabiduría del Aire",
+                    descripcion: "El halcón te entrega el mapa celeste de los vientos para volar sin alas.",
+                    opciones: [
+                        { texto: "Volar hacia las islas flotantes", destino: "islas_flotantes" },
+                        { texto: "Bajar al valle secreto", destino: "torre_mar" }
+                    ]
+                },
+                torre_mar: {
+                    progreso: 80, etapa: "Paso 4 de 5", capitulo: "El Santuario", titulo: "La Puerta de Agua",
+                    descripcion: "Llegas al portal definitivo que conecta los océanos con el cielo estrellado.",
+                    opciones: [
+                        { texto: "Activar el portal con la perla", destino: "final_marino" },
+                        { texto: "Esperar la alineación lunar", destino: "final_marino" }
+                    ]
+                },
+                arrecife: {
+                    progreso: 80, etapa: "Paso 4 de 5", capitulo: "Paz Marina", titulo: "El Sueño de las Sirenas",
+                    descripcion: "Descubres el secreto de las mareas y el equilibrio del nido.",
+                    opciones: [{ texto: "Abrir el cofre del tesoro", destino: "final_marino" }]
+                },
+                islas_flotantes: {
+                    progreso: 80, etapa: "Paso 4 de 5", capitulo: "Cielo Abierto", titulo: "El Reino de las Nubes",
+                    descripcion: "Estás en la cima del mundo contemplando todas las estrellas.",
+                    opciones: [{ texto: "Tocar la gran campana estelar", destino: "final_marino" }]
+                },
+                final_marino: {
+                    progreso: 100, etapa: "¡Completado!", capitulo: "Gran Final", titulo: "¡Héroe de los Mares y Estrellas!",
+                    descripcion: "¡Has superado la gran aventura submarina y celeste! Las criaturas del nido te aplauden con alegría.",
+                    opciones: [{ texto: "🔄 Jugar otra aventura diferente", destino: "reiniciar_aleatorio" }]
+                }
+            }
+        ];
+
+        let historiaActual = {};
+
+        function iniciarAventuraAleatoria() {
+            // Selecciona una historia al azar del banco cada vez que se inicia o se reinicia
+            const indiceAleatorio = Math.floor(Math.random() * bancoHistorias.length);
+            historiaActual = bancoHistorias[indiceAleatorio];
+            mostrarEscena('inicio');
+        }
+
+        function mostrarEscena(claveEscena) {
+            if (claveEscena === 'reiniciar_aleatorio') {
+                iniciarAventuraAleatoria();
+                return;
+            }
+
+            const escena = historiaActual[claveEscena];
+            const tarjeta = document.getElementById('tarjetaEscena');
+            
+            // Actualizar la barra de progreso
+            const porcentaje = escena.progreso || 50;
+            document.getElementById('barraRelleno').style.width = porcentaje + '%';
+            document.getElementById('textoProgresoPorcentaje').innerText = porcentaje + '%';
+            document.getElementById('textoProgresoEtapa').innerText = escena.etapa || "Aventura en curso";
+
+            // Transición suave
+            tarjeta.classList.remove('fade-in');
+            void tarjeta.offsetWidth;
+            tarjeta.classList.add('fade-in');
+
+            document.getElementById('badgeCapitulo').innerText = escena.capitulo;
+            document.getElementById('tituloEscena').innerText = escena.titulo;
+            document.getElementById('descripcionEscena').innerText = escena.descripcion;
+
+            const gridOpciones = document.getElementById('opcionesGrid');
+            gridOpciones.innerHTML = '';
+
+            escena.opciones.forEach(opcion => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-decision';
+                btn.innerText = opcion.texto;
+                btn.onclick = () => mostrarEscena(opcion.destino);
+                gridOpciones.appendChild(btn);
+            });
+        }
+
+        window.onload = iniciarAventuraAleatoria;
+    </script>
+</body>
+</html>
