@@ -137,7 +137,7 @@ footer a {
 }
 
 /* ==========================================
-   3. COMPONENTES Y BOTONES COMUNES
+   3. COMPONENTES Y BOTONES COMUNES (Elegancia Renovada)
    ================================---------- */
 h1 {
     text-align: center;
@@ -149,38 +149,64 @@ h1 {
 
 .btn-principal {
     display: inline-block;
-    background-color: var(--dorado-botones);
+    padding: 16px 42px;
+    background: linear-gradient(135deg, #f1c442 0%, #d9af34 100%);
     color: #070b14;
     text-decoration: none;
-    padding: 15px 40px;
-    border-radius: 12px;
+    border-radius: 50px;
     font-size: 1.1rem;
-    font-weight: 600;
-    box-shadow: 0 10px 25px rgba(241, 196, 66, 0.2);
-    transition: var(--transicion);
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(241, 196, 66, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-principal:hover {
-    background-color: var(--dorado-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(241, 196, 66, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(241, 196, 66, 0.4);
+    background: linear-gradient(135deg, #fce085 0%, #f1c442 100%);
+}
+
+/* Efecto de destello estelar en el botón principal */
+.btn-principal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.6s;
+}
+
+.btn-principal:hover::before {
+    left: 100%;
 }
 
 .btn-secundario {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: transparent;
-    color: #f3e5ab;
-    border: 1px solid #f3e5ab;
-    border-radius: 8px;
+    padding: 14px 32px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #f1c442;
+    border: 1px solid rgba(241, 196, 66, 0.3);
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .btn-secundario:hover {
-    background-color: #f3e5ab;
-    color: #0f172a;
+    background: rgba(241, 196, 66, 0.1);
+    border-color: rgba(241, 196, 66, 0.6);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(241, 196, 66, 0.15);
+    transform: translateY(-2px);
 }
 
 .boton-area-centrada {
