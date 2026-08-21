@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Trimestre: La Cimentación | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        .bloque-guia {
+            background: rgba(22, 33, 62, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 196, 66, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #f1c442;
+        }
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f1c442; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(241, 196, 66, 0.2); padding-bottom: 8px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        
+        /* Estilos del índice interactivo */
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #f1c442; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f1c442; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f1c442; padding-left: 5px; }
+
+        .img-guia-placeholder { width: 100%; height: 280px; background: rgba(255,255,255,0.03); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #a0aec0; margin: 25px 0; border: 1px dashed rgba(241, 196, 66, 0.3); font-family: 'Inter', sans-serif; font-size: 0.95rem; }
+
+        /* Estilos para los botones de navegación entre páginas */
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(241, 196, 66, 0.15);
+            border: 1px solid rgba(241, 196, 66, 0.4);
+            color: #f1c442;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(241, 196, 66, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <!-- PORTADA DE LA SECCIÓN -->
+        <div class="encabezado-inicio">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f1c442;">Primer Trimestre: La Cimentación</h1>
+            <p style="font-size: 1.3rem; color: #f3e5ab; max-width: 800px; margin: 0 auto 40px auto; font-family: 'Quicksand', sans-serif;">De la concepción a la semana 13: El inicio del desarrollo y la adaptación profunda del organismo.</p>
+            <img src="imgembarazo/portada01.webp" alt="Primer Trimestre: La Cimentación" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 20px;">
+        </div>
+
+        <!-- BLOQUE PRINCIPAL CON ÍNDICE INTERACTIVO Y CONTENIDO EXHAUSTIVO -->
+        <section class="bloque-guia">
+            <h2>Índice del Primer Trimestre</h2>
+            
+            <div class="indice-caja">
+                <h4>Navega directamente a los temas de tu interés:</h4>
+                <ul>
+                    <li>• <a href="#sintomas">1. Síntomas iniciales: ¿Normalidad o señal de alarma?</a></li>
+                    <li>• <a href="#hormonas">2. Cambios metabólicos y tormenta hormonal</a></li>
+                    <li>• <a href="#medicina">3. Primeras pruebas médicas, analíticas y ecografías</a></li>
+                    <li>• <a href="#nutricion">4. Nutrición esencial, suplementación y ácido fólico</a></li>
+                    <li>• <a href="#emocional">5. El impacto emocional y la gestión de la incertidumbre</a></li>
+                    <li>• <a href="#pareja">6. Cambios en la dinámica de pareja y sexualidad</a></li>
+                </ul>
+            </div>
+
+            <!-- TEMA 1 -->
+            <h3 id="sintomas">1. Síntomas iniciales: ¿Normalidad o señal de alarma?</h3>
+            <p>Las primeras semanas están marcadas por una intensa actividad sintomatológica. El cuerpo avisa de que algo extraordinario está ocurriendo. Es muy frecuente experimentar <strong>fatiga profunda</strong>, sensibilidad extrema en los senos, cambios repentinos de humor y, por supuesto, las conocidas náuseas matutinas (que a menudo se extienden a todo el día).</p>
+            <p><strong>¿Qué es totalmente normal?</strong> Las náuseas sin vómitos incontrolables, el cansancio que te obliga a descansar más de lo habitual, molestias leves similares a los calambres menstruales (debido a la expansión del útero) y un flujo vaginal ligeramente aumentado pero inodoro.</p>
+            <p><strong>¿Cuándo debes consultar con tu médico?</strong> Debes encender una señal de alerta ante sangrados vaginales abundantes (rojo vivo con coágulos), dolor abdominal agudo e intenso localizado en un solo lado, fiebre alta repentina o episodios de vómitos severos que te impidan retener líquidos durante más de 24 horas.</p>
+
+            <img src="imgembarazo/bienestar01.webp" alt="Bienestar y descanso en casa" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px; margin: 25px 0;">
+
+            <!-- TEMA 2 -->
+            <h3 id="hormonas">2. Cambios metabólicos y tormenta hormonal</h3>
+            <p>Desde el momento de la implantación, la <strong>gonadotropina coriónica humana (hCG)</strong> y la <strong>progesterona</strong> se disparan. La progesterona actúa como un relajante muscular generalizado en tu cuerpo para permitir que el útero crezca, lo cual tiene efectos colaterales directos sobre tu metabolismo: ralentiza la digestión (provocando estreñimiento, acidez y gases) y disminuye ligeramente la presión arterial, lo que explica los mareos repentinos al levantarse bruscamente.</p>
+            <p>Tu volumen de sangre comienza a aumentar de manera paulatina para poder abastecer a la placenta en formación, lo que exige al sistema cardiovascular un esfuerzo extra que se traduce en esa sensación constante de falta de energía. Escuchar este ritmo biológico y aceptar bajar revoluciones no es un capricho, es una necesidad fisiológica.</p>
+
+            <!-- TEMA 3 -->
+            <h3 id="medicina">3. Primeras pruebas médicas, analíticas y ecografías</h3>
+            <p>El control prenatal temprano es fundamental para asegurar el bienestar materno-fetal. Entre las semanas 8 y 10 suele realizarse la primera visita formal con el obstetra o matrona:</p>
+            <ul>
+                <li><strong>Analítica de sangre del primer trimestre:</strong> Se evalúa el hemograma completo, grupo sanguíneo y factor Rh, serologías de infecciones clave (toxoplasma, rubéola, sífilis, VIH, hepatitis B) y los niveles de glucosa y hierro.</li>
+                <li><strong>Analítica de orina:</strong> Para descartar infecciones urinarias asintomáticas, muy comunes en esta etapa debido a la relajación de las vías urinarias.</li>
+                <li><strong>Ecografía de confirmación (semana 11-13+6):</strong> Conocida como la ecografía del primer trimestre o del pliegue nucal. Permite fechar con exactitud la gestación, confirmar la viabilidad embrionaria (ver latido cardíaco), descartar embarazos ectópicos y realizar el cribado combinado del primer trimestre (marcadores ecográficos y bioquímicos para evaluar riesgos cromosómicos).</li>
+            </ul>
+
+            <img src="imgembarazo/ecografia01.webp" alt="Consulta médica o ecografía" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px; margin: 25px 0;">
+
+            <!-- TEMA 4 -->
+            <h3 id="nutricion">4. Nutrición esencial, suplementación y ácido fólico</h3>
+            <p>Olvídate del mito de "comer por dos"; la clave en el primer trimestre es la <strong>densidad nutricional</strong>. Tu cuerpo no necesita una gran cantidad extra de calorías todavía, pero sí una precisión extrema en los micronutrientes:</p>
+            <ul>
+                <li><strong>Ácido fólico (Vitamina B9):</strong> Suplemento indispensable que debe iniciarse preferiblemente antes de la concepción y durante todo el primer trimestre para prevenir de forma drástica los defectos del tubo neural (como la espina bífida).</li>
+                <li><strong>Yodo y Hierro:</strong> Fundamentales para el desarrollo neurológico y para prevenir la anemia ante el aumento del volumen sanguíneo.</li>
+                <li><strong>Seguridad alimentaria:</strong> Si no eres inmune a la toxoplasmosis, es obligatorio evitar carnes crudas o poco hechas, embutidos curados no cocinados, lavar a fondo frutas y verduras, y evitar pescados grandes con alto contenido en mercurio (como el pez espada o el atún rojo) y quesos elaborados con leche no pasteurizada.</li>
+            </ul>
+
+            <!-- TEMA 5 -->
+            <h3 id="emocional">5. El impacto emocional y la gestión de la incertidumbre</h3>
+            <p>El aspecto psicológico del primer trimestre suele ser el gran olvidado. Muchas mujeres experimentan una mezcla contradictoria de inmensa alegría y un profundo miedo o vértigo ante el cambio vital que se avecina. El miedo al aborto espontáneo, muy presente en estas semanas de mayor vulnerabilidad biológica, puede generar ansiedad silenciosa.</p>
+            <p>Es fundamental validar estas emociones. No hay culpa en sentir miedo. Hablar abiertamente con tu entorno cercano o con profesionales de la salud mental perinatal ayuda a transitar este duelo preventivo o la angustia de la espera hasta superar la barrera de la semana 12.</p>
+
+            <!-- TEMA 6 -->
+            <h3 id="pareja">6. Cambios en la dinámica de pareja y sexualidad</h3>
+            <p>La llegada de este proceso altera la dinámica afectiva. Mientras la madre experimenta los cambios físicos de forma directa, la pareja puede vivir la realidad del embarazo de una manera inicialmente más abstracta. La comunicación asertiva, expresar las necesidades de espacio o de mimos, y rediseñar los momentos de complicidad son claves.</p>
+            <p>En cuanto a las relaciones sexuales, salvo contraindicación médica específica (como riesgo de aborto o sangrados previos), son completamente seguras y saludables durante el primer trimestre. El saco amniótico y los músculos uterinos protegen eficazmente al embrión, aunque es normal que el apetito sexual fluctúe debido al cansancio y las alteraciones hormonales.</p>
+        </section>
+
+        <!-- BOTONES DE NAVEGACIÓN ENTRE PÁGINAS -->
+        <div class="navegacion-paginas">
+            <span><!-- Espacio vacío a la izquierda porque este es el 1 --></span>
+            <a href="embarazo02.html" class="btn-navegacion">
+                Segundo Trimestre (Sem. 14-27) &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

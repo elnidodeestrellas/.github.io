@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parto, Nacimiento y Postparto | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        /* Bloque con identidad propia en tono morado/magenta para la fase final y postparto */
+        .bloque-guia {
+            background: rgba(22, 33, 62, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(161, 140, 209, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #a18cd1;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #a18cd1; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(161, 140, 209, 0.2); padding-bottom: 8px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        /* Estilos del índice específico (Tono Morado) */
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #a18cd1; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #a18cd1; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #a18cd1; padding-left: 5px; }
+
+        .img-guia-placeholder { width: 100%; height: 280px; background: rgba(255,255,255,0.03); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #a0aec0; margin: 25px 0; border: 1px dashed rgba(161, 140, 209, 0.3); font-family: 'Inter', sans-serif; font-size: 0.95rem; }
+
+        /* Estilos para los botones de navegación entre páginas */
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(161, 140, 209, 0.15);
+            border: 1px solid rgba(161, 140, 209, 0.4);
+            color: #a18cd1;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(161, 140, 209, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <!-- PORTADA DE LA SECCIÓN -->
+        <div class="encabezado-inicio">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #a18cd1; margin-bottom: 15px;">Parto, Nacimiento y Postparto</h1>
+            <p style="font-size: 1.3rem; color: #e2d9f3; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Las fases del trabajo de parto, el encuentro con tu bebé, los primeros cuidados del recién nacido y el inicio del puerperio.</p>
+            <img src="imgembarazo/portada04.webp" alt="Parto y Postparto" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 40px;">
+        </div>
+
+        <!-- BLOQUE PRINCIPAL -->
+        <section class="bloque-guia">
+            <h2>Índice de Parto y Postparto</h2>
+            
+            <div class="indice-caja">
+                <h4>Navega directamente a los temas de tu interés:</h4>
+                <ul>
+                    <li>• <a href="#fases-parto">1. Las tres fases del trabajo de parto (Dilatación, Expulsivo y Alumbramiento)</a></li>
+                    <li>• <a href="#alivio-dolor">2. Métodos de alivio del dolor: Opciones farmacológicas y naturales</a></li>
+                    <li>• <a href="#cesarea">3. ¿Qué ocurre en una cesárea programada o de urgencia?</a></li>
+                    <li>• <a href="#piel-con-piel">4. El nacimiento: Piel con piel inmediato y pinzamiento del cordón</a></li>
+                    <li>• <a href="#puerperio">5. El puerperio o cuarentena: Cambios físicos y emocionales</a></li>
+                    <li>• <a href="#lactancia">6. Lactancia materna y primeros cuidados del recién nacido</a></li>
+                </ul>
+            </div>
+
+            <!-- TEMA 1 -->
+            <h3 id="fases-parto">1. Las tres fases del trabajo de parto</h3>
+            <p>El nacimiento es un proceso fisiológico fascinante que se divide clásicamente en tres etapas principales:</p>
+            <ul>
+                <li><strong>Fase de Dilatación:</strong> Se divide en fase latente (contracciones irregulares y borramiento del cuello uterino) y fase activa (contracciones rítmicas y eficientes que dilatan el cuello uterino hasta los 10 centímetros).</li>
+                <li><strong>Fase Expulsiva:</strong> El momento en el que la madre siente el reflejo de pujo, ayudando con sus contracciones a que el bebé descienda a través del canal de parto hasta nacer.</li>
+                <li><strong>Alumbramiento:</strong> La etapa final en la que el útero expulsa la placenta y las membranas placentarias, concluyendo de forma segura el proceso físico del parto.</li>
+            </ul>
+
+            <img src="imgembarazo/parto04.webp" alt="Parto y Postparto" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 40px;">
+
+            <!-- TEMA 2 -->
+            <h3 id="alivio-durcal">2. Métodos de alivio del dolor: Opciones farmacológicas y naturales</h3>
+            <p>Cada mujer vive el dolor de forma única y dispone de múltiples herramientas para gestionarlo. Entre los métodos no farmacológicos destacan la movilidad libre, el uso de pelota de pilates (suiza), la ducha o inmersión en agua caliente, la respiración guiada y el apoyo emocional continuo de la doula o matrona.</p>
+            <p>Entre las opciones farmacológicas, la <strong>analgesia epidural</strong> es la técnica más solicitada para bloquear la sensibilidad en la mitad inferior del cuerpo, permitiendo a la madre descansar durante las horas de dilatación más intensas.</p>
+
+            <!-- TEMA 3 -->
+            <h3 id="cesarea">3. ¿Qué ocurre en una cesárea programada o de urgencia?</h3>
+            <p>La cesárea es una intervención quirúrgica abdominal segura que se realiza cuando existen indicaciones médicas que desaconsejan el parto vaginal (como presentación podálica persistente, placenta previa o sufrimiento fetal agudo).</p>
+            <p>Consiste en una pequeña incisión horizontal en el abdomen inferior y en el útero. Hoy en día, los protocolos de "cesárea humanizada" permiten que el acompañante esté presente en el quirófano y que se fomente el contacto piel con piel con el bebé tan pronto como sea posible.</p>
+
+            <!-- TEMA 4 -->
+            <h3 id="piel-con-piel">4. El nacimiento: Piel con piel inmediato y pinzamiento del cordón</h3>
+            <p>Salvo que exista una complicación médica que requiera atención urgente al recién nacido, las recomendaciones actuales priorizan el <strong>contacto piel con piel inmediato</strong> sobre el pecho de la madre. Esto estabiliza la temperatura del bebé, regula su frecuencia cardíaca y facilita el inicio espontáneo de la lactancia materna.</p>
+            <p>Asimismo, se promueve el pinzamiento tardío del cordón umbilical, permitiendo que la sangre placentaria continúe fluyendo hacia el bebé durante sus primeros minutos de vida extrauterina.</p>
+
+            <img src="imgembarazo/contacto04.webp" alt="Parto y Postparto" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 40px;">
+
+            <!-- TEMA 5 -->
+            <h3 id="puerperio">5. El puerperio o cuarentena: Cambios físicos y emocionales</h3>
+            <p>El postparto o puerperio es el periodo de reajuste en el que el cuerpo regresa progresivamente al estado previo a la gestación. Durante las primeras semanas se experimentan los <strong>loquios</strong> (sangrado postparto), la involución uterina (contracciones llamadas "entrepiernas" o loquios al amamantar) y la subida de la leche.</p>
+            <p>A nivel emocional, la "tristeza postparto" o <em>baby blues</em> (llanto fácil y sensibilidad extrema debido al desplome hormonal repentino de los días 3 al 5) es muy común; sin embargo, si persiste o se convierte en apatía profunda, es fundamental buscar apoyo psicológico especializado.</p>
+
+            <!-- TEMA 6 -->
+            <h3 id="lactancia">6. Lactancia materna y primeros cuidados del recién nacido</h3>
+            <p>El establecimiento de la lactancia materna requiere paciencia, un buen agarre al pezón para evitar grietas y asesoramiento profesional temprano si surgen dudas. Si se opta por la lactancia artificial, la pauta debe realizarse con la misma tranquilidad y apego.</p>
+            <p>En cuanto al recién nacido, los primeros cuidados abarcan el mantenimiento limpio y seco del cordón umbilical, los baños templados sin jabones agresivos y la comprensión de sus patrones de sueño y llanto como lenguaje principal de comunicación.</p>
+        </section>
+
+        <!-- BOTONES DE NAVEGACIÓN ENTRE PÁGINAS -->
+        <div class="navegacion-paginas">
+            <a href="embarazo03.html" class="btn-navegacion">
+                &larr; Tercer Trimestre
+            </a>
+            <!-- Aquí puedes enlazar la página de Preguntas Frecuentes cuando la crees -->
+            <a href="preguntas-frecuentes.html" class="btn-navegacion">
+                Preguntas Frecuentes &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

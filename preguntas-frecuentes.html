@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes y Dudas Habituales | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        /* Bloque con identidad propia en tono verde/turquesa para FAQ */
+        .bloque-guia {
+            background: rgba(22, 33, 62, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 249, 215, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #38f9d7;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #38f9d7; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(56, 249, 215, 0.2); padding-bottom: 8px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        /* Estilos del índice específico (Tono Turquesa) */
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #38f9d7; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #38f9d7; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #38f9d7; padding-left: 5px; }
+
+        /* Estilo visual para formato Pregunta/Respuesta */
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        .faq-pregunta {
+            font-family: 'Quicksand', sans-serif;
+            color: #38f9d7;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para los botones de navegación entre páginas */
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(56, 249, 215, 0.15);
+            border: 1px solid rgba(56, 249, 215, 0.4);
+            color: #38f9d7;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(56, 249, 215, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <!-- PORTADA DE LA SECCIÓN -->
+        <div class="encabezado-inicio">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #38f9d7; margin-bottom: 15px;">Preguntas Frecuentes (FAQ)</h1>
+            <p style="font-size: 1.3rem; color: #d1fbf5; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Resolvemos de forma directa y clara todas esas dudas que surgen día a día durante el embarazo, el parto y el postparto.</p>
+        </div>
+
+        <!-- BLOQUE PRINCIPAL DE PREGUNTAS FRECUENTES -->
+        <section class="bloque-guia">
+            <h2>Índice de Dudas Habituales</h2>
+            
+            <div class="indice-caja">
+                <h4>Categorías de preguntas:</h4>
+                <ul>
+                    <li>• <a href="#cat-sintomas">1. Síntomas cotidianos y molestias</a></li>
+                    <li>• <a href="#cat-alimentacion">2. Alimentación y restricciones</a></li>
+                    <li>• <a href="#cat-medicas">3. Pruebas médicas y ecografías</a></li>
+                    <li>• <a href="#cat-estilo">4. Estilo de vida, viajes y relaciones</a></li>
+                    <li>• <a href="#cat-urgencias">5. Señales de alarma: ¿Cuándo acudir a urgencias?</a></li>
+                </ul>
+            </div>
+
+            <!-- CATEGORÍA 1 -->
+            <h3 id="cat-sintomas">1. Síntomas cotidianos y molestias</h3>
+            
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Es normal tener cólicos o dolores leves similares a la regla en el primer trimestre?</div>
+                <p>Sí, es muy habitual. Se debe a la rápida expansión y estiramiento de los ligamentos y músculos del útero. Siempre que no vayan acompañados de sangrado abundante o dolor insoportable en un solo lado, entra dentro de la normalidad.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Por qué tengo tanto sueño y fatiga extrema al principio?</div>
+                <p>Tu cuerpo está realizando un sobreesfuerzo titánico: se está creando la placenta, el volumen sanguíneo aumenta y los niveles de progesterona se disparan actuando como un sedante natural. Escucha a tu cuerpo y descansa siempre que lo precises.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Qué puedo tomar para la acidez estomacal en la recta final?</div>
+                <p>La acidez es muy común por la presión del útero y la relajación de válvulas. Se aconseja hacer comidas más frecuentes pero ligeras, evitar tumbarse justo después de comer y consultar con tu médico o matrona el uso de antiácidos seguros compatibles con la gestación (como los basados en almagato o ranitidina/omeprazol bajo prescripción).</p>
+            </div>
+
+            <!-- CATEGORÍA 2 -->
+            <h3 id="cat-alimentacion">2. Alimentación y restricciones</h3>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Qué pasa si he comido jamón u otro embutido curado y no soy inmune a la toxoplasmosis?</div>
+                <p>No entres en pánico. Si el embutido ha estado congelado previamente a menos de 20 grados bajo cero durante varios días o ha sido cocinado a altas temperaturas, el riesgo disminuye. Consulta a tu matrona para que valore realizar una analítica de control si existiera sospecha real de exposición.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Puedo tomar café o bebidas con cafeína?</div>
+                <p>Sí, pero con moderación. Las organizaciones de salud recomiendan no superar los 200 mg de cafeína al día (equivalente a una o dos taza de café moderadas). Recuerda que el té, los refrescos de cola y el chocolate también contienen cafeína o teína.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Es obligatorio "comer por dos"?</div>
+                <p>Es un mito totalmente falso. En el primer trimestre las calorías extra necesarias son prácticamente nulas; en el segundo y tercer trimestre se requiere un aporte muy moderado (unas 300-500 calorías adicionales de gran calidad nutricional, no ultraprocesados).</p>
+            </div>
+
+            <!-- CATEGORÍA 3 -->
+            <h3 id="cat-medicas">3. Pruebas médicas y ecografías</h3>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Cuántas ecografías se realizan normalmente en un embarazo de bajo riesgo?</div>
+                <p>Por lo general, la sanidad pública contempla tres ecografías clave: una en el primer trimestre (semana 11-13) para fechar y cribado, la ecografía morfológica de alta resolución en el segundo trimestre (semana 20) y una eco de control de crecimiento en el tercer trimestre (semana 32-34).</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Duele la prueba de la curva de glucosa (O'Sullivan)?</div>
+                <p>La prueba en sí no duele, ya que consiste en una extracción de sangre inicial, la ingesta de un líquido muy dulce con glucosa concentrada, y una nueva extracción pasada una hora. Lo más molesto para algunas mujeres es el sabor empalagoso del líquido o una ligera sensación de mareo posterior.</p>
+            </div>
+
+            <!-- CATEGORÍA 4 -->
+            <h3 id="cat-estilo">4. Estilo de vida, viajes y relaciones</h3>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Se puede viajar en avión estando embarazada?</div>
+                <p>Sí, por lo general es seguro durante el primer y segundo trimestre si el embarazo transcurre con normalidad. La mayoría de las aerolíneas restringen el vuelo a partir de la semana 36 (o semana 32 si es embarazo múltiple) y suelen requerir un certificado médico a partir de la semana 28.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Son seguras las relaciones sexuales durante la gestación?</div>
+                <p>Salvo que tu ginecólogo haya indicado reposo absoluto o exista contraindicación médica específica (como amenaza de parto prematuro o sangrados recurrentes), las relaciones sexuales son completamente seguras y no perjudican al bebé.</p>
+            </div>
+
+            <!-- CATEGORÍA 5 -->
+            <h3 id="cat-urgencias">5. Señales de alarma: ¿Cuándo acudir a urgencias?</h3>
+
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Qué síntomas exigen una visita inmediata al hospital?</div>
+                <p>Debes acudir a urgencias obstétricas ante cualquiera de las siguientes señales de alerta:</p>
+                <ul>
+                    <li>• Sangrado vaginal rojo brillante similar o superior a una regla.</li>
+                    <li>• Pérdida repentina de líquido amniótico por la vagina (rotura de bolsa) antes de tiempo.</li>
+                    <li>• Dolor abdominal o uterino intenso, constante y agudo.</li>
+                    <li>• Fiebre alta persistente (más de 38°C).</li>
+                    <li>• Disminución o ausencia clara de movimientos fetales (en el tercer trimestre).</li>
+                    <li>• Dolor de cabeza intenso y persistente, visión borrosa, ver lucecitas o hinchazón súbita y exagerada en manos y cara (posibles signos de preeclampsia).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- BOTONES DE NAVEGACIÓN ENTRE PÁGINAS -->
+        <div class="navegacion-paginas">
+            <a href="embarazo04.html" class="btn-navegacion">
+                &larr; Parto y Postparto
+            </a>
+            <a href="embarazo01.html" class="btn-navegacion">
+                Volver al Primer Trimestre &uarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>
