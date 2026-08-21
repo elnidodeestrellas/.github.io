@@ -24,8 +24,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="dropdown" id="healthDropdown">
                     <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
+                        <div class="dropdown-header-title">General</div>
                         <a href="guiasSalud.html">📋 Guías de Salud</a>
                         <a href="rinconlectura.html">📖 Rincón de Lectura</a>
+                        
+                        <div class="dropdown-divider"></div>
+                        
+                        <div class="dropdown-header-title">Guía del Embarazo</div>
+                        <a href="embarazo01.html">🌟 1er Trimestre</a>
+                        <a href="embarazo02.html">💧 2º Trimestre</a>
+                        <a href="embarazo03.html">🌸 3er Trimestre</a>
+                        <a href="embarazo04.html">💜 Parto y Postparto</a>
+                        <a href="preguntas-frecuentes.html">❓ Preguntas Frecuentes</a>
                     </div>
                 </div>
 
@@ -38,7 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         <a href="aventura.html">🧭 Aventura</a>
                     </div>
                 </div>
-                    <div class="dropdown" id="communityDropdown">
+                
+                <div class="dropdown" id="communityDropdown">
                     <button class="dropbtn" type="button">💬 Comunidad ▾</button>
                     <div class="dropdown-content">
                         <a href="tuvoz.html">⭐ Tu voz</a>
@@ -64,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Configuración de los desplegables con soporte táctil mejorado y delegación segura
+    // 2. Configuración de los desplegables con soporte táctil mejorado
     const dropBtns = document.querySelectorAll('.dropbtn');
     dropBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -72,21 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const dropdown = btn.closest('.dropdown');
             
-            // Cierra los demás desplegables abiertos
             document.querySelectorAll('.dropdown').forEach(drop => {
                 if (drop !== dropdown) {
                     drop.classList.remove('show');
                 }
             });
             
-            // Alterna el estado del desplegable actual
             if (dropdown) {
                 dropdown.classList.toggle('show');
             }
         });
     });
 
-    // 3. Cierre automático al hacer clic o tap fuera del menú o de los desplegables
+    // 3. Cierre automático al hacer clic fuera
     window.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
             document.querySelectorAll('.dropdown').forEach(drop => {
@@ -101,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 4. Soporte para orientación o cambios de tamaño (cierra el menú móvil si se pasa a escritorio)
+    // 4. Soporte para cambios de tamaño de pantalla
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');

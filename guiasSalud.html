@@ -8,10 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <!-- Script de análisis (GoatCounter) -->
     <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
             async src="https://gc.zgo.at/count.js"></script>
     <style>
+        /* Desplazamiento suave en toda la página */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #0c1425;
             color: #e2e8f0;
@@ -22,121 +26,150 @@
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
             color: #e2e8f0 !important;
         }
-        .cuento-caja h1, .cuento-caja h2, .cuento-caja h3 {
+        .cuento-caja h1, .cuento-caja h3 {
             color: #f8fafc !important;
         }
-        .cuento-caja p, .cuento-caja li, .cuento-caja span {
+        .cuento-caja p {
             color: #cbd5e1 !important;
         }
 
-        /* Estilos específicos para títulos y tarjetas por categoría */
-        
-        /* 1. Crónicas (Dorado / Cálido) */
-        .seccion-cronicas {
-            border-bottom: 2px solid #e2b763 !important;
-            color: #f6e085 !important;
+        /* Menú de acceso rápido superior ajustado y uniforme */
+        .menu-rapido-indices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 12px;
+            margin: 25px 0;
+            padding: 20px;
+            background: #162036;
+            border-radius: 14px;
+            border: 1px solid rgba(184, 148, 74, 0.2);
         }
-        .card-cronicas {
-            border: 1px solid rgba(226, 183, 99, 0.4) !important;
-        }
-        .card-cronicas:hover {
-            border-color: #e2b763 !important;
-            box-shadow: 0 6px 20px rgba(226, 183, 99, 0.15) !important;
-        }
-
-        /* 2. Neurodesarrollo (Azul) */
-        .seccion-neuro {
-            border-bottom: 2px solid #63b3ed !important;
-            color: #90cdf4 !important;
-        }
-        .card-neuro {
-            border: 1px dashed rgba(99, 179, 237, 0.4) !important;
-        }
-        .card-neuro:hover {
-            border-color: #63b3ed !important;
-            box-shadow: 0 6px 20px rgba(99, 179, 237, 0.15) !important;
-        }
-
-        /* 3. Nutrición y Salud Física (Verde) */
-        .seccion-nutricion {
-            border-bottom: 2px solid #68d391 !important;
-            color: #9ae6b4 !important;
-        }
-        .card-nutricion, .card-dermatitis, .card-sueno, .card-dental, .card-visual {
-            border: 1px dashed rgba(104, 211, 145, 0.4) !important;
-        }
-        .card-nutricion:hover, .card-dermatitis:hover, .card-sueno:hover, .card-dental:hover, .card-visual:hover {
-            border-color: #68d391 !important;
-            box-shadow: 0 6px 20px rgba(104, 211, 145, 0.15) !important;
-        }
-
-        /* 4. Emocional (Rojo / Coral) */
-        .seccion-emocional {
-            border-bottom: 2px solid #fc8181 !important;
-            color: #feb2b2 !important;
-        }
-        .card-emocional {
-            border: 1px dashed rgba(252, 129, 129, 0.4) !important;
-        }
-        .card-emocional:hover {
-            border-color: #fc8181 !important;
-            box-shadow: 0 6px 20px rgba(252, 129, 129, 0.15) !important;
-        }
-
-        .seccion-titulo {
+        .btn-indice {
+            background: #1a253f;
+            color: #f8fafc;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
             font-family: 'Quicksand', sans-serif;
-            font-size: 1.5rem;
-            margin-top: 45px;
-            margin-bottom: 20px;
+            font-weight: 600;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding-bottom: 8px;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            cursor: pointer;
         }
+        
+        /* Efectos Hover específicos con el color de cada categoría para el menú superior */
+        .btn-cronicas:hover { border-color: #e2b763; background: rgba(226, 183, 99, 0.12); color: #f6e085; transform: translateY(-2px); }
+        .btn-neuro:hover { border-color: #63b3ed; background: rgba(99, 179, 237, 0.12); color: #90cdf4; transform: translateY(-2px); }
+        .btn-nutricion:hover { border-color: #68d391; background: rgba(104, 211, 145, 0.12); color: #9ae6b4; transform: translateY(-2px); }
+        .btn-prevencion:hover { border-color: #f6ad55; background: rgba(246, 173, 85, 0.12); color: #fbd38d; transform: translateY(-2px); }
+        .btn-logopedia:hover { border-color: #ff79c6; background: rgba(255, 121, 198, 0.12); color: #ff92df; transform: translateY(-2px); }
+        .btn-ambiental:hover { border-color: #00bcd4; background: rgba(0, 188, 212, 0.12); color: #4dd0e1; transform: translateY(-2px); }
+
+        /* Estilo de los Acordeones con colores definidos */
+        .acordeon-categoria {
+            background: #162036;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .acordeon-summary {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 18px 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            user-select: none;
+        }
+        .acordeon-summary::-webkit-details-marker { display: none; }
+        .acordeon-summary::after {
+            content: "▼";
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        details[open] .acordeon-summary::after {
+            transform: rotate(180deg);
+        }
+
+        .acordeon-contenido {
+            padding: 0 20px 20px 20px;
+        }
+
+        /* Colores exactos para los acordeones */
+        .acc-cronicas { border-left: 5px solid #e2b763; }
+        .acc-cronicas summary { color: #f6e085; }
+        .acc-cronicas summary::after { color: #e2b763; }
+        
+        .acc-neuro { border-left: 5px solid #63b3ed; }
+        .acc-neuro summary { color: #90cdf4; }
+        .acc-neuro summary::after { color: #63b3ed; }
+        
+        .acc-nutricion { border-left: 5px solid #68d391; }
+        .acc-nutricion summary { color: #9ae6b4; }
+        .acc-nutricion summary::after { color: #68d391; }
+        
+        .acc-prevencion { border-left: 5px solid #f6ad55; }
+        .acc-prevencion summary { color: #fbd38d; }
+        .acc-prevencion summary::after { color: #f6ad55; }
+        
+        /* Logopedia: Fucsia/Rosa brillante */
+        .acc-logopedia { border-left: 5px solid #ff79c6; }
+        .acc-logopedia summary { color: #ff92df; }
+        .acc-logopedia summary::after { color: #ff79c6; }
+        
+        /* Salud Ambiental: Cian brillante */
+        .acc-ambiental { border-left: 5px solid #00bcd4; }
+        .acc-ambiental summary { color: #4dd0e1; }
+        .acc-ambiental summary::after { color: #00bcd4; }
+
         .guias-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
         }
         .guia-card {
             background: #1a253f;
-            border-radius: 12px;
-            padding: 22px;
+            border-radius: 10px;
+            padding: 18px;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, background 0.2s ease;
         }
         .guia-card:hover {
             transform: translateY(-2px);
             background: #202e4d;
         }
         .guia-card-proximamente {
-            background: #162036;
+            background: #141b2d;
             opacity: 0.9;
             cursor: pointer;
         }
-        .guia-card-proximamente:hover {
-            transform: translateY(-2px);
-            background: #1c2944;
-            border-color: rgba(226, 183, 99, 0.4);
-        }
         
-        /* Cabecera de la tarjeta con miniatura pequeña */
         .guia-card-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
+            gap: 10px;
+            margin-bottom: 10px;
         }
         .guia-miniatura {
-            width: 45px;
-            height: 45px;
-            min-width: 45px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -149,41 +182,38 @@
         }
         .guia-card h3 {
             font-family: 'Quicksand', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin: 0;
             color: #f8fafc;
             line-height: 1.3;
         }
         .guia-card p {
-            font-size: 0.88rem;
+            font-size: 0.83rem;
             color: #94a3b8 !important;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
         .guia-enlace {
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: #e2b763;
         }
-        
-        /* Insignia elegante con candado para Próximamente */
         .guia-proximamente-tag {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             font-weight: 500;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #e2b763;
             background: rgba(226, 183, 99, 0.1);
             border: 1px solid rgba(226, 183, 99, 0.25);
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 20px;
-            letter-spacing: 0.3px;
         }
 
         .header-imagen-wrapper {
             width: 100%;
-            max-height: 400px;
+            max-height: 350px;
             overflow: hidden;
             border-radius: 12px;
             margin-bottom: 25px;
@@ -195,7 +225,6 @@
             display: block;
         }
 
-        /* Notificación flotante (Toast) */
         #toast-aviso {
             position: fixed;
             bottom: 30px;
@@ -219,17 +248,12 @@
             opacity: 1;
         }
 
-        footer {
-            color: #94a3b8;
-        }
-        footer a {
-            color: #e2b763 !important;
-        }
+        footer { color: #94a3b8; }
+        footer a { color: #e2b763 !important; }
     </style>
 </head>
 <body>
 
-   <!-- Menú de navegación automatizado mediante nav.js -->
    <div id="menu-container"></div>
 
     <main class="main-content">
@@ -242,177 +266,316 @@
             <h1>Guías de salud y bienestar infantil</h1>
             <p>Un espacio divulgativo riguroso y accesible diseñado para acompañar a las familias en el cuidado diario, la prevención y la comprensión de las necesidades médicas, emocionales y de desarrollo de la infancia.</p>
 
-            <!-- CATEGORÍA 1: GUIAS PRINCIPALES -->
-            <h2 class="seccion-titulo seccion-cronicas">🎗️ Guías principales y crónicas</h2>
-            <div class="guias-grid">
-                <a href="cancerinfantil.html" class="guia-card card-cronicas">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgcancer/portada.webp" alt="Cáncer infantil"></div>
-                            <h3>Cáncer infantil</h3>
-                        </div>
-                        <p>Guía completa de acompañamiento emocional y clínico desde el diagnóstico hasta la vida después.</p>
-                    </div>
-                    <span class="guia-enlace">Ver guía ➔</span>
-                </a>
-                <a href="diabetesInfantil.html" class="guia-card card-cronicas">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgdiabetes/cabeceraDiabetes.webp" alt="Diabetes infantil"></div>
-                            <h3>Diabetes infantil</h3>
-                        </div>
-                        <p>Control diario, pautas de alimentación y gestión de la rutina en el hogar y la escuela.</p>
-                    </div>
-                    <span class="guia-enlace">Ver guía ➔</span>
-                </a>
-                <a href="obesidadinfantil.html" class="guia-card card-cronicas">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgobesidad/cabeceraObesidad.webp" alt="Obesidad infantil"></div>
-                            <h3>Obesidad infantil</h3>
-                        </div>
-                        <p>Promoción de hábitos de vida saludables, nutrición equilibrada y bienestar físico activo.</p>
-                    </div>
-                    <span class="guia-enlace">Ver guía ➔</span>
-                </a>
-                <a href="asmainfantil.html" class="guia-card card-cronicas">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgasma/portada.webp" alt="Asma infantil"></div>
-                            <h3>Asma infantil</h3>
-                        </div>
-                        <p>Identificación de desencadenantes, prevención de crisis y pautas claras para el entorno.</p>
-                    </div>
-                    <span class="guia-enlace">Ver guía ➔</span>
-                </a>
+            <!-- Menú de navegación rápido superior con interactividad -->
+            <div class="menu-rapido-indices">
+                <a href="#cat-cronicas" class="btn-indice btn-cronicas" onclick="abrirAcordeon('cat-cronicas')">🩺 Medicina y Crónicas</a>
+                <a href="#cat-neuro" class="btn-indice btn-neuro" onclick="abrirAcordeon('cat-neuro')">🧠 Salud Mental y Neuro</a>
+                <a href="#cat-nutricion" class="btn-indice btn-nutricion" onclick="abrirAcordeon('cat-nutricion')">🥗 Nutrición y Hábitos</a>
+                <a href="#cat-prevencion" class="btn-indice btn-prevencion" onclick="abrirAcordeon('cat-prevencion')">🛡️ Prevención y Seguridad</a>
+                <a href="#cat-logopedia" class="btn-indice btn-logopedia" onclick="abrirAcordeon('cat-logopedia')">🗣️ Logopedia y Lenguaje</a>
+                <a href="#cat-ambiental" class="btn-indice btn-ambiental" onclick="abrirAcordeon('cat-ambiental')">🌙 Ambiental y Bienestar</a>
             </div>
 
-            <!-- CATEGORÍA 2: NEURODESARROLLO Y APRENDIZAJE -->
-            <h2 class="seccion-titulo seccion-neuro">🧠 Neurodesarrollo y aprendizaje</h2>
-            <div class="guias-grid">
-                <a href="tdahinfantil.html" class="guia-card card-neuro" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/tdah.webp" alt="TDAH"></div>
-                            <h3>TDAH y pautas de apoyo</h3>
-                        </div>
-                        <p>Estrategias prácticas para la atención, la hiperactividad y el acompañamiento positivo en casa.</p>
-                    </div>
-                    <span class="guia-enlace">Ver guía ➔</span>
-                </a>
-                <a href="autismoinfantil.html" class="guia-card card-neuro" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/autismo.webp" alt="Autismo"></div>
-                            <h3>Autismo (TEA) e integración sensorial</h3>
-                        </div>
-                        <p>Estrategias de apoyo, comprensión del entorno y adaptación a las necesidades sensoriales.</p>
-                    </div>
-                    <span class="guia-enlace">Ver guía ➔</span>
-                </a>
-                <a href="lenguajeinfantil.html" class="guia-card card-neuro" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/lenguaje.webp" alt="Trastorno del desarrollo del lenguaje"></div>
-                            <h3>Trastorno del desarrollo del lenguaje (TEL/TDL)</h3>
-                        </div>
-                        <p>Una guía amable, rigurosa y empática para comprender las dificultades en la expresión y comprensión del lenguaje en la infancia.</p>
-                    </div>
-                    <span class="guia-enlace">Ver guía ➔</span>
-                </a>
-            </div>
-
-            <!-- CATEGORÍA 3: NUTRICIÓN Y SALUD FÍSICA -->
-            <h2 class="seccion-titulo seccion-nutricion">🥗 Nutrición, piel y bienestar físico</h2>
-            <div class="guias-grid">
-                <a href="celiaquiainfantil.html" class="guia-card card-nutricion" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/celiaquia.webp" alt="Celiaquía"></div>
-                            <h3>Celiaquía e intolerancias</h3>
-                        </div>
-                        <p>Guía práctica para familias sobre alimentación segura, etiquetas y adaptación del hogar.</p>
-                    </div>
-                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-                </a>
-                <a href="dermatitisinfantil.html" class="guia-card card-dermatitis" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/dermatitis.webp" alt="Dermatitis atópica"></div>
-                            <h3>Dermatitis atópica</h3>
-                        </div>
-                        <p>Cuidados específicos para la piel sensible, prevención de brotes y alivio del picor.</p>
-                    </div>
-                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-                </a>
-                <a href="suenoinfantil.html" class="guia-card card-sueno" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/trastornos.webp" alt="Trastornos del sueño"></div>
-                            <h3>Trastornos del sueño</h3>
-                        </div>
-                        <p>Abordaje del insomnio infantil, rutinas de descanso reparador y terrores nocturnos.</p>
-                    </div>
-                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-                </a>
-                <a href="dentalinfantil.html" class="guia-card card-dental" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/bucodental.webp" alt="Salud bucodental"></div>
-                            <h3>Salud bucodental</h3>
-                        </div>
-                        <p>Prevención temprana de caries, hábitos de higiene y primeras visitas al odontopediatra.</p>
-                    </div>
-                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-                </a>
-                <a href="visualinfantil.html" class="guia-card card-visual" style="text-decoration: none; color: inherit;">
-                    <div>
-                        <div class="guia-card-header">
-                            <div class="guia-miniatura"><img src="imgguiasalud/visual.webp" alt="Salud visual"></div>
-                            <h3>Salud visual infantil</h3>
-                        </div>
-                        <p>Prevención de la fatiga digital por pantallas y detección precoz de problemas de visión.</p>
-                    </div>
-                    <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
-                </a>
-            </div>
-
-            <!-- CATEGORÍA 4: SALUD EMOCIONAL Y PREVENCIÓN -->
-            <h2 class="seccion-titulo seccion-emocional">❤️ Salud emocional y seguridad</h2>
-            <div class="guias-grid">
-                <a href="ansiedadinfantil.html" class="guia-card card-emocional" style="text-decoration: none; color: inherit;">
+            <!-- ACORDEÓN 1: MEDICINA PEDIÁTRICA Y CRÓNICAS -->
+            <details class="acordeon-categoria acc-cronicas" id="cat-cronicas" open>
+                <summary class="acordeon-summary">🩺 Medicina pediátrica y enfermedades crónicas o raras</summary>
+                <div class="acordeon-contenido">
+                    <div class="guias-grid">
+                        <a href="cancerinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgcancer/portada.webp" alt="Cáncer"></div><h3>Cáncer infantil</h3></div>
+                                <p>Acompañamiento emocional y clínico desde el diagnóstico.</p>
+                            </div>
+                            <span class="guia-enlace">Ver guía ➔</span>
+                        </a>
+                        <a href="diabetesInfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgdiabetes/cabeceraDiabetes.webp" alt="Diabetes"></div><h3>Diabetes infantil</h3></div>
+                                <p>Control diario, pautas de alimentación y rutina escolar.</p>
+                            </div>
+                            <span class="guia-enlace">Ver guía ➔</span>
+                        </a>
+                        <a href="asmainfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgasma/portada.webp" alt="Asma"></div><h3>Asma infantil</h3></div>
+                                <p>Prevención de crisis y pautas para el entorno.</p>
+                            </div>
+                            <span class="guia-enlace">Ver guía ➔</span>
+                        </a>
+                        <a href="epilepsiainfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/epilepsia.webp" alt="Epilepsia"></div><h3>Epilepsia infantil</h3></div>
+                                <p>Protocolos seguros para el hogar y la escuela.</p>
+                            </div>
+                            <span class="guia-enlace">Ver guía ➔</span>
+                        </a>
+                        <a href="rarasinfantil.html" class="guia-card">
     <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/ansiedad.webp" alt="Ansiedad infantil"></div>
-            <h3>Ansiedad infantil</h3>
-        </div>
-        <p>Herramientas prácticas y recursos cotidianos para la gestión del estrés y los miedos.</p>
+        <div class="guia-card-header"><div class="guia-miniatura"><img src="imgraras/portada.webp" alt="Enfermedades raras"></div><h3>Enfermedades raras</h3></div>
+        <p>Apoyo a las familias y patologías de baja prevalencia.</p>
     </div>
-    <span class="guia-enlace" style="color: #f687b3;">Ver guía ➔</span>
+    <span class="guia-enlace">Ver guía ➔</span>
 </a>
-                <a href="epilepsiainfantil.html" class="guia-card card-emocional" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/epilepsia.webp" alt="Epilepsia infantil"></div>
-            <h3>Epilepsia infantil</h3>
-        </div>
-        <p>Pautas de actuación claras y protocolos seguros para el entorno familiar y educativo.</p>
-    </div>
-    <span class="guia-enlace" style="color: #f687b3;">Ver guía ➔</span>
-</a>
-                <a href="prevencioninfantil.html" class="guia-card card-emocional" style="text-decoration: none; color: inherit;">
-    <div>
-        <div class="guia-card-header">
-            <div class="guia-miniatura"><img src="imgguiasalud/prevencion.webp" alt="Prevención y primeros auxilios"></div>
-            <h3>Prevención y primeros auxilios</h3>
-        </div>
-        <p>Guía básica de prevención de accidentes infantiles y pautas iniciales de actuación.</p>
-    </div>
-    <span class="guia-enlace" style="color: #f687b3;">Ver guía ➔</span>
-</a>
-            </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Enuresis nocturna</h3></div>
+                                <p>Causas y pautas de acompañamiento respetuoso.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Manejo de la fiebre</h3></div>
+                                <p>Guía práctica ante virus comunes y febrícula.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Bronquiolitis y VRS</h3></div>
+                                <p>Cuidado de vías respiratorias inferiores.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-            <!-- Enlace de retorno al inicio de la web -->
+            <!-- ACORDEÓN 2: SALUD MENTAL Y NEURODESARROLLO -->
+            <details class="acordeon-categoria acc-neuro" id="cat-neuro">
+                <summary class="acordeon-summary">🧠 Salud mental, emocional y del neurodesarrollo</summary>
+                <div class="acordeon-contenido">
+                    <div class="guias-grid">
+                        <a href="tdahinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/tdah.webp" alt="TDAH"></div><h3>TDAH y pautas de apoyo</h3></div>
+                                <p>Estrategias para la atención y acompañamiento en casa.</p>
+                            </div>
+                            <span class="guia-enlace">Ver guía ➔</span>
+                        </a>
+                        <a href="autismoinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/autismo.webp" alt="Autismo"></div><h3>Autismo (TEA)</h3></div>
+                                <p>Adaptación a las necesidades sensoriales.</p>
+                            </div>
+                            <span class="guia-enlace">Ver guía ➔</span>
+                        </a>
+                        <a href="ansiedadinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/ansiedad.webp" alt="Ansiedad"></div><h3>Ansiedad infantil</h3></div>
+                                <p>Gestión del estrés y recursos cotidianos para miedos.</p>
+                            </div>
+                            <span class="guia-enlace">Ver guía ➔</span>
+                        </a>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Prevención del bullying</h3></div>
+                                <p>Bienestar emocional y pautas frente al acoso escolar.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Apego seguro</h3></div>
+                                <p>Claves para construir vínculos sólidos y regular emociones.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Salud mental perinatal</h3></div>
+                                <p>Impacto en el vínculo temprano con el bebé.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ACORDEÓN 3: NUTRICIÓN Y HÁBITOS -->
+            <details class="acordeon-categoria acc-nutricion" id="cat-nutricion">
+                <summary class="acordeon-summary">🥗 Nutrición, hábitos y desarrollo físico</summary>
+                <div class="acordeon-contenido">
+                    <div class="guias-grid">
+                        <a href="obesidadinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgobesidad/cabeceraObesidad.webp" alt="Obesidad"></div><h3>Obesidad infantil</h3></div>
+                                <p>Promoción de hábitos de vida saludables.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                        </a>
+                        <a href="celiaquiainfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/celiaquia.webp" alt="Celiaquía"></div><h3>Celiaquía e intolerancias</h3></div>
+                                <p>Alimentación segura y etiquetas.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                        </a>
+                        <a href="dermatitisinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/dermatitis.webp" alt="Dermatitis"></div><h3>Dermatitis atópica</h3></div>
+                                <p>Cuidados para la piel sensible y prevención de brotes.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                        </a>
+                        <a href="suenoinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/trastornos.webp" alt="Sueño"></div><h3>Trastornos del sueño</h3></div>
+                                <p>Abordaje del insomnio y terrores nocturnos.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                        </a>
+                        <a href="dentalinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/bucodental.webp" alt="Dental"></div><h3>Salud bucodental</h3></div>
+                                <p>Prevención temprana de caries y hábitos de higiene.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                        </a>
+                        <a href="visualinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/visual.webp" alt="Visual"></div><h3>Salud visual infantil</h3></div>
+                                <p>Prevención de fatiga digital por pantallas.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #68d391;">Ver guía ➔</span>
+                        </a>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Nutrición saludable</h3></div>
+                                <p>Prevención de la malnutrición oculta.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Desarrollo psicomotor</h3></div>
+                                <p>Hitos y señales de alerta en la primera infancia.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Trastornos TCA</h3></div>
+                                <p>Detección temprana en etapas iniciales.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Higiene postural</h3></div>
+                                <p>Prevención de problemas de espalda.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Escoliosis idiopática</h3></div>
+                                <p>Signos de alerta y manejo físico.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ACORDEÓN 4: PREVENCIÓN Y SEGURIDAD -->
+            <details class="acordeon-categoria acc-prevencion" id="cat-prevencion">
+                <summary class="acordeon-summary">🛡️ Prevención, seguridad y primeros auxilios</summary>
+                <div class="acordeon-contenido">
+                    <div class="guias-grid">
+                        <a href="prevencioninfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/prevencion.webp" alt="Prevención"></div><h3>Prevención y primeros auxilios</h3></div>
+                                <p>Guía básica de actuación ante accidentes.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #f6ad55;">Ver guía ➔</span>
+                        </a>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Seguridad acuática</h3></div>
+                                <p>Prevención de ahogamientos en piscinas y playas.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Vacunación infantil</h3></div>
+                                <p>Calendario oficial y aclaración de mitos.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Quemaduras e intoxicaciones</h3></div>
+                                <p>Medidas para evitar accidentes domésticos.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ACORDEÓN 5: LOGOPEDIA Y LENGUAJE -->
+            <details class="acordeon-categoria acc-logopedia" id="cat-logopedia">
+                <summary class="acordeon-summary">🗣️ Logopedia, lenguaje y comunicación</summary>
+                <div class="acordeon-contenido">
+                    <div class="guias-grid">
+                        <a href="lenguajeinfantil.html" class="guia-card">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/lenguaje.webp" alt="Lenguaje"></div><h3>Trastornos del lenguaje (TEL/TDL)</h3></div>
+                                <p>Comprensión de dificultades en la expresión.</p>
+                            </div>
+                            <span class="guia-enlace" style="color: #ff92df;">Ver guía ➔</span>
+                        </a>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Salud auditiva infantil</h3></div>
+                                <p>Detección precoz de problemas de audición.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Procesamiento auditivo central</h3></div>
+                                <p>Influencia en la atención y rendimiento escolar.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Desarrollo afectivo-sexual</h3></div>
+                                <p>Pautas de comunicación familiar respetuosas.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ACORDEÓN 6: SALUD AMBIENTAL Y BIENESTAR -->
+            <details class="acordeon-categoria acc-ambiental" id="cat-ambiental">
+                <summary class="acordeon-summary">🌙 Salud ambiental y bienestar familiar</summary>
+                <div class="acordeon-contenido">
+                    <div class="guias-grid">
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Uso responsable de pantallas</h3></div>
+                                <p>Prevención de la dependencia digital en menores.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                        <div class="guia-card guia-card-proximamente">
+                            <div>
+                                <div class="guia-card-header"><div class="guia-miniatura"><img src="imgguiasalud/portada.webp" alt="Próximamente"></div><h3>Salud ambiental infantil</h3></div>
+                                <p>Reducción de tóxicos en el hogar.</p>
+                            </div>
+                            <div><span class="guia-proximamente-tag">🔒 Próximamente</span></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Enlace de retorno -->
             <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(184, 148, 74, 0.2); text-align: left;">
                 <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: #e2b763; text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
                     <span>← Volver al inicio</span>
@@ -422,7 +585,6 @@
         </article>
     </main>
 
-    <!-- Elemento flotante para el aviso -->
     <div id="toast-aviso">🔒 Esta guía estará disponible próximamente.</div>
 
     <footer>
@@ -432,16 +594,20 @@
 <script src="global.js"></script>
 <script src="nav.js"></script>
 <script>
-    // Script para mostrar un aviso elegante al hacer clic en las tarjetas de próximamente
+    // Función para abrir automáticamente el acordeón al hacer clic en el menú superior
+    function abrirAcordeon(id) {
+        const elemento = document.getElementById(id);
+        if (elemento) {
+            elemento.setAttribute('open', 'true');
+        }
+    }
+
+    // Script para el aviso de próximamente
     document.querySelectorAll('.guia-card-proximamente').forEach(card => {
         card.addEventListener('click', () => {
             const toast = document.getElementById('toast-aviso');
             toast.classList.add('mostrar');
-            
-            // Ocultar el aviso automáticamente después de 2.5 segundos
-            setTimeout(() => {
-                toast.classList.remove('mostrar');
-            }, 2500);
+            setTimeout(() => { toast.classList.remove('mostrar'); }, 2500);
         });
     });
 </script>

@@ -1246,7 +1246,7 @@ body.modo-nocturno-profundo p {
 }
 
 /* ==========================================
-   12. NAVEGACIÓN DESPLEGABLE Y MENÚ MÓVIL
+   12. NAVEGACIÓN DESPLEGABLE Y MENÚ MÓVIL (Rediseñado y Compacto)
    ================================---------- */
 .dropdown {
     position: relative;
@@ -1258,34 +1258,59 @@ body.modo-nocturno-profundo p {
     position: absolute;
     right: 0;
     top: 100%;
-    background-color: rgba(26, 38, 57, 0.95);
-    min-width: 170px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 6px;
+    background: #16213e;
+    min-width: 240px;
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(241, 196, 66, 0.25);
+    padding: 10px;
     z-index: 1000;
-    margin-top: 0px;
-    padding-top: 15px; 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
 }
 
+/* Clase que activa el menú en dispositivos táctiles/móviles via JS */
+.dropdown.show .dropdown-content {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enlaces dentro del desplegable */
 .dropdown-content a {
     color: #cbd5e0 !important;
     background: transparent !important;
-    padding: 10px 14px;
+    padding: 8px 12px;
     text-decoration: none;
     display: block;
-    font-size: 13px;
+    font-size: 0.9rem;
     font-family: 'Inter', sans-serif;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: all 0.2s ease;
 }
 
 .dropdown-content a:hover {
-    background-color: rgba(255, 255, 255, 0.08) !important;
-    color: #ffffff !important;
+    background: rgba(241, 196, 66, 0.15) !important;
+    color: #f1c442 !important;
+    padding-left: 16px; /* Sutil efecto visual de desplazamiento */
+}
+
+/* Separadores decorativos y títulos internos para organizar el menú largo */
+.dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 6px 0;
+}
+
+.dropdown-header-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f1c442;
+    padding: 6px 10px;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .menu-links a.nav-estelar-btn {
