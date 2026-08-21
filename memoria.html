@@ -18,26 +18,29 @@
     
     <style>
         .memoria-main-container {
-            max-width: 700px;
-            margin: 40px auto;
+            max-width: 600px;
+            margin: 20px auto;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
+            box-sizing: border-box;
         }
         #tablero-memoria {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            width: 450px;
+            gap: 8px;
+            width: 100%;
+            max-width: 420px;
             margin: 20px auto;
             border: 4px solid #f1c442;
             background: #222;
-            padding: 12px;
+            padding: 10px;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-sizing: border-box;
         }
         .carta-memoria {
-            width: 95px;
-            height: 95px;
+            width: 100%;
+            aspect-ratio: 1; /* Mantiene la carta perfectamente cuadrada de forma automática */
             background-color: #131c31;
             border: 2px dashed rgba(241, 196, 66, 0.4);
             border-radius: 8px;
@@ -60,7 +63,7 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            font-size: 24px;
+            font-size: 22px;
         }
         .carta-encontrada {
             border: 2px solid #27ae60;
@@ -68,11 +71,12 @@
             transform: scale(1);
         }
         #mensaje-victoria-memoria {
-            font-size: 20px;
+            font-size: 18px;
             color: #27ae60;
             font-weight: bold;
             margin-top: 15px;
             min-height: 30px;
+            font-family: 'Quicksand', sans-serif;
         }
         .acciones-memoria {
             margin-top: 20px;
@@ -88,6 +92,7 @@
             margin: 5px;
             font-size: 14px;
             transition: background 0.2s;
+            font-family: 'Quicksand', sans-serif;
         }
         .btn-memoria:hover {
             background: #d4ac37;
@@ -118,7 +123,6 @@
     <script src="global.js"></script>
     <script src="nav.js"></script>
     <script>
-        // Lista amplia con todas las imágenes disponibles de tus cuentos[cite: 3]
         const bancoImagenes = [
             'img/cuentos/c1-img1.webp',
             'img/cuentos/c3-img1.webp',
@@ -147,14 +151,10 @@
             bloqueoTablero = false;
             parejasEncontradas = 0;
 
-            // 1. Mezclar el banco general y seleccionar aleatoriamente solo 6 imágenes para esta partida[cite: 3]
             const bancoMeclado = [...bancoImagenes].sort(() => Math.random() - 0.5);
             const imagenesSeleccionadas = bancoMeclado.slice(0, 6);
 
-            // 2. Duplicar esas 6 imágenes para formar las parejas (6 x 2 = 12 cartas)[cite: 3]
             cartasJuego = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
-            
-            // 3. Mezclar las cartas en el tablero[cite: 3]
             mezclarArray(cartasJuego);
 
             cartasJuego.forEach((imagen) => {
