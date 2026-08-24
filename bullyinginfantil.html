@@ -1,0 +1,225 @@
+<!-- Archivo: bullyingindex.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevención del bullying y bienestar emocional | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía práctica y respetuosa para comprender, prevenir y abordar el acoso escolar, protegiendo la autoestima y el bienestar emocional en la infancia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --bullying-acento: #70a1ff;
+            --bullying-borde: rgba(112, 161, 255, 0.3);
+            --bullying-fondo-caja: rgba(112, 161, 255, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--bullying-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(112, 161, 255, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--bullying-acento);
+            box-shadow: 0 8px 25px rgba(112, 161, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--bullying-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--bullying-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--bullying-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgbullying/portada.webp" alt="Ilustración representativa de prevención del bullying y bienestar emocional en la infancia">
+            </div>
+
+            <h1>Prevención del bullying y bienestar emocional: cultivando entornos seguros</h1>
+            
+            <p>El bienestar emocional en la infancia y la prevención del acoso escolar requieren una mirada atenta, escucha activa y la construcción de redes de apoyo sólidas entre familias y centros educativos. Comprender las dinámicas relacionales nos ayuda a actuar antes de que aparezca el conflicto grave, fomentando la empatía y la seguridad en los más pequeños. He reunido aquí una guía serena para acompañar la convivencia escolar con respeto. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- BLOQUE 1 -->
+                <a href="bullying-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/acogida.webp" alt="Espacio de confianza y escucha activa"></div>
+                        <span class="pilar-tag">Escucha activa</span>
+                        <h2>Crear un refugio de confianza</h2>
+                        <p>Fomentar un espacio seguro en casa donde los niños puedan expresar sus miedos y vivencias cotidianas sin temor a ser juzgados ni culpabilizados.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="bullying-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/senales.webp" alt="Identificación de cambios de conducta"></div>
+                        <span class="pilar-tag">Señales de alerta</span>
+                        <h2>Detectar cambios sutiles</h2>
+                        <p>Aprende a reconocer las señales físicas, los cambios de humor repentinos o la resistencia a acudir al colegio que pueden indicar malestar oculto.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 2 -->
+                <a href="bullying-empatia.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/empatia.webp" alt="Desarrollo de la empatía y el respeto"></div>
+                        <span class="pilar-tag">Empatía</span>
+                        <h2>Educar en el respeto a la diferencia</h2>
+                        <p>Sembrar valores de convivencia pacífica, enseñando a valorar la diversidad y a rechazar cualquier forma de exclusión o burla entre iguales.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="bullying-asertividad.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/asertividad.webp" alt="Herramientas de asertividad infantil"></div>
+                        <span class="pilar-tag">Asertividad</span>
+                        <h2>Herramientas de autodefensa verbal</h2>
+                        <p>Dotar a la infancia de recursos comunicativos y posturas firmes que refuercen su seguridad personal ante situaciones incómodas o de presión social.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 3 -->
+                <a href="bullying-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/colegio.webp" alt="Alianza con el centro educativo"></div>
+                        <span class="pilar-tag">Entorno escolar</span>
+                        <h2>Alianzas firmes con el centro</h2>
+                        <p>Construir canales de comunicación fluidos y constructivos con el equipo docente y de orientación para actuar de forma coordinada y rápida.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="bullying-ciberacoso.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/ciberacoso.webp" alt="Prevención del ciberacoso y pantallas"></div>
+                        <span class="pilar-tag">Ciberacoso</span>
+                        <h2>Acompañamiento digital seguro</h2>
+                        <p>Supervisar el uso de dispositivos y redes sociales, educando en la responsabilidad digital y el respeto en entornos virtuales y de mensajería.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 4 -->
+                <a href="bullying-testigos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/testigos.webp" alt="El papel fundamental de los testigos"></div>
+                        <span class="pilar-tag">Rol de testigos</span>
+                        <h2>El poder de romper el silencio</h2>
+                        <p>Enseñar a los niños que observar el acoso sin actuar perpetúa el problema, fomentando el valor de comunicar la situación a un adulto de confianza.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="bullying-autoestima.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgbullying/autoestima.webp" alt="Reconstrucción de la autoestima y apoyo emocional"></div>
+                        <span class="pilar-tag">Bienestar emocional</span>
+                        <h2>Sanar y reconstruir la autoestima</h2>
+                        <p>Acompañar emocionalmente los procesos de recuperación, validando sus sentimientos y devolviéndoles la confianza en sus propias capacidades.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--bullying-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(112, 161, 255, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--bullying-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
