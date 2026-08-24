@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="menu-links" id="navMenuLinks">
                 <a href="index.html">🏠 Inicio</a>
                 <a href="bienvenida.html">✨ Bienvenida</a>
+                <a href="proyecto.html">📊 Proyecto</a>
                 <a href="cuentos.html">📁 Cuentos</a>
                 <a href="podcast.html">🎙️ Podcast</a>
-                <a href="proyecto.html">📊 Proyecto</a>
                 
                 <div class="dropdown" id="healthDropdown">
                     <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
@@ -64,6 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         `;
     }
+
+    // Inyección y actualización automática del pie de página unificado en todas las páginas
+    let footer = document.querySelector('footer');
+    if (!footer) {
+        footer = document.createElement('footer');
+        document.body.appendChild(footer);
+    }
+    footer.innerHTML = `
+        <p>&copy; 2026 El Nido de Estrellas. | Síguenos en nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a> y en <a href="https://www.instagram.com/elnidodeestrellas" target="_blank">Instagram</a></p>
+    `;
 
     // 1. Configuración robusta del botón hamburguesa móvil
     const toggleBtn = document.getElementById("mobileMenuToggle");
