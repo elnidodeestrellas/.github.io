@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Rápida de Bienvenida | El Nido de Estrellas</title>
+    <meta name="description" content="Guía rápida de bienvenida para padres en El Nido de Estrellas. Descubre nuestro refugio de calma, pilares, recursos y preguntas frecuentes.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+
+        .encabezado-inicio {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .introduccion-texto, .detalles-grid, .invitacion-proyecto-card, .banner-recurso-gratis, .banner-guias-salud {
+            background: rgba(22, 33, 62, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 196, 66, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .introduccion-texto h2, .detalles-grid h3, .invitacion-proyecto-card h3, .banner-recurso-gratis h3, .banner-guias-salud h3 {
+            font-family: 'Quicksand', sans-serif;
+            color: #f1c442;
+            margin-top: 0;
+        }
+
+        .introduccion-texto p, .detalle-lista p, .invitacion-proyecto-card p, .banner-recurso-gratis p, .banner-guias-salud p, .faq-item p {
+            color: #e2e8f0;
+            font-size: 16px;
+            line-height: 1.8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Estilo para los bloques con hueco de imagen integrada */
+        .grid-con-imagen {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .grid-con-imagen.inverso {
+            grid-template-columns: 1.2fr 1fr;
+        }
+        @media (max-width: 768px) {
+            .grid-con-imagen, .grid-con-imagen.inverso {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            .grid-con-imagen.inverso .bloque-imagen {
+                order: -1;
+            }
+        }
+        .bloque-imagen img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border: 1px solid rgba(241, 196, 66, 0.15);
+        }
+
+        .beneficio-item {
+            margin-bottom: 20px;
+        }
+        .beneficio-item:last-child {
+            margin-bottom: 0;
+        }
+        .beneficio-item strong {
+            color: #f1c442;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .beneficio-item p {
+            font-size: 14px;
+            margin: 0;
+            color: #cbd5e0;
+        }
+
+        /* Estilos específicos para FAQs acordeón */
+        .acordeon-faq details {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(241, 196, 66, 0.15);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            padding: 18px 20px;
+            transition: all 0.3s ease;
+        }
+        .acordeon-faq details[open] {
+            border-color: rgba(241, 196, 66, 0.4);
+            background: rgba(15, 23, 42, 0.7);
+        }
+        .acordeon-faq summary {
+            font-family: 'Quicksand', sans-serif;
+            color: #f1c442;
+            font-size: 1.1rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .acordeon-faq summary::-webkit-details-marker {
+            display: none;
+        }
+        .acordeon-faq summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: #f1c442;
+            transition: transform 0.3s ease;
+        }
+        .acordeon-faq details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .acordeon-faq p {
+            margin-top: 15px;
+            margin-bottom: 0;
+            font-size: 15px;
+            color: #cbd5e0;
+        }
+
+        /* Centrado del botón en la tarjeta de invitación */
+        .invitacion-proyecto-card {
+            text-align: center;
+        }
+        .invitacion-proyecto-card .btn-secundario {
+            display: inline-block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+   <!-- Contenedor obligatorio para inyectar el menú mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <!-- ENCABEZADO DE BIENVENIDA -->
+        <div class="encabezado-inicio">
+            <h1 style="font-size: 2.6rem; line-height: 1.3; margin-bottom: 15px; font-family: 'Quicksand', sans-serif; color: #f1c442;">Guía Rápida de Bienvenida para Padres</h1>
+            <p style="font-size: 1.2rem; color: #f3e5ab; font-family: 'Quicksand', sans-serif; max-width: 700px; margin: 0 auto 30px auto; font-weight: 500;">
+                Tu refugio de calma y apoyo integral para transitar la crianza con tranquilidad y confianza.
+            </p>
+        </div>
+
+        <!-- BLOQUE 1: REFUGIO DE CALMA (CON HUECO DE IMAGEN 1) -->
+        <section class="introduccion-texto grid-con-imagen">
+            <div class="bloque-imagen">
+                <img src="img/img01bienvenida.webp" alt="Refugio de calma en El Nido de Estrellas" loading="lazy">
+            </div>
+            <div>
+                <span style="display: inline-block; background-color: rgba(241, 196, 66, 0.2); color: #f1c442; font-size: 0.85rem; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase;">
+                    ✨ 1. ¡Bienvenido a tu refugio!
+                </span>
+                <p>¡Hola, mamá! ¡Hola, papá! Sabemos perfectamente que el día a día con los más pequeños puede ser intenso y que, a veces, solo necesitas un respiro de las responsabilidades cotidianas.</p>
+                <p>El Nido de Estrellas es un espacio creado con el firme propósito de brindar serenidad al hogar, basado en la observación cercana de las necesidades reales de las familias.</p>
+            </div>
+        </section>
+
+        <!-- BLOQUE 2: PILAR DE CONTENIDOS (CON HUECO DE IMAGEN 2) -->
+        <section class="introduccion-texto grid-con-imagen inverso">
+            <div>
+                <span style="display: inline-block; background-color: rgba(241, 196, 66, 0.2); color: #f1c442; font-size: 0.85rem; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase;">
+                    🌙 2. Lo que encontrarás
+                </span>
+                <p style="margin-bottom: 20px;">Acompañamos a tus hijos en el viaje hacia el descanso, transformando la rutina nocturna en un momento de paz profunda a través de pilares clave:</p>
+                
+                <div class="beneficio-item">
+                    <strong>📚 Cuentos y Podcast</strong>
+                    <p>Historias breves de ritmo pausado para cerrar el día sin prisa, disponibles en web y YouTube.</p>
+                </div>
+                <div class="beneficio-item">
+                    <strong>🩺 Salud y Bienestar</strong>
+                    <p>Guías especializadas sobre neurodesarrollo, nutrición y nuestra completa Guía del Embarazo y postparto.</p>
+                </div>
+                <div class="beneficio-item">
+                    <strong>🧩 Juegos Mágicos</strong>
+                    <p>Puzzles, memoria y adivinanzas interactivas para estimular la mente de forma tranquila y en familia.</p>
+                </div>
+            </div>
+            
+            <div class="bloque-imagen">
+                <img src="img/img02bienvenida.webp" alt="Pilares y recursos de El Nido de Estrellas" loading="lazy">
+            </div>
+        </section>
+
+        <!-- BLOQUE 3: PREGUNTAS FRECUENTES (FAQS) -->
+        <section class="introduccion-texto">
+            <h2 style="margin-bottom: 10px;">Preguntas Frecuentes (FAQs)</h2>
+            <p style="margin-bottom: 30px;">Respuestas rápidas para acompañarte en tu navegación.</p>
+            
+            <div class="acordeon-faq">
+                <details>
+                    <summary>¿Qué es El Nido de Estrellas?</summary>
+                    <p>Es un espacio digital de orientación y apoyo integral diseñado para ayudar a las familias a mejorar las rutinas de descanso infantil, cuidar la salud de sus hijos y fomentar una convivencia respetuosa en el hogar.</p>
+                </details>
+                
+                <details>
+                    <summary>¿A quién van dirigidos los cuentos y cómo ayudan a dormir?</summary>
+                    <p>Están dirigidos a bebés y niños pequeños. Son cuentos breves, narrados con un ritmo pausado y tonos suaves, ideales para calmar la mente infantil al final de la jornada y propiciar un sueño natural y reparador.</p>
+                </details>
+                
+                <details>
+                    <summary>¿Dónde puedo escuchar los cuentos en formato de audio?</summary>
+                    <p>Puedes disfrutarlos directamente desde nuestra sección de 'Cuentos' en la web o sintonizar nuestro Canal de YouTube oficial (@elnidodeestrellas), ideal para reproducirlos cómodamente en cualquier dispositivo.</p>
+                </details>
+
+                <details>
+                    <summary>¿Qué tipo de información sobre salud y bienestar encontraré?</summary>
+                    <p>Ofrecemos guías de salud especializadas y de rigor científico, redactadas de manera accesible. Abarcan temas fundamentales como el neurodesarrollo, la nutrición infantil, cuidados médicos básicos y bienestar integral.</p>
+                </details>
+
+                <details>
+                    <summary>¿Hay recursos específicos para mujeres embarazadas?</summary>
+                    <p>Sí, disponemos de una sección completa dedicada a la 'Guía del Embarazo', dividida cronológicamente por trimestres (1er, 2º y 3er Trimestre), además de orientaciones especializadas para el Parto y el Postparto.</p>
+                </details>
+
+                <details>
+                    <summary>¿Cómo ayuda esta plataforma a gestionar las emociones infantiles?</summary>
+                    <p>Brindamos recursos y pautas de crianza respetuosa para ayudar a los padres a recibir y validar las emociones de sus hijos —desde sus miedos cotidianos hasta sus alegrías compartidas— en un espacio seguro y sin juicios.</p>
+                </details>
+
+                <details>
+                    <summary>¿Cuáles son los juegos disponibles y qué fin tienen?</summary>
+                    <p>Contamos con juegos educativos interactivos como Puzzles Mágicos, Memoria Mágica, Adivinanzas y Aventuras. Su fin es fomentar el desarrollo cognitivo y el juego en familia de una manera tranquila y constructiva.</p>
+                </details>
+
+                <details>
+                    <summary>¿Quiénes están detrás de este proyecto?</summary>
+                    <p>Es una iniciativa con propósito humano e independiente que nace de la observación directa y empática de las necesidades reales de los padres, buscando alejarse de los planes rígidos o corporativos tradicionales.</p>
+                </details>
+
+                <details>
+                    <summary>¿Cómo puedo participar o ponerme en contacto con el equipo?</summary>
+                    <p>Puedes compartir tus experiencias, dudas o comentarios a través de nuestra sección de Comunidad, utilizando el apartado interactivo 'Tu voz' o mediante nuestro formulario web de 'Contacto' directo.</p>
+                </details>
+
+                <details>
+                    <summary>¿Por dónde me sugieren comenzar si soy nuevo en la web?</summary>
+                    <p>Te recomendamos iniciar explorando la sección de 'Cuentos' para la rutina de esta noche, o revisar nuestras 'Guías de Salud' si tienes alguna duda específica sobre el crecimiento o la nutrición de tus pequeños.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- BANNER INVITACIÓN AL PROYECTO (BOTÓN CENTRADO) -->
+        <section class="invitacion-proyecto-card">
+            <h3>¿Quieres conocer más a fondo nuestra filosofía?</h3>
+            <p>Descubre el propósito humano e independiente que impulsa este rincón de calma para las familias.</p>
+            <a href="proyecto.html" class="btn-secundario">Conocer Nuestro Proyecto</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Síguenos en nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a> y en <a href="https://www.instagram.com/elnidodeestrellas" target="_blank">Instagram</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="menu-links" id="navMenuLinks">
                 <a href="index.html">🏠 Inicio</a>
+                <a href="bienvenida.html">✨ Bienvenida</a>
                 <a href="cuentos.html">📁 Cuentos</a>
                 <a href="podcast.html">🎙️ Podcast</a>
                 <a href="proyecto.html">📊 Proyecto</a>
