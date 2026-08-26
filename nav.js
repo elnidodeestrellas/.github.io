@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="dropdown-header-title">General</div>
                         <a href="guiasSalud.html">📋 Guías de Salud</a>
                         <a href="rinconlectura.html">📖 Rincón de Lectura</a>
+                        <a href="preguntas.html">❓ Rincón de Preguntas</a>
                         
                         <div class="dropdown-divider"></div>
                         
@@ -36,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         <a href="embarazo02.html">💧 2º Trimestre</a>
                         <a href="embarazo03.html">🌸 3er Trimestre</a>
                         <a href="embarazo04.html">💜 Parto y Postparto</a>
-                        <a href="preguntas-frecuentes.html">❓ Preguntas Frecuentes</a>
                     </div>
                 </div>
 
@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    // Inyección y actualización automática del pie de página unificado en todas las páginas
     let footer = document.querySelector('footer');
     if (!footer) {
         footer = document.createElement('footer');
@@ -75,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>&copy; 2026 El Nido de Estrellas. | Síguenos en nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a> y en <a href="https://www.instagram.com/elnidodeestrellas" target="_blank">Instagram</a></p>
     `;
 
-    // 1. Configuración robusta del botón hamburguesa móvil
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navMenuLinks");
 
@@ -86,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Configuración de los desplegables con soporte táctil mejorado
     const dropBtns = document.querySelectorAll('.dropbtn');
     dropBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -106,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. Cierre automático al hacer clic fuera
     window.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
             document.querySelectorAll('.dropdown').forEach(drop => {
@@ -121,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 4. Soporte para cambios de tamaño de pantalla
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
