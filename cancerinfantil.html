@@ -132,6 +132,72 @@
             font-size: 0.9rem;
             color: #9a732a;
         }
+
+        /* Estilos para el carrusel web interactivo */
+        .carrusel-web-container {
+            background: #faf8f5;
+            border: 1px solid rgba(184, 148, 74, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.05);
+            text-align: center;
+        }
+        .carrusel-web-container h3 {
+            font-family: 'Quicksand', sans-serif;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+        .carrusel-slides-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .carrusel-slides-wrapper .slide {
+            display: none;
+            width: 100%;
+        }
+        .carrusel-slides-wrapper .slide.active {
+            display: block;
+        }
+        .carrusel-slides-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        .carrusel-controles {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 18px;
+        }
+        .carrusel-controles button {
+            background: #b8944a;
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+        .carrusel-controles button:hover {
+            background: #9a732a;
+        }
+        #slideIndicator {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
         footer {
             color: #64748b;
         }
@@ -170,6 +236,24 @@
             <!-- BLOQUE DE AGRADECIMIENTOS CON FONDO TENUE -->
             <div class="bloque-agradecimientos">
                 <p><strong>Un profundo agradecimiento:</strong> Esta guía no existiría sin la labor incansable, la vocación y la humanidad desbordante de los médicos, oncólogos pediátricos, enfermeras, psicooncólogos y personal sanitario que sostienen cada día los hospitales. Nuestro más sincero reconocimiento también a las asociaciones de cáncer infantil, voluntarios y entidades sociales que acompañan sin descanso a las familias, convirtiendo la ciencia y la solidaridad en un auténtico faro de esperanza.</p>
+            </div>
+
+            <!-- CARRUSEL INTERACTIVO DE RESUMEN VISUAL -->
+            <div class="carrusel-web-container">
+                <h3>Resumen visual de la guía</h3>
+                <div class="carrusel-slides-wrapper">
+                    <div class="slide active"><img src="imgcancer/Slide_01.webp" alt="Caminar con esperanza: comprendiendo el cáncer infantil"></div>
+                    <div class="slide"><img src="imgcancer/Slide_02.webp" alt="La luz en medio de la tormenta"></div>
+                    <div class="slide"><img src="imgcancer/Slide_03.webp" alt="Poner nombre a la realidad"></div>
+                    <div class="slide"><img src="imgcancer/Slide_04.webp" alt="Rutinas y resiliencia"></div>
+                    <div class="slide"><img src="imgcancer/Slide_05.webp" alt="Cuidarnos para poder sostener"></div>
+                    <div class="slide"><img src="imgcancer/Slide_06.webp" alt="Mirando hacia el futuro"></div>
+                </div>
+                <div class="carrusel-controles">
+                    <button id="prevBtn" type="button">❮ Anterior</button>
+                    <span id="slideIndicator">1 / 6</span>
+                    <button id="nextBtn" type="button">Siguiente ❯</button>
+                </div>
             </div>
 
             <div class="camino-grid">
@@ -311,5 +395,36 @@
 
 <script src="global.js"></script>
 <script src="nav.js"></script>
+<script>
+    // Script para controlar el funcionamiento del carrusel web
+    document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll('.carrusel-slides-wrapper .slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicator = document.getElementById('slideIndicator');
+        let currentIndex = 0;
+
+        function updateSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            if (indicator) {
+                indicator.textContent = `${index + 1} / ${slides.length}`;
+            }
+        }
+
+        if (prevBtn && nextBtn && slides.length > 0) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+                updateSlide(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                updateSlide(currentIndex);
+            });
+        }
+    });
+</script>
 </body>
 </html>
