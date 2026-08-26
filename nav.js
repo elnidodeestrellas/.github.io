@@ -70,8 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
         footer = document.createElement('footer');
         document.body.appendChild(footer);
     }
+    footer.className = "site-footer";
     footer.innerHTML = `
-        <p>&copy; 2026 El Nido de Estrellas. | Síguenos en nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a> y en <a href="https://www.instagram.com/elnidodeestrellas" target="_blank">Instagram</a></p>
+        <div class="footer-content-wrapper">
+            <p style="margin: 0;">&copy; 2026 El Nido de Estrellas. | Síguenos en nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank" style="color: #eab308; text-decoration: none;">Canal de YouTube</a> y en <a href="https://www.instagram.com/elnidodeestrellas" target="_blank" style="color: #eab308; text-decoration: none;">Instagram</a></p>
+            <div style="margin: 0;">
+                <a href="legal.html" style="color: #eab308; text-decoration: underline;">Aviso Legal y Privacidad</a>
+            </div>
+        </div>
     `;
 
     const toggleBtn = document.getElementById("mobileMenuToggle");
@@ -118,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
+        if (window.innerWidth > 968 && navLinks && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
         }
     });

@@ -171,7 +171,6 @@ h1 {
     background: linear-gradient(135deg, #fce085 0%, #f1c442 100%);
 }
 
-/* Efecto de destello estelar en el botón principal */
 .btn-principal::before {
     content: '';
     position: absolute;
@@ -1246,7 +1245,7 @@ body.modo-nocturno-profundo p {
 }
 
 /* ==========================================
-   12. NAVEGACIÓN DESPLEGABLE Y MENÚ MÓVIL (Rediseñado y Compacto)
+   12. NAVEGACIÓN DESPLEGABLE Y MENÚ MÓVIL (Corregido y Unificado)
    ================================---------- */
 .dropdown {
     position: relative;
@@ -1270,7 +1269,16 @@ body.modo-nocturno-profundo p {
     transition: all 0.3s ease;
 }
 
-/* Clase que activa el menú en dispositivos táctiles/móviles via JS */
+/* Escritorio: hover nativo para abrir el dropdown */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block !important;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Móvil/Tablet: se muestra cuando JS añade la clase .show */
 .dropdown.show .dropdown-content {
     display: block !important;
     opacity: 1;
@@ -1293,7 +1301,7 @@ body.modo-nocturno-profundo p {
 .dropdown-content a:hover {
     background: rgba(241, 196, 66, 0.15) !important;
     color: #f1c442 !important;
-    padding-left: 16px; /* Sutil efecto visual de desplazamiento */
+    padding-left: 16px;
 }
 
 /* Separadores decorativos y títulos internos para organizar el menú largo */
@@ -1343,6 +1351,7 @@ body.modo-nocturno-profundo p {
 @media (max-width: 768px) {
     nav {
         padding: 15px 20px;
+        position: relative;
     }
 
     .menu-toggle {
@@ -1357,9 +1366,10 @@ body.modo-nocturno-profundo p {
         top: 100%;
         left: 0;
         background-color: rgba(26, 38, 57, 0.98);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         padding: 15px 0;
         backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .menu-links.active {
@@ -1377,22 +1387,28 @@ body.modo-nocturno-profundo p {
         width: 100%;
     }
 
+    /* Botón principal del desplegable en móvil con ancho total */
+    .dropdown > button {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* Submenú en dispositivos móviles adaptado de forma limpia al flujo */
     .dropdown-content {
-        position: relative !important;
-        top: 0 !important;
-        right: auto !important;
+        position: static !important;
         width: 100% !important;
         box-shadow: none !important;
         background-color: rgba(15, 22, 38, 0.6) !important;
         border: none !important;
         margin-top: 5px !important;
-        padding-top: 6px !important;
+        padding: 8px 12px !important;
         display: none;
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .dropdown.show .dropdown-content {
-        display: flex !important;
-        flex-direction: column;
+        display: block !important;
     }
 
     .main-content,
@@ -1430,12 +1446,7 @@ body.modo-nocturno-profundo p {
     }
 }
 
-@media (min-width: 769px) {
-    .dropdown:hover .dropdown-content {
-        display: block !important;
-    }
-}
-/* Añade esto a estilos.css */
+/* Clases auxiliares adicionales */
 .edad-badge {
     display: inline-block;
     background: rgba(241, 196, 66, 0.1);
@@ -1446,4 +1457,27 @@ body.modo-nocturno-profundo p {
     font-size: 0.9rem;
     margin-bottom: 15px;
     font-family: 'Quicksand', sans-serif;
+}
+
+.site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 1rem 2rem;
+    margin-top: 6rem;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 100;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
 }
