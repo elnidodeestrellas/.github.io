@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El rincón de las preguntas sinceras | El Nido de Estrellas</title>
+    <meta name="description" content="Respuestas claras, respetuosas y prácticas para acompañar los retos cotidianos de la crianza y el desarrollo infantil.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        body {
+            background-color: #f7f5f0;
+            color: #2c3e50;
+        }
+        .preguntas-caja {
+            background-color: #ffffff !important;
+            border: 1px solid rgba(184, 148, 74, 0.3) !important;
+            box-shadow: 0 12px 35px rgba(44, 62, 80, 0.08) !important;
+            color: #2c3e50 !important;
+        }
+        .preguntas-caja h1 {
+            color: #1e293b !important;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .preguntas-caja > p {
+            color: #475569 !important;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        /* Espacio para la imagen de cabecera */
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        /* Acordeón de preguntas */
+        .acordeon-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .acordeon-item {
+            background: #faf8f5;
+            border: 1px solid rgba(184, 148, 74, 0.25);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .acordeon-item:hover {
+            border-color: #b8944a;
+            box-shadow: 0 4px 15px rgba(184, 148, 74, 0.08);
+        }
+        .acordeon-header {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            text-align: left;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .acordeon-header span.icono {
+            color: #b8944a;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        .acordeon-item.activo .acordeon-header span.icono {
+            transform: rotate(45deg);
+        }
+        .acordeon-contenido {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out, padding 0.35s ease-out;
+            padding: 0 24px;
+            background: #1e293b;
+            color: #f1f5f9;
+            border-top: 1px solid transparent;
+        }
+        .acordeon-item.activo .acordeon-contenido {
+            max-height: 700px;
+            padding: 24px;
+            border-top-color: rgba(184, 148, 74, 0.3);
+        }
+        /* Estilos internos de la respuesta guiada */
+        .paso-bloque {
+            margin-bottom: 16px;
+        }
+        .paso-bloque:last-child {
+            margin-bottom: 0;
+        }
+        .paso-titulo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #e2b763;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .paso-texto {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+            margin: 0;
+        }
+        .frase-destacada {
+            background: rgba(184, 148, 74, 0.15);
+            border-left: 3px solid #e2b763;
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        /* Bloque de contacto integrado */
+        .contacto-bloque-extra {
+            background: #faf8f5;
+            border: 1px solid rgba(184, 148, 74, 0.3);
+            border-left: 4px solid #b8944a;
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 35px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .contacto-bloque-extra p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #475569 !important;
+        }
+        .btn-contacto-enlace {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #b8944a;
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            width: fit-content;
+            transition: background 0.2s ease;
+        }
+        .btn-contacto-enlace:hover {
+            background: #9a732a;
+        }
+        footer {
+            color: #64748b;
+        }
+        footer a {
+            color: #9a732a !important;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja" style="max-width: 850px; margin: 40px auto; padding: 40px; border-radius: 16px;">
+            
+            <!-- Imagen de cabecera -->
+            <div class="header-imagen-wrapper">
+                <img src="img/portadapreguntas.webp" alt="Espacio de diálogo y preguntas sinceras en familia">
+            </div>
+
+            <h1>El rincón de las preguntas sinceras</h1>
+            <p>Un espacio directo y sin rodeos para abordar los pequeños grandes retos del día a día en la crianza. Respuestas basadas en el respeto mutuo, divididas en tres pasos breves: qué ocurre por dentro, cómo actuar y qué decir.</p>
+
+            <div class="acordeon-wrapper">
+                
+                <!-- PREGUNTA 1 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>1. ¿Qué hacer cuando mi hijo se niega por completo a ponerse los zapatos para salir?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">A esta edad, negarse a vestir o calzar suele ser una búsqueda legítima de autonomía o una señal de cansancio acumulado, no un desafío personal hacia los adultos.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Evita las luchas de poder directas o las prisas impositivas. En su lugar, ofrece opciones limitadas y cerradas que le devuelvan el sentido de control sobre su entorno.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"¿Prefieres ponerte hoy los zapatos azules o los de deporte marrones?"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 2 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>2. ¿Cómo gestionar una rabieta intensa en mitad de la calle o un lugar público?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">El sistema nervioso del niño se ha desbordado por completo. En plena tormenta emocional, razonar, explicar o regañar es inútil porque el cerebro lógico está desconectado.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Busca un rincón más apartado si es posible, mantén la calma propia como un ancla firme, ofrécele contención física si la acepta y valida su sentir sin juicios.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Estoy aquí contigo, estás a salvo. Puedes llorar todo lo que necesites hasta que pase."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 3 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>3. ¿Qué hacer si un niño no quiere compartir sus juguetes con otros niños?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">El concepto de propiedad privada y empatía social se desarrolla de forma paulatina. Para un niño pequeño, ceder un objeto muy querido se siente como perder seguridad.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Evita forzarle o etiquetarle como egoísta. Respeta sus objetos especiales guardándolos antes de la visita y propón turnos naturales o juegos cooperativos.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Este coche es tuyo y no tienes por qué dejarlo si no quieres. Cuando termines, podemos prestárselo un ratito."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 4 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>4. ¿Cómo ayudarles a desconectar de las pantallas sin que se desate una batalla?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Las pantallas generan dopamina inmediata. Apagarlas de golpe interrumpe una actividad muy absorbente, lo que genera una frustración difícil de gestionar solos.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Anticipa los tiempos con claridad usando referencias visuales o temporales sencillas, y ofrece una transición atractiva hacia otra actividad calmada.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Quedan dos minutos de vídeo y después apagamos para construir juntos la torre de piezas."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 5 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>5. ¿Qué hacer cuando dicen constantemente que no a todo por sistema?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Es la forma natural de tantear los límites de su propia voluntad e independencia. No es rebeldía malintencionada, sino maduración neurológica.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Evita entrar al trapo o discutir. Utiliza el humor, transforma las peticiones en un juego o plantea preguntas abiertas donde el "no" no tenga cabida.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Veo que hoy tienes la pinza del no muy apretada. ¿Saltamos como ranas hasta la cocina o caminamos de puntillas?"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 6 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>6. ¿Cómo actuar cuando se niegan rotundamente a comer la verdura o probar nuevos alimentos?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">La neofobia alimentaria (miedo instintivo a lo desconocido) es una etapa evolutiva normal para protegerse de posibles toxinas en la naturaleza.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">No obligues, no sobornes ni amenaces con el postre. Tu papel es ofrecer comida saludable y variada; el suyo es decidir cuánto comer.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"No tienes obligación de comértelo, pero puedes dejarlo a un lado del plato por si te apetece olerlo o tocarlo."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 7 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>7. ¿Qué hacer ante las pesadillas nocturnas o el miedo intenso a irse a la cama?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">La oscuridad y la separación nocturna activan el sistema de apego primario. Para ellos, la noche es un espacio donde la imaginación y los miedos se amplifican.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Valida siempre su temor sin restarle importancia ni decirles que "es una tontería". Acompaña desde la presencia tranquila y establece rituales de luz suave.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Entiendo que te dé miedo la oscuridad. Quédate tranquilo, yo estoy aquí vigilando la puerta toda la noche."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 8 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>8. ¿Cómo gestionar las peleas continuas y los celos entre hermanos?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Cada hermano busca asegurar su cuota de amor y atención exclusiva de los adultos. Los conflictos son ensayos para aprender a negociar y poner límites.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Evita juzgar quién empezó o buscar culpables. Pon el foco en asegurar la integridad física de ambos y dales herramientas para expresar lo que necesitan.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Veo que los dos queréis el mismo juguete. Vamos a buscar un temporizador para turnarnos de forma justa."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 9 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>9. ¿Qué hacer cuando un niño pega, muerde o empuja a otros al enfadarse?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Aún no dominan el lenguaje verbal ni la regulación de los impulsos intensos. Cuando la frustración les desborda, el cuerpo reacciona antes que las palabras.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Intervén con firmeza física para proteger (sujetando sus manos con calma), sin gritos ni castigos punitivos, y verbaliza lo que le ha ocurrido.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"A las personas no se les pega. Veo que estás muy enfadado, ayúdame a decirlo con palabras o patadas al suelo."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 10 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>10. ¿Cómo ayudarles a vestirse o prepararse por la mañana sin prisas ni gritos?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">El ritmo biológico de la infancia es completamente diferente al nuestro. Las mañanas con prisas generan un estrés crónico en su sistema nervioso.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Simplifica la rutina nocturna previa, deja la ropa lista la noche antes y utiliza apoyos visuales por pasos para fomentar su autonomía sin presión.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Vamos a mirar el panel de pasos: ¿qué toca hacer ahora después de desayunar?"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 11 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>11. ¿Qué hacer si se niegan de forma sistemática a recoger sus juguetes?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Una habitación llena de juguetes desordenados genera una sensación de abrumo cognitivo muy difícil de gestionar para una mente infantil.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">No pidas que lo recojan todo solos de golpe. Hazlo un juego de acompañamiento donde tú guíes el proceso paso a paso a su lado.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Yo guardo las piezas rojas y tú las azules. ¿Quién llega antes a la caja?"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 12 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>12. ¿Cómo actuar cuando dicen mentiras evidentes para evitar una regañina?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">A determinadas edades, la mentira no busca engañar con malicia, sino protegerse del miedo al castigo, a la bronca o a decepcionar a los adultos.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Evita la confrontación agresiva. Facilita un entorno seguro donde confesar la verdad no suponga una reprimenda desproporcionada.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Sé que da miedo decir la verdad cuando pasa esto, pero confío en ti. Cuéntame exactamente qué ha ocurrido."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 13 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>13. ¿Qué hacer ante las demandas constantes de atención cuando estamos ocupados?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Necesitan comprobar de forma continua que seguimos disponibles para ellos. Cuando reclaman con insistencia, buscan recargar su depósito de seguridad.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">A veces, regalar cinco minutos de atención plena y exclusiva disipa la demanda constante, mucho más que estar media hora distraídos a medias.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Termino esta llamada en dos minutos, me siento a tu lado y me cuentas lo que necesitas con calma."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 14 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>14. ¿Cómo gestionar el momento de salir de un parque o terminar un juego divertido?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Para un niño, abandonar una actividad que le apasiona genera un duelo repentino. Las interrupciones bruscas les pillan siempre desprevenidos.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Anticipa los cambios de actividad con margen suficiente y utiliza transiciones lúdicas para facilitar el cambio de tercio sin enfados.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Quedan dos últimas veces en el columpio y nos despediremos hasta mañana."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 15 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>15. ¿Qué hacer si montan una escena o pataleta porque no les compramos algo en la tienda?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">El deseo inmediato choca frontalmente con el límite del adulto. Es completamente normal que sientan frustración y enfado al no obtenerlo.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Mantén el límite con firmeza y cariño. No cedas por vergüenza ante las miradas ajenas; valida su desilusión sin entrar en negociaciones largas.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Entiendo que te encante ese juguete y da rabia no poder llevarlo a casa hoy. Lo apuntamos para tu cumpleaños."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 16 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>16. ¿Cómo ayudarles a superar la timidez extrema o el miedo a relacionarse con otros niños?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Cada temperamento necesita sus propios tiempos de observación y seguridad antes de lanzarse a la interacción social.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Nunca les etiquetes delante de otros como tímidos o vergonzosos. Respeta su espacio y actúa como puente seguro desde tu cercanía.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Tómate todo el tiempo que necesites para observar desde aquí. Cuando te sientas listo, puedes acercarte."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 17 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>17. ¿Qué hacer cuando responden con groserías o contestaciones feas a los adultos?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">A menudo prueban palabras de impacto que escuchan en el entorno para comprobar qué reacción provocan, sin medir el peso real del término.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Evita responder con otra grosería o grito. Pon un límite claro y enseña de forma pausada qué palabra o forma correcta se puede utilizar.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Esa palabra no la vamos a usar en casa porque hace daño. Si estás molesto, dime: 'No me gusta esto'."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 18 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>18. ¿Cómo gestionar el miedo a los ruidos fuertes, tormentas o disfraces?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">El sistema sensorial infantil es muy sensible. Lo que para un adulto es inofensivo, para su cerebro puede vivirse como una amenaza real.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Jamás ridiculices sus temores. Ofrece refugio físico, un abrazo protector y explora el origen del sonido o del elemento desde el juego.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Es normal que suene fuerte y asuste. Abrázame fuerte y verás cómo pasa enseguida."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 19 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>19. ¿Qué hacer si muestran celos intensos ante la llegada de un nuevo hermanito?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">Temen perder el amor y el lugar exclusivo que ocupan en el corazón de sus padres. Es un sentimiento natural y profundamente humano.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Valida su mundo afectivo, intégrales en los cuidados del bebé de forma voluntaria y asegúrate de reservar espacios de conexión individual.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Aunque el bebé necesite cuidados ahora, mi amor por ti es infinito y nada lo va a cambiar nunca."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 20 -->
+                <div class="acordeon-item">
+                    <button class="acordeon-header" type="button">
+                        <span>20. ¿Cómo ayudarles a calmar la frustración cuando algo no les sale como esperaban?</span>
+                        <span class="icono">+</span>
+                    </button>
+                    <div class="acordeon-contenido">
+                        <div class="paso-bloque">
+                            <div class="paso-titulo">La mirada emocional</div>
+                            <p class="paso-texto">La baja tolerancia a la frustración es propia de su etapa evolutiva. Quieren dominar el mundo de inmediato y el error se vive como un fracaso.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">La acción respetuosa</div>
+                            <p class="paso-texto">Normaliza el error como parte imprescindible del aprendizaje y acompaña el desahogo emocional sin prisas por solucionarles el problema.</p>
+                        </div>
+                        <div class="paso-bloque" style="margin-top: 16px;">
+                            <div class="paso-titulo">Frase útil para decir</div>
+                            <div class="frase-destacada">"Vaya, qué rabia da cuando las cosas no salen a la primera. Descansa un poco y lo volvemos a intentar juntos."</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BLOQUE DE CONTACTO INTEGRADO -->
+            <div class="contacto-bloque-extra">
+                <p><strong>¿Tienes alguna pregunta o duda concreta que no encuentres aquí?</strong> Estaremos encantados de escucharte y ayudarte en lo que necesites para acompañar tu camino de crianza.</p>
+                <a href="contacto.html" class="btn-contacto-enlace">Ponte en contacto con nosotros ➔</a>
+            </div>
+
+            <!-- Enlace de retorno -->
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(184, 148, 74, 0.2); text-align: left;">
+                <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: #b8944a; text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver al inicio</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+<script>
+    // Lógica para el acordeón desplegable
+    document.addEventListener("DOMContentLoaded", () => {
+        const items = document.querySelectorAll('.acordeon-item');
+
+        items.forEach(item => {
+            const header = item.querySelector('.acordeon-header');
+            header.addEventListener('click', () => {
+                const estaActivo = item.classList.contains('activo');
+                items.forEach(i => i.classList.remove('activo'));
+                if (!estaActivo) {
+                    item.classList.add('activo');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

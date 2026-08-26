@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud mental perinatal e impacto en el vínculo temprano | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía amable, rigurosa y empática para comprender la salud mental perinatal y su impacto directo en el vínculo temprano con el bebé.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --perinatal-acento: #70a1ff;
+            --perinatal-borde: rgba(112, 161, 255, 0.3);
+            --perinatal-fondo-caja: rgba(112, 161, 255, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--perinatal-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(112, 161, 255, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--perinatal-acento);
+            box-shadow: 0 8px 25px rgba(112, 161, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--perinatal-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--perinatal-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--perinatal-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgperinatal/portada.webp" alt="Madre y bebé en un momento de calma, sintonía afectiva y conexión emocional">
+            </div>
+
+            <h1>Salud mental perinatal e impacto en el vínculo temprano</h1>
+            
+            <p>El periodo perinatal —que abarca desde la gestación hasta el primer año de vida del bebé— constituye una etapa de profunda vulnerabilidad emocional y transformación vital. Tradicionalmente se ha priorizado el cuidado físico, relegando a un segundo plano el bienestar psicológico de los adultos. Sin embargo, la ciencia demuestra que la salud mental de los cuidadores es el auténtico motor que nutre, protege y sostiene el desarrollo emocional temprano y la sintonía afectiva en la familia. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- BLOQUE 1 -->
+                <a href="perinatal-sombra.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/sombra.webp" alt="Reflexión sobre las expectativas de la maternidad"></div>
+                        <span class="pilar-tag">Expectativas</span>
+                        <h2>La sombra de la perfección</h2>
+                        <p>Desmitificar la maternidad idealizada y aprender a transitar el contraste entre las exigencias del entorno y la cruda realidad cotidiana.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="perinatal-ansiedad.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/ansiedad.webp" alt="Gestión de la ansiedad y la hipervigilancia"></div>
+                        <span class="pilar-tag">Ansiedad</span>
+                        <h2>Ansiedad y hipervigilancia</h2>
+                        <p>Cómo identificar y acompañar el miedo constante, el estado de alerta permanente y la presión invisible que surge tras el nacimiento.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 2 -->
+                <a href="perinatal-depresion.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/depresion.webp" alt="Acompañamiento en la depresión posparto"></div>
+                        <span class="pilar-tag">Bienestar emocional</span>
+                        <h2>Depresión posparto sin tabús</h2>
+                        <p>Romper el silencio en torno al desánimo profundo, entender sus señales tempranas y buscar ayuda profesional sin culpa ni juicios morales.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="perinatal-vulnerabilidad.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/vulnerabilidad.webp" alt="Construcción del vínculo afectivo temprano"></div>
+                        <span class="pilar-tag">El vínculo</span>
+                        <h2>El puente de la conexión</h2>
+                        <p>Cómo influye el malestar emocional en la sintonía afectiva y qué caminos facilitan el reencuentro cálido y seguro con el bebé.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 3 -->
+                <a href="perinatal-sosten.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/sosten.webp" alt="Red de apoyo y tribu en la crianza"></div>
+                        <span class="pilar-tag">Red de apoyo</span>
+                        <h2>La importancia de la tribu</h2>
+                        <p>La necesidad vital de desterrar la soledad en la crianza y construir redes reales de sostén compartido entre familiares y profesionales.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="perinatal-pareja.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/pareja.webp" alt="Cuidado de la relación de pareja en el posparto"></div>
+                        <span class="pilar-tag">Relación de pareja</span>
+                        <h2>Navegar el tsunami en pareja</h2>
+                        <p>Acompañar los cambios en la convivencia sin perder de vista la complicidad, la escucha activa y el cuidado mutuo entre los adultos.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- BLOQUE 4 -->
+                <a href="perinatal-duelos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/duelos.webp" alt="Acompañamiento en duelos gestacionales y perinatales"></div>
+                        <span class="pilar-tag">Duelos perinatales</span>
+                        <h2>Visibilizar las pérdidas tempranas</h2>
+                        <p>Acompañar con respeto, empatía profunda y validación emocional los duelos gestacionales y perinatales que a menudo quedan silenciados.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+
+                <a href="perinatal-autocuidado.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgperinatal/autocuidado.webp" alt="Autocuidado y salud mental del cuidador"></div>
+                        <span class="pilar-tag">Autocuidado</span>
+                        <h2>Cuidar a quien cuida</h2>
+                        <p>Comprender que atender la propia salud mental no es un acto de egoísmo, sino la condición indispensable para poder sostener a otro.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--perinatal-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(112, 161, 255, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--perinatal-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
