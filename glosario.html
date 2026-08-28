@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario Poético | El Nido de Estrellas</title>
+    <meta name="description" content="Un diccionario íntimo de emociones y conceptos de la infancia explicados desde la calma y la empatía.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .glosario-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        /* --- Cabecera con Imagen Estilo Revista --- */
+        .glosario-header-banner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #131c31;
+            border: 1px solid rgba(241, 196, 66, 0.25);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .glosario-imagen-portada {
+            width: 160px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid rgba(241, 196, 66, 0.4);
+            flex-shrink: 0;
+            background: #1a253a;
+        }
+
+        .glosario-texto-portada h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .glosario-texto-portada p {
+            font-family: 'Inter', sans-serif;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 650px) {
+            .glosario-header-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .glosario-imagen-portada {
+                width: 100%;
+                height: 140px;
+            }
+        }
+
+        /* --- Barra de Filtros por Temática --- */
+        .filtros-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .filtro-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #131c31;
+            color: #94a3b8;
+            transition: all 0.25s ease;
+        }
+
+        .filtro-btn:hover {
+            background: #1a253a;
+            color: #ffffff;
+        }
+
+        /* Colores activos de los filtros */
+        .filtro-btn.activo[data-filtro="todos"] { background: #ffffff; color: #0b1324; border-color: #ffffff; }
+        .filtro-btn.activo[data-filtro="vinculo"] { background: rgba(241, 196, 66, 0.15); color: #f1c442; border-color: #f1c442; }
+        .filtro-btn.activo[data-filtro="rutinas"] { background: rgba(52, 211, 153, 0.15); color: #34d399; border-color: #34d399; }
+        .filtro-btn.activo[data-filtro="emociones"] { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: #38bdf8; }
+        .filtro-btn.activo[data-filtro="salud"] { background: rgba(244, 114, 182, 0.15); color: #f472b6; border-color: #f472b6; }
+        .filtro-btn.activo[data-filtro="cuidados"] { background: rgba(167, 139, 250, 0.15); color: #a78bfa; border-color: #a78bfa; }
+        .filtro-btn.activo[data-filtro="tiempo"] { background: rgba(251, 146, 60, 0.15); color: #fb923c; border-color: #fb923c; }
+        .filtro-btn.activo[data-filtro="sueno"] { background: rgba(129, 140, 248, 0.15); color: #818cf8; border-color: #818cf8; }
+
+        /* Cuadrícula */
+        .grid-compacto {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-compacto {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tarjeta-compacta {
+            background: #131c31;
+            border-radius: 12px;
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Bordes temáticos sutiles */
+        .tarjeta-compacta.borde-dorado { border: 1px solid rgba(241, 196, 66, 0.35); }
+        .tarjeta-compacta.borde-menta { border: 1px solid rgba(52, 211, 153, 0.35); }
+        .tarjeta-compacta.borde-celeste { border: 1px solid rgba(56, 189, 248, 0.35); }
+        .tarjeta-compacta.borde-rosa { border: 1px solid rgba(244, 114, 182, 0.35); }
+        .tarjeta-compacta.borde-lavanda { border: 1px solid rgba(167, 139, 250, 0.35); }
+        .tarjeta-compacta.borde-ambar { border: 1px solid rgba(251, 146, 60, 0.35); }
+        .tarjeta-compacta.borde-anil { border: 1px solid rgba(129, 140, 248, 0.35); }
+
+        .tarjeta-compacta:hover {
+            transform: translateY(-2px);
+            background: #1a253a;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .tarjeta-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .numero-grande {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.2);
+            line-height: 1;
+        }
+
+        .tarjeta-titulo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .tarjeta-icono-leer {
+            font-size: 0.85rem;
+            color: #f1c442;
+            opacity: 0.7;
+            white-space: nowrap;
+            margin-left: 10px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .tarjeta-compacta:hover .tarjeta-icono-leer {
+            transform: translateX(3px);
+            opacity: 1;
+        }
+
+        /* Ventana Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 9, 18, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.activo {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-contenido {
+            background: #131c31;
+            border: 2px solid rgba(241, 196, 66, 0.4);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.activo .modal-contenido {
+            transform: translateY(0);
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-cerrar:hover {
+            color: #f1c442;
+        }
+
+        #modal-titulo-texto {
+            font-family: 'Quicksand', sans-serif;
+            color: #f1c442;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-right: 30px;
+        }
+
+        .modal-cuerpo p {
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .modal-reflexion {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.93rem;
+            color: #94a3b8;
+            font-style: italic;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+   <div id="menu-container"></div>
+
+    <main class="main-content glosario-container" id="contenido-principal">
+        
+        <!-- Cabecera Banner con Imagen -->
+        <div class="glosario-header-banner">
+            <img src="img/glosarioportada.webp" alt="Glosario Poético de la Infancia" class="glosario-imagen-portada">
+            <div class="glosario-texto-portada">
+                <h2>✨ Glosario Poético de la Infancia</h2>
+                <p>Un diccionario íntimo de emociones, miradas y conceptos explicados desde la calma y la empatía. Selecciona cualquier entrada para desplegar su lectura pausada.</p>
+            </div>
+        </div>
+
+        <!-- Botones de Filtro Temático -->
+        <div class="filtros-container">
+            <button class="filtro-btn activo" data-filtro="todos">🌟 Todos</button>
+            <button class="filtro-btn" data-filtro="vinculo">💛 Vínculo</button>
+            <button class="filtro-btn" data-filtro="rutinas">💚 Rutinas</button>
+            <button class="filtro-btn" data-filtro="emociones">💙 Emociones</button>
+            <button class="filtro-btn" data-filtro="salud">🩷 Salud</button>
+            <button class="filtro-btn" data-filtro="cuidados">💜 Cuidados</button>
+            <button class="filtro-btn" data-filtro="tiempo">🧡 Tiempo</button>
+            <button class="filtro-btn" data-filtro="sueno">🌙 Sueño</button>
+        </div>
+        
+        <!-- Cuadrícula Completa con las 80 Tarjetas -->
+        <div class="grid-compacto">
+            
+            <!-- 💛 SECCIÓN 1: VÍNCULO (10 tarjetas) -->
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v1')"><div class="tarjeta-info"><span class="numero-grande">01</span><h3 class="tarjeta-titulo">🌧️ Morriña de los papás</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v2')"><div class="tarjeta-info"><span class="numero-grande">02</span><h3 class="tarjeta-titulo">🕰️ El reloj de los abrazos</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v3')"><div class="tarjeta-info"><span class="numero-grande">03</span><h3 class="tarjeta-titulo">🪞 El espejo invisible de mamá</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v4')"><div class="tarjeta-info"><span class="numero-grande">04</span><h3 class="tarjeta-titulo">🌱 La culpa de los adultos</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v5')"><div class="tarjeta-info"><span class="numero-grande">05</span><h3 class="tarjeta-titulo">⚓ El puerto seguro del regreso</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v6')"><div class="tarjeta-info"><span class="numero-grande">06</span><h3 class="tarjeta-titulo">🧶 El hilo invisible del amor</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v7')"><div class="tarjeta-info"><span class="numero-grande">07</span><h3 class="tarjeta-titulo">🍯 La dulzura de la reconciliación</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v8')"><div class="tarjeta-info"><span class="numero-grande">08</span><h3 class="tarjeta-titulo">🛡️ El refugio de la mirada</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v9')"><div class="tarjeta-info"><span class="numero-grande">09</span><h3 class="tarjeta-titulo">💬 El secreto compartido</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('v10')"><div class="tarjeta-info"><span class="numero-grande">10</span><h3 class="tarjeta-titulo">☀️ El despertar a tu lado</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+            <!-- 💚 SECCIÓN 2: RUTINAS (10 tarjetas) -->
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r1')"><div class="tarjeta-info"><span class="numero-grande">11</span><h3 class="tarjeta-titulo">⏳ El superpoder de la paciencia</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r2')"><div class="tarjeta-info"><span class="numero-grande">12</span><h3 class="tarjeta-titulo">🚪 El puente de las transiciones</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r3')"><div class="tarjeta-info"><span class="numero-grande">13</span><h3 class="tarjeta-titulo">📱 El apagón de las pantallas</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r4')"><div class="tarjeta-info"><span class="numero-grande">14</span><h3 class="tarjeta-titulo">🍲 El plato de las negociaciones</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r5')"><div class="tarjeta-info"><span class="numero-grande">15</span><h3 class="tarjeta-titulo">👟 La hilera de los zapatos</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r6')"><div class="tarjeta-info"><span class="numero-grande">16</span><h3 class="tarjeta-titulo">🎒 La mochila del mañana</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r7')"><div class="tarjeta-info"><span class="numero-grande">17</span><h3 class="tarjeta-titulo">🧹 El juego de ordenar</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r8')"><div class="tarjeta-info"><span class="numero-grande">18</span><h3 class="tarjeta-titulo">🔑 La llave de la puerta al salir</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r9')"><div class="tarjeta-info"><span class="numero-grande">19</span><h3 class="tarjeta-titulo">🛎️ La campana de aviso</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('r10')"><div class="tarjeta-info"><span class="numero-grande">20</span><h3 class="tarjeta-titulo">📋 Los pasos de la mañana</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+            <!-- 💙 SECCIÓN 3: EMOCIONES (10 tarjetas) -->
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e1')"><div class="tarjeta-info"><span class="numero-grande">21</span><h3 class="tarjeta-titulo">⚡ La rabia como una tormenta</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e2')"><div class="tarjeta-info"><span class="numero-grande">22</span><h3 class="tarjeta-titulo">🌊 La marea de la tristeza</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e3')"><div class="tarjeta-info"><span class="numero-grande">23</span><h3 class="tarjeta-titulo">🧱 El muro de la frustración</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e4')"><div class="tarjeta-info"><span class="numero-grande">24</span><h3 class="tarjeta-titulo">🧩 El temblor de los hermanos</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e5')"><div class="tarjeta-info"><span class="numero-grande">25</span><h3 class="tarjeta-titulo">🦋 Las mariposas del miedo</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e6')"><div class="tarjeta-info"><span class="numero-grande">26</span><h3 class="tarjeta-titulo">🎈 La burbuja de la alegría</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e7')"><div class="tarjeta-info"><span class="numero-grande">27</span><h3 class="tarjeta-titulo">🌪️ El remolino de la vergüenza</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e8')"><div class="tarjeta-info"><span class="numero-grande">28</span><h3 class="tarjeta-titulo">🔍 La chispa de la curiosidad</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e9')"><div class="tarjeta-info"><span class="numero-grande">29</span><h3 class="tarjeta-titulo">🧊 El hielo de la timidez</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="emociones" onclick="abrirModal('e10')"><div class="tarjeta-info"><span class="numero-grande">30</span><h3 class="tarjeta-titulo">🌋 El estallido de la euforia</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+            <!-- 🩷 SECCIÓN 4: SALUD (10 tarjetas) -->
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s1')"><div class="tarjeta-info"><span class="numero-grande">31</span><h3 class="tarjeta-titulo">🩺 El escudo frente al pediatra</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s2')"><div class="tarjeta-info"><span class="numero-grande">32</span><h3 class="tarjeta-titulo">🌡️ El refugio tierno de la fiebre</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s3')"><div class="tarjeta-info"><span class="numero-grande">33</span><h3 class="tarjeta-titulo">🩹 El beso que sana la tirita</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s4')"><div class="tarjeta-info"><span class="numero-grande">34</span><h3 class="tarjeta-titulo">🥣 El caldo de la abuela</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s5')"><div class="tarjeta-info"><span class="numero-grande">35</span><h3 class="tarjeta-titulo">💊 El jarabe valiente</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s6')"><div class="tarjeta-info"><span class="numero-grande">36</span><h3 class="tarjeta-titulo">🛌 La cueva del descanso</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s7')"><div class="tarjeta-info"><span class="numero-grande">37</span><h3 class="tarjeta-titulo">🤧 El estornudo viajero</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s8')"><div class="tarjeta-info"><span class="numero-grande">38</span><h3 class="tarjeta-titulo">🧊 La compresa fría del chichón</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s9')"><div class="tarjeta-info"><span class="numero-grande">39</span><h3 class="tarjeta-titulo">🌬️ El soplo en la rodilla</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-rosa" data-categoria="salud" onclick="abrirModal('s10')"><div class="tarjeta-info"><span class="numero-grande">40</span><h3 class="tarjeta-titulo">🔋 La recarga de defensas</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+            <!-- 💜 SECCIÓN 5: CUIDADOS (10 tarjetas) -->
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c1')"><div class="tarjeta-info"><span class="numero-grande">41</span><h3 class="tarjeta-titulo">🛁 La purificación del baño</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c2')"><div class="tarjeta-info"><span class="numero-grande">42</span><h3 class="tarjeta-titulo">👟 El orgullo de hacerlo solito</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c3')"><div class="tarjeta-info"><span class="numero-grande">43</span><h3 class="tarjeta-titulo">🧴 La crema suave del masaje</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c4')"><div class="tarjeta-info"><span class="numero-grande">44</span><h3 class="tarjeta-titulo">💇 El cepillo del cabello</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c5')"><div class="tarjeta-info"><span class="numero-grande">45</span><h3 class="tarjeta-titulo">🧼 Las pompas de jabón</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c6')"><div class="tarjeta-info"><span class="numero-grande">46</span><h3 class="tarjeta-titulo">👕 El aroma de la ropa limpia</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c7')"><div class="tarjeta-info"><span class="numero-grande">47</span><h3 class="tarjeta-titulo">💅 El corte de uñas cuidadoso</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c8')"><div class="tarjeta-info"><span class="numero-grande">48</span><h3 class="tarjeta-titulo">🦷 El cepillo de dientes divertido</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c9')"><div class="tarjeta-info"><span class="numero-grande">49</span><h3 class="tarjeta-titulo">☀️ El protector solar de la playa</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('c10')"><div class="tarjeta-info"><span class="numero-grande">50</span><h3 class="tarjeta-titulo">🧥 El abrigo mullido de invierno</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+            <!-- 🧡 SECCIÓN 6: TIEMPO (10 tarjetas) -->
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t1')"><div class="tarjeta-info"><span class="numero-grande">51</span><h3 class="tarjeta-titulo">🍂 La raya en la pared del crecimiento</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t2')"><div class="tarjeta-info"><span class="numero-grande">52</span><h3 class="tarjeta-titulo">🦷 El diente que se despide</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t3')"><div class="tarjeta-info"><span class="numero-grande">53</span><h3 class="tarjeta-titulo">⏳ Los granos de arena del reloj</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t4')"><div class="tarjeta-info"><span class="numero-grande">54</span><h3 class="tarjeta-titulo">🎂 Las velas del cumpleaños</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t5')"><div class="tarjeta-info"><span class="numero-grande">55</span><h3 class="tarjeta-titulo">📅 La hoja del calendario arrancada</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t6')"><div class="tarjeta-info"><span class="numero-grande">56</span><h3 class="tarjeta-titulo">☀️ La tarde que nunca se acaba</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t7')"><div class="tarjeta-info"><span class="numero-grande">57</span><h3 class="tarjeta-titulo">🕰️ El tic-tac del pasillo</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t8')"><div class="tarjeta-info"><span class="numero-grande">58</span><h3 class="tarjeta-titulo">🍁 Las hojas crujientes de otoño</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t9')"><div class="tarjeta-info"><span class="numero-grande">59</span><h3 class="tarjeta-titulo">❄️ El primer copo de nieve</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-ambar" data-categoria="tiempo" onclick="abrirModal('t10')"><div class="tarjeta-info"><span class="numero-grande">60</span><h3 class="tarjeta-titulo">🌱 El brote de primavera</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+            <!-- 🌙 SECCIÓN 7: SUEÑO (10 tarjetas) -->
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su1')"><div class="tarjeta-info"><span class="numero-grande">61</span><h3 class="tarjeta-titulo">🌙 Las sombras bajo la cama</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su2')"><div class="tarjeta-info"><span class="numero-grande">62</span><h3 class="tarjeta-titulo">🧸 El guardián de peluche</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su3')"><div class="tarjeta-info"><span class="numero-grande">63</span><h3 class="tarjeta-titulo">📖 El cuento de la medianoche</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su4')"><div class="tarjeta-info"><span class="numero-grande">64</span><h3 class="tarjeta-titulo">⭐ El lucero de la ventana</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su5')"><div class="tarjeta-info"><span class="numero-grande">65</span><h3 class="tarjeta-titulo">🛌 El barco de las sábanas</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su6')"><div class="tarjeta-info"><span class="numero-grande">66</span><h3 class="tarjeta-titulo">🌌 El cielo estrellado del techo</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su7')"><div class="tarjeta-info"><span class="numero-grande">67</span><h3 class="tarjeta-titulo">🐑 El desfile de las ovejas</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su8')"><div class="tarjeta-info"><span class="numero-grande">68</span><h3 class="tarjeta-titulo">💤 El bostezo contagioso</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su9')"><div class="tarjeta-info"><span class="numero-grande">69</span><h3 class="tarjeta-titulo">🦉 El silencio del búho</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('su10')"><div class="tarjeta-info"><span class="numero-grande">70</span><h3 class="tarjeta-titulo">💤 El sueño profundo de las hadas</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+            <!-- SECCIÓN 8: ESPACIOS Y REFUGIOS (10 tarjetas complementarias clasificadas en Vínculo/Rutinas) -->
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('x1')"><div class="tarjeta-info"><span class="numero-grande">71</span><h3 class="tarjeta-titulo">🏡 El refugio de casa</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('x2')"><div class="tarjeta-info"><span class="numero-grande">72</span><h3 class="tarjeta-titulo">💌 La nota en la lonchera</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('x3')"><div class="tarjeta-info"><span class="numero-grande">73</span><h3 class="tarjeta-titulo">🔑 El llavero de papá</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="vinculo" onclick="abrirModal('x4')"><div class="tarjeta-info"><span class="numero-grande">74</span><h3 class="tarjeta-titulo">🫂 El abrazo de oso</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('x5')"><div class="tarjeta-info"><span class="numero-grande">75</span><h3 class="tarjeta-titulo">👣 Las pisadas en la arena</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('x6')"><div class="tarjeta-info"><span class="numero-grande">76</span><h3 class="tarjeta-titulo">📻 La canción del coche</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="cuidados" onclick="abrirModal('x7')"><div class="tarjeta-info"><span class="numero-grande">77</span><h3 class="tarjeta-titulo">🎨 El cuadro en la nevera</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('x8')"><div class="tarjeta-info"><span class="numero-grande">78</span><h3 class="tarjeta-titulo">🔦 La linterna bajo las sábanas</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="rutinas" onclick="abrirModal('x9')"><div class="tarjeta-info"><span class="numero-grande">79</span><h3 class="tarjeta-titulo">☕ El aroma del domingo</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+            <div class="tarjeta-compacta borde-anil" data-categoria="sueno" onclick="abrirModal('x10')"><div class="tarjeta-info"><span class="numero-grande">80</span><h3 class="tarjeta-titulo">✨ El nido de estrellas</h3></div><span class="tarjeta-icono-leer">Leer ➔</span></div>
+
+        </div>
+
+    </main>
+
+    <!-- Ventana Modal Oculta -->
+    <div class="modal-overlay" id="modalGlosario" onclick="cerrarModalFuera(event)">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+            <h3 id="modal-titulo-texto">Título de la entrada</h3>
+            <div class="modal-cuerpo" id="modal-cuerpo-texto"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. Un espacio de calma y lectura.</p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        // Diccionario completo con las 80 entradas definidas con tono poético, empático y descriptivo
+        const contenidoEntradas = {
+            // VÍNCULO (1-10)
+            'v1': { titulo: '🌧️ Morriña de los papás', html: `<p>Ese pellizco dulce y amargo en el pecho que aparece cuando la casa se queda en silencio o al verlos dormir. No es miedo; es la nostalgia anticipada de saber que la infancia pasa en un pestañeo y la añoranza de sus manos pequeñas.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Sentir esta morriña nos recuerda que la crianza es un viaje emocional fugaz que merece ser contemplado con calma.</div>` },
+            'v2': { titulo: '🕰️ El reloj de los abrazos', html: `<p>La infancia no mide el tiempo en minutos, sino en la calidez del contacto físico. Un abrazo sostenido durante unos segundos es capaz de regular las pulsaciones, disolver el llanto y reajustar el ritmo de todo un día convulso.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Detenerse a dar un abrazo largo no es perder el tiempo, es ganarle paz y seguridad al reloj.</div>` },
+            'v3': { titulo: '🪞 El espejo invisible de mamá', html: `<p>Los ojos de los niños son un reflejo cristalino de nuestro estado interno. Absorben la tensión de nuestros hombros, la prisa de nuestra voz y la serenidad de nuestros gestos antes incluso de que hablemos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Cuidar de tu propia calma es la forma más directa de ofrecerle un entorno seguro a quien te mira para aprender a estar en el mundo.</div>` },
+            'v4': { titulo: '🌱 La culpa de los adultos', html: `<p>Esa sombra pesada que aparece al final de la jornada tras haber perdido la paciencia o levantado la voz. Es el dolor sincero de reconocer nuestros propios límites frente a la fragilidad de quien más amamos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La culpa castiga, pero la reparación enseña. Pedir perdón a un hijo demuestra que los errores humanos se pueden sanar con amor.</div>` },
+            'v5': { titulo: '⚓ El puerto seguro del regreso', html: `<p>La mirada ansiosa que busca tu rostro a la salida de la escuela o el abrazo desesperado tras una caída. Es la certeza absoluta de que, sin importar cuán ruidoso sea el mundo exterior, siempre hay un lugar donde estar a salvo.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Ser puerto seguro significa asegurarles que siempre tendrán un refugio al que volver.</div>` },
+            'v6': { titulo: '🧶 El hilo invisible del amor', html: `<p>Un lazo afectivo que no se ve pero se siente con firmeza. Es la tranquilidad con la que un niño explora el mundo sabiendo que la presencia de sus referentes no desaparece por estar en habitaciones separadas.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Nutrir este hilo fortalece la autonomía y reduce de forma natural la ansiedad por separación.</div>` },
+            'v7': { titulo: '🍯 La dulzura de la reconciliación', html: `<p>El sosiego profundo de volver a conectar tras un berrinche o un desacuerdo. Es la mirada que busca la paz de nuevo, la mano que vuelve a buscar la tuya y la sensación de que el orden afectivo ha retornado al hogar.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Enseña que los conflictos no rompen los vínculos, sino que nos ayudan a comprendernos mejor.</div>` },
+            'v8': { titulo: '🛡️ El refugio de la mirada', html: `<p>Ese contacto visual rápido y cómplice que hace un niño en medio del juego o ante una situación nueva. Buscar tus ojos le confirma que todo está bien y le otorga el valor necesario para seguir descubriendo.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Una mirada atenta y tranquilizadora vale más que mil palabras de aliento forzado.</div>` },
+            'v9': { titulo: '💬 El secreto compartido', html: `<p>Los susurros al oído antes de dormir, las risas cómplices y las pequeñas confidencias que solo pertenecen a vosotros dos. Es el espacio íntimo donde se cimenta la verdadera confianza mutua.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Construir esta complicidad en la infancia abre la puerta a una comunicación abierta durante la adolescencia.</div>` },
+            'v10': { titulo: '☀️ El despertar a tu lado', html: `<p>Los primeros segundos de la mañana, cuando los ojos se abren despacio y lo primero que encuentran es una sonrisa cálida y una voz pausada que da la bienvenida a un nuevo día.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La manera en que comienza la mañana ancla el estado emocional y la seguridad interior para el resto de la jornada.</div>` },
+
+            // RUTINAS (11-20)
+            'r1': { titulo: '⏳ El superpoder de la paciencia', html: `<p>La capacidad del adulto para desacelerar su propio ritmo biológico y adaptarse a la lentitud natural de la infancia. Es el arte de esperar a que se abrochen un zapato o exploren una hormiga sin urgencias.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La paciencia no es resignación, es el espacio indispensable que les concedemos para desarrollar su autonomía.</div>` },
+            'r2': { titulo: '🚪 El puente de las transiciones', html: `<p>El delicado paso de una actividad a otra: de jugar libremente a ordenar, o de la calle a casa. A los niños les cuesta cambiar de estado bruscamente y necesitan un aviso previo que anticipe los cambios.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Anticipar las transiciones evita el choque de voluntades y aporta previsibilidad y tranquilidad mental.</div>` },
+            'r3': { titulo: '📱 El apagón de las pantallas', html: `<p>El gesto consciente de apartar el teléfono para ofrecer una presencia real, ojos que miran a los ojos y una escucha libre de interferencias digitales durante los momentos clave del día.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La atención plena del adulto es el alimento principal para el desarrollo emocional del niño.</div>` },
+            'r4': { titulo: '🍲 El plato de las negociaciones', html: `<p>La mesa entendida como un espacio de encuentro y disfrute, y nunca como un campo de batalla. El proceso de aprender a probar sabores respetando siempre las señales de saciedad.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Fomentar una relación sana con la alimentación empieza por eliminar por completo la presión y el chantaje.</div>` },
+            'r5': { titulo: '👟 La hilera de los zapatos', html: `<p>El pequeño ritual de dejar ordenados los zapatos junto a la puerta al llegar a casa. Un gesto sencillo que marca simbólicamente el fin de la jornada exterior y el inicio del descanso.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Las pequeñas rutinas espaciales ayudan a ordenar la mente y otorgan sensación de pertenencia.</div>` },
+            'r6': { titulo: '🎒 La mochila del mañana', html: `<p>Preparar juntos la ropa o los cuentos la noche anterior como un juego de previsión y calma. Evita el caos de las mañanas apresuradas y fomenta la participación activa.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Enseña organización sin estrés, permitiendo que el día siguiente comience de forma fluida.</div>` },
+            'r7': { titulo: '🧹 El juego de ordenar', html: `<p>Convertir la recogida de juguetes en una danza acompañada de música o en una misión de rescate, donde cada objeto vuelve alegremente a su cajón de descanso.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Enseña la responsabilidad del entorno desde el juego y la cooperación, no desde la imposición.</div>` },
+            'r8': { titulo: '🔑 La llave de la puerta al salir', html: `<p>El momento mágico en que se le confía al niño abrir o cerrar la puerta de casa. Un símbolo físico de autonomía y de apertura hacia el mundo exterior bajo protección.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Pequeñas cuotas de responsabilidad real refuerzan la confianza y la seguridad en sí mismos.</div>` },
+            'r9': { titulo: '🛎️ La campana de aviso', html: `<p>Un sonido suave o una melodía acordada que avisa amablemente de que el juego está por terminar, facilitando que el cerebro infantil procese el cambio sin resistencia.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Respeta los tiempos internos de transición frente a las órdenes imprevistas y bruscas.</div>` },
+            'r10': { titulo: '📋 Los pasos de la mañana', html: `<p>Una secuencia predecible y visual de los hábitos matutinos (desayunar, lavarse, vestirse) que guía al niño de forma autónoma sin necesidad de repetir órdenes constantes.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Fomenta la autogestión y reduce drásticamente las tensiones mañaneras entre padres e hijos.</div>` },
+
+            // EMOCIONES (21-30)
+            'e1': { titulo: '⚡ La rabia como una tormenta', html: `<p>Una energía eléctrica y desbordante que sacude el cuerpo del niño cuando los límites chocan con sus deseos. No es maldad; es una descarga emocional que necesita contención y calma.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Acompañar la rabia sin juzgar enseña al niño que las emociones intensas pasan y se pueden transitar a salvo.</div>` },
+            'e2': { titulo: '🌊 La marea de la tristeza', html: `<p>Un oleaje lento y silencioso que inunda los ojos y encoge el pecho ante una pérdida, un cambio o una frustración. Es una emoción necesaria que pide acogimiento y brazos abiertos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Permitir la tristeza sin prisas por "animarles" enseña a validar el dolor propio y ajeno.</div>` },
+            'e3': { titulo: '🧱 El muro de la frustración', html: `<p>La sensación de bloqueo absoluto cuando las cosas no salen como se esperaba, transformándose a menudo en un "no puedo" que paraliza las manos y apaga la paciencia.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Validar su frustración les ayuda a construir resiliencia pasito a pasito.</div>` },
+            'e4': { titulo: '🧩 El temblor de los hermanos', html: `<p>Los celos y chispas de rivalidad que surgen al repartir la atención y el espacio compartido. Es el miedo profundo a dejar de ocupar un lugar único en el corazón de sus padres.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Demostrar amor incondicional e individual a cada uno disuelve la competencia fraterna.</div>` },
+            'e5': { titulo: '🦋 Las mariposas del miedo', html: `<p>Ese revoloteo en el estómago ante lo desconocido, la oscuridad o el primer día de cole. Un mecanismo de defensa ancestral que avisa de que estamos explorando nuevos territorios.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> El miedo no se combate con burlas, sino dándole la mano y descubriendo que se puede avanzar con él.</div>` },
+            'e6': { titulo: '🎈 La burbuja de la alegría', html: `<p>Un estado de liviandad y risa contagiosa que flota por toda la casa, llenando cada rincón de ligereza, juego espontáneo y conexión pura con el momento presente.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Celebrar la alegría compartida nutre el bienestar emocional de toda la familia.</div>` },
+            'e7': { titulo: '🌪️ El remolino de la vergüenza', html: `<p>Esa sensación de querer volverse invisible, esconder la cara en el cuello de mamá o ruborizarse cuando todas las miradas recaen de repente sobre ellos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Respetar su timidez sin forzarles a exponerse les otorga un espacio seguro para ganar confianza.</div>` },
+            'e8': { titulo: '🔍 La chispa de la curiosidad', html: `<p>Un brillo brillante en los ojos que impulsa a desarmar juguetes, hacer preguntas interminables y mirar debajo de cada piedra descubriendo los secretos del mundo.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Proteger la curiosidad es avivar el motor natural del aprendizaje significativo.</div>` },
+            'e9': { titulo: '🧊 El hielo de la timidez', html: `<p>Una coraza temporal de silencio y distancia que protege al niño en entornos bulliciosos o frente a personas desconocidas hasta que se siente preparado.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Entender que no todos los niños son expansivos evita etiquetas dañinas y respeta sus tiempos de adaptación.</div>` },
+            'e10': { titulo: '🌋 El estallido de la euforia', html: `<p>Una explosión de energía descontrolada tras una gran noticia, una fiesta o el fin de semana, donde el cuerpo salta y grita porque no cabe tanta emoción dentro.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Acompañar la euforia con un abrazo contenedor ayuda a regular los picos de excitación.</div>` },
+
+            // SALUD (31-40)
+            's1': { titulo: '🩺 El escudo frente al pediatra', html: `<p>El temor ante la bata blanca, la camilla fría y los instrumentos extraños. Es la necesidad de sentir que papá o mamá sostienen su mano como garantía absoluta de protección.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Explicar con antelación y verdad lo que ocurrirá en el médico reduce el miedo a lo desconocido.</div>` },
+            's2': { titulo: '🌡️ El refugio tierno de la fiebre', html: `<p>Las mejillas encendidas y el cuerpo lánguido que piden sofá, mantita y mimos continuos. La enfermedad como una parada obligatoria para frenar el ritmo vital.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La fiebre es una aliada del cuerpo; acogerla con presencia transforma el malestar en un tiempo de cuidado íntimo.</div>` },
+            's3': { titulo: '🩹 El beso que sana la tirita', html: `<p>Un remedio mágico e infalible donde el contacto de los labios sobre la piel herida actúa como un analgésico emocional instantáneo para cualquier rasguño.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La validación afectiva del dolor físico acelera la recuperación y reconforta el alma del niño.</div>` },
+            's4': { titulo: '🥣 El caldo de la abuela', html: `<p>Un plato humeante preparado con paciencia y cariño que reconforta el estómago y devuelve poco a poco las energías tras los días de convalecencia.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La comida tradicional casera asocia el cuidado y el amor con la recuperación de la salud.</div>` },
+            's5': { titulo: '💊 El jarabe valiente', html: `<p>El reto de tomar una medicina de sabor amargo o extraño. Requiere una dosis extra de aliento, paciencia y reconocimiento al esfuerzo del niño por curarse.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Validar su esfuerzo al tomar remedios fomenta su cooperación y confianza ante los cuidados de salud.</div>` },
+            's6': { titulo: '🛌 La cueva del descanso', html: `<p>Preparar la habitación oscurecida y silenciosa como una cueva acogedora donde el cuerpo dolorido o cansado puede abandonarse plácidamente al sueño reparador.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Un entorno de descanso adecuado es vital para que el sistema inmunológico recupere el equilibrio.</div>` },
+            's7': { titulo: '🤧 El estornudo viajero', html: `<p>Pequeñas señales de que el cuerpo está limpiándose o de que un cambio de estación nos visita, recordando la importancia de los hábitos de higiene cuidadosos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Enseñar a estornudar en el pliegue del codo previene contagios desde el respeto colectivo.</div>` },
+            's8': { titulo: '🧊 La compresa fría del chichón', html: `<p>Un cubito de hielo envuelto en un paño suave que alivia el golpe repentino tras una caída jugando, acompañado siempre de un regazo donde calmar el susto.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> El susto suele doler más que el golpe; la calma del adulto desactiva el impacto emocional.</div>` },
+            's9': { titulo: '🌬️ El soplo en la rodilla', html: `<p>Un soplo suave de aire fresco sobre la piel dolorida que parece alejar mágicamente el dolor y disolver las lágrimas del pequeño accidente.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La cercanía y la ternura física son las mejores medicinas para los pequeños gajes del juego.</div>` },
+            's10': { titulo: '🔋 La recarga de defensas', html: `<p>El equilibrio entre buena alimentación, aire libre, descanso nocturno y afecto constante que mantiene fuerte y vital al organismo infantil.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Cuidar la salud integral previene la enfermedad y fortalece la resiliencia física y mental.</div>` },
+
+            // CUIDADOS (41-50)
+            'c1': { titulo: '🛁 La purificación del baño', html: `<p>El agua calentita que relaja los músculos tras un día intenso de descubrimientos. Es un espacio de juego, flotación y calma que sirve como transición hacia la noche.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> El ritual del baño limpia tanto el cuerpo como la agitación acumulada en la mente infantil.</div>` },
+            'c2': { titulo: '👟 El orgullo de hacerlo solito', html: `<p>La sonrisa de triunfo al lograr ponerse el abrigo al revés pero con autonomía, o atar un cordón tras muchos intentos fallidos de perseverancia.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Celebrar sus pequeños logros independientes construye una sólida autoestima y seguridad interior.</div>` },
+            'c3': { titulo: '🧴 La crema suave del masaje', html: `<p>El tacto lento y circular de la crema hidratante sobre la piel antes de dormir, acompañado de palabras dulces que cierran el día con sensación de bienestar.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> El masaje nocturno nutre el vínculo táctil y prepara el sistema nervioso para un sueño profundo.</div>` },
+            'c4': { titulo: '💇 El cepillo del cabello', html: `<p>Desenredar con delicadeza los rizos u ondas del día mientras conversamos en paz frente al espejo, convirtiendo el aseo en un momento de mimo compartido.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> El cuidado corporal físico se transforma en un canal de afecto y escucha mutua.</div>` },
+            'c5': { titulo: '🧼 Las pompas de jabón', html: `<p>Burbujas efímeras que flotan en el baño o el jardín y que los niños persiguen con fascinación, transformando la higiene cotidiana en un juego poético.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Introducir el juego en las rutinas de cuidado diario fomenta la alegría y la cooperación.</div>` },
+            'c6': { titulo: '👕 El aroma de la ropa limpia', html: `<p>El olor a sol y suavizante de las prendas recién dobladas que envuelve al niño al vestirse, dándole una sensación de frescura y acogimiento hogareño.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Los estímulos sensoriales agradables construyen memorias afectivas asociadas al hogar.</div>` },
+            'c7': { titulo: '💅 El corte de uñas cuidadoso', html: `<p>Un ejercicio de absoluta precisión y confianza donde el niño permanece quieto mientras sus manos son cuidadas con mimo por un adulto.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Los cuidados minuciosos transmiten un mensaje implícito de valor y respeto hacia su propio cuerpo.</div>` },
+            'c8': { titulo: '🦷 El cepillo de dientes divertido', html: `<p>Hacer cantar al cepillo contra las caries y descubrir espuma blanca como la nieve frente al espejo antes de ir a descansar.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Crear hábitos de higiene saludables desde el juego asegura su constancia futura sin imposiciones.</div>` },
+            'c9': { titulo: '☀️ El protector solar de la playa', html: `<p>Untar crema blanca como pequeños indios antes de saltar a la arena. Un ritual de protección frente al sol que anticipa días de juego y verano.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Enseñar el autocuidado bajo el sol previene riesgos mientras se disfruta de la naturaleza.</div>` },
+            'c10': { titulo: '🧥 El abrigo mullido de invierno', html: `<p>Envolver el cuerpo en un chaquetón suave y calentito como un capullo protector cuando el frío de la calle nos saluda por la mañana.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Sentir el confort térmico físico aporta una sensación de seguridad y bienestar ante el clima exterior.</div>` },
+
+            // TIEMPO (51-60)
+            't1': { titulo: '🍂 La raya en la pared del crecimiento', html: `<p>Las pequeñas marcas de lápiz en el marco de la puerta que miden centímetros de vida acumulada, mostrando con orgullo cuánto se ha estirado el cuerpo.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Ver el paso del tiempo plasmado en la pared hace tangible el milagro del crecimiento diario.</div>` },
+            't2': { titulo: '🦷 El diente que se despide', html: `<p>Mover una pequeña pieza dental floja con mezcla de intriga, ilusión y vértigo ante la llegada de nuevas etapas de madurez física.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Simboliza la pérdida gradual de la primera infancia y la bienvenida a la niñez consciente.</div>` },
+            't3': { titulo: '⏳ Los granos de arena del reloj', html: `<p>Ver caer la arena dorada en un reloj de mesa como una forma visual y pausada de entender los minutos que faltan para salir o cenar.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Al no entender de números abstractos, los niños necesitan herramientas visuales para comprender el tiempo.</div>` },
+            't4': { titulo: '🎂 Las velas del cumpleaños', html: `<p>El momento mágico de soplar el fuego rodeados de aplausos, pidiendo un deseo secreto mientras el año cumplido se despide con alegría.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Celebrar los hitos temporales refuerza su identidad y su lugar especial en la familia.</div>` },
+            't5': { titulo: '📅 La hoja del calendario arrancada', html: `<p>Desprender cada noche una hojita del calendario para ver cómo se acerca una fecha señalada, un viaje o la visita tan esperada.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Ayuda a comprender la estructura cíclica y lineal del tiempo de forma lúdica.</div>` },
+            't6': { titulo: '☀️ La tarde que nunca se acaba', html: `<p>Esas largas tardes de verano en el parque donde la luz del sol se estira hasta tarde y el tiempo parece disolverse entre juegos interminables.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> El ocio desestructurado y sin prisa es el combustible creativo de la infancia.</div>` },
+            't7': { titulo: '🕰️ El tic-tac del pasillo', html: `<p>El sonido rítmico y constante de un viejo reloj de pared que acompaña en silencio las horas nocturnas y aporta una presencia familiar en la casa.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Los sonidos constantes del hogar generan un anclaje subconsciente de seguridad y paz.</div>` },
+            't8': { titulo: '🍁 Las hojas crujientes de otoño', html: `<p>Pisar alfombras de hojas secas que crujen bajo las zapatillas, oliendo a tierra mojada y descubriendo el cambio de ciclo en los árboles.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Conectar con los ritmos de la naturaleza enseña al niño que los cambios estacionales son naturales y bellos.</div>` },
+            't9': { titulo: '❄️ El primer copo de nieve', html: `<p>Mirar con los ojos abiertos de par en par cómo caen del cielo diminutas estrellas blancas que se funden al tocar la mano caliente.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Mantener viva la capacidad de asombro ante la naturaleza alimenta el pensamiento poético.</div>` },
+            't10': { titulo: '🌱 El brote de primavera', html: `<p>Ver asomar la primera hojita verde en una maceta sembrada semanas antes, comprobando que la paciencia da frutos vivos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Enseña el valor del tiempo de gestación y el cuidado de la vida en la Tierra.</div>` },
+
+            // SUEÑO (61-70)
+            'su1': { titulo: '🌙 Las sombras bajo la cama', html: `<p>Las formas fantasmales que dibuja la luz tenue de la calle sobre los muebles por la noche, y que la imaginación infantil transforma en seres fantásticos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Acompañar los miedos nocturnos con una linterna o un abrazo disuelve las sombras de la noche.</div>` },
+            'su2': { titulo: '🧸 El guardián de peluche', html: `<p>Aquel muñeco gastado y sin un ojo que duerme apretado contra el pecho, ejerciendo de fiel protector contra las pesadillas y la soledad.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Los objetos de transición otorgan una valiosa seguridad emocional autónoma al dormir.</div>` },
+            'su3': { titulo: '📖 El cuento de la medianoche', html: `<p>Las últimas páginas leídas en voz baja bajo la luz cálida de la mesita de noche, el puente definitivo entre la actividad del día y el sueño.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La lectura antes de dormir relaja las ondas cerebrales y sella el día con afecto.</div>` },
+            'su4': { titulo: '⭐ El lucero de la ventana', html: `<p>La primera estrella que brilla solitaria en el cielo al atardecer, a la que los niños saludan antes de cerrar las persianas.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Crea rutinas de cierre del día llenas de poesía y conexión con el firmamento.</div>` },
+            'su5': { titulo: '🛌 El barco de las sábanas', html: `<p>Acomodarse bajo el edredón mullido como si se tratara de un barco listo para zarpar hacia la isla de los sueños bonitos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Envolver el cuerpo en un espacio cálido y seguro facilita el abandono al sueño.</div>` },
+            'su6': { titulo: '🌌 El cielo estrellado del techo', html: `<p>Pegatinas fluorescentes en el techo que brillan en la oscuridad cuando apagamos la luz, acompañando la mirada hasta que parpadean los ojos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Suaviza el impacto de la oscuridad total ofreciendo puntos de luz amigables.</div>` },
+            'su7': { titulo: '🐑 El desfile de las ovejas', html: `<p>Imaginar un rebaño mullido saltando una verja imaginaria una a una para inducir con calma el sueño profundo.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Ejercicios sencillos de visualización que ayudan a calmar la mente hiperactiva antes de descansar.</div>` },
+            'su8': { titulo: '💤 El bostezo contagioso', html: `<p>Ese estiramiento largo de brazos y apertura de boca que se contagia en cadena por toda la familia anunciando que el día pide descanso.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Reconocer las señales biológicas de cansancio evita llegar al límite del agotamiento nocturno.</div>` },
+            'su9': { titulo: '🦉 El silencio del búho', html: `<p>El pacto de hablar en susurros y caminar de puntillas por la casa cuando los demás ya duermen, respetando el templo del descanso.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Enseña el respeto por los espacios de silencio y recuperación de los otros.</div>` },
+            'su10': { titulo: '💤 El sueño profundo de las hadas', html: `<p>Ese estado de entrega total al descanso donde el rostro del niño relaja cada facción y respira con total paz y ritmo acompasado.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> El sueño profundo es el motor biológico donde se consolida el aprendizaje y el crecimiento.</div>` },
+
+            // ESPACIOS Y REFUGIOS (71-80)
+            'x1': { titulo: '🏡 El refugio de casa', html: `<p>Construir una cabaña secreta con cojines, sábanas y pinzas de la ropa en medio del salón, creando un microclima propio de seguridad e intimidad.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Los espacios pequeños y contenidos aportan una gran regulación emocional y sensación de control.</div>` },
+            'x2': { titulo: '💌 La nota en la lonchera', html: `<p>Un dibujito o un mensaje de amor escondido dentro de la mochila o la merienda para recordar al niño que se le piensa aunque no estemos.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Fortalece el vínculo a distancia durante las horas escolares de forma entrañable.</div>` },
+            'x3': { titulo: '🔑 El llavero de papá', html: `<p>Un objeto cotidiano lleno de metal, llaveros divertidos y llaves que los niños sostienen con fascinación porque abre todas las puertas del hogar.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Los objetos de los adultos representan para ellos la llave al mundo de los mayores.</div>` },
+            'x4': { titulo: '🫂 El abrazo de oso', html: `<p>Un abrazo envolvente, fuerte y cálido donde los brazos rodean por completo al niño como un escudo protector indestructible.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La presión profunda de los abrazos de oso calma instantáneamente los sistemas nerviosos alterados.</div>` },
+            'x5': { titulo: '👣 Las pisadas en la arena', html: `<p>Dejar huellas profundas al caminar descalzos por la orilla del mar o el barro, comprobando cómo el cuerpo deja marca en el mundo.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Conectar los sentidos con los elementos de la tierra estimula la propiocepción y la alegría.</div>` },
+            'x6': { titulo: '📻 La canción del coche', html: `<p>Aquel tema musical favorito que suena en la radio durante los trayectos en coche y que todos cantamos a coro transformando el viaje en juego.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> La música compartida crea anclajes de felicidad familiar asociados a los desplazamientos.</div>` },
+            'x7': { titulo: '🎨 El cuadro en la nevera', html: `<p>Exhibir con orgullo un dibujo lleno de tachones y colores en la puerta de la nevera como si fuera una gran obra de arte expuesta en un museo.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Validar sus creaciones artísticas en un lugar central de la casa refuerza su valor personal.</div>` },
+            'x8': { titulo: '🔦 La linterna bajo las sábanas', html: `<p>Iluminar cuentos o jugar con las manos proyectando sombras en la pared dentro de la cama, convirtiendo la noche en una aventura mágica.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Transforma los miedos a la oscuridad en un espacio de creatividad y juego compartido.</div>` },
+            'x9': { titulo: '☕ El aroma del domingo', html: `<p>El olor a café recién hecho, tostadas y calma matutina que inunda la casa cuando no hay prisas ni despertadores que valgan.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Los rituales olfativos del fin de semana configuran el concepto de hogar seguro y acogedor.</div>` },
+            'x10': { titulo: '✨ El nido de estrellas', html: `<p>El espacio físico y emocional donde convergen la presencia, el amor incondicional y la calma, permitiendo que la infancia crezca arropada de ternura.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Es el propósito último de la crianza consciente: ser un nido donde siempre se brille con luz propia.</div>` }
+        };
+
+        // Sistema de Filtrado Robusto
+        document.addEventListener('DOMContentLoaded', () => {
+            const botones = document.querySelectorAll('.filtro-btn');
+            const tarjetas = document.querySelectorAll('.tarjeta-compacta');
+
+            botones.forEach(boton => {
+                boton.addEventListener('click', (e) => {
+                    const targetBtn = e.currentTarget;
+                    const categoria = targetBtn.getAttribute('data-filtro');
+
+                    botones.forEach(b => b.classList.remove('activo'));
+                    targetBtn.classList.add('activo');
+
+                    tarjetas.forEach(tarjeta => {
+                        if (categoria === 'todos' || tarjeta.getAttribute('data-categoria') === categoria) {
+                            tarjeta.style.display = 'flex';
+                        } else {
+                            tarjeta.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        function abrirModal(id) {
+            const tarjetaElem = document.querySelector(`[onclick*="${id}"]`);
+            const tituloSpan = tarjetaElem ? tarjetaElem.querySelector('.tarjeta-titulo').innerText : 'Entrada del Glosario';
+            
+            const entrada = contenidoEntradas[id] || { 
+                titulo: tituloSpan, 
+                html: `<p>Este espacio de calma en <strong>El Nido de Estrellas</strong> explora con mimo el concepto de "${tituloSpan}", diseñado para acompañar la crianza desde la empatía.</p><div class="modal-reflexion"><strong>Por qué importa:</strong> Comprender las pequeñas rutinas de la infancia transforma nuestra mirada como guías.</div>` 
+            };
+            
+            document.getElementById('modal-titulo-texto').innerText = entrada.titulo;
+            document.getElementById('modal-cuerpo-texto').innerHTML = entrada.html;
+            document.getElementById('modalGlosario').classList.add('activo');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function cerrarModal() {
+            document.getElementById('modalGlosario').classList.remove('activo');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function cerrarModalFuera(event) {
+            if (event.target.id === 'modalGlosario') {
+                cerrarModal();
+            }
+        }
+    </script>
+</body>
+</html>

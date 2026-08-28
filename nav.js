@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="dropdown-header-title">General</div>
                         <a href="guiasSalud.html">📋 Guías de Salud</a>
                         <a href="rinconlectura.html">📖 Rincón de Lectura</a>
+                        <a href="glosario.html">✨ Glosario Poético</a>
                         <a href="preguntas.html">❓ Rincón de Preguntas</a>
                         
                         <div class="dropdown-divider"></div>
