@@ -1481,3 +1481,25 @@ body.modo-nocturno-profundo p {
     text-align: center;
     gap: 0.5rem;
 }
+/* ==========================================
+   MICROANIMACIONES DE APARICIÓN AL HACER SCROLL
+   ================================---------- */
+
+/* Estado inicial: oculto y ligeramente desplazado hacia abajo */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* Estado final: visible y en su posición original */
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Suavizado para el efecto de profundidad */
+.nido-flotante, .logo-img, .parallax-el {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}

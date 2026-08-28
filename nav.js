@@ -128,4 +128,126 @@ document.addEventListener("DOMContentLoaded", () => {
             navLinks.classList.remove('active');
         }
     });
+
+    // ==========================================
+    // EFECTO DE POLVO ESTELAR AL MOVER EL CURSOR
+    // ==========================================
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.pointerEvents = "none";
+    canvas.style.zIndex = "9999";
+    document.body.appendChild(canvas);
+
+    let particles = [];
+    
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class StarParticle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 2.5 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 1.2;
+            this.speedY = (Math.random() - 0.5) * 1.2;
+            this.life = 1;
+            this.decay = Math.random() * 0.03 + 0.015;
+            this.color = Math.random() > 0.3 ? "255, 255, 255" : "255, 223, 128"; 
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.life -= this.decay;
+        }
+
+        draw() {
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, this.life);
+            ctx.fillStyle = `rgb(${this.color})`;
+            ctx.shadowBlur = 6;
+            ctx.shadowColor = `rgba(${this.color}, 0.8)`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    window.addEventListener("mousemove", (e) => {
+        for (let i = 0; i < 1; i++) {
+            particles.push(new StarParticle(e.clientX, e.clientY));
+        }
+    });
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let i = particles.length - 1; i >= 0; i--) {
+            particles[i].update();
+            particles[i].draw();
+            
+            if (particles[i].life <= 0) {
+                particles.splice(i, 1);
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // ==========================================
+    // AUTOMATIZACIÓN DE MICROANIMACIONES AL SCROLL
+    // ==========================================
+    const elementosAAnimar = document.querySelectorAll('.card, .trivia-card, .editorial-section, .recurso-box, .podcast-card, h1, h2');
+
+    elementosAAnimar.forEach(el => {
+        el.classList.add('scroll-reveal');
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observerInstance.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+    });
 });
+// ==========================================
+    // EFECTO DE PROFUNDIDAD (PARALLAX SUAVE)
+    // ==========================================
+    document.addEventListener("mousemove", (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20; // Rango de movimiento horizontal (px)
+        const y = (e.clientY / window.innerHeight - 0.5) * 20; // Rango de movimiento vertical (px)
+
+        // Seleccionamos elementos clave como el logo flotante o las imágenes principales
+        const elementosParallax = document.querySelectorAll('.nido-flotante, .logo-img, .parallax-el');
+
+        elementosParallax.forEach(el => {
+            // Aplicamos un movimiento inverso o sutil para dar sensación 3D
+            const factor = el.dataset.speed || 0.5; // Permite personalizar la velocidad por elemento
+            el.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+        });
+    });
