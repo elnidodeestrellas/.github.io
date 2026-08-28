@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo psicomotor: hitos y señales de alerta | El Nido de Estrellas</title>
+    <meta name="description" content="Guía práctica sobre el desarrollo psicomotor en la primera infancia, hitos clave y señales de alerta para acompañar el movimiento libre.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --psicomotor-acento: #68d391;
+            --psicomotor-borde: rgba(104, 211, 145, 0.3);
+            --psicomotor-fondo-caja: rgba(104, 211, 145, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--psicomotor-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(104, 211, 145, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--psicomotor-acento);
+            box-shadow: 0 8px 25px rgba(104, 211, 145, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--psicomotor-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--psicomotor-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--psicomotor-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgpsicomotor/portada.webp" alt="Desarrollo psicomotor y movimiento libre en la infancia">
+            </div>
+
+            <h1>Desarrollo psicomotor: hitos y señales de alerta en la primera infancia</h1>
+            
+            <p>El desarrollo psicomotor durante los primeros años de vida constituye un proceso fascinante en el que la maduración neurológica y la exploración del entorno van de la mano. Cada niño cuenta con su propio ritmo madurativo, pero conocer los hitos principales y las señales de alerta permite a las familias acompañar este despliegue con seguridad, ofreciendo un espacio de movimiento libre y respetuoso. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- TEMA 1 -->
+                <a href="psicomotor-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/acogida.webp" alt="Bebé explorando el suelo en libertad"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Comprender la maduración neurológica y motora</h2>
+                        <p>Descubre cómo se entrelazan el sistema nervioso y el tono muscular para permitir que el niño conquiste su propio cuerpo paso a paso.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 2 -->
+                <a href="psicomotor-conceptos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/conceptos.webp" alt="Espacio seguro de juego y movimiento libre"></div>
+                        <span class="pilar-tag">Conceptos clave</span>
+                        <h2>El valor del movimiento libre y espontáneo</h2>
+                        <p>Por qué evitar corsés ortopédicos, andadores o posturas forzadas potencia una seguridad corporal firme y una autonomía genuina.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 3 -->
+                <a href="psicomotor-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/senales.webp" alt="Observación respetuosa del desarrollo infantil"></div>
+                        <span class="pilar-tag">Primeros pasos</span>
+                        <h2>Hitos evolutivos: del volteo a la marcha autónoma</h2>
+                        <p>Un recorrido orientativo por las grandes etapas motoras sin caer en comparaciones estériles que generan ansiedad en la familia.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 4 -->
+                <a href="psicomotor-hogar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/hogar.webp" alt="Preparación del hogar para la exploración motora"></div>
+                        <span class="pilar-tag">Entorno y hogar</span>
+                        <h2>Preparar el hogar para la exploración segura</h2>
+                        <p>Pautas para diseñar un espacio físico adaptado, despejado y rico en estímulos táctiles y motores que invite al descubrimiento.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 5 -->
+                <a href="psicomotor-rutinas.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/rutinas.webp" alt="Juego activo y rutinas diarias de movimiento"></div>
+                        <span class="pilar-tag">Cuidado diario</span>
+                        <h2>Rutinas diarias que potencian la coordinación</h2>
+                        <p>Cómo integrar momentos de juego activo, manipulación de objetos y equilibrio dentro de las actividades cotidianas del día a día.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 6 -->
+                <a href="psicomotor-terrores.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/terrores.webp" alt="Acompañamiento de caídas y frustraciones motrices"></div>
+                        <span class="pilar-tag">Fases evolutivas</span>
+                        <h2>Acompañar las caídas, los tropiezos y la frustración</h2>
+                        <p>Cómo gestionar el miedo de los adultos ante los golpes propios del aprendizaje motor para transmitir confianza en lugar de temor.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 7 -->
+                <a href="psicomotor-colegio.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/colegio.webp" alt="Psicomotricidad y juego en la etapa escolar"></div>
+                        <span class="pilar-tag">Etapa escolar</span>
+                        <h2>Psicomotricidad fina y gruesa en la escuela infantil</h2>
+                        <p>La importancia del juego corporal, la manipulación fina y la expresión gestual como cimientos indispensables para el posterior aprendizaje escolar.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 8 -->
+                <a href="psicomotor-bienestar.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgpsicomotor/bienestar.webp" alt="Señales de alerta y detección temprana en el desarrollo"></div>
+                        <span class="pilar-tag">Bienestar</span>
+                        <h2>Señales de alerta y cuándo consultar con especialistas</h2>
+                        <p>Identificación objetiva de indicios físicos o asimetrías que requieren una valoración profesional temprana para garantizar un apoyo adecuado.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--psicomotor-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <!-- BLOQUE DE RUTA RECOMENDADA INSERTADO -->
+            <div class="ruta-recomendada-caja" style="background: rgba(20, 29, 51, 0.7); border: 1px solid rgba(104, 211, 145, 0.3); border-radius: 12px; padding: 25px; margin-top: 40px; margin-bottom: 30px;">
+                <h3 style="color: #68d391; font-family: 'Quicksand', sans-serif; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">🌱 Continúa profundizando en el desarrollo y bienestar infantil</h3>
+                <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">Para acompañar la crianza y los hábitos de bienestar de forma completa, te sugerimos explorar estos recursos:</p>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #68d391;">🎙️</span>
+                        <span style="color: #f8fafc; font-size: 0.92rem;">Escucha el podcast: <a href="podcast.html" style="color: #68d391; text-decoration: none; font-weight: 600;">Límites con amor y regulación emocional (Ep. 07)</a></span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #68d391;">📥</span>
+                        <span style="color: #f8fafc; font-size: 0.92rem;">Descarga el recurso práctico: <a href="recursos.html" style="color: #68d391; text-decoration: none; font-weight: 600;">Ritual de Sueño Tranquilo (PDF)</a></span>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIN DEL BLOQUE -->
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(104, 211, 145, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--psicomotor-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
