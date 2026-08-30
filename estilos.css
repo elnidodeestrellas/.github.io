@@ -1285,14 +1285,6 @@ body.modo-nocturno-profundo p {
     }
 }
 
-/* Móvil/Tablet */
-.dropdown.show .dropdown-content {
-    display: block !important;
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-}
-
 /* Enlaces dentro del desplegable */
 .dropdown-content a {
     color: #cbd5e0 !important;
@@ -1399,23 +1391,31 @@ body.modo-nocturno-profundo p {
         justify-content: space-between;
     }
 
+    /* Oculto por defecto en móvil hasta que se pulse */
     .dropdown-content {
+        display: none !important;
         position: static !important;
         width: 100% !important;
         box-shadow: none !important;
         background-color: rgba(15, 22, 38, 0.6) !important;
         border: none !important;
         margin-top: 5px !important;
-        padding: 8px 12px !important;
-        display: none;
-        opacity: 1 !important;
+        padding: 0 12px !important;
+        opacity: 0 !important;
         transform: none !important;
-        visibility: visible !important;
-        transition-delay: 0s !important;
+        visibility: hidden !important;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease !important;
     }
 
+    /* Solo se muestra cuando el contenedor tiene la clase .show al hacer clic */
     .dropdown.show .dropdown-content {
         display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        max-height: 500px;
+        padding: 8px 12px !important;
     }
 
     .main-content,
