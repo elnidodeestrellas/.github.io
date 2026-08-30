@@ -34,16 +34,19 @@ body {
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: 75px;
 }
 
 /* ==========================================
    2. ESTRUCTURA GENERAL (NAVEGACIÓN Y FOOTER)
    ================================---------- */
 nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
-    background: rgba(26, 38, 57, 0.88);
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(26, 38, 57, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -90,23 +93,6 @@ nav {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-
-.menu-links a, .menu-links > a, .dropdown > button {
-    color: #cbd5e0;
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
 }
 
 .menu-links > a:hover, .dropdown > button:hover {
@@ -1245,11 +1231,28 @@ body.modo-nocturno-profundo p {
 }
 
 /* ==========================================
-   12. NAVEGACIÓN DESPLEGABLE Y MENÚ MÓVIL (Corregido y Unificado)
+   12. NAVEGACIÓN DESPLEGABLE ULTRA COMPACTA CON RETARDO
    ================================---------- */
 .dropdown {
     position: relative;
     display: inline-block;
+}
+
+.menu-links a, .menu-links > a, .dropdown > button {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 3px 5px !important;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 3px;
 }
 
 .dropdown-content {
@@ -1257,32 +1260,37 @@ body.modo-nocturno-profundo p {
     position: absolute;
     right: 0;
     top: 100%;
+    margin-top: -2px;
     background: #16213e;
-    min-width: 240px;
-    border-radius: 14px;
+    min-width: 220px;
+    border-radius: 12px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(241, 196, 66, 0.25);
-    padding: 10px;
+    padding: 8px;
     z-index: 1000;
     opacity: 0;
-    transform: translateY(-8px);
-    transition: all 0.3s ease;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    visibility: hidden;
 }
 
-/* Escritorio: hover nativo para abrir el dropdown */
+/* Escritorio: requiere una pequeña pausa deliberada antes de abrirse */
 @media (min-width: 769px) {
     .dropdown:hover .dropdown-content {
         display: block !important;
         opacity: 1;
         transform: translateY(0);
+        visibility: visible;
+        transition-delay: 0.15s; 
     }
 }
 
-/* Móvil/Tablet: se muestra cuando JS añade la clase .show */
+/* Móvil/Tablet */
 .dropdown.show .dropdown-content {
     display: block !important;
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
 }
 
 /* Enlaces dentro del desplegable */
@@ -1304,7 +1312,6 @@ body.modo-nocturno-profundo p {
     padding-left: 16px;
 }
 
-/* Separadores decorativos y títulos internos para organizar el menú largo */
 .dropdown-divider {
     height: 1px;
     background: rgba(255, 255, 255, 0.1);
@@ -1387,13 +1394,11 @@ body.modo-nocturno-profundo p {
         width: 100%;
     }
 
-    /* Botón principal del desplegable en móvil con ancho total */
     .dropdown > button {
         width: 100%;
         justify-content: space-between;
     }
 
-    /* Submenú en dispositivos móviles adaptado de forma limpia al flujo */
     .dropdown-content {
         position: static !important;
         width: 100% !important;
@@ -1405,6 +1410,8 @@ body.modo-nocturno-profundo p {
         display: none;
         opacity: 1 !important;
         transform: none !important;
+        visibility: visible !important;
+        transition-delay: 0s !important;
     }
 
     .dropdown.show .dropdown-content {
@@ -1446,7 +1453,6 @@ body.modo-nocturno-profundo p {
     }
 }
 
-/* Clases auxiliares adicionales */
 .edad-badge {
     display: inline-block;
     background: rgba(241, 196, 66, 0.1);
@@ -1481,11 +1487,10 @@ body.modo-nocturno-profundo p {
     text-align: center;
     gap: 0.5rem;
 }
+
 /* ==========================================
    MICROANIMACIONES DE APARICIÓN AL HACER SCROLL
    ================================---------- */
-
-/* Estado inicial: oculto y ligeramente desplazado hacia abajo */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -1493,12 +1498,11 @@ body.modo-nocturno-profundo p {
     will-change: opacity, transform;
 }
 
-/* Estado final: visible y en su posición original */
 .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
-/* Suavizado para el efecto de profundidad */
+
 .nido-flotante, .logo-img, .parallax-el {
     transition: transform 0.1s ease-out;
     will-change: transform;

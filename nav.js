@@ -3,6 +3,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (headerContainer) {
         headerContainer.innerHTML = `
+        <style>
+            /* Estilo adaptativo para el menú desplegable en dos columnas y dispositivos móviles */
+            @media (min-width: 969px) {
+                #healthDropdown .dropdown-content {
+                    min-width: 440px !important;
+                    display: grid !important;
+                    grid-template-columns: 1fr 1fr !important;
+                    gap: 16px !important;
+                    padding: 16px !important;
+                }
+            }
+            @media (max-width: 968px) {
+                #healthDropdown .dropdown-content {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    position: static !important;
+                    box-shadow: none !important;
+                    background: rgba(0,0,0,0.2) !important;
+                    padding-left: 15px !important;
+                }
+            }
+        </style>
         <nav class="main-nav">
             <div class="logo-area">
                 <a href="index.html" class="logo-link">
@@ -25,20 +47,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="dropdown" id="healthDropdown">
                     <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
-                        <div class="dropdown-header-title">General</div>
-                        <a href="guiasSalud.html">📋 Guías de Salud</a>
-                        <a href="rinconlectura.html">📖 Rincón de Lectura</a>
-                        <a href="glosario.html">✨ Glosario Poético</a>
-                        <a href="glosariopedagogico.html">🧠 Glosario Pedagógico</a>
-                        <a href="preguntas.html">❓ Rincón de Preguntas</a>
+                        <div>
+                            <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🧠 Psicología</div>
+                            <a href="glosario.html" style="padding: 6px 8px;">✨ Glosario Poético</a>
+                            <a href="glosariopedagogico.html" style="padding: 6px 8px;">🧠 Glosario Pedagógico</a>
+                            <a href="rinconlectura.html" style="padding: 6px 8px;">📖 Rincón de Lectura</a>
+                            <a href="preguntas.html" style="padding: 6px 8px;">❓ Rincón de Preguntas</a>
+                            
+                            <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 12px; margin-bottom: 6px;">📋 Práctico</div>
+                            <a href="guiasSalud.html" style="padding: 6px 8px;">📋 Guías de Salud</a>
+                        </div>
                         
-                        <div class="dropdown-divider"></div>
-                        
-                        <div class="dropdown-header-title">Guía del Embarazo</div>
-                        <a href="embarazo01.html">🌟 1er Trimestre</a>
-                        <a href="embarazo02.html">💧 2º Trimestre</a>
-                        <a href="embarazo03.html">🌸 3er Trimestre</a>
-                        <a href="embarazo04.html">💜 Parto y Postparto</a>
+                        <div style="border-left: 1px solid rgba(255,255,255,0.08); padding-left: 12px;">
+                            <div style="color: #f1c442; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🌟 Embarazo</div>
+                            <a href="embarazo01.html" style="padding: 6px 8px;">🌟 1er Trimestre</a>
+                            <a href="embarazo02.html" style="padding: 6px 8px;">💧 2º Trimestre</a>
+                            <a href="embarazo03.html" style="padding: 6px 8px;">🌸 3er Trimestre</a>
+                            <a href="embarazo04.html" style="padding: 6px 8px;">💜 Parto y Postparto</a>
+                        </div>
                     </div>
                 </div>
 
@@ -237,19 +263,18 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
+
 // ==========================================
-    // EFECTO DE PROFUNDIDAD (PARALLAX SUAVE)
-    // ==========================================
-    document.addEventListener("mousemove", (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 20; // Rango de movimiento horizontal (px)
-        const y = (e.clientY / window.innerHeight - 0.5) * 20; // Rango de movimiento vertical (px)
+// EFECTO DE PROFUNDIDAD (PARALLAX SUAVE)
+// ==========================================
+document.addEventListener("mousemove", (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20; 
+    const y = (e.clientY / window.innerHeight - 0.5) * 20; 
 
-        // Seleccionamos elementos clave como el logo flotante o las imágenes principales
-        const elementosParallax = document.querySelectorAll('.nido-flotante, .logo-img, .parallax-el');
+    const elementosParallax = document.querySelectorAll('.nido-flotante, .logo-img, .parallax-el');
 
-        elementosParallax.forEach(el => {
-            // Aplicamos un movimiento inverso o sutil para dar sensación 3D
-            const factor = el.dataset.speed || 0.5; // Permite personalizar la velocidad por elemento
-            el.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
-        });
+    elementosParallax.forEach(el => {
+        const factor = el.dataset.speed || 0.5; 
+        el.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
     });
+});
