@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario Pedagógico | El Nido de Estrellas</title>
+    <meta name="description" content="80 términos clave de la psicología evolutiva y la neuroeducación explicados de forma clara, directa y útil para el día a día.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .glosario-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        /* --- Cabecera con Imagen Estilo Revista --- */
+        .glosario-header-banner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #131c31;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .glosario-imagen-portada {
+            width: 160px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            flex-shrink: 0;
+            background: #1a253a;
+        }
+
+        .glosario-texto-portada h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .glosario-texto-portada p {
+            font-family: 'Inter', sans-serif;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 650px) {
+            .glosario-header-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .glosario-imagen-portada {
+                width: 100%;
+                height: 140px;
+            }
+        }
+
+        /* --- Barra de Filtros por Temática --- */
+        .filtros-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .filtro-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #131c31;
+            color: #94a3b8;
+            transition: all 0.25s ease;
+        }
+
+        .filtro-btn:hover {
+            background: #1a253a;
+            color: #ffffff;
+        }
+
+        /* Colores activos de los filtros técnicos */
+        .filtro-btn.activo[data-filtro="todos"] { background: #ffffff; color: #0b1324; border-color: #ffffff; }
+        .filtro-btn.activo[data-filtro="neuro"] { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: #38bdf8; }
+        .filtro-btn.activo[data-filtro="apego"] { background: rgba(241, 196, 66, 0.15); color: #f1c442; border-color: #f1c442; }
+        .filtro-btn.activo[data-filtro="conducta"] { background: rgba(52, 211, 153, 0.15); color: #34d399; border-color: #34d399; }
+        .filtro-btn.activo[data-filtro="lenguaje"] { background: rgba(167, 139, 250, 0.15); color: #a78bfa; border-color: #a78bfa; }
+
+        /* Cuadrícula */
+        .grid-compacto {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-compacto {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tarjeta-compacta {
+            background: #131c31;
+            border-radius: 12px;
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Bordes temáticos sutiles */
+        .tarjeta-compacta.borde-celeste { border: 1px solid rgba(56, 189, 248, 0.35); }
+        .tarjeta-compacta.borde-dorado { border: 1px solid rgba(241, 196, 66, 0.35); }
+        .tarjeta-compacta.borde-menta { border: 1px solid rgba(52, 211, 153, 0.35); }
+        .tarjeta-compacta.borde-lavanda { border: 1px solid rgba(167, 139, 250, 0.35); }
+
+        .tarjeta-compacta:hover {
+            transform: translateY(-2px);
+            background: #1a253a;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .tarjeta-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .numero-grande {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.2);
+            line-height: 1;
+            min-width: 35px;
+        }
+
+        .tarjeta-titulo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .tarjeta-icono-leer {
+            font-size: 0.85rem;
+            color: #38bdf8;
+            opacity: 0.7;
+            white-space: nowrap;
+            margin-left: 10px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .tarjeta-compacta:hover .tarjeta-icono-leer {
+            transform: translateX(3px);
+            opacity: 1;
+        }
+
+        /* Ventana Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 9, 18, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.activo {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-contenido {
+            background: #131c31;
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.activo .modal-contenido {
+            transform: translateY(0);
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-cerrar:hover {
+            color: #38bdf8;
+        }
+
+        #modal-titulo-texto {
+            font-family: 'Quicksand', sans-serif;
+            color: #38bdf8;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-right: 30px;
+        }
+
+        .modal-cuerpo p {
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .modal-bloque-practico {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.93rem;
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .modal-bloque-practico strong {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+   <div id="menu-container"></div>
+
+    <main class="main-content glosario-container" id="contenido-principal">
+        
+        <!-- Cabecera Banner -->
+        <div class="glosario-header-banner">
+            <img src="img/portadaglosariopeda.webp" alt="Glosario Pedagógico" class="glosario-imagen-portada">
+            <div class="glosario-texto-portada">
+                <h2>🧠 Glosario Pedagógico Sencillo</h2>
+                <p>80 conceptos esenciales de psicología evolutiva y neuroeducación explicados sin jerga técnica, traducidos en herramientas prácticas para el día a día.</p>
+            </div>
+        </div>
+
+        <!-- Botones de Filtro Temático -->
+        <div class="filtros-container">
+            <button class="filtro-btn activo" data-filtro="todos">🌟 Todos (80)</button>
+            <button class="filtro-btn" data-filtro="neuro">🧠 Neuro (20)</button>
+            <button class="filtro-btn" data-filtro="apego">💛 Apego (20)</button>
+            <button class="filtro-btn" data-filtro="conducta">💚 Conducta (20)</button>
+            <button class="filtro-btn" data-filtro="lenguaje">💜 Desarrollo (20)</button>
+        </div>
+        
+        <!-- Cuadrícula de Términos (80 tarjetas) -->
+        <div class="grid-compacto">
+            
+            <!-- BLOQUE NEURO (01 a 20) -->
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p1')"><div class="tarjeta-info"><span class="numero-grande">01</span><h3 class="tarjeta-titulo">🧠 Co-regulación</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p2')"><div class="tarjeta-info"><span class="numero-grande">02</span><h3 class="tarjeta-titulo">🎯 Funciones ejecutivas</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p3')"><div class="tarjeta-info"><span class="numero-grande">03</span><h3 class="tarjeta-titulo">🌱 Neuroplasticidad</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p4')"><div class="tarjeta-info"><span class="numero-grande">04</span><h3 class="tarjeta-titulo">⚡ Amígdala y secuestro emocional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p5')"><div class="tarjeta-info"><span class="numero-grande">05</span><h3 class="tarjeta-titulo">🧱 Mielinización</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p6')"><div class="tarjeta-info"><span class="numero-grande">06</span><h3 class="tarjeta-titulo">🪞 Neuronas espejo</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p7')"><div class="tarjeta-info"><span class="numero-grande">07</span><h3 class="tarjeta-titulo">🧠 Corteza prefrontal</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p8')"><div class="tarjeta-info"><span class="numero-grande">08</span><h3 class="tarjeta-titulo">🌊 Hipocampo y memoria emocional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p9')"><div class="tarjeta-info"><span class="numero-grande">09</span><h3 class="tarjeta-titulo">⚖️ Neurotransmisores de la calma</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p10')"><div class="tarjeta-info"><span class="numero-grande">10</span><h3 class="tarjeta-titulo">🔋 Carga alostática</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p11')"><div class="tarjeta-info"><span class="numero-grande">11</span><h3 class="tarjeta-titulo">⚡ Poda sináptica</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p12')"><div class="tarjeta-info"><span class="numero-grande">12</span><h3 class="tarjeta-titulo">🧩 Cerebro triuno</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p13')"><div class="tarjeta-info"><span class="numero-grande">13</span><h3 class="tarjeta-titulo">💤 Neurobiología del sueño</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p14')"><div class="tarjeta-info"><span class="numero-grande">14</span><h3 class="tarjeta-titulo">🔄 Plasticidad transgeneracional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p15')"><div class="tarjeta-info"><span class="numero-grande">15</span><h3 class="tarjeta-titulo">📡 Propiocepción neurológica</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p16')"><div class="tarjeta-info"><span class="numero-grande">16</span><h3 class="tarjeta-titulo">🎯 Atención focalizada y sostenida</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p17')"><div class="tarjeta-info"><span class="numero-grande">17</span><h3 class="tarjeta-titulo">🧩 Memoria de trabajo</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p18')"><div class="tarjeta-info"><span class="numero-grande">18</span><h3 class="tarjeta-titulo">🛑 Inhibición de impulsos</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p19')"><div class="tarjeta-info"><span class="numero-grande">19</span><h3 class="tarjeta-titulo">🔄 Flexibilidad cognitiva</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-celeste" data-categoria="neuro" onclick="abrirModal('p20')"><div class="tarjeta-info"><span class="numero-grande">20</span><h3 class="tarjeta-titulo">🧬 Epigenética conductual</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+
+            <!-- BLOQUE APEGO (21 a 40) -->
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p21')"><div class="tarjeta-info"><span class="numero-grande">21</span><h3 class="tarjeta-titulo">💛 Apego seguro</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p22')"><div class="tarjeta-info"><span class="numero-grande">22</span><h3 class="tarjeta-titulo">⚓ Base segura</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p23')"><div class="tarjeta-info"><span class="numero-grande">23</span><h3 class="tarjeta-titulo">🔄 Sintonía emocional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p24')"><div class="tarjeta-info"><span class="numero-grande">24</span><h3 class="tarjeta-titulo">🛡️ Contención afectiva</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p25')"><div class="tarjeta-info"><span class="numero-grande">25</span><h3 class="tarjeta-titulo">⚠️ Apego ansioso-ambivalente</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p26')"><div class="tarjeta-info"><span class="numero-grande">26</span><h3 class="tarjeta-titulo">🧊 Apego evitativo</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p27')"><div class="tarjeta-info"><span class="numero-grande">27</span><h3 class="tarjeta-titulo">🌪️ Apego desorganizado</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p28')"><div class="tarjeta-info"><span class="numero-grande">28</span><h3 class="tarjeta-titulo">🤝 Disponibilidad emocional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p29')"><div class="tarjeta-info"><span class="numero-grande">29</span><h3 class="tarjeta-titulo">🔄 Reparación del vínculo</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p30')"><div class="tarjeta-info"><span class="numero-grande">30</span><h3 class="tarjeta-titulo">🍼 Sensibilidad materna y paterna</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p31')"><div class="tarjeta-info"><span class="numero-grande">31</span><h3 class="tarjeta-titulo">👁️ Mirada contingente</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p32')"><div class="tarjeta-info"><span class="numero-grande">32</span><h3 class="tarjeta-titulo">🫂 Refugio seguro</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p33')"><div class="tarjeta-info"><span class="numero-grande">33</span><h3 class="tarjeta-titulo">🧩 Internalización del adulto</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p34')"><div class="tarjeta-info"><span class="numero-grande">34</span><h3 class="tarjeta-titulo">🔗 Modelos operativos internos</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p35')"><div class="tarjeta-info"><span class="numero-grande">35</span><h3 class="tarjeta-titulo">💓 Sincronía bio-conductual</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p36')"><div class="tarjeta-info"><span class="numero-grande">36</span><h3 class="tarjeta-titulo">🌱 Seguridad ontológica</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p37')"><div class="tarjeta-info"><span class="numero-grande">37</span><h3 class="tarjeta-titulo">🧩 Resiliencia vincular</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p38')"><div class="tarjeta-info"><span class="numero-grande">38</span><h3 class="tarjeta-titulo">💬 Diálogo tónico-emocional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p39')"><div class="tarjeta-info"><span class="numero-grande">39</span><h3 class="tarjeta-titulo">🛑 Heridas de apego</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-dorado" data-categoria="apego" onclick="abrirModal('p40')"><div class="tarjeta-info"><span class="numero-grande">40</span><h3 class="tarjeta-titulo">🌟 Seguridad ganada</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+
+            <!-- BLOQUE CONDUCTA (41 a 60) -->
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p41')"><div class="tarjeta-info"><span class="numero-grande">41</span><h3 class="tarjeta-titulo">⚓ Validación emocional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p42')"><div class="tarjeta-info"><span class="numero-grande">42</span><h3 class="tarjeta-titulo">🚧 Límites respetuosos</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p43')"><div class="tarjeta-info"><span class="numero-grande">43</span><h3 class="tarjeta-titulo">⚖️ Consecuencias naturales</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p44')"><div class="tarjeta-info"><span class="numero-grande">44</span><h3 class="tarjeta-titulo">🧩 Autorregulación</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p45')"><div class="tarjeta-info"><span class="numero-grande">45</span><h3 class="tarjeta-titulo">🔄 Consecuencias lógicas</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p46')"><div class="tarjeta-info"><span class="numero-grande">46</span><h3 class="tarjeta-titulo">🛑 Prevención de desbordes</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p47')"><div class="tarjeta-info"><span class="numero-grande">47</span><h3 class="tarjeta-titulo">🗣️ Escucha activa y empática</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p48')"><div class="tarjeta-info"><span class="numero-grande">48</span><h3 class="tarjeta-titulo">🎭 Conducta como síntoma</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p49')"><div class="tarjeta-info"><span class="numero-grande">49</span><h3 class="tarjeta-titulo">🌱 Refuerzo positivo funcional</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p50')"><div class="tarjeta-info"><span class="numero-grande">50</span><h3 class="tarjeta-titulo">🧩 Time-in vs Time-out</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p51')"><div class="tarjeta-info"><span class="numero-grande">51</span><h3 class="tarjeta-titulo">🔍 Demanda insatisfecha</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p52')"><div class="tarjeta-info"><span class="numero-grande">52</span><h3 class="tarjeta-titulo">📋 Anticipación de rutinas</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p53')"><div class="tarjeta-info"><span class="numero-grande">53</span><h3 class="tarjeta-titulo">💬 Mensajes en primera persona</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p54')"><div class="tarjeta-info"><span class="numero-grande">54</span><h3 class="tarjeta-titulo">⚖️ Flexibilidad con firmeza</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p55')"><div class="tarjeta-info"><span class="numero-grande">55</span><h3 class="tarjeta-titulo">🎯 Enfoque en soluciones</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p56')"><div class="tarjeta-info"><span class="numero-grande">56</span><h3 class="tarjeta-titulo">🛑 Autocuidado docente y parental</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p57')"><div class="tarjeta-info"><span class="numero-grande">57</span><h3 class="tarjeta-titulo">🧩 Resolución pacífica de conflictos</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p58')"><div class="tarjeta-info"><span class="numero-grande">58</span><h3 class="tarjeta-titulo">🔄 Transición respetuosa</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p59')"><div class="tarjeta-info"><span class="numero-grande">59</span><h3 class="tarjeta-titulo">🛠️ Límites preventivos</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-menta" data-categoria="conducta" onclick="abrirModal('p60')"><div class="tarjeta-info"><span class="numero-grande">60</span><h3 class="tarjeta-titulo">🌟 Responsabilidad afectiva infantil</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+
+            <!-- BLOQUE DESARROLLO / COGNICIÓN (61 a 80) -->
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p61')"><div class="tarjeta-info"><span class="numero-grande">61</span><h3 class="tarjeta-titulo">🧩 Teoría de la mente</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p62')"><div class="tarjeta-info"><span class="numero-grande">62</span><h3 class="tarjeta-titulo">🧸 Juego heurístico</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p63')"><div class="tarjeta-info"><span class="numero-grande">63</span><h3 class="tarjeta-titulo">🏗️ Zona de desarrollo próximo</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p64')"><div class="tarjeta-info"><span class="numero-grande">64</span><h3 class="tarjeta-titulo">⏳ Permanencia del objeto</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p65')"><div class="tarjeta-info"><span class="numero-grande">65</span><h3 class="tarjeta-titulo">🧱 Egocentrismo evolutivo</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p66')"><div class="tarjeta-info"><span class="numero-grande">66</span><h3 class="tarjeta-titulo">🗣️ Pensamiento simbólico</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p67')"><div class="tarjeta-info"><span class="numero-grande">67</span><h3 class="tarjeta-titulo">🎨 Animismo infantil</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p68')"><div class="tarjeta-info"><span class="numero-grande">68</span><h3 class="tarjeta-titulo">🔄 Conservación de cantidad</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p69')"><div class="tarjeta-info"><span class="numero-grande">69</span><h3 class="tarjeta-titulo">🧠 Andamiaje pedagógico</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p70')"><div class="tarjeta-info"><span class="numero-grande">70</span><h3 class="tarjeta-titulo">🗣️ Lenguaje egocéntrico y social</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p71')"><div class="tarjeta-info"><span class="numero-grande">71</span><h3 class="tarjeta-titulo">🧸 Juego simbólico y de roles</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p72')"><div class="tarjeta-info"><span class="numero-grande">72</span><h3 class="tarjeta-titulo">📈 Hitos del desarrollo motor</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p73')"><div class="tarjeta-info"><span class="numero-grande">73</span><h3 class="tarjeta-titulo">🧩 Pensamiento divergente</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p74')"><div class="tarjeta-info"><span class="numero-grande">74</span><h3 class="tarjeta-titulo">👁️ Integración sensorial</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p75')"><div class="tarjeta-info"><span class="numero-grande">75</span><h3 class="tarjeta-titulo">🌱 Autonomía progresiva</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p76')"><div class="tarjeta-info"><span class="numero-grande">76</span><h3 class="tarjeta-titulo">🧸 Cestos de los tesoros</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p77')"><div class="tarjeta-info"><span class="numero-grande">77</span><h3 class="tarjeta-titulo">🔄 Periodos sensibles de Montessori</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p78')"><div class="tarjeta-info"><span class="numero-grande">78</span><h3 class="tarjeta-titulo">🧠 Metacognición temprana</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p79')"><div class="tarjeta-info"><span class="numero-grande">79</span><h3 class="tarjeta-titulo">🗣️ Conciencia fonológica</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+            <div class="tarjeta-compacta borde-lavanda" data-categoria="lenguaje" onclick="abrirModal('p80')"><div class="tarjeta-info"><span class="numero-grande">80</span><h3 class="tarjeta-titulo">🌟 Inteligencia emocional aplicada</h3></div><span class="tarjeta-icono-leer">Ver ➔</span></div>
+
+        </div>
+
+    </main>
+
+    <!-- Ventana Modal Oculta -->
+    <div class="modal-overlay" id="modalGlosario" onclick="cerrarModalFuera(event)">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+            <h3 id="modal-titulo-texto">Título del concepto</h3>
+            <div class="modal-cuerpo" id="modal-cuerpo-texto"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. Ciencia y calma para la infancia.</p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        const contenidoEntradas = {
+            // NEURO (1-20)
+            'p1': { titulo: '🧠 Co-regulación', html: `<p><strong>En cristiano:</strong> Usar la calma y la presencia de un adulto regulado para ayudar a calmar el sistema nervioso de un niño desbordado.</p><p><strong>Cómo se ve en la práctica:</strong> Bajar el tono de voz y servir de ancla física en plena rabieta.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Primero conexión, después corrección.</div>` },
+            'p2': { titulo: '🎯 Funciones ejecutivas', html: `<p><strong>En cristiano:</strong> El "director de orquesta" del cerebro encargado de planificar, frenar impulsos y recordar normas.</p><p><strong>Cómo se ve en la práctica:</strong> Esperar turnos en un juego. Como maduran despacio, el adulto actúa de memoria externa.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Se entrenan jugando, no con regañinas.</div>` },
+            'p3': { titulo: '🌱 Neuroplasticidad', html: `<p><strong>En cristiano:</strong> La capacidad del cerebro para cambiar y crear nuevas conexiones gracias a las experiencias.</p><p><strong>Cómo se ve en la práctica:</strong> Un error no es permanente; permite reintentar el aprendizaje de otra forma.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El cerebro siempre está a tiempo de aprender.</div>` },
+            'p4': { titulo: '⚡ Amígdala y secuestro emocional', html: `<p><strong>En cristiano:</strong> Cuando la alarma del cerebro se activa tanto que "desconecta" la parte lógica y racional.</p><p><strong>Cómo se ve en la práctica:</strong> Intentar razonar con un niño en pleno llanto intenso no sirve porque su lógica está offline.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> A cerebro secuestrado, presencia y silencio.</div>` },
+            'p5': { titulo: '🧱 Mielinización', html: `<p><strong>En cristiano:</strong> El proceso de cubrir los cables del cerebro con una capa aislante para que las órdenes vayan más rápido.</p><p><strong>Cómo se ve en la práctica:</strong> Explicar por qué los niños pequeños tardan en coordinar movimientos finos o autocontrolarse.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Requiere tiempo biológico, no prisa.</div>` },
+            'p6': { titulo: '🪞 Neuronas espejo', html: `<p><strong>En cristiano:</strong> Células que imitan internamente las acciones y emociones que vemos hacer en los demás.</p><p><strong>Cómo se ve en la práctica:</strong> Si el adulto grita alterado, el cerebro del niño absorbe esa misma alteración al instante.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Educamos más con lo que somos que con lo que decimos.</div>` },
+            'p7': { titulo: '🧠 Corteza prefrontal', html: `<p><strong>En cristiano:</strong> La zona frontal del cerebro encargada del juicio, la empatía y la toma de decisiones maduras.</p><p><strong>Cómo se ve en la práctica:</strong> No termina de madurar hasta pasada la veintena; por eso los niños necesitan nuestra guía frontal.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Somos el freno externo que aún no tienen desarrollado.</div>` },
+            'p8': { titulo: '🌊 Hipocampo y memoria emocional', html: `<p><strong>En cristiano:</strong> La centralita que archiva las vivencias conectándolas directamente con las emociones asociadas.</p><p><strong>Cómo se ve en la práctica:</strong> Un grito recurrente deja huella en cómo el niño interpretará situaciones similares de adulto.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Cuidar el tono hoy previene miedos mañana.</div>` },
+            'p9': { titulo: '⚖️ Neurotransmisores de la calma', html: `<p><strong>En cristiano:</strong> Sustancias químicas como la oxitocina o la serotonina que generan bienestar y seguridad interna.</p><p><strong>Cómo se ve en la práctica:</strong> Se segregan a través del contacto físico cálido, la risa compartida y la validación afectiva.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El afecto físico alimenta físicamente el cerebro.</div>` },
+            'p10': { titulo: '🔋 Carga alostática', html: `<p><strong>En cristiano:</strong> El desgaste físico y mental acumulado en el cuerpo por soportar estrés sostenido o gritos constantes.</p><p><strong>Cómo se ve en la práctica:</strong> Niños irritables al final del día escolar por exceso de ruido y demandas ambientales.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Reducir estímulos para bajar revoluciones.</div>` },
+            'p11': { titulo: '⚡ Poda sináptica', html: `<p><strong>En cristiano:</strong> El proceso natural donde el cerebro elimina conexiones que no usa y refuerza las más repetidas.</p><p><strong>Cómo se ve en la práctica:</strong> Consolidar hábitos positivos mediante la constancia diaria y amorosa.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Lo que se repite con calma, se queda en el cerebro.</div>` },
+            'p12': { titulo: '🧩 Cerebro triuno', html: `<p><strong>En cristiano:</strong> La teoría que divide el cerebro en instintivo, emocional y racional operando en red.</p><p><strong>Cómo se ve en la práctica:</strong> Ante una amenaza, actúa primero el instinto y la emoción antes que la razón.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Atender el cuerpo y la emoción antes de dialogar.</div>` },
+            'p13': { titulo: '💤 Neurobiología del sueño', html: `<p><strong>En cristiano:</strong> Las fases de descanso donde el cerebro limpia toxinas y archiva los aprendizajes del día.</p><p><strong>Cómo se ve en la práctica:</strong> Un niño sin dormir bien muestra hiperactividad simulada porque su cerebro está sobrecargado.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El descanso temprano es salud cerebral directa.</div>` },
+            'p14': { titulo: '🔄 Plasticidad transgeneracional', html: `<p><strong>En cristiano:</strong> Cómo patrones de respuesta emocional heredados influyen en la forma de criar y conectar.</p><p><strong>Cómo se ve en la práctica:</strong> Tomar consciencia para elegir conscientemente criar desde el respeto y no desde el automatismo.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Sanar nuestras heridas para cuidar mejor.</div>` },
+            'p15': { titulo: '📡 Propiocepción neurológica', html: `<p><strong>En cristiano:</strong> El sentido interno que informa al cerebro de dónde está el cuerpo y cómo se mueve.</p><p><strong>Cómo se ve en la práctica:</strong> Niños que necesitan saltar o empujar para modular su sistema nervioso alterado.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El movimiento ayuda a organizar la mente.</div>` },
+            'p16': { titulo: '🎯 Atención focalizada y sostenida', html: `<p><strong>En cristiano:</strong> La capacidad de concentrarse en un estímulo bloqueando las distracciones del entorno.</p><p><strong>Cómo se ve en la práctica:</strong> Se desarrolla de forma natural a través del juego libre y pausado, no con pantallas rápidas.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Menos estímulos digitales, más profundidad de juego.</div>` },
+            'p17': { titulo: '🧩 Memoria de trabajo', html: `<p><strong>En cristiano:</strong> La pizarrita mental temporal para retener datos y realizar una tarea en marcha.</p><p><strong>Cómo se ve en la práctica:</strong> Dar instrucciones de una en una en lugar de tres juntas a un niño pequeño.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Pasos cortos para cerebros en construcción.</div>` },
+            'p18': { titulo: '🛑 Inhibición de impulsos', html: `<p><strong>En cristiano:</strong> El freno automático que frena una acción antes de ejecutarla.</p><p><strong>Cómo se ve en la práctica:</strong> Parar antes de pegar o de cruzar corriendo la calle. Se entrena con paciencia.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El autocontrol se madura con apoyo adulto.</div>` },
+            'p19': { titulo: '🔄 Flexibilidad cognitiva', html: `<p><strong>En cristiano:</strong> La habilidad mental para cambiar de planes o aceptar perspectivas imprevistas sin frustrarse.</p><p><strong>Cómo se ve en la práctica:</strong> Ayudar a transicionar cuando se cambia de actividad avisando con antelación.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Anticipar reduce la resistencia al cambio.</div>` },
+            'p20': { titulo: '🧬 Epigenética conductual', html: `<p><strong>En cristiano:</strong> Cómo el ambiente y el afecto activan o desactivan la expresión de nuestros genes.</p><p><strong>Cómo se ve en la práctica:</strong> Un entorno cálido y seguro modula positivamente la respuesta biológica al estrés.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El amor y el entorno moldean nuestra biología.</div>` },
+
+            // APEGO (21-40)
+            'p21': { titulo: '💛 Apego seguro', html: `<p><strong>En cristiano:</strong> La certeza profunda de que las figuras de referencia responden con afecto y disponibilidad.</p><p><strong>Cómo se ve en la práctica:</strong> Validar su miedo sabiendo que su mundo emocional es seguro contigo.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Vuelvo a estar a salvo a tu lado.</div>` },
+            'p22': { titulo: '⚓ Base segura', html: `<p><strong>En cristiano:</strong> El punto de referencia estable desde el cual el niño se atreve a explorar el mundo.</p><p><strong>Cómo se ve en la práctica:</strong> Volver la vista atrás en el parque para comprobar que sigues mirándole.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Sé que estás ahí, por eso puedo explorar.</div>` },
+            'p23': { titulo: '🔄 Sintonía emocional', html: `<p><strong>En cristiano:</strong> Sintonizar el propio estado interno con el ritmo y la emoción del menor.</p><p><strong>Cómo se ve en la práctica:</strong> Ponerse a su altura física y modular la voz con suavidad.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Sentir con él para ayudarle a regularse.</div>` },
+            'p24': { titulo: '🛡️ Contención afectiva', html: `<p><strong>En cristiano:</strong> Un límite físico o verbal cálido que frena el desborde cuando no puede más.</p><p><strong>Cómo se ve en la práctica:</strong> Un abrazo firme y respetuoso durante una rabieta intensa.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Sostener su cuerpo y sus emociones.</div>` },
+            'p25': { titulo: '⚠️ Apego ansioso-ambivalente', html: `<p><strong>En cristiano:</strong> Inseguridad constante ante el temor de que el adulto desaparezca o no responda.</p><p><strong>Cómo se ve en la práctica:</strong> Protestas excesivas ante separaciones cotidianas por miedo a perder el contacto.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Presencia previsible y constante.</div>` },
+            'p26': { titulo: '🧊 Apego evitativo', html: `<p><strong>En cristiano:</strong> Desconexión aparente donde el niño aprende a no mostrar necesidad de afecto para no sufrir rechazo.</p><p><strong>Cómo se ve en la práctica:</strong> Parecer hiperindependiente y no buscar consuelo ante un golpe o tristeza.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Acercamiento paciente y sin presión.</div>` },
+            'p27': { titulo: '🌪️ Apego desorganizado', html: `<p><strong>En cristiano:</strong> Confusión profunda donde la figura de refugio es a la vez fuente de miedo o amenaza.</p><p><strong>Cómo se ve en la práctica:</strong> Conductas contradictorias de acercamiento y huida ante el cuidador.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Entornos seguros y estabilidad absoluta.</div>` },
+            'p28': { titulo: '🤝 Disponibilidad emocional', html: `<p><strong>En cristiano:</strong> Estar presente y receptivo a las señales del niño sin distracciones tecnológicas.</p><p><strong>Cómo se ve en la práctica:</strong> Dejar el móvil de lado cuando el niño intenta enseñarnos algo importante.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Mirar a los ojos es validar la existencia.</div>` },
+            'p29': { titulo: '🔄 Reparación del vínculo', html: `<p><strong>En cristiano:</strong> Pedir disculpas y reconectar con el niño tras haber perdido los nervios los adultos.</p><p><strong>Cómo se ve en la práctica:</strong> "Perdón por gritar antes, estaba cansado. Te quiero y ya estamos bien".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Reparar importa más que no equivocarse nunca.</div>` },
+            'p30': { titulo: '🍼 Sensibilidad parental', html: `<p><strong>En cristiano:</strong> Capacidad para interpretar correctamente las señales sutiles de incomodidad del menor.</p><p><strong>Cómo se ve en la práctica:</strong> Distinguir si llora por hambre, sueño o necesidad de contacto físico.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Leer debajo de las lágrimas.</div>` },
+            'p31': { titulo: '👁️ Mirada contingente', html: `<p><strong>En cristiano:</strong> Responder de forma inmediata y sincronizada a la expresión facial del niño.</p><p><strong>Cómo se ve en la práctica:</strong> Devolverle una sonrisa o un gesto de complicidad al instante.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Sentirse visto es sentirse amado.</div>` },
+            'p32': { titulo: '🫂 Refugio seguro', html: `<p><strong>En cristiano:</strong> Buscar los brazos del adulto para calmar el susto o el dolor exterior.</p><p><strong>Cómo se ve en la práctica:</strong> Correr hacia mamá o papá tras una caída en el parque.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> En tus brazos el dolor pesa menos.</div>` },
+            'p33': { titulo: '🧩 Internalización del adulto', html: `<p><strong>En cristiano:</strong> El proceso por el cual el niño adopta la voz calmada del padre como su propia voz interna.</p><p><strong>Cómo se ve en la práctica:</strong> Decirse a sí mismo "no pasa nada, respiro hondo" ante una pequeña frustración.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Somos la calma que un día se hablarán a sí mismos.</div>` },
+            'p34': { titulo: '🔗 Modelos operativos internos', html: `<p><strong>En cristiano:</strong> Mapas mentales inconscientes sobre cómo funcionan las relaciones y si merecemos amor.</p><p><strong>Cómo se ve en la práctica:</strong> Se construyen a base de cómo tratamos sus necesidades cotidianas.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El vínculo temprano escribe su mapa del mundo.</div>` },
+            'p35': { titulo: '💓 Sincronía bio-conductual', html: `<p><strong>En cristiano:</strong> Coordinación de latidos, respiración y ritmos corporales entre adulto y niño al abrazarse.</p><p><strong>Cómo se ve en la práctica:</strong> Calmar un llanto mediante el compás de un latido compartido.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> La biología responde al calor del vínculo.</div>` },
+            'p36': { titulo: '🌱 Seguridad ontológica', html: `<p><strong>En cristiano:</strong> Sentimiento sólido de continuidad y solidez de la propia existencia en el mundo.</p><p><strong>Cómo se ve en la práctica:</strong> Crecer sabiendo que el mundo es un lugar previsible y confiable.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Confiar en la vida nace de un hogar seguro.</div>` },
+            'p37': { titulo: '🧩 Resiliencia vincular', html: `<p><strong>En cristiano:</strong> Capacidad de superar adversidades gracias a la presencia de al menos un vínculo seguro.</p><p><strong>Cómo se ve en la práctica:</strong> Un adulto incondicional cambia el pronóstico de cualquier dificultad.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Un solo vínculo firme salva vidas.</div>` },
+            'p38': { titulo: '💬 Diálogo tónico-emocional', html: `<p><strong>En cristiano:</strong> Comunicación a través del tono muscular, la postura y el contacto corporal.</p><p><strong>Cómo se ve en la práctica:</strong> Notar cómo un bebé se relaja y ablanda su cuerpo al alzarlo en brazos.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El cuerpo habla antes que las palabras.</div>` },
+            'p39': { titulo: '🛑 Heridas de apego', html: `<p><strong>En cristiano:</strong> Microtraumas relacionales por desatención crónica de las necesidades emocionales.</p><p><strong>Cómo se ve en la práctica:</strong> Reacciones desproporcionadas ante pequeños rechazos cotidianos.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Se sanan con presencia y validación actual.</div>` },
+            'p40': { titulo: '🌟 Seguridad ganada', html: `<p><strong>En cristiano:</strong> Adultos con infancias difíciles que logran construir un apego seguro propio gracias a terapia o vínculos sanos.</p><p><strong>Cómo se ve en la práctica:</strong> Romper conscientemente la cadena de la crianza autoritaria.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> El pasado no dicta obligatoriamente el futuro.</div>` },
+
+            // CONDUCTA (41-60)
+            'p41': { titulo: '⚓ Validación emocional', html: `<p><strong>En cristiano:</strong> Reconocer y dar espacio a lo que siente el niño sin juzgar ni minimizar.</p><p><strong>Cómo se ve en la práctica:</strong> "Veo que estás enfadado" en lugar de "no hay motivo para enfadarse".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Aceptar la emoción no es ceder en la norma.</div>` },
+            'p42': { titulo: '🚧 Límites respetuosos', html: `<p><strong>En cristiano:</strong> Normas claras y estables marcadas sin gritos ni amenazas.</p><p><strong>Cómo se ve en la práctica:</strong> Explicar con firmeza amable lo que sí se puede hacer.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Firmeza en la norma, suavidad en el trato.</div>` },
+            'p43': { titulo: '⚖️ Consecuencias naturales', html: `<p><strong>En cristiano:</strong> El resultado directo de los actos del niño sin castigos artificiales.</p><p><strong>Cómo se ve en la práctica:</strong> Si no se pone la chaqueta, siente frío en la calle.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Dejar que la realidad enseñe.</div>` },
+            'p44': { titulo: '🧩 Autorregulación', html: `<p><strong>En cristiano:</strong> La capacidad gradual de gestionar emociones e impulsos sin ayuda externa.</p><p><strong>Cómo se ve en la práctica:</strong> Respirar hondo en lugar de morder cuando se frustra.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Una habilidad que madura con paciencia.</div>` },
+            'p45': { titulo: '🔄 Consecuencias lógicas', html: `<p><strong>En cristiano:</strong> Una consecuencia relacionada directamente con el acto pero guiada por el adulto.</p><p><strong>Cómo se ve en la práctica:</strong> Si se pinta la pared, se ayuda a limpiarla con supervisión.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Reparar el daño causado.</div>` },
+            'p46': { titulo: '🛑 Prevención de desbordes', html: `<p><strong>En cristiano:</strong> Detectar los primeros signos de cansancio o hambre antes de que estalle la rabieta.</p><p><strong>Cómo se ve en la práctica:</strong> Ofrecer un respiro o merienda antes de ir a hacer recados complejos.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Anticiparse evita apagar incendios.</div>` },
+            'p47': { titulo: '🗣️ Escucha activa y empática', html: `<p><strong>En cristiano:</strong> Escuchar prestando atención plena sin interrumpir ni dar lecciones morales.</p><p><strong>Cómo se ve en la práctica:</strong> Dejar lo que hacemos para mirar y asentir mientras nos cuentan su día.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Escuchar para comprender, no para responder.</div>` },
+            'p48': { titulo: '🎭 Conducta como síntoma', html: `<p><strong>En cristiano:</strong> Entender que un mal comportamiento es una señal de que algo falla por dentro.</p><p><strong>Cómo se ve en la práctica:</strong> Un niño que pega suele estar pidiendo ayuda o conteniendo un gran agobio.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Detrás de una mala conducta hay un niño pasándolas canutas.</div>` },
+            'p49': { titulo: '🌱 Refuerzo positivo funcional', html: `<p><strong>En cristiano:</strong> Destacar el esfuerzo y el proceso en lugar de dar premios materiales vacíos.</p><p><strong>Cómo se ve en la práctica:</strong> "¡Qué de horas le has dedicado a este puzzle!" en vez de "toma un cromo".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Valorar el camino, no solo el trofeo.</div>` },
+            'p50': { titulo: '🧩 Time-in vs Time-out', html: `<p><strong>En cristiano:</strong> Acompañar dentro de la calma (Time-in) en lugar de aislar al niño (Time-out).</p><p><strong>Cómo se ve en la práctica:</strong> Sentarse juntos a respirar hasta que pase la tormenta emocional.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Aislar castiga; acompañar enseña.</div>` },
+            'p51': { titulo: '🔍 Demanda insatisfecha', html: `<p><strong>En cristiano:</strong> Necesidad básica de atención o afecto oculta tras una rabieta aparentemente absurda.</p><p><strong>Cómo se ve en la práctica:</strong> Patalear por un detalle mínimo cuando en realidad solo necesita un abrazo.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Buscan conexión, no bronca.</div>` },
+            'p52': { titulo: '📋 Anticipación de rutinas', html: `<p><strong>En cristiano:</strong> Avisar al niño de lo que va a ocurrir a continuación para reducir su ansiedad.</p><p><strong>Cómo se ve en la práctica:</strong> "De aquí a cinco minutos recogemos para ir a cenar".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Al cerebro infantil le asusta lo imprevisto.</div>` },
+            'p53': { titulo: '💬 Mensajes en primera persona', html: `<p><strong>En cristiano:</strong> Expresar cómo nos afecta una situación sin etiquetar ni culpar al niño.</p><p><strong>Cómo se ve en la práctica:</strong> "Me pongo nerviosa con los gritos" en vez de "eres insoportable".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Hablar de nuestra emoción, no de sus defectos.</div>` },
+            'p54': { titulo: '⚖️ Flexibilidad con firmeza', html: `<p><strong>En cristiano:</strong> Mantener lo no negociable siendo flexibles en los detalles menores.</p><p><strong>Cómo se ve en la práctica:</strong> Da igual el orden de los zapatos si se los pone; el límite es salir a tiempo.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Elegir qué batallas merecen la pena.</div>` },
+            'p55': { titulo: '🎯 Enfoque en soluciones', html: `<p><strong>En cristiano:</strong> Buscar juntos cómo arreglar un problema en lugar de buscar culpables.</p><p><strong>Cómo se ve en la práctica:</strong> "Se ha caído el zumo, ¿cómo podemos secarlo?".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Menos regañina, más solución práctica.</div>` },
+            'p56': { titulo: '🛑 Autocuidado adulto', html: `<p><strong>En cristiano:</strong> Cuidar del propio bienestar para no explotar con los menores.</p><p><strong>Cómo se ve en la práctica:</strong> Parar cinco minutos a respirar sola cuando sentimos que nos desbordamos.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Para cuidar con calma, toca cuidarse.</div>` },
+            'p57': { titulo: '🧩 Resolución pacífica', html: `<p><strong>En cristiano:</strong> Enseñar a negociar y turnarse sin recurrir a la violencia física o verbal.</p><p><strong>Cómo se ve en la práctica:</strong> Mediar en un conflicto de juguetes poniendo palabras a ambas partes.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Enseñar diálogo requiere práctica guiada.</div>` },
+            'p58': { titulo: '🔄 Transición respetuosa', html: `<p><strong>En cristiano:</strong> Facilitar el paso de una actividad divertida a otra aburrida sin tirones.</p><p><strong>Cómo se ve en la práctica:</strong> Usar un temporizador visual o un aviso cantado para el cambio.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Respetar sus tiempos de cambio.</div>` },
+            'p59': { titulo: '🛠️ Límites preventivos', html: `<p><strong>En cristiano:</strong> Poner normas antes de que ocurra el peligro o el conflicto.</p><p><strong>Cómo se ve en la práctica:</strong> Acordar las normas de juego antes de entrar al parque.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Avisar antes previene disgustos después.</div>` },
+            'p60': { titulo: '🌟 Responsabilidad afectiva', html: `<p><strong>En cristiano:</strong> Enseñar al niño a cuidar de los sentimientos ajenos desde la empatía.</p><p><strong>Cómo se ve en la práctica:</strong> "Mira cómo se ha quedado triste tu amigo, vamos a ver qué le pasa".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Cuidar al otro es parte de crecer.</div>` },
+
+            // DESARROLLO / COGNICIÓN (61-80)
+            'p61': { titulo: '🧩 Teoría de la mente', html: `<p><strong>En cristiano:</strong> Comprender que los demás tienen pensamientos distintos a los nuestros.</p><p><strong>Cómo se ve en la práctica:</strong> Entender por qué un niño cree que si a él le gusta un juguete, a su hermano también.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> La empatía nace al ver otra perspectiva.</div>` },
+            'p62': { titulo: '🧸 Juego heurístico', html: `<p><strong>En cristiano:</strong> Explorar libremente objetos cotidianos y naturales sin un uso predeterminado.</p><p><strong>Cómo se ve en la práctica:</strong> Dejar telas, cajas y piñas para que descubran texturas y pesos.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Aprender experimentando con objetos simples.</div>` },
+            'p63': { titulo: '🏗️ Zona de desarrollo próximo', html: `<p><strong>En cristiano:</strong> La distancia entre lo que hace solo y lo que logra con una pequeña ayuda.</p><p><strong>Cómo se ve en la práctica:</strong> Sujetar levemente los pedales de la bici sin hacerle todo el esfuerzo.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Acompañar un pasito más allá de su límite.</div>` },
+            'p64': { titulo: '⏳ Permanencia del objeto', html: `<p><strong>En cristiano:</strong> Saber que las cosas siguen existiendo aunque no las veamos.</p><p><strong>Cómo se ve en la práctica:</strong> Superar la angustia de separación al comprender que papá regresa.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> No verte no significa que hayas desaparecido.</div>` },
+            'p65': { titulo: '🧱 Egocentrismo evolutivo', html: `<p><strong>En cristiano:</strong> Fase natural donde el niño interpreta el mundo exclusivamente desde su propia mirada.</p><p><strong>Cómo se ve en la práctica:</strong> Crecer entendiendo poco a poco que los demás sienten distinto.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> No es egoísmo, es inmadurez cognitiva temporal.</div>` },
+            'p66': { titulo: '🗣️ Pensamiento simbólico', html: `<p><strong>En cristiano:</strong> Capacidad de usar símbolos, palabras e imágenes mentales para representar objetos.</p><p><strong>Cómo se ve en la práctica:</strong> Usar un plátano como si fuera un teléfono de juguete.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> La imaginación al servicio del intelecto.</div>` },
+            'p67': { titulo: '🎨 Animismo infantil', html: `<p><strong>En cristiano:</strong> Atribuir vida, intenciones y sentimientos a objetos inanimados.</p><p><strong>Cómo se ve en la práctica:</strong> Pensar que la piedra está triste porque la han dejado sola.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Magia pura en su manera de ver el mundo.</div>` },
+            'p68': { titulo: '🔄 Conservación de cantidad', html: `<p><strong>En cristiano:</strong> Entender que la cantidad de líquido o materia no cambia aunque cambie de envase.</p><p><strong>Cómo se ve en la práctica:</strong> Ver que un vaso ancho y uno alto pueden tener el mismo agua (requiere maduración).</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> La lógica se construye paso a paso.</div>` },
+            'p69': { titulo: '🧠 Andamiaje pedagógico', html: `<p><strong>En cristiano:</strong> Apoyo temporal que ofrece el adulto que se va retirando conforme el niño aprende.</p><p><strong>Cómo se ve en la práctica:</strong> Sostener la torre de cubos al principio y dejar que la monte solo después.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Ayudar hoy para dejar volar mañana.</div>` },
+            'p70': { titulo: '🗣️ Lenguaje egocéntrico y social', html: `<p><strong>En cristiano:</strong> Hablar en voz alta consigo mismo para guiar sus actos antes de interiorizar el lenguaje.</p><p><strong>Cómo se ve en la práctica:</strong> Narrar lo que hace mientras dibuja solo en su habitación.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Hablar solos les ayuda a pensar y ordenarse.</div>` },
+            'p71': { titulo: '🧸 Juego simbólico y de roles', html: `<p><strong>En cristiano:</strong> Jugar a "ser mayores" representando situaciones cotidianas del mundo adulto.</p><p><strong>Cómo se ve em la práctica:</strong> Hacer como si cocinan o curan a un osito de peluche.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Ensayar la vida adulta a través del juego.</div>` },
+            'p72': { titulo: '📈 Hitos del desarrollo motor', html: `<p><strong>En cristiano:</strong> Secuencia natural de control corporal desde el tronco hasta extremidades.</p><p><strong>Cómo se ve en la práctica:</strong> Gatear y caminar sin forzar etapas evolutivas previas.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Cada niño tiene su propio reloj biológico.</div>` },
+            'p73': { titulo: '🧩 Pensamiento divergente', html: `<p><strong>En cristiano:</strong> Capacidad de encontrar múltiples soluciones creativas a un mismo problema.</p><p><strong>Cómo se ve en la práctica:</strong> Usar una caja de cartón como barco, cueva o sombrero.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Fomentar la creatividad sin moldes cerrados.</div>` },
+            'p74': { titulo: '👁️ Integración sensorial', html: `<p><strong>En cristiano:</strong> Procesar y combinar la información que recogen todos los sentidos a la vez.</p><p><strong>Cómo se ve en la práctica:</strong> Jugar con barro, agua y arena para calibrar texturas y sensaciones.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Sentir el mundo para integrarlo en la mente.</div>` },
+            'p75': { titulo: '🌱 Autonomía progresiva', html: `<p><strong>En cristiano:</strong> Permitir que hagan por sí mismos todo aquello que ya son capaces de realizar.</p><p><strong>Cómo se ve en la práctica:</strong> Dejar que se pongan el abrigo aunque tarden el doble de tiempo.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> "Ayúdame a hacerlo por mí mismo".</div>` },
+            'p76': { titulo: '🧸 Cestos de los tesoros', html: `<p><strong>En cristiano:</strong> Propuesta de objetos naturales para bebés centrada en estimular los sentidos.</p><p><strong>Cómo se ve en la práctica:</strong> Una cesta llena de cucharas de palo, estropajos naturales y conchas.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Descubrir texturas reales sin juguetes plásticos.</div>` },
+            'p77': { titulo: '🔄 Periodos sensibles', html: `<p><strong>En cristiano:</strong> Ventanas temporales de máxima facilidad para aprender una habilidad concreta.</p><p><strong>Cómo se ve en la práctica:</strong> Obsesión pasajera por ordenar, por los detalles pequeños o por caminar en línea.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Aprovechar su interés natural del momento.</div>` },
+            'p78': { titulo: '🧠 Metacognición temprana', html: `<p><strong>En cristiano:</strong> Empezar a reflexionar sobre cómo pensamos y cómo aprendemos las cosas.</p><p><strong>Cómo se ve en la práctica:</strong> "¡Ah, ya sé por qué antes me equivoqué en este puzzle!".</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Pensar sobre los propios pensamientos.</div>` },
+            'p79': { titulo: '🗣️ Conciencia fonológica', html: `<p><strong>En cristiano:</strong> Capacidad de escuchar y jugar con los sonidos que forman las palabras habladas.</p><p><strong>Cómo se ve en la práctica:</strong> Cantar rimas, adivinanzas y juegos de palabras desde pequeños.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> La lectura nace del placer por los sonidos.</div>` },
+            'p80': { titulo: '🌟 Inteligencia emocional aplicada', html: `<p><strong>En cristiano:</strong> Reconocer, poner nombre y gestionar el propio mundo emocional con equilibrio.</p><p><strong>Cómo se ve en la práctica:</strong> Decir "estoy frustrado" en lugar de pegar una patada.</p><div class="modal-bloque-practico"><strong>La chuleta:</strong> Sentir con claridad para vivir con calma.</div>` }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const botones = document.querySelectorAll('.filtro-btn');
+            const tarjetas = document.querySelectorAll('.tarjeta-compacta');
+
+            botones.forEach(boton => {
+                boton.addEventListener('click', (e) => {
+                    const targetBtn = e.currentTarget;
+                    const categoria = targetBtn.getAttribute('data-filtro');
+
+                    botones.forEach(b => b.classList.remove('activo'));
+                    targetBtn.classList.add('activo');
+
+                    tarjetas.forEach(tarjeta => {
+                        if (categoria === 'todos' || tarjeta.getAttribute('data-categoria') === categoria) {
+                            tarjeta.style.display = 'flex';
+                        } else {
+                            tarjeta.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        function abrirModal(id) {
+            const tarjetaElem = document.querySelector(`[onclick*="${id}"]`);
+            const tituloSpan = tarjetaElem ? tarjetaElem.querySelector('.tarjeta-titulo').innerText : 'Término pedagógico';
+            
+            const entrada = contenidoEntradas[id] || { 
+                titulo: tituloSpan, 
+                html: `<p>Este concepto de psicología evolutiva en <strong>El Nido de Estrellas</strong> ayuda a comprender las bases del desarrollo infantil.</p><div class="modal-bloque-practico"><strong>Clave práctica:</strong> Traducir la teoría en herramientas de calma para el día a día.</div>` 
+            };
+            
+            document.getElementById('modal-titulo-texto').innerText = entrada.titulo;
+            document.getElementById('modal-cuerpo-texto').innerHTML = entrada.html;
+            document.getElementById('modalGlosario').classList.add('activo');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function cerrarModal() {
+            document.getElementById('modalGlosario').classList.remove('activo');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function cerrarModalFuera(event) {
+            if (event.target.id === 'modalGlosario') {
+                cerrarModal();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <a href="guiasSalud.html">📋 Guías de Salud</a>
                         <a href="rinconlectura.html">📖 Rincón de Lectura</a>
                         <a href="glosario.html">✨ Glosario Poético</a>
+                        <a href="glosariopedagogico.html">🧠 Glosario Pedagógico</a>
                         <a href="preguntas.html">❓ Rincón de Preguntas</a>
                         
                         <div class="dropdown-divider"></div>
