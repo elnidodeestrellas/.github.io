@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacunación infantil: Calendario oficial y aclaración de mitos | El Nido de Estrellas</title>
+    <meta name="description" content="Guía práctica sobre vacunación infantil, calendario oficial de inmunización, resolución de dudas y aclaración de mitos habituales.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --escoliosis-acento: #fbd38d;
+            --escoliosis-borde: rgba(251, 211, 141, 0.3);
+            --escoliosis-fondo-caja: rgba(251, 211, 141, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--escoliosis-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px solid rgba(251, 211, 141, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--escoliosis-acento);
+            box-shadow: 0 8px 25px rgba(251, 211, 141, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--escoliosis-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--escoliosis-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--escoliosis-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgvacunacion/portada.webp" alt="Vacunación infantil: Calendario oficial y aclaración de mitos">
+            </div>
+
+            <h1>Vacunación infantil: Calendario oficial y aclaración de mitos</h1>
+            
+            <p>La vacunación es una de las herramientas de salud pública más eficaces para proteger la infancia frente a enfermedades prevenibles. Conocer el calendario oficial, comprender cómo actúan las inmunizaciones y disipar dudas con rigor científico aporta tranquilidad a las familias. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- TEMA 1 -->
+                <a href="vacuna-acogida.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/acogida.webp" alt="Importancia histórica de las vacunas"></div>
+                        <span class="pilar-tag">Acogida</span>
+                        <h2>Por qué vacunamos: el valor de la inmunización</h2>
+                        <p>Una perspectiva clara sobre el impacto histórico de las vacunas en la erradicación y control de enfermedades graves.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 2 -->
+                <a href="vacuna-calendario.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/calendario.webp" alt="Calendario oficial de vacunación infantil"></div>
+                        <span class="pilar-tag">Calendario</span>
+                        <h2>El calendario oficial paso a paso</h2>
+                        <p>Guía detallada de las dosis recomendadas según las etapas clave del desarrollo y crecimiento durante los primeros años.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 3 -->
+                <a href="vacuna-mitos.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/mitos.webp" alt="Aclaración de mitos y falsas creencias"></div>
+                        <span class="pilar-tag">Falsas creencias</span>
+                        <h2>Desmontando mitos habituales sobre las vacunas</h2>
+                        <p>Análisis riguroso y basado en la evidencia para responder a dudas frecuentes sobre seguridad, ingredientes y efectos secundarios.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 4 -->
+                <a href="vacuna-reacciones.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/reacciones.webp" alt="Reacciones leves y pautas tras la administración"></div>
+                        <span class="pilar-tag">Efectos secundarios</span>
+                        <h2>Qué esperar tras la administración de una vacuna</h2>
+                        <p>Cómo identificar reacciones leves habituales (fiebre moderada, molestia local) y cuándo consultar con el pediatra.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 5 -->
+                <a href="vacuna-inmunidad.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/inmunidad.webp" alt="Inmunidad de grupo y protección colectiva"></div>
+                        <span class="pilar-tag">Inmunidad de grupo</span>
+                        <h2>La protección colectiva y el bien común</h2>
+                        <p>Cómo la vacunación generalizada protege de forma indirecta a los lactantes más pequeños y a personas vulnerables.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 6 -->
+                <a href="vacuna-seguridad.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/seguridad.webp" alt="Ensayos clínicos y control farmacéutico"></div>
+                        <span class="pilar-tag">Seguridad y ensayos</span>
+                        <h2>Los rigurosos controles de seguridad previos</h2>
+                        <p>El exhaustivo proceso de investigación, ensayos clínicos y farmacovigilancia al que se someten todas las vacunas.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 7 -->
+                <a href="vacuna-viajes.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/viajes.webp" alt="Vacunación internacional y situaciones especiales"></div>
+                        <span class="pilar-tag">Casos especiales</span>
+                        <h2>Vacunación en viajes y situaciones particulares</h2>
+                        <p>Pautas específicas para desplazamientos internacionales, niños con patologías crónicas o calendarios adaptados.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 8 -->
+                <a href="vacuna-comunicacion.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgvacunacion/comunicacion.webp" alt="Dialogar con el pediatra y resolver dudas"></div>
+                        <span class="pilar-tag">Entorno sanitario</span>
+                        <h2>El diálogo abierto con el equipo pediátrico</h2>
+                        <p>Cómo plantear dudas en consulta de forma constructiva y construir una relación de confianza con el profesional de referencia.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--escoliosis-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <!-- BLOQUE DE RUTA RECOMENDADA INSERTADO -->
+            <div class="ruta-recomendada-caja" style="background: rgba(20, 29, 51, 0.7); border: 1px solid rgba(251, 211, 141, 0.3); border-radius: 12px; padding: 25px; margin-top: 40px; margin-bottom: 30px;">
+                <h3 style="color: #fbd38d; font-family: 'Quicksand', sans-serif; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">🌱 Continúa profundizando en la salud y el bienestar infantil</h3>
+                <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">Para acompañar la crianza y los hábitos de bienestar de forma completa, te sugerimos explorar estos recursos:</p>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #fbd38d;">🧭</span>
+                        <span style="color: #f8fafc; font-size: 0.92rem;">Explora la guía relacionada: <a href="prevencioninfantil.html" style="color: #fbd38d; text-decoration: none; font-weight: 600;">Primeros auxilios y prevención de accidentes domésticos</a></span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #fbd38d;">🎙️</span>
+                        <span style="color: #f8fafc; font-size: 0.92rem;">Escucha el podcast: <a href="podcast.html" style="color: #fbd38d; text-decoration: none; font-weight: 600;">Límites con amor y regulación emocional (Ep. 07)</a></span>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIN DEL BLOQUE -->
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(251, 211, 141, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--escoliosis-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
