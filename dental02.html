@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higiene Bucodental y Uso de Flúor | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .bloque-guia {
+            background: rgba(22, 33, 62, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #38bdf8;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #38bdf8; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 8px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #38bdf8; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #38bdf8; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #38bdf8; padding-left: 5px; }
+
+        .nota-destacada {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid #38bdf8;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+        }
+        .nota-destacada p { margin: 0; color: #e2e8f0; }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            color: #38bdf8;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(56, 189, 248, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <div class="encabezado-inicio">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #38bdf8; margin-bottom: 15px;">Higiene Bucodental y Uso de Flúor</h1>
+            <p style="font-size: 1.3rem; color: #bae6fd; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Segunda parte de la guía: pautas de limpieza desde el nacimiento, la importancia de la pasta con flúor activo y la técnica correcta de cepillado diario.</p>
+            <img src="imgguiadental/fotodental02.webp" alt="Higiene Bucodental" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 40px;">
+        </div>
+
+        <section class="bloque-guia">
+            <h2>Índice de la Segunda Parte</h2>
+            
+            <div class="indice-caja">
+                <h4>Contenidos de higiene y prevención:</h4>
+                <ul>
+                    <li>• <a href="#limpieza-bebes">1. Limpieza de la boca antes de la aparición de los dientes</a></li>
+                    <li>• <a href="#primer-diente">2. El inicio del cepillado dental con la erupción de la primera pieza</a></li>
+                    <li>• <a href="#concentracion-fluor">3. La importancia vital del flúor y la dosis adecuada</a></li>
+                    <li>• <a href="#tecnica-habito">4. Técnica de cepillado y consolidación del hábito diario</a></li>
+                </ul>
+            </div>
+
+            <h3 id="limpieza-bebes">1. Limpieza de la boca antes de la aparición de los dientes</h3>
+            <p>Mucho antes de que asome el primer diente de leche, ya es recomendable acostumbrar al bebé a la manipulación suave de su cavidad oral. Una vez al día, tras la última toma de leche, se puede pasar con delicadeza una gasa limpia y humedecida en agua por las encías, el paladar y el interior de las mejillas. Esto ayuda a eliminar restos de leche, previene la proliferación bacteriana y familiariza al lactante con el hábito de la higiene bucal.</p>
+
+            <h3 id="primer-diente">2. El inicio del cepillado dental con la erupción de la primera pieza</h3>
+            <p>En el preciso instante en que brota el primer diente temporal (generalmente en torno a los 6 meses), se debe incorporar formalmente el cepillo dental. No basta con pasar una gasa: se requiere un cepillo de cerdas ultrasuaves, cabezal pequeño adaptado al tamaño de la boca del bebé y mango ergonómico. El cepillado debe realizarse al menos dos veces al día, siendo el de la noche (antes de dormir) el más crítico de todos debido a la disminución del flujo salival durante el sueño.</p>
+
+            <h3 id="concentracion-fluor">3. La importancia vital del flúor y la dosis adecuada</h3>
+            <p>Las principales asociaciones pediátricas y odontopediátricas internacionales avalan de forma unánime el uso de <strong>pasta dentífrica con flúor desde la salida del primer diente</strong> con una concentración de <strong>1000 a 1450 ppm (partes por millón) de flúor</strong>. El flúor tópico es la herramienta más eficaz para remineralizar el esmalte y prevenir la aparición de caries de forma temprana. La cantidad que debe colocarse sobre el cepillo varía estrictamente según la edad:</p>
+            <ul>
+                <li>• <strong>De 0 a 3 años:</strong> la cantidad equivalente a un <strong>grano de arroz</strong> (una película muy fina sobre las cerdas).</li>
+                <li>• <strong>A partir de los 3 años y hasta los 6 años:</strong> la cantidad equivalente a un <strong>guisante o lenteja</strong>.</li>
+            </ul>
+            <p><strong>Nota sobre el enjuague:</strong> En niños muy pequeños no se debe enjuagar la boca con agua tras el cepillado ni usar colutorios; basta con escupir el exceso de espuma o retirar suavemente con una gasa, permitiendo que el flúor permanezca en contacto con el esmalte el mayor tiempo posible.</p>
+
+            <h3 id="tecnica-habito">4. Técnica de cepillado y consolidación del hábito diario</h3>
+            <p>Los niños pequeños carecen de la destreza motora fina necesaria para cepillarse los dientes de forma eficaz por sí solos. Por este motivo, <strong>los padres deben realizar o supervisar activamente el cepillado hasta al menos los 8 o 9 años de edad</strong>.</p>
+            <ul>
+                <li>• Realizar movimientos suaves, circulares y de barrido desde la encía hacia el diente (evitando movimientos horizontales bruscos que puedan dañar el margen gingival).</li>
+                <li>• Cepillar todas las caras de los dientes: la parte externa, la interna y las superficies masticatorias de las muelas.</li>
+                <li>• Convertir el momento en una rutina lúdica y positiva, acompañándolo de canciones, juegos o frente a un espejo para que el niño lo perciba como un hábito agradable y natural.</li>
+            </ul>
+
+            <div class="nota-destacada">
+                <p><strong>Recuerda:</strong> El ejemplo en casa es la herramienta educativa más potente. Ver a los adultos cepillarse los dientes con constancia fomenta de manera directa que el niño interiorice el hábito como parte de su autocuidado diario.</p>
+            </div>
+        </section>
+
+        <div class="navegacion-paginas">
+            <a href="dental01.html" class="btn-navegacion">
+                &larr; Anterior: Erupción Dental
+            </a>
+            <a href="dental03.html" class="btn-navegacion">
+                Siguiente: Prevención de Caries y Hábitos &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentación Complementaria: Purés y BLW | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .bloque-guia {
+            background: rgba(22, 33, 62, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(72, 187, 120, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #48bb78;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #48bb78; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(72, 187, 120, 0.2); padding-bottom: 8px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #48bb78; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #48bb78; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #48bb78; padding-left: 5px; }
+
+        .nota-destacada {
+            background: rgba(72, 187, 120, 0.1);
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+        }
+        .nota-destacada p { margin: 0; color: #e2e8f0; }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(72, 187, 120, 0.15);
+            border: 1px solid rgba(72, 187, 120, 0.4);
+            color: #48bb78;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(72, 187, 120, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <div class="encabezado-inicio">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #48bb78; margin-bottom: 15px;">Alimentación Complementaria: Purés y BLW</h1>
+            <p style="font-size: 1.3rem; color: #c6f6d5; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Tercera parte: los signos biológicos de madurez a los seis meses, la transición nutricional y la comparativa práctica entre purés y el método Baby-Led Weaning.</p>
+            <img src="imglactancia/lactancia03.webp" alt="Alimentación Complementaria" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 40px;">
+        </div>
+
+        <section class="bloque-guia">
+            <h2>Índice de esta Guía</h2>
+            
+            <div class="indice-caja">
+                <h4>Contenidos de la tercera parte:</h4>
+                <ul>
+                    <li>• <a href="#cuando-iniciar">1. El hito de los seis meses y los signos reales de madurez</a></li>
+                    <li>• <a href="#papel-leche">2. El papel de la leche: por qué es "complementaria"</a></li>
+                    <li>• <a href="#metodo-pures">3. La opción de los purés y triturados suaves</a></li>
+                    <li>• <a href="#metodo-blw">4. El método Baby-Led Weaning (BLW): ventajas y seguridad</a></li>
+                    <li>• <a href="#mitos-comunes">5. Mitos frecuentes sobre la sal, el azúcar y las cantidades</a></li>
+                </ul>
+            </div>
+
+            <h3 id="cuando-iniciar">1. El hito de los seis meses y los signos reales de madurez</h3>
+            <p>Alrededor de los seis meses de vida se produce un cambio fisiológico trascendental. La leche materna o de fórmula deja de cubrir por sí sola todos los requerimientos nutricionales del lactante (especialmente las reservas de hierro y zinc almacenadas durante la gestación). Sin embargo, la fecha en el calendario no es el único factor: el inicio de la alimentación complementaria exige comprobar tres <strong>signos biológicos de madurez</strong> inequívocos:</p>
+            <ul>
+                <li>• <strong>Control postural:</strong> el bebé es capaz de mantenerse sentado en una sillita de comer con estabilidad y control absoluto de la cabeza y el tronco.</li>
+                <li>• <strong>Pérdida del reflejo de extrusión:</strong> el mecanismo automático de defensa que empuja con la lengua hacia afuera cualquier elemento sólido introducido en la boca debe haber desaparecido.</li>
+                <li>• <strong>Interés activo por la comida:</strong> el bebé observa los platos con atención, intenta coger los alimentos y muestra curiosidad genuina por llevarse cosas a la boca.</li>
+            </ul>
+
+            <h3 id="papel-leche">2. El papel de la leche: por qué es "complementaria"</h3>
+            <p>Es fundamental comprender que durante el primer año de vida la leche (materna o de fórmula) sigue siendo el <strong>alimento principal y la base nutricional</strong> del bebé. Los nuevos alimentos que se introducen a partir de los seis meses se denominan "complementarios" porque su propósito inicial no es sustituir las tomas de leche, sino complementar el aporte energético, acostumbrar al sistema digestivo a nuevas texturas y sabores, y entrenar las habilidades motoras orales.</p>
+
+            <h3 id="metodo-pures">3. La opción de los purés y triturados suaves</h3>
+            <p>El método tradicional de introducción mediante purés, cremas y triturados sigue siendo una opción excelente, muy extendida y segura. Permite controlar de forma precisa la cantidad de alimento que ingiere el bebé y asegurar una mezcla homogénea de nutrientes al principio del proceso. Conviene elaborarlos sin añadir sal ni azúcares añadidos, utilizando aceites de oliva virgen extra de calidad en crudo, y avanzando de forma progresiva desde texturas completamente lisas hasta texturas más espesas con pequeños grumos a medida que se acerca el final del primer año.</p>
+
+            <h3 id="metodo-blw">4. El método Baby-Led Weaning (BLW): ventajas y seguridad</h3>
+            <p>El Baby-Led Weaning (alimentación guiada por el bebé) consiste en ofrecer al niño alimentos enteros presentados en formatos seguros (en forma de bastones grandes que pueda agarrar con el puño) para que sea él mismo quien explore, gestione y decida qué y cuánto comer basándose en su propia autoregulación de saciedad.</p>
+            <p><strong>Ventajas clave del BLW:</strong> estimula el desarrollo de la psicomotricidad fina, favorece la coordinación oculo-manual, fomenta la autonomía temprana y ayuda a que el niño reconozca con naturalidad las texturas y sabores reales de cada alimento. Para practicarlo de forma segura, es obligatorio conocer las normas básicas de prevención de atragantamientos (cortar los alimentos de riesgo, evitar formas redondas enteras como uvas o frutos secos enteros, y mantener siempre una supervisión adulta estricta y sin distracciones).</p>
+
+            <h3 id="mitos-comunes">5. Mitos frecuentes sobre la sal, el azúcar y las cantidades</h3>
+            <p>En torno a la introducción de la comida surgen con frecuencia mitos arraigados que conviene desterrar:</p>
+            <ul>
+                <li>• <strong>La sal y el azúcar:</strong> deben evitarse de forma absoluta durante todo el primer año de vida. Los riñones del bebé aún son madurativos y no pueden procesar cargas elevadas de sodio, y el azúcar altera el desarrollo del paladar fomentando preferencias poco saludables a largo plazo.</li>
+                <li>• <strong>El mito de las cantidades:</strong> "que coma todo el plato" no aplica en esta etapa. Habrá días que apenas pruebe bocado y otros que coma más; lo importante es respetar su saciedad y no forzar nunca la alimentación.</li>
+            </ul>
+
+            <div class="nota-destacada">
+                <p><strong>Nota importante:</strong> Independientemente de que elijas purés o BLW, ambos métodos son perfectamente compatibles y pueden combinarse según las necesidades de la familia y el ritmo del propio bebé.</p>
+            </div>
+        </section>
+
+        <div class="navegacion-paginas">
+            <a href="lactancia02.html" class="btn-navegacion">
+                &larr; Anterior: Crisis y Lactancia Mixta
+            </a>
+            <a href="lactancia04.html" class="btn-navegacion">
+                Siguiente: Alérgenos y Menús &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

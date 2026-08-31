@@ -59,11 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         
                         <div style="border-left: 1px solid rgba(255,255,255,0.08); padding-left: 12px;">
-                            <div style="color: #f1c442; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🌟 Embarazo</div>
-                            <a href="embarazo01.html" style="padding: 6px 8px;">🌟 1er Trimestre</a>
-                            <a href="embarazo02.html" style="padding: 6px 8px;">💧 2º Trimestre</a>
-                            <a href="embarazo03.html" style="padding: 6px 8px;">🌸 3er Trimestre</a>
-                            <a href="embarazo04.html" style="padding: 6px 8px;">💜 Parto y Postparto</a>
+                            <div style="color: #f1c442; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🌟 Guías de Crianza</div>
+                            <a href="embarazo01.html" style="padding: 8px; font-weight: 500;">🌟 Embarazo</a>
+                            <a href="lactancia01.html" style="padding: 8px; font-weight: 500; margin-top: 6px;">🍼 Lactancia</a>
+                            <a href="dental01.html" style="padding: 8px 12px; font-weight: 500; margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">🦷 Dental</a>
+                            <a href="crecimiento01.html" style="padding: 8px 12px; font-weight: 500; margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">🌱 Crecimiento</a>
                         </div>
                     </div>
                 </div>
