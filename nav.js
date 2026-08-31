@@ -39,8 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="menu-links" id="navMenuLinks">
                 <a href="index.html">🏠 Inicio</a>
-                <a href="bienvenida.html">✨ Bienvenida</a>
-                <a href="proyecto.html">📊 Proyecto</a>
+                
+                <div class="dropdown" id="presentationDropdown">
+                    <button class="dropbtn" type="button">✨ Presentación ▾</button>
+                    <div class="dropdown-content">
+                        <a href="bienvenida.html">✨ Bienvenida</a>
+                        <a href="proyecto.html">📊 Proyecto</a>
+                    </div>
+                </div>
+
                 <a href="cuentos.html">📁 Cuentos</a>
                 <a href="podcast.html">🎙️ Podcast</a>
                 
