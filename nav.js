@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <style>
             /* Estilo adaptativo para el menú desplegable en dos columnas y dispositivos móviles */
             @media (min-width: 969px) {
-                #healthDropdown .dropdown-content {
+                #healthDropdown .dropdown-content, #parentingDropdown .dropdown-content {
                     min-width: 440px !important;
                     display: grid !important;
                     grid-template-columns: 1fr 1fr !important;
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
             @media (max-width: 968px) {
-                #healthDropdown .dropdown-content {
+                #healthDropdown .dropdown-content, #parentingDropdown .dropdown-content {
                     display: flex !important;
                     flex-direction: column !important;
                     position: static !important;
@@ -51,10 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="cuentos.html">📁 Cuentos</a>
                 <a href="podcast.html">🎙️ Podcast</a>
                 
+                <!-- Menú 1: Salud y Bienestar (Solo Psicología y Recursos Prácticos) -->
                 <div class="dropdown" id="healthDropdown">
                     <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
-                        <div>
+                        <div style="width: 100%;">
                             <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🧠 Psicología</div>
                             <a href="glosario.html" style="padding: 6px 8px;">✨ Glosario Poético</a>
                             <a href="glosariopedagogico.html" style="padding: 6px 8px;">🧠 Glosario Pedagógico</a>
@@ -63,14 +64,22 @@ document.addEventListener("DOMContentLoaded", () => {
                             
                             <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 12px; margin-bottom: 6px;">📋 Práctico</div>
                             <a href="guiasSalud.html" style="padding: 6px 8px;">📋 Guías de Salud</a>
+                            <a href="orientacion.html" style="padding: 6px 8px; font-weight: 500; color: #38bdf8;">🧭 Orientación y Apoyo</a>
                         </div>
-                        
-                        <div style="border-left: 1px solid rgba(255,255,255,0.08); padding-left: 12px;">
-                            <div style="color: #f1c442; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🌟 Guías de Crianza</div>
+                    </div>
+                </div>
+
+                <!-- Menú 2: Guías de Crianza (Desplegable independiente) -->
+                <div class="dropdown" id="parentingDropdown">
+                    <button class="dropbtn" type="button">🌟 Guías de Crianza ▾</button>
+                    <div class="dropdown-content">
+                        <div style="width: 100%;">
+                            <div style="color: #f1c442; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🌱 El Recorrido Vital</div>
                             <a href="embarazo01.html" style="padding: 8px; font-weight: 500;">🌟 Embarazo</a>
                             <a href="lactancia01.html" style="padding: 8px; font-weight: 500; margin-top: 6px;">🍼 Lactancia</a>
                             <a href="dental01.html" style="padding: 8px 12px; font-weight: 500; margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">🦷 Dental</a>
                             <a href="crecimiento01.html" style="padding: 8px 12px; font-weight: 500; margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">🌱 Crecimiento</a>
+                            <a href="auxilios01.html" style="padding: 8px 12px; font-weight: 500; margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">🚨 Primeros Auxilios</a>
                         </div>
                     </div>
                 </div>

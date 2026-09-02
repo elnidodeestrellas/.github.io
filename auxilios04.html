@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahogamientos, Quemaduras y Urgencias Médicas | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .bloque-guia {
+            background: rgba(44, 24, 24, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #ef4444;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f87171; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(239, 68, 68, 0.2); padding-bottom: 8px; }
+        .bloque-guia h4 { font-family: 'Quicksand', sans-serif; color: #fca5a5; margin-top: 25px; margin-bottom: 10px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #ef4444; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f87171; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f87171; padding-left: 5px; }
+
+        .nota-destacada {
+            background: rgba(239, 68, 68, 0.12);
+            border-left: 4px solid #ef4444;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+        }
+        .nota-destacada p { margin: 0; color: #e2e8f0; }
+
+        .imagen-guia {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <div class="encabezado-inicio" style="text-align: center; padding: 0 20px;">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f87171; margin-bottom: 15px;">Ahogamientos, Quemaduras y Otras Urgencias Vitales</h1>
+            <p style="font-size: 1.3rem; color: #fca5a5; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Cuarta y última parte de la guía de urgencias: protocolos de rescate en el agua, tratamiento de quemaduras y agentes químicos, e instrucciones claras para una llamada eficaz al 112.</p>
+            <div style="max-width: 900px; margin: 0 auto 40px auto;">
+                <img src="imgauxilios/portada04.webp" alt="Ahogamientos y Urgencias Médicas" class="imagen-guia" style="height: 350px;">
+            </div>
+        </div>
+
+        <div class="bloque-guia">
+            <h2>Índice Detallado de la Cuarta Parte</h2>
+            
+            <div class="indice-caja">
+                <h4>Contenidos de urgencias avanzadas:</h4>
+                <ul>
+                    <li><a href="#protocolo-ahogamiento">1. Protocolo de actuación ante un ahogamiento en el agua</a></li>
+                    <li><a href="#quemaduras-graves">2. Gestión de quemaduras térmicas y exposiciones químicas</a></li>
+                    <li><a href="#intoxicaciones">3. Actuación ante sospecha de intoxicación o ingesta de tóxicos</a></li>
+                    <li><a href="#llamada-112">4. Guía definitiva para realizar una llamada de emergencia eficaz al 112</a></li>
+                </ul>
+            </div>
+
+            <h3 id="protocolo-ahogamiento">1. Protocolo de actuación ante un ahogamiento en el agua</h3>
+            <p>El ahogamiento produce una privación repentina de oxígeno por la entrada de agua en las vías respiratorias. Una vez extraído el menor del medio acuático (piscina, playa o bañera), la velocidad y el método de respuesta inicial marcan la diferencia clínica.</p>
+            <ul>
+                <li>• <strong>Rescate y evaluación inmediata:</strong> Sacar al niño del agua con precaución y comprobar de inmediato su estado de consciencia y respiración tal como se detalla en el protocolo de soporte vital básico.</li>
+                <li>• <strong>Prioridad de las ventilaciones:</strong> En los ahogamientos, la causa primaria de la parada es la anoxia (falta de oxígeno). Por ello, al iniciar la reanimación (si el niño no respira), es fundamental comenzar administrando <strong>5 ventilaciones de rescate iniciales</strong> antes de pasar a las compresiones torácicas.</li>
+                <li>• <strong>Manejo del agua aspirada:</strong> No pierdas tiempo intentando vaciar o "hacer vomitar" el agua de los pulmones o del estómago mediante maniobras de inversión o golpes en la espalda; gran parte del agua se absorbe de forma natural o es expulsada durante las propias ventilaciones y compresiones de la RCP. Concéntrate exclusivamente en ventilar y comprimir.</li>
+            </ul>
+
+            <img src="imgauxilios/hueco07.webp" alt="Secuencia de rescate acuático y valoración de constantes vitales" class="imagen-guia">
+
+            <h3 id="quemaduras-graves">2. Gestión de quemaduras térmicas y exposiciones químicas</h3>
+            <p>Las quemaduras en la infancia (por líquidos calientes, contacto con estufas, planchas o productos químicos) requieren una actuación rápida para frenar el daño tisular en la piel del menor, que es mucho más fina y vulnerable que la de un adulto.</p>
+            <ul>
+                <li>• <strong>Enfriamiento inmediato con agua:</strong> Aplicar agua fría (nunca helada ni hielo directo) de manera continua sobre la zona afectada durante al menos 15 a 20 minutos. Esto reduce la temperatura profunda de la quemadura y mitiga drásticamente el dolor.</li>
+                <li>• <strong>Retirada prudente de ropa:</strong> Retirar con suavidad la ropa o pañales que no estén pegados a la piel. <strong>Jamás arranques</strong> prendas que se hayan fundido o adherido a la lesión quemada; corta alrededor de la tela y deja esa parte para la valoración médica.</li>
+                <li>• <strong>Prohibido remedios caseros:</strong> No aplicar bajo ningún concepto pasta de dientes, aceites, mantequilla, pomadas caseras ni algodón sobre la herida, ya que aumentan el riesgo de infección grave y dificultan la limpieza quirúrgica posterior. Cubrir la lesión holgadamente con una gasa limpia o paño estéril húmedo.</li>
+            </ul>
+
+            <h3 id="intoxicaciones">3. Actuación ante sospecha de intoxicación o ingesta de tóxicos</h3>
+            <p>Ante la sospecha o certeza de que un niño ha ingerido un producto de limpieza, un medicamento o una planta tóxica, la calma y el asesoramiento profesional inmediato son vitales.</p>
+            <ul>
+                <li>• <strong>Nunca provocar el vómito de forma autónoma:</strong> Inducir el vómito puede ser extremadamente peligroso (especialmente si se trata de productos químicos corrosivos o espumosos), ya que al salir queman de nuevo el esófago y aumentan el riesgo de que el tóxico pase a los pulmones.</li>
+                <li>• <strong>Conservar la muestra o envase:</strong> Guarda el bote, etiqueta o resto del producto ingerido para poder mostrárselo o describírselo con total exactitud al personal médico o al servicio de toxicología.</li>
+                <li>• <strong>Contacto con urgencias toxicológicas:</strong> Llama de inmediato al servicio de emergencias médicas (112) o al Instituto Nacional de Toxicología aportando los datos del producto, la cantidad estimada y el peso aproximado del menor.</li>
+            </ul>
+
+            <img src="imgauxilios/hueco08.webp" alt="Material de primeros auxilios y almacenamiento seguro de productos" class="imagen-guia">
+
+            <h3 id="llamada-112">4. Guía definitiva para realizar una llamada de emergencia eficaz al 112</h3>
+            <p>Cuando los nervios atenazan en una situación crítica, saber qué información demanda el operador del centro de coordinación de urgencias agiliza la llegada de la ambulancia o el equipo médico especializado.</p>
+            <ul>
+                <li>• <strong>Mantener la calma y hablar con claridad:</strong> El operador está entrenado para guiarte; responde de forma concisa y directa a sus preguntas.</li>
+                <li>• <strong>Información clave a transmitir:</strong>
+                    <ul>
+                        <li>1. <strong>Qué ha ocurrido:</strong> Especificar claramente si es un atragantamiento, un ahogamiento, una parada cardiorrespiratoria, una quemadura grave o una intoxicación.</li>
+                        <li>2. <strong>Dónde estás exactamente:</strong> Dirección postal completa, localidad, puntos de referencia visibles o ubicación exacta si se llama desde un smartphone.</li>
+                        <li>3. <strong>Estado actual del menor:</strong> Indicar si el niño respira, si está consciente o si se están realizando maniobras de reanimación en ese preciso instante.</li>
+                    </ul>
+                </li>
+                <li>• <strong>No colgar el teléfono:</strong> Mantén la línea abierta (utiliza el manos libres si estás solo realizando la RCP) hasta que el operador te indique que los recursos sanitarios están en camino o te transfiera con el equipo médico de emergencias para recibir instrucciones telefónicas avanzadas.</li>
+            </ul>
+
+            <div class="nota-destacada">
+                <p><strong>Conclusión de la guía:</strong> La formación, la prevención activa y la serenidad ante el imprevisto son los mejores escudos protectores que una familia puede ofrecer a sus hijos.</p>
+            </div>
+        </div>
+
+        <div class="navegacion-paginas">
+            <a href="auxilios03.html" class="btn-navegacion">
+                &larr; Anterior: Soporte Vital Básico y RCP
+            </a>
+            <span><!-- Fin de la guía --></span>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

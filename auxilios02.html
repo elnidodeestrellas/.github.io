@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Atragantamientos (OVASC) | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .bloque-guia {
+            background: rgba(44, 24, 24, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #ef4444;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f87171; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(239, 68, 68, 0.2); padding-bottom: 8px; }
+        .bloque-guia h4 { font-family: 'Quicksand', sans-serif; color: #fca5a5; margin-top: 25px; margin-bottom: 10px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #ef4444; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f87171; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f87171; padding-left: 5px; }
+
+        .nota-destacada {
+            background: rgba(239, 68, 68, 0.12);
+            border-left: 4px solid #ef4444;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+        }
+        .nota-destacada p { margin: 0; color: #e2e8f0; }
+
+        .imagen-guia {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <div class="encabezado-inicio" style="text-align: center; padding: 0 20px;">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f87171; margin-bottom: 15px;">Protocolo de Actuación ante Atragantamientos (OVASC)</h1>
+            <p style="font-size: 1.3rem; color: #fca5a5; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Segunda parte de la guía de urgencias: diferenciación crucial entre tos efectiva y obstrucción total, maniobras exactas para lactantes y niños mayores, y errores críticos a evitar.</p>
+            <div style="max-width: 900px; margin: 0 auto 40px auto;">
+                <img src="imgauxilios/portada02.webp" alt="Protocolo de Atragantamientos" class="imagen-guia" style="height: 350px;">
+            </div>
+        </div>
+
+        <div class="bloque-guia">
+            <h2>Índice Detallado de la Segunda Parte</h2>
+            
+            <div class="indice-caja">
+                <h4>Contenidos del protocolo de asfixia:</h4>
+                <ul>
+                    <li><a href="#tos-efectiva">1. El diagnóstico inicial vital: tos efectiva frente a obstrucción grave</a></li>
+                    <li><a href="#maniobras-lactantes">2. Protocolo de actuación en lactantes (menores de 1 año)</a></li>
+                    <li><a href="#maniobras-ninos">3. Protocolo de actuación en niños mayores de 1 año (Maniobra de Heimlich)</a></li>
+                    <li><a href="#mitos-peligrosos">4. Errores críticos y mitos peligrosos que jamás se deben cometer</a></li>
+                </ul>
+            </div>
+
+            <h3 id="tos-efectiva">1. El diagnóstico inicial vital: tos efectiva frente a obstrucción grave</h3>
+            <p>Ante un episodio de atragantamiento repentino, el primer segundo debe destinarse a evaluar si el mecanismo de defensa natural del cuerpo está funcionando o si la vía aérea se encuentra bloqueada por completo. Actuar de forma precipitada cuando el niño puede toser puede empeorar drásticamente la situación.</p>
+            
+            <h4>Tos efectiva (obstrucción leve):</h4>
+            <ul>
+                <li>• <strong>Síntomas:</strong> el niño llora, tose con fuerza, emite sonidos claros, respira entre golpe y golpe y mantiene un buen color en la piel y los labios.</li>
+                <li>• <strong>Acción correcta:</strong> animarle a toser de manera continua sin intervenir mecánicamente. <strong>Jamás se deben dar palmadas en la espalda</strong> mientras tose con eficacia, ya que ese impacto podría descolocar el cuerpo extraño y convertir una obstrucción parcial en una total. Vigilar de cerca su evolución.</li>
+            </ul>
+
+            <h4>Obstrucción grave (obstrucción total o ineficaz):</h4>
+            <ul>
+                <li>• <strong>Síntomas:</strong> el niño no puede hablar, no puede emitir sonidos ni llorar, la tos es silenciosa o inexistente, presenta dificultad respiratoria extrema con hundimiento de costillas o tiraje, y los labios o la piel comienzan a tornarse azulados (cianosis). Se lleva las manos al cuello de forma instintiva.</li>
+                <li>• <strong>Acción correcta:</strong> requiere la activación inmediata del protocolo de emergencia y la aplicación urgente de las maniobras físicas de desobstrucción.</li>
+            </ul>
+
+            <div class="nota-destacada">
+                <p><strong>Regla de oro:</strong> Si el niño respira o tose con fuerza, déjale toser. Si deja de emitir sonidos y se ahoga en silencio, actúa de inmediato.</p>
+            </div>
+
+            <h3 id="maniobras-lactantes">2. Protocolo de actuación en lactantes (menores de 1 año)</h3>
+            <p>En los bebés menores de doce meses la anatomía es muy específica, por lo que las compresiones abdominales tipo Heimlich están contraindicadas debido al riesgo de lesionar órganos internos. El procedimiento se basa estrictamente en la combinación de gravedad, palmadas interescapulares y compresiones torácicas con dos dedos.</p>
+            
+            <h4>Secuencia paso a paso para lactantes:</h4>
+            <ul>
+                <li>• <strong>Paso 1 (Posicionamiento):</strong> Colocar al bebé boca abajo a lo largo del antebrazo del rescatador, sujetando firmemente su mandíbula y mentón con los dedos de esa misma mano (nunca presionar los tejidos blandos del cuello). El brazo debe apoyarse sobre el muslo o las piernas del adulto, asegurando que <strong>la cabeza del bebé quede siempre más baja que el tronco</strong> para aprovechar la fuerza de la gravedad.</li>
+                <li>• <strong>Paso 2 (5 Palmadas interescapulares):</strong> Con el talón de la otra mano abierta, propinar firmemente 5 palmadas secas y decididas en la espalda del bebé, exactamente en el espacio intermedio situado entre ambos omóplatos. El objetivo no es golpear con brutalidad, sino generar una onda de presión seca que desplace el objeto hacia la salida.</li>
+                <li>• <strong>Paso 3 (Giro y compresiones torácicas):</strong> Si tras las 5 palmadas el objeto no sale, colocar el antebrazo libre sobre la espalda del bebé, sándwichearlo con cuidado entre ambos brazos y girarlo boca arriba, manteniéndolo inclinado con la cabeza siempre más baja que el cuerpo. Apoyarlo sobre el muslo.</li>
+                <li>• <strong>Paso 4 (5 Compresiones torácicas):</strong> Localizar el centro del pecho del lactante (exactamente igual que para el masaje cardíaco, un dedo por debajo de la línea imaginaria que une los pezones). Aplicar 5 compresiones torácicas rápidas y profundas (hundiendo aproximadamente un tercio del tórax) utilizando las yemas de dos dedos (índice y corazón).</li>
+                <li>• <strong>Paso 5 (Ciclo continuo):</strong> Alternar ciclos de 5 palmadas interescapulares y 5 compresiones torácicas de manera ininterrumpida hasta que el objeto sea expulsado, el lactante comience a toser o llorar con fuerza, o bien pierda la consciencia (momento en el que se iniciará soporte vital básico).</li>
+            </ul>
+
+            <img src="imgauxilios/hueco03.webp" alt="Maniobra en lactantes" class="imagen-guia">
+
+            <h3 id="maniobras-ninos">3. Protocolo de actuación en niños mayores de 1 año (Maniobra de Heimlich)</h3>
+            <p>A partir del año de vida y hasta la adolescencia, la anatomía del tórax y el abdomen permite aplicar con seguridad la clásica maniobra de compresiones abdominales (Heimlich), diseñada para forzar la salida de aire residual acumulado en los pulmones y expulsar el objeto.</p>
+            
+            <h4>Secuencia paso a paso para niños mayores:</h4>
+            <ul>
+                <li>• <strong>Paso 1 (Posición del rescatador):</strong> Situarse de rodillas (si el niño es pequeño) o de pie por detrás del niño, rodeando su cintura con ambos brazos. Inclinación leve del cuerpo del menor hacia adelante para facilitar que la gravedad colabore en la expulsión.</li>
+                <li>• <strong>Paso 2 (Cierre del puño):</strong> Cerrar una mano en forma de puño firme. Colocar el lado del pulgar de ese puño contra el abdomen del niño, situado en un punto medio exacto: <strong>por encima del ombligo y netamente por debajo de las costillas</strong> (apéndice xifoides).</li>
+                <li>• <strong>Paso 3 (Compresiones secas):</strong> Sujetar el puño firmemente con la otra mano. Realizar compresiones abdominales rápidas, profundas y secas, aplicando una trayectoria simultánea <strong>hacia adentro y hacia arriba</strong> (como si se intentara levantar al niño). Cada compresión debe ser un movimiento independiente y claramente definido.</li>
+                <li>• <strong>Paso 4 (Repetición):</strong> Continuar repitiendo las compresiones de manera rítmica hasta que el objeto sea expulsado con éxito o el menor comience a respirar o toser por sí mismo. Si el niño pierde la consciencia durante el proceso, descenderlo con control al suelo y comenzar soporte vital básico.</li>
+            </ul>
+
+            <img src="imgauxilios/hueco04.webp" alt="Maniobra de Heimlich en niños" class="imagen-guia">
+
+            <h3 id="mitos-peligrosos">4. Errores críticos y mitos peligrosos que jamás se deben cometer</h3>
+            <p>En situaciones de extrema tensión familiar, es habitual caer en falsas creencias transmitidas popularmente que agravan drásticamente el pronóstico del menor:</p>
+            <ul>
+                <li>• <strong>Introducir los dedos a ciegas en la boca del niño:</strong> <strong>Prohibido de forma absoluta</strong> si no se ve claramente el objeto asomando en la cavidad oral. Introducir los dedos a tientas en un niño consciente o inconsciente suele tener el efecto contrario: empujar el cuerpo extraño todavía más al fondo de la tráquea, encajándolo de forma irreversible.</li>
+                <li>• <strong>Sacudir al niño sujetándolo por los pies:</strong> Un mito absurdo y peligroso. Poner al niño boca abajo sacudiéndolo violentamente no desplaza el objeto por gravedad física real y provoca lesiones cerebrales severas o traumatismos craneales innecesarios.</li>
+                <li>• <strong>Dar de beber agua o migas de pan para "empujar":</strong> Intentar hacer tragar agua, migas de pan o alimentos sólidos con la falsa esperanza de que bajen el objeto atascado es un error crítico que bloquea aún más el conducto y aumenta el riesgo de aspiración pulmonar grave.</li>
+            </ul>
+
+            <div class="nota-destacada">
+                <p><strong>Llamada de urgencia (112):</strong> Si estás acompañado, pide a otra persona que llame al 112 de inmediato. Si estás solo con un lactante o niño y sufres una obstrucción total, aplica 2 minutos de maniobras de desobstrucción antes de detenerte para llamar a emergencias.</p>
+            </div>
+        </div>
+
+        <div class="navegacion-paginas">
+            <a href="auxilios01.html" class="btn-navegacion">
+                &larr; Anterior: Prevención y entorno
+            </a>
+            <a href="auxilios03.html" class="btn-navegacion">
+                Siguiente: Soporte Vital Básico y RCP &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

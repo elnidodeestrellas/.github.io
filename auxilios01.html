@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeros Auxilios y Prevención: Seguridad Infantil | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .bloque-guia {
+            background: rgba(44, 24, 24, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #ef4444;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f87171; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(239, 68, 68, 0.2); padding-bottom: 8px; }
+        .bloque-guia h4 { font-family: 'Quicksand', sans-serif; color: #fca5a5; margin-top: 25px; margin-bottom: 10px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #ef4444; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f87171; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f87171; padding-left: 5px; }
+
+        .nota-destacada {
+            background: rgba(239, 68, 68, 0.12);
+            border-left: 4px solid #ef4444;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+        }
+        .nota-destacada p { margin: 0; color: #e2e8f0; }
+
+        .imagen-guia {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <div class="encabezado-inicio" style="text-align: center; padding: 0 20px;">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f87171; margin-bottom: 15px;">Prevención y Seguridad Infantil: Entornos Protegidos</h1>
+            <p style="font-size: 1.3rem; color: #fca5a5; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Primera parte de la guía exhaustiva de urgencias: anticipación del desarrollo infantil, eliminación de riesgos críticos en el hogar y pautas absolutas de supervisión frente al ahogamiento y la asfixia.</p>
+            <div style="max-width: 900px; margin: 0 auto 40px auto;">
+                <img src="imgauxilios/portada01.webp" alt="Prevención y Seguridad Infantil" class="imagen-guia" style="height: 350px;">
+            </div>
+        </div>
+
+        <div class="bloque-guia">
+            <h2>Índice Detallado de la Primera Parte</h2>
+            
+            <div class="indice-caja">
+                <h4>Contenidos de prevención y seguridad avanzada:</h4>
+                <ul>
+                    <li><a href="#filosofia-prevencion">1. La mentalidad preventiva: anticiparse al desarrollo evolutivo del menor</a></li>
+                    <li><a href="#riesgo-atragantamiento">2. Prevención profunda de atragantamientos (OVASC): alimentos y objetos críticos</a></li>
+                    <li><a href="#prevencion-ahogamientos">3. Seguridad acuática radical: la regla de oro de la supervisión activa y barreras perimetrales</a></li>
+                    <li><a href="#seguridad-hogar">4. El mapa integral de riesgos domésticos: tóxicos, caídas, quemaduras y electrocución</a></li>
+                </ul>
+            </div>
+
+            <h3 id="filosofia-prevencion">1. La mentalidad preventiva: anticiparse al desarrollo evolutivo del menor</h3>
+            <p>La seguridad infantil no se sustenta sobre la prohibición constante ni sobre el miedo, sino sobre el conocimiento profundo de la neurobiología y la psicomotricidad del niño. Cada etapa del crecimiento abre una ventana de exploración radicalmente nueva: el bebé que empieza a voltearse, el que gatea y explora a ras de suelo, el toddler que camina y descubre la altura de las mesas, o el preescolar que trepa con una agilidad insospechada.</p>
+            <p>Anticiparse significa modificar el entorno físico antes de que el niño adquiera la habilidad motora para alcanzar el peligro. Los menores carecen por completo de percepción del riesgo; su instinto es la curiosidad pura. Por tanto, la responsabilidad de crear un perímetro seguro recae única y exclusivamente en los adultos cuidadores.</p>
+
+            <img src="imgauxilios/hueco01.webp" alt="Seguridad en el hogar y protección de enchufes" class="imagen-guia">
+
+            <h3 id="riesgo-atragantamiento">2. Prevención profunda de atragantamientos (OVASC): alimentos y objetos críticos</h3>
+            <p>La asfixia por obstrucción de la vía aérea por cuerpos extraños es una de las emergencias más aterradoras y potencialmente fatales en la infancia, con mayor incidencia entre los 6 meses y los 4 años. En esta etapa convergen factores anatómicos (vías respiratorias estrechas, menor coordinación en la masticación y ausencia de molares definitivos) y conductuales (tendencia a hablar, reír o correr con comida en la boca).</p>
+            
+            <h4>Alimentos de alto riesgo absoluto:</h4>
+            <ul>
+                <li>• <strong>Frutos secos enteros y cacahuetes:</strong> prohibidos de forma absoluta antes de los 5 años, tanto enteros como en trozos duros. Su tamaño y consistencia taponan perfectamente la tráquea infantil y su composición grasa dificulta la extracción médica si pasan al pulmón.</li>
+                <li>• <strong>Uvas, tomates cherry y frutas pequeñas:</strong> nunca deben ofrecerse enteros. Su forma esférica y firme encaja como un émbolo exacto en la laringe. Deben cortarse siempre longitudinalmente (en cuartos a lo largo) y retirar pepitas duras.</li>
+                <li>• <strong>Salchichas y alimentos cilíndricos:</strong> la forma tubular redonda es un calco del conducto traqueal. Cortarlas en rodajas transversales crea auténticos "tapones de botella". Deben cortarse siempre a lo largo en tiras finas y finamente picadas.</li>
+                <li>• <strong>Caramelos duros, gominolas gelatinosas y palomitas de maíz:</strong> los caramelos y gominolas se adhieren por su textura a las paredes de la vía aérea bloqueando el paso del aire. Las palomitas contienen cascarillas ligeras que se aspiran fácilmente hacia los bronquios provocando neumonías severas.</li>
+            </ul>
+
+            <h4>Objetos cotidianos letales:</h4>
+            <p>Fuera de la cocina, el peligro reside en objetos pequeños que los niños se llevan por reflejo a la boca:</p>
+            <ul>
+                <li>• <strong>Globos de látex sin inflar o rotos:</strong> constituyen la primera causa de asfixia mortal por cuerpo extraño no alimentario. El látex se adhiere herméticamente a las cuerdas vocales impidiendo el paso del aire de forma total.</li>
+                <li>• <strong>Pilas de botón:</strong> además del riesgo de atragantamiento mecánico, su ingesta provoca una quemadura química interna devastadora en cuestión de horas por descarga eléctrica en los tejidos del esófago.</li>
+                <li>• <strong>Imanes de neodimio y piezas pequeñas:</strong> si se tragan varios imanes, estos se atraen a través de las paredes intestinales perforando los tejidos.</li>
+            </ul>
+
+            <h3 id="prevencion-ahogamientos">3. Seguridad acuática radical: la regla de oro de la supervisión activa y barreras perimetrales</h3>
+            <p>Los ahogamientos infantiles en el ámbito doméstico y vacacional se caracterizan por su extrema rapidez y silencio absoluto. A diferencia de las películas, un niño que se ahoga no grita ni agita los brazos pidiendo ayuda; la energía se consume únicamente en intentar respirar, hundiéndose de manera vertical en cuestión de segundos.</p>
+            <p>Es un mito peligroso pensar que se necesita una gran profundidad: un bebe puede ahogarse mortalmente en apenas dos o tres centímetros de agua retenida en el fondo de una bañera, un cubo de limpieza desatendido, una piscina desmontable pequeña o un estanque de jardín.</p>
+
+            <img src="imgauxilios/hueco02.webp" alt="Seguridad acuática y piscinas protegidas" class="imagen-guia">
+
+            <div class="nota-destacada">
+                <p><strong>El concepto de "Adulto Designado":</strong> La supervisión activa implica que los ojos del cuidador están fijos en el niño, sin pantallas de por medio, sin lecturas y sin distracciones. En reuniones familiares junto a piscinas, debe asignarse formalmente a un adulto responsable por turnos estrictos. El uso de flotadores de brazo o manguitos da una falsa sensación de seguridad y nunca exime de la presencia física inmediata del adulto.</p>
+            </div>
+
+            <h3 id="seguridad-hogar">4. El mapa integral de riesgos domésticos: tóxicos, caídas, quemaduras y electrocución</h3>
+            <p>El hogar concentra la mayor parte de los accidentes infantiles. Un análisis detallado por áreas permite blindar el espacio de convivencia:</p>
+            <ul>
+                <li>• <strong>Intoxicaciones y productos químicos:</strong> los detergentes, geles, pastillas de lavavajillas y productos de limpieza general deben almacenarse en armarios altos dotados de pestillos de seguridad, o bajo llave. Jamás se deben trasvasar líquidos químicos a botellas de agua o refrescos reutilizados, ya que el menor los identificará erróneamente como bebida. Lo mismo aplica para los medicamentos, que deben guardarse en botiquines elevados fuera de su campo visual.</li>
+                <li>• <strong>Prevención de caídas desde altura:</strong> las ventanas accesibles y los balcones deben contar con sistemas de bloqueo de apertura o mallas de protección homologadas. Las escaleras interiores exigen la instalación fija de barreras de seguridad tanto en el tramo superior como en el inferior. Los cambiadores de ropa y camas de los padres nunca deben utilizarse sin la sujeción permanente o la presencia de un adulto al alcance de la mano.</li>
+                <li>• <strong>Prevención de quemaduras:</strong> en la cocina, priorizar siempre el uso de los fuegos posteriores y orientar los mangos de sartenes y cazos hacia la parte de atrás para evitar tirones accidentales. Evitar el uso de manteles largos que los niños puedan tirar provocando la caída de líquidos hirvientes. Al tomar café o té caliente, nunca se debe sostener la taza con el bebé en brazos.</li>
+                <li>• <strong>Riesgo eléctrico:</strong> instalar protectores de enchufes de giro seguro en toda la vivienda y comprobar que las instalaciones no dejen cables pelados o alargadores a ras de suelo al alcance de la manipulación infantil.</li>
+            </ul>
+
+            <div class="nota-destacada">
+                <p><strong>Recuerda:</strong> La prevención es el primer y más eficaz eslabón de la cadena de supervivencia. Un entorno minuciosamente adaptado evita la inmensa mayoría de las situaciones críticas antes de que lleguen a producirse.</p>
+            </div>
+        </div>
+
+        <div class="navegacion-paginas">
+            <span><!-- Inicio de la guía --></span>
+            <a href="auxilios02.html" class="btn-navegacion">
+                Siguiente: Protocolo ante atragantamientos (OVASC) &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte Vital Básico y RCP Pediátrica | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .bloque-guia {
+            background: rgba(44, 24, 24, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #ef4444;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f87171; margin-top: 0; margin-bottom: 25px; }
+        .bloque-guia h3 { font-family: 'Quicksand', sans-serif; color: #ffffff; margin-top: 35px; margin-bottom: 15px; border-bottom: 1px solid rgba(239, 68, 68, 0.2); padding-bottom: 8px; }
+        .bloque-guia h4 { font-family: 'Quicksand', sans-serif; color: #fca5a5; margin-top: 25px; margin-bottom: 10px; }
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.25); padding: 25px; border-radius: 12px; border-left: 4px solid #ef4444; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f87171; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f87171; padding-left: 5px; }
+
+        .nota-destacada {
+            background: rgba(239, 68, 68, 0.12);
+            border-left: 4px solid #ef4444;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+        }
+        .nota-destacada p { margin: 0; color: #e2e8f0; }
+
+        .imagen-guia {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <div class="encabezado-inicio" style="text-align: center; padding: 0 20px;">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f87171; margin-bottom: 15px;">Soporte Vital Básico y Reanimación Pediátrica (RCP)</h1>
+            <p style="font-size: 1.3rem; color: #fca5a5; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 40px auto;">Tercera parte de la guía de urgencias: comprobación de consciencia, apertura de vía aérea, ventilaciones de rescate y compresiones torácicas adaptadas a lactantes y niños.</p>
+            <div style="max-width: 900px; margin: 0 auto 40px auto;">
+                <img src="imgauxilios/portada03.webp" alt="Soporte Vital Básico y RCP" class="imagen-guia" style="height: 350px;">
+            </div>
+        </div>
+
+        <div class="bloque-guia">
+            <h2>Índice Detallado de la Tercera Parte</h2>
+            
+            <div class="indice-caja">
+                <h4>Contenidos de soporte vital básico:</h4>
+                <ul>
+                    <li><a href="#evaluacion-inicial">1. Evaluación inicial de la consciencia y la respiración</a></li>
+                    <li><a href="#apertura-via">2. Apertura de la vía aérea y ventilaciones de rescate iniciales</a></li>
+                    <li><a href="#rcp-lactantes">3. Reanimación Cardiopulmonar (RCP) en lactantes (menores de 1 año)</a></li>
+                    <li><a href="#rcp-ninos">4. Reanimación Cardiopulmonar (RCP) en niños mayores de 1 año</a></li>
+                </ul>
+            </div>
+
+            <h3 id="evaluacion-inicial">1. Evaluación inicial de la consciencia y la respiración</h3>
+            <p>Si un niño sufre un atragantamiento total, un ahogamiento o un desmayo repentino y pierde la consciencia, el tiempo de actuación determina por completo las probabilidades de supervivencia y la ausencia de secuelas neurológicas. No hay que dejarse vencer por el pánico: el protocolo internacional de soporte vital básico proporciona una guía clara y metódica.</p>
+            
+            <h4>Pasos de evaluación inmediata:</h4>
+            <ul>
+                <li>• <strong>Comprobar consciencia:</strong> Estimular al niño con suavidad sacudiéndole los hombros (en niños mayores) o golpeando las plantas de los pies (en lactantes), hablándole en voz alta y clara ("¿Te encuentras bien?"). Si no responde ni emite ningún sonido o movimiento, se considera inconsciente.</li>
+                <li>• <strong>Pedir ayuda / Activar el 112:</strong> Si hay más personas presentes, encarga a alguien que llame inmediatamente al 112 y busque un desfibrilador (DEA). Si estás totalmente solo con el menor, <strong>debes realizar 2 minutos completos de RCP efectiva</strong> antes de dejar al niño para llamar por teléfono a emergencias.</li>
+                <li>• <strong>Comprobar respiración:</strong> Colocar al niño boca arriba sobre una superficie firme y plana. Abrir la vía aérea y comprobar la respiración durante un máximo de 10 segundos utilizando la técnica VES: <strong>Ver</strong> si el pecho se eleva, <strong>Oír</strong> la salida de aire y <strong>Sentir</strong> el aliento en tu mejilla. Una respiración agónica, jadeante o ausente significa que no respira de forma eficaz y exige iniciar RCP de inmediato.</li>
+            </ul>
+
+            <h3 id="apertura-via">2. Apertura de la vía aérea y ventilaciones de rescate iniciales</h3>
+            <p>A diferencia de los adultos, en los niños la causa principal de parada cardiorrespiratoria suele ser la falta de oxígeno (asfixia por ahogamiento, atragantamiento o infecciones respiratorias graves). Por ello, las ventilaciones de rescate son absolutamente prioritarias antes de iniciar las compresiones.</p>
+            <ul>
+                <li>• <strong>Maniobra frente-mentón:</strong> Colocar una mano en la frente del niño inclinando suavemente la cabeza hacia atrás, y con los dedos de la otra mano levantar el mentón para despejar la vía aérea. En lactantes, la posición debe ser neutra (no hiperextender en exceso el cuello para no bloquear el conducto traqueal).</li>
+                <li>• <strong>Las 5 ventilaciones de rescate iniciales:</strong> Tras abrir la vía aérea, administrar 5 respiraciones de rescate boca a boca (en niños mayores cubriendo boca y nariz o solo boca según tamaño) o boca-boca/naríz (abarcando simultáneamente la boca y la nariz del lactante con tus labios). Suministra insuflaciones suaves y constantes, observando que el tórax del menor se eleve claramente con cada soplido, igual que cuando bosteza de forma natural.</li>
+            </ul>
+
+            <img src="imgauxilios/hueco05.webp" alt="Técnica correcta de apertura de vía aérea y ventilaciones en lactante" class="imagen-guia">
+
+            <h3 id="rcp-lactantes">3. Reanimación Cardiopulmonar (RCP) en lactantes (menores de 1 año)</h3>
+            <p>Si tras las 5 ventilaciones iniciales el lactante sigue sin reaccionar, no se mueve, no tose ni respira, el corazón se ha detenido o está a punto de hacerlo. Se debe iniciar el ciclo continuo de compresiones torácicas combinadas con ventilaciones.</p>
+            <ul>
+                <li>• <strong>Relación de compresiones y ventilaciones:</strong> El ciclo estándar de RCP pediátrica con un único socorrista es de <strong>15 compresiones torácicas seguidas de 2 ventilaciones de rescate</strong> (ritmo 15:2).</li>
+                <li>• <strong>Técnica de compresión en lactantes:</strong> Colocar dos dedos (índice y corazón) en el centro del esternón, justo un dedo por debajo de la línea intermamilar. Comprimir el tórax de forma rítmica y vertical hundiéndolo aproximadamente un tercio de su diámetro anteroposterior (unos 4 centímetros). Mantener una frecuencia rápida y constante de unas 100 a 120 compresiones por minuto (puedes guiarte mentalmente por el ritmo de la canción).</li>
+                <li>• <strong>Continuidad:</strong> Realiza bloques constantes de 15 compresiones y 2 ventilaciones sin detenerte, salvo para comprobar si el bebé recupera signos de vida espontáneos o hasta la llegada de los servicios de emergencia sanitaria.</li>
+            </ul>
+
+            <img src="imgauxilios/hueco06.webp" alt="Aplicación de compresiones torácicas en lactante" class="imagen-guia">
+
+            <h3 id="rcp-ninos">4. Reanimación Cardiopulmonar (RCP) en niños mayores de 1 año</h3>
+            <p>Para los niños que han superado el año de edad y hasta la pubertad, la técnica de compresión se adapta a su complexión física para garantizar la profundidad necesaria sobre el músculo cardíaco.</p>
+            <ul>
+                <li>• <strong>Relación de compresiones y ventilaciones:</strong> Se mantiene el mismo estándar de emergencia de <strong>15 compresiones y 2 ventilaciones</strong> (ritmo 15:2).</li>
+                <li>• <strong>Técnica de compresión en niños mayores:</strong> Utilizar el talón de una sola mano (o ambas entrelazadas si el niño es más grande o robusto) colocada sobre la mitad inferior del esternón. Mantener los brazos completamente estirados y los hombros alineados verticalmente por encima del pecho del menor. Comprimir el tórax hundiéndolo un tercio de su profundidad (aproximadamente 5 centímetros) a un ritmo constante de 100 a 120 compresiones por minuto.</li>
+                <li>• <strong>Uso de Desfibrilador (DEA):</strong> Si se dispone de un desfibrilador externo automático en el lugar del accidente, utilízalo de inmediato aplicando los parches pediátricos específicos (o los de adultos situando uno en el pecho y otro en la espalda si no hay pediátricos disponibles) siguiendo las instrucciones de voz automatizadas del aparato.</li>
+            </ul>
+
+            <div class="nota-destacada">
+                <p><strong>Constancia:</strong> La RCP puede resultar físicamente agotadora, pero mantener un ritmo firme y continuo es lo único que mantiene la perfusión de oxígeno hacia el cerebro del niño mientras llega asistencia médica avanzada.</p>
+            </div>
+        </div>
+
+        <div class="navegacion-paginas">
+            <a href="auxilios02.html" class="btn-navegacion">
+                &larr; Anterior: Protocolo de atragantamientos
+            </a>
+            <a href="auxilios04.html" class="btn-navegacion">
+                Siguiente: Ahogamientos, quemaduras y emergencias &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>
