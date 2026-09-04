@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microcuentos Emocionales | El Nido de Estrellas</title>
+    <meta name="description" content="Pequeñas historias ilustradas y cuentos cortos organizados por temas para acompañar la infancia en momentos clave.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .cuentos-container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        /* --- Cabecera Banner --- */
+        .cuentos-header-banner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #131c31;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-sizing: border-box;
+        }
+
+        .cuentos-imagen-portada {
+            width: 160px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            flex-shrink: 0;
+            background: #1a253a;
+        }
+
+        .cuentos-texto-portada h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .cuentos-texto-portada p {
+            font-family: 'Inter', sans-serif;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .cuentos-header-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .cuentos-imagen-portada {
+                width: 100%;
+                height: 160px;
+            }
+            .cuentos-texto-portada h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* --- Filtros de Temas --- */
+        .temas-filtros {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-filtro {
+            background: #131c31;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #94a3b8;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .btn-filtro:hover {
+            color: #ffffff;
+            background: #1a253a;
+        }
+
+        /* Colores específicos de filtros activos */
+        .btn-filtro.activo[data-tema="emociones"] {
+            background: #38bdf8;
+            color: #050912;
+            border-color: #38bdf8;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-filtro.activo[data-tema="rutinas"] {
+            background: #a855f7;
+            color: #050912;
+            border-color: #a855f7;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-filtro.activo[data-tema="salud"] {
+            background: #34d399;
+            color: #050912;
+            border-color: #34d399;
+            box-shadow: 0 4px 15px rgba(52, 211, 153, 0.3);
+        }
+
+        /* --- Lista Ancha de Tarjetas de Cuentos --- */
+        .grid-cuentos {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .tarjeta-cuento {
+            background: #131c31;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 24px 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .tarjeta-cuento:hover {
+            transform: translateY(-2px);
+            background: #1a253a;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Bordes y acentos según tema en tarjeta */
+        .tarjeta-cuento.tema-emociones:hover { border-color: rgba(56, 189, 248, 0.6); }
+        .tarjeta-cuento.tema-rutinas:hover { border-color: rgba(168, 85, 247, 0.6); }
+        .tarjeta-cuento.tema-salud:hover { border-color: rgba(52, 211, 153, 0.6); }
+
+        .cuento-info-principal {
+            display: flex;
+            align-items: flex-start;
+            gap: 22px;
+        }
+
+        .numero-cuento {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            min-width: 45px;
+        }
+
+        .tema-emociones .numero-cuento { color: rgba(56, 189, 248, 0.35); }
+        .tema-rutinas .numero-cuento { color: rgba(168, 85, 247, 0.35); }
+        .tema-salud .numero-cuento { color: rgba(52, 211, 153, 0.35); }
+
+        .cuento-textos h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .cuento-textos p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            max-width: 520px;
+        }
+
+        .cuento-accion {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 20px;
+            white-space: nowrap;
+            transition: transform 0.2s;
+        }
+
+        .tema-emociones .cuento-accion { color: #38bdf8; background: rgba(56, 189, 248, 0.1); }
+        .tema-rutinas .cuento-accion { color: #a855f7; background: rgba(168, 85, 247, 0.1); }
+        .tema-salud .cuento-accion { color: #34d399; background: rgba(52, 211, 153, 0.1); }
+
+        .tarjeta-cuento:hover .cuento-accion {
+            transform: translateX(3px);
+        }
+        .tema-emociones:hover .cuento-accion { background: rgba(56, 189, 248, 0.2); }
+        .tema-rutinas:hover .cuento-accion { background: rgba(168, 85, 247, 0.2); }
+        .tema-salud:hover .cuento-accion { background: rgba(52, 211, 153, 0.2); }
+
+        @media (max-width: 768px) {
+            .tarjeta-cuento {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                padding: 20px;
+            }
+            .cuento-accion {
+                align-self: flex-end;
+            }
+            .cuento-textos p {
+                max-width: 100%;
+            }
+            .cuento-info-principal {
+                gap: 15px;
+            }
+            .numero-cuento {
+                font-size: 1.6rem;
+                min-width: 35px;
+            }
+        }
+
+        /* --- Ventana Modal Independiente --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 9, 18, 0.88);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .modal-overlay.activo {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-contenido {
+            background: #131c31;
+            border-radius: 16px;
+            max-width: 680px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-contenido.borde-emociones { border: 1px solid rgba(56, 189, 248, 0.4); border-top: 4px solid #38bdf8; }
+        .modal-contenido.borde-rutinas { border: 1px solid rgba(168, 85, 247, 0.4); border-top: 4px solid #a855f7; }
+        .modal-contenido.borde-salud { border: 1px solid rgba(52, 211, 153, 0.4); border-top: 4px solid #34d399; }
+
+        .modal-overlay.activo .modal-contenido {
+            transform: translateY(0);
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            z-index: 5;
+        }
+
+        .borde-emociones .modal-cerrar { background: rgba(56, 189, 248, 0.1); color: #38bdf8; }
+        .borde-emociones .modal-cerrar:hover { background: #38bdf8; color: #050912; }
+
+        .borde-rutinas .modal-cerrar { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+        .borde-rutinas .modal-cerrar:hover { background: #a855f7; color: #050912; }
+
+        .borde-salud .modal-cerrar { background: rgba(52, 211, 153, 0.1); color: #34d399; }
+        .borde-salud .modal-cerrar:hover { background: #34d399; color: #050912; }
+
+        #modal-titulo-texto {
+            font-family: 'Quicksand', sans-serif;
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-right: 40px;
+            line-height: 1.3;
+        }
+
+        /* --- Imagen Completa sin recortes (object-fit: contain) --- */
+        .modal-imagen-ilustracion {
+            width: 100%;
+            max-height: 260px;
+            border-radius: 10px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0b101d;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+
+        .modal-cuerpo p {
+            font-family: 'Inter', sans-serif;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .modal-nota-pedagogica {
+            margin-top: 25px;
+            padding: 16px 20px;
+            border-radius: 0 10px 10px 0;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .borde-emociones .modal-nota-pedagogica { background: rgba(56, 189, 248, 0.05); border-left: 3px solid #38bdf8; }
+        .borde-rutinas .modal-nota-pedagogica { background: rgba(168, 85, 247, 0.05); border-left: 3px solid #a855f7; }
+        .borde-salud .modal-nota-pedagogica { background: rgba(52, 211, 153, 0.05); border-left: 3px solid #34d399; }
+
+        .modal-nota-pedagogica strong {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .modal-contenido {
+                padding: 20px;
+                max-height: 95vh;
+            }
+            #modal-titulo-texto {
+                font-size: 1.2rem;
+            }
+            .modal-imagen-ilustracion {
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <div id="menu-container"></div>
+
+    <main class="main-content cuentos-container">
+        
+        <!-- Cabecera Banner -->
+        <div class="cuentos-header-banner">
+            <img src="imgmicrocuentos/portada.webp" alt="Microcuentos emocionales" class="cuentos-imagen-portada">
+            <div class="cuentos-texto-portada">
+                <h2>📖 Microcuentos emocionales</h2>
+                <p>Breves historias organizadas por temas para acompañar la infancia en momentos clave: emociones, rutinas, salud y grandes cambios.</p>
+            </div>
+        </div>
+
+        <!-- Filtros de Temas -->
+        <div class="temas-filtros">
+            <button class="btn-filtro activo" data-tema="emociones" onclick="filtrarTema('emociones', event)">💙 Gestión Emocional</button>
+            <button class="btn-filtro" data-tema="rutinas" onclick="filtrarTema('rutinas', event)">🌙 Rutinas y Sueño</button>
+            <button class="btn-filtro" data-tema="salud" onclick="filtrarTema('salud', event)">🩺 Salud y Médicos</button>
+        </div>
+
+        <!-- Lista de Cuentos -->
+        <div class="grid-cuentos" id="gridCuentos"></div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. Ciencia y calma para la infancia.</p>
+    </footer>
+
+    <!-- Ventana Modal Independiente -->
+    <div class="modal-overlay" id="modalCuento" onclick="cerrarCuentoFuera(event)">
+        <div class="modal-contenido" id="modalContenedorInterno">
+            <button class="modal-cerrar" onclick="cerrarCuento()">✕</button>
+            <h3 id="modal-titulo-texto">Título del cuento</h3>
+            <img id="modal-imagen" src="" alt="Ilustración del cuento" class="modal-imagen-ilustracion">
+            <div class="modal-cuerpo" id="modal-cuerpo-texto"></div>
+        </div>
+    </div>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        const baseCuentos = {
+            emociones: [
+                { 
+                    id: 'emo1', num: '01', 
+                    titulo: '🌪️ La gran tormenta de Bruno', 
+                    desc: 'Útil para cuando aparecen rabietas intensas; enseña cómo la rabia es una nube pasajera.', 
+                    imagen: 'imgmicrocuentos/cuento-tormenta.webp', 
+                    html: `<p>A veces, sin avisar, dentro de Bruno se formaba una nube negra muy cargada de rayos y truenos. Era la tormenta del enfado, que hacía que le picaran los pies y le apretaran los dientes.</p><p>—¡No quiero recoger! —gritó Bruno mientras soplaba como un globo a punto de estallar.</p><p>Su papá se acercó despacito, se puso a su altura y le ofreció un refugio seguro con sus brazos.</p><p>—Veo que dentro llevas mucha fuerza acumulada —le dijo con voz tranquila—. Respira conmigo como si apagaras una hoguera.</p><p>Bruno sopló una, dos y tres veces, y poco a poco la nube negra se deshizo en gotitas de lluvia suave hasta salir de nuevo el sol.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Normaliza la rabieta como una tormenta fisiológica y refuerza la co-regulación adulta.</div>` 
+                },
+                { 
+                    id: 'emo2', num: '02', 
+                    titulo: '🎈 El globo de la tristeza', 
+                    desc: 'Ayuda a entender que estar triste es necesario y que dejar salir las lágrimas aligera el corazón.', 
+                    imagen: 'imgmicrocuentos/cuento-globo.webp', 
+                    html: `<p>A veces el corazón pesa un poquito más de la cuenta, como si llevara un globo lleno de agua fría que no nos deja saltar.</p><p>—Hoy no tengo ganas de sonreír —susurró Lucía acurrucada en el sofá.</p><p>Su mamá se sentó a su lado y la rodeó con un abrazo tibio, sin prisa por cambiarle el gesto.</p><p>—No pasa nada, mi amor. Las lágrimas son agüita limpia que lava los ojitos para ver mejor después —le explicó con dulzura.</p><p>Poco a poco, al dejar salir el aire y llorar bajito, el globo del pecho se fue desinchando y Lucía volvió a sentir ligereza.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Valida la tristeza sin forzar una falsa alegría prematura.</div>` 
+                },
+                { 
+                    id: 'emo3', num: '03', 
+                    titulo: '🦁 El rugido del pequeño valiente', 
+                    desc: 'Ideal para momentos de miedo o timidez ante situaciones nuevas.', 
+                    imagen: 'imgmicrocuentos/cuento-leon.webp', 
+                    html: `<p>Lucas sentía que su voz se escondía bajo la almohada cada vez que tenía que saludar a alguien desconocido en el parque.</p><p>—¿Por qué no ruge tu valentía, pequeño león? —le preguntó su abuelo guiñándole un ojo y sentándose a su lado en el banco.</p><p>Lucas miró sus propias manos y comprendió que el valor no consistía en no sentir miedo, sino en dar un pasito al frente aunque las rodillas le temblaran un poquito.</p><p>Tomó aire hondo por la nariz, imaginó una gran melena dorada y pronunció un "hola" tímido pero firme que hizo sonreír al otro niño.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Fomenta la valentía gradual respetando el ritmo de los niños tímidos.</div>` 
+                },
+                { 
+                    id: 'emo4', num: '04', 
+                    titulo: '🧩 El día que faltaba una pieza', 
+                    desc: 'Para gestionar la frustración cuando las cosas no salen exactamente como esperábamos.', 
+                    imagen: 'imgmicrocuentos/cuento-pieza.webp', 
+                    html: `<p>A Carla le encantaba hacer puzles difíciles, pero hoy una pieza del cielo azul parecía haberse esfumado bajo la alfombra del salón.</p><p>—¡Ya no sirve para nada! —gritó a punto de volcar toda la caja con rabia contenida.</p><p>Su mamá se agachó con calma y señaló el hueco vacío en el cartón.</p><p>—Oye, ¿y si en lugar de un trozo de cielo azul, inventamos con un rotulador que por ahí pasa una estrella fugaz?</p><p>Carla parpadeó sorprendida, miró fijamente el tablero y dibujó una estela brillante sobre el hueco. El puzle quedó incluso más bonito que antes.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Trabaja la flexibilidad mental y la creatividad ante la frustración.</div>` 
+                },
+                { 
+                    id: 'emo5', num: '05', 
+                    titulo: '🏮 La linterna de los miedos nocturnos', 
+                    desc: 'Pensado para desarmar los temores a la oscuridad y a los monstruos imaginarios.', 
+                    imagen: 'imgmicrocuentos/cuento-linterna.webp', 
+                    html: `<p>Cuando se apagaba la luz de la habitación, la percha con la chaqueta de Mateo proyectaba una sombra gigantesca con forma de ogro sobre la pared.</p><p>—Papá, hay un monstruo enorme al lado del armario —susurró Mateo temblando bajo las sábanas.</p><p>Su papá encendió una linterna pequeña de luz cálida y se acercó despacio.</p><p>—Vamos a ver qué aspecto tiene este monstruo de cerca —dijo apuntando con la luz directamente a la percha.</p><p>Al iluminarla, la gran bestia se desvaneció dejando paso a la suave chaqueta de salir al parque. Mateo se quedó tranquilo al comprobar que la luz siempre deshace los engaños de la oscuridad.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Desmitifica los miedos nocturnos explorándolos conjuntamente con luz.</div>` 
+                }
+            ],
+            rutinas: [
+                { 
+                    id: 'rut1', num: '01', 
+                    titulo: '🌙 El viaje de la pequeña luna', 
+                    desc: 'Pensado para acompañar el momento de ir a dormir, facilitando una transición serena a la cama.', 
+                    imagen: 'imgmicrocuentos/cuento-luna.webp', 
+                    html: `<p>Cuando el sol se escondía tras las montañas y el cielo se teñía de color añil, la pequeña luna dorada empezaba su largo y apacible paseo por el firmamento para arropar a todos los habitantes del bosque.</p><p>A los búhos sabios les regalaba las buenas noches con un rayo tibio y respetuoso, a las ardillas laboriosas les mecía las ramas de los abetos como si fueran cunas de terciopelo, y a los ositos perezosos les recordaba que ya era hora de descansar.</p><p>Un pequeño cervatillo asomó la nariz entre los helechos y preguntó con voz somnolienta:</p><p>—Pequeña luna, ¿adónde se van todos los juegos y carreras que hemos hecho hoy?</p><p>La luna sonrió con ternura, emitiendo una luz suave y acogedora, y le respondió susurrando:</p><p>—No te preocupes, se quedan guardados a salvo en el cofre de la memoria para que puedas disfrutarlos de nuevo al despertar mañana.</p><p>Poco a poco, con cada respiración lenta y profunda, el bosque entero se iba sumiendo en un silencio mágico, arropado por una cálida manta de estrellas titilantes que guiaban los sueños hacia la calma.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Ideal para la rutina nocturna; el ritmo pausado invita a bajar las revoluciones.</div>` 
+                },
+                { 
+                    id: 'rut2', num: '02', 
+                    titulo: '⏰ Las manecillas perezosas', 
+                    desc: 'Ayuda a entender el paso del tiempo y facilita la recogida de juguetes sin conflictos.', 
+                    imagen: 'imgmicrocuentos/cuento-reloj.webp', 
+                    html: `<p>El gran reloj de la cocina caminaba con un ritmo pausado y constante, marcando las horas con manecillas que parecían las patitas tranquilas de una tortuga viajera.</p><p>—Aún nos quedan cinco minutos de juego antes de empezar a recoger y preparar la cena —avisó mamá con una sonrisa cálida desde la mesa.</p><p>Iker sabía perfectamente que cuando el minutero llegaba arriba del todo, los bloques de construcción y los camiones debían volver ordenados a su gran caja de madera.</p><p>Lejos de ser una tarea aburrida, Iker convirtió el final del juego en una última misión ultrarrápida: una carrera de bólidos donde cada bloque encontraba su sitio justo a tiempo.</p><p>Al terminar, el reloj pareció darle una amable campanada de aprobación, y el salón quedó recogido y ordenado, listo para recibir el momento de la cena en un ambiente de absoluta paz y armonía familiar.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Anticipa las transiciones del juego al orden para evitar bloqueos.</div>` 
+                },
+                { 
+                    id: 'rut3', num: '03', 
+                    titulo: '🦷 El castillo de los dientes limpios', 
+                    desc: 'Convierte el cepillado de dientes nocturno en una divertida misión defensiva.', 
+                    imagen: 'imgmicrocuentos/cuento-dientes.webp', 
+                    html: `<p>En el maravilloso reino de la boca de Sofía vivían unos pequeños soldaditos blancos, muy ordenados y formales, cuya única misión era cuidar de que su sonrisa brillara como el sol cada mañana.</p><p>Pero claro, después de merendar bizcocho y galletas de chocolate, solían aparecer por sorpresa unos traviesos monstruitos de azúcar dispuestos a hacer travesuras oscuras y pegajosas entre las murallas de los dientes.</p><p>—¡Al ataque con la espuma fresca y protectora! —exclamó Sofía con determinación al tomar su cepillo de dientes mágico.</p><p>Con movimientos circulares, suaves y muy alegres de arriba a abajo, barrió a todos los villanos invisibles, creando una muralla de burbujas limpias y relucientes.</p><p>Al terminar, el castillo quedó perfectamente defendido, listo para descansar en paz durante toda la noche sin ninguna visita molesta.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Convierte un hábito diario obligatorio en un juego de rol motivador.</div>` 
+                },
+                { 
+                    id: 'rut4', num: '04', 
+                    titulo: '🧥 El abrigo que abrazaba fuerte', 
+                    desc: 'Diseñado para cuando toca vestirse y salir de casa con prisas en mañanas frías.', 
+                    imagen: 'imgmicrocuentos/cuento-abrigo.webp', 
+                    html: `<p>El viejo abrigo azul marino colgaba paciente de la percha del recibidor, con las mangas abiertas de par en par como si estuviera esperando para dar una cálida bienvenida.</p><p>Afuera, el viento de invierno soplaba haciendo bailar las hojas secas, y Mateo bostezaba perezosamente sobre el felpudo de la entrada mientras intentaba espantar el frío.</p><p>—Venga, pequeño explorador, es hora de salir a la aventura —dijo papá animándole con dulzura.</p><p>En cuanto Mateo metió los brazos por las mangas, el abrigo lo envolvió de inmediato con un abrazo mullido, denso y protector que disipó el frío en cuestión de segundos.</p><p>Con la capucha bien colocada y sintiéndose fuerte y abrigado como un oso polar, Mateo abrió la puerta y salió trotando feliz hacia el colegio, descubriendo que el invierno también podía ser muy acogedor.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Asocia las prendas de abrigo a sensaciones agradables de confort y protección.</div>` 
+                },
+                { 
+                    id: 'rut5', num: '05', 
+                    titulo: '🍽️ El plato de los sabores viajeros', 
+                    desc: 'Útil para acompañar momentos de exploración con nuevos alimentos en la mesa.', 
+                    imagen: 'imgmicrocuentos/cuento-plato.webp', 
+                    html: `<p>La hora de la cena se convirtió de repente en una emocionante expedición gracias a la imaginación de Mateo.</p><p>En su plato hondo, los arbolitos de brócoli y las rodajas de zanahoria ya no eran solo verduras, sino pequeñas islas secretas y misteriosas montañas ubicadas en medio de un mar dorado de puré de patata suave.</p><p>—Atención tripulación, hoy la cuchara va a zarpar hacia la montaña naranja para descubrir nuevos sabores —anunció papá con tono de capitán de barco.</p><p>Lejos de sentir la presión de comer por obligación, Mateo observó el plato con curiosidad y decidió probar un trocito diminuto por iniciativa propia.</p><p>Para su sorpresa, la combinación estaba deliciosa, y cada bocado se transformó en una divertida escala dentro de un mapa culinario lleno de matices y sorpresas agradables.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Reduce la presión en torno a la alimentación infantil mediante el descubrimiento.</div>` 
+                }
+            ],
+            salud: [
+                { 
+                    id: 'sal1', num: '01', 
+                    titulo: '💉 El superpinchazo del valiente', 
+                    desc: 'Cuento ideado para preparar a los peques antes de la visita médica y las vacunas.', 
+                    imagen: 'imgmicrocuentos/cuento-pinchazo.webp', 
+                    html: `<p>Había una vez un pequeño oso llamado Leo al que le tocaba revisión médica de control. Su mamá, camino al centro de salud, le había contado un secreto muy bien guardado que pocos niños conocían: en el brazo de los ositos valientes vivía dormido un superpoder protector.</p><p>Para despertar ese superpoder y activarlo por completo, la doctora utilizaba una varita mágica muy fina, de metal brillante y rápido como el parpadeo de una estrella fugaz.</p><p>—¿Duele mucho, mamá? —preguntó Leo conteniendo la respiración y cerrando un poquito los ojos con cautela.</p><p>—Duele un suspiro de viento, mi pequeño —le respondió la doctora con una sonrisa cálida y paciente—. Y en cuanto pasa, tu cuerpo se llena con un escudo invisible para que ningún virus travieso pueda molestarte durante todo el año.</p><p>Leo respiró hondo, sopló fuerte imaginando que apagaba las velas de su cumpleaños y... ¡zas! El pinchazo pasó en un abrir y cerrar de ojos, convirtiéndose enseguida en una tirita de honor.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Anticipa la sensación física con honestidad moderada ("un suspiro") y dota al proceso de un significado protector positivo.</div>` 
+                },
+                { 
+                    id: 'sal2', num: '02', 
+                    titulo: '🌡️ El termómetro detective', 
+                    desc: 'Ayuda a comprender qué pasa cuando tenemos fiebre y por qué el cuerpo necesita descansar.', 
+                    imagen: 'imgmicrocuentos/cuento-termometro.webp', 
+                    html: `<p>Cuando el cuerpo de Claudia amaneció sintiéndose demasiado calentito por dentro, se asustó un poquito al notar que sus mejillas brillaban como dos tomates maduros y le pesaban las piernas.</p><p>—No te preocupes, cariño —le dijo mamá arropándola con mimo en las almohadas—. Lo que ocurre es que dentro de ti se está librando una gran batalla secreta contra unos microbios muy tozudos.</p><p>Mamá sacó entonces un pequeño aparato alargado y blanco. —Mira, este es el termómetro detective; mide cuánta energía está gastando tu cuerpo para ganar la competición contra los intrusos.</p><p>Claudia comprendió entonces que la fiebre no era un castigo, sino una señal de que el motor de su cuerpo necesitaba apagar los juguetes, guardar reposo absoluto bajo las sábanas y beber sorbitos de agua fresca. Al cabo de dos días de calma y mimos, la temperatura bajó y la energía regresó por completo.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Explica la fiebre de forma biológica y comprensible para el niño, transformando el reposo obligatorio en un aliado de curación.</div>` 
+                },
+                { 
+                    id: 'sal3', num: '03', 
+                    titulo: '💧 La poción mágica del jarabe', 
+                    desc: 'Pensado para facilitar la toma de medicamentos cuando están enfermos.', 
+                    imagen: 'imgmicrocuentos/cuento-jarabe.webp', 
+                    html: `<p>A veces, cuando la tos se ponía muy impertinente y no dejaba dormir a Pablo por las noches, papá aparecía por la habitación portando un pequeño vasito medidor con un líquido brillante y ambarino.</p><p>—Es el turno de la poción mágica del bosque —anunciaba papá con voz misteriosa y divertida.</p><p>Pablo hacía una mueca de desconfianza al recordar que las medicinas solían tener sabores extraños, pero papá le explicó el secreto: aquel jarabe guardaba en su interior esencias de frutas dulces y extractos de plantas capaces de formar un tobogán suave para calmar la garganta irritada.</p><p>—Una cucharita valiente y la tos se marchará a dormir muy lejos —animó papá con complicidad. Con un trago rápido y un posterior abrazo lleno de orgullo, la medicina cumplió su misión reparadora, devolviendo el silencio y el descanso al dormitorio.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Evita luchas de poder ante el medicamento convirtiendo la toma en un ritual de superación y juego de rol.</div>` 
+                },
+                { 
+                    id: 'sal4', num: '04', 
+                    titulo: '👁️ Las gafas de superobservador', 
+                    desc: 'Acompaña la primera revisión de la vista o el uso de gafas graduadas con ilusión.', 
+                    imagen: 'imgmicrocuentos/cuento-gafas.webp', 
+                    html: `<p>A Sofía le costaba un poquito distinguir las letras de la pizarra en el colegio y por las noches las estrellas del cielo se veían como manchas borrosas y desordenadas desde su ventana.</p><p>El oculista, un señor muy amable con bata blanca, examinó sus ojos con una luz divertida y le propuso un trato fantástico: —Creo que tus ojos son de exploradora estelar, pero necesitan unos prismáticos especiales de alta precisión para enfocar mejor el mundo.</p><p>Le entregaron una montura de un color alegre y bonito que se ajustaba perfectamente a su carita. En cuanto se las puso por primera vez, Sofía abrió los ojos de par en par maravillada: ¡las hojas de los árboles ya no eran una mancha verde, sino miles de pequeñas líneas dibujadas con total nitidez!</p><p>Desde aquel día, llevar sus gafas se convirtió en su superpoder favorito para no perderse ningún detalle del paisaje.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Normaliza el uso de corrección visual destacándolo como una herramienta de empoderamiento y descubrimiento.</div>` 
+                },
+                { 
+                    id: 'sal5', num: '05', 
+                    titulo: '🩹 La tirita de valentía', 
+                    desc: 'Para cuando hay pequeños tropiezos, heridas leves o raspones en el parque.', 
+                    imagen: 'imgmicrocuentos/cuento-tirita.webp', 
+                    html: `<p>Una carrera demasiado veloz persiguiendo a las palomas en el parque terminó con un pequeño traspiés y un raspón en la rodilla de Pablo que vino acompañado de un par de lágrimas inevitables.</p><p>—Vaya, parece que la pista de carreras te ha dado un beso demasiado fuerte —dijo mamá acercándose con rapidez para limpiar la zona con agua fresquita y un algodón suave.</p><p>Para sellar la herida y protegerla del polvo, mamá sacó una caja secreta llena de tiritas ilustradas con cohetes espaciales y dinosaurios sonrientes. Pablo pudo elegir su favorita de inmediato: una decorada con estrellas brillantes.</p><p>En cuanto se la colocaron sobre la rodilla, el dolor pareció desvanecerse por arte de magia, transformando la pequeña marca en una auténtica medalla de honor por haber superado el tropiezo con valentía.</p><div class="modal-nota-pedagogica"><strong>Nota para familias:</strong> Transforma una cura física menor en un refuerzo positivo de resiliencia y autocuidado emocional.</div>` 
+                }
+            ]
+        };
+
+        let temaActual = 'emociones';
+
+        function renderizarCuentos(tema) {
+            temaActual = tema;
+            const contenedor = document.getElementById('gridCuentos');
+            const lista = baseCuentos[tema];
+            
+            let html = '';
+            lista.forEach(cuento => {
+                html += `
+                    <div class="tarjeta-cuento tema-${tema}" onclick="abrirCuento('${tema}', '${cuento.id}')">
+                        <div class="cuento-info-principal">
+                            <span class="numero-grande numero-cuento">${cuento.num}</span>
+                            <div class="cuento-textos">
+                                <h3>${cuento.titulo}</h3>
+                                <p>${cuento.desc}</p>
+                            </div>
+                        </div>
+                        <div class="cuento-accion">Leer cuento ➔</div>
+                    </div>
+                `;
+            });
+            contenedor.innerHTML = html;
+        }
+
+        function filtrarTema(tema, event) {
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
+            event.target.classList.add('activo');
+            renderizarCuentos(tema);
+        }
+
+        function abrirCuento(tema, id) {
+            const lista = baseCuentos[tema];
+            const cuento = lista.find(c => c.id === id);
+            
+            const modalContenido = document.getElementById('modalContenedorInterno');
+            modalContenedorInterno.className = `modal-contenido borde-${tema}`;
+
+            if (cuento) {
+                document.getElementById('modal-titulo-texto').innerText = cuento.titulo;
+                document.getElementById('modal-imagen').src = cuento.imagen;
+                document.getElementById('modal-cuerpo-texto').innerHTML = cuento.html;
+            }
+            
+            document.getElementById('modalCuento').classList.add('activo');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function cerrarCuento() {
+            document.getElementById('modalCuento').classList.remove('activo');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function cerrarCuentoFuera(event) {
+            if (event.target.id === 'modalCuento') {
+                cerrarCuento();
+            }
+        }
+
+        window.onload = function() {
+            renderizarCuentos('emociones');
+        };
+    </script>
+</body>
+</html>
