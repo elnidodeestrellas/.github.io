@@ -55,11 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
                      <a href="audios-lista.html">🎧 Cuentos para Escuchar</a>
                      <a href="cuentos-texto.html">📖 Cuentos para Leer</a>
                      <a href="microcuentos.html">✨ Microcuentos</a>
-                       
                     </div>
                 </div>
 
-                <a href="podcast.html">🎙️ Podcast</a>                
+                <!-- Menú desplegable de Audios unificado (Podcast y Debates) -->
+                <div class="dropdown" id="audiosDropdown">
+                    <button class="dropbtn" type="button">🎧 Audios ▾</button>
+                    <div class="dropdown-content">
+                        <a href="podcast.html">🎙️ Podcast</a>
+                        <a href="debates.html">💬 Debates y Reflexión</a>
+                    </div>
+                </div>
+
                 <!-- Menú 1: Salud y Bienestar (Solo Psicología y Recursos Prácticos) -->
                 <div class="dropdown" id="healthDropdown">
                     <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
