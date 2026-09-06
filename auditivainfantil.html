@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud auditiva infantil: detección precoz y cuidado | El Nido de Estrellas</title>
+    <meta name="description" content="Una guía práctica, rigurosa y empática para familias y educadores sobre la salud auditiva infantil y la detección precoz de problemas de audición.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    <style>
+        :root {
+            --auditiva-acento: #f687b3;
+            --auditiva-borde: rgba(246, 135, 179, 0.3);
+            --auditiva-fondo-caja: rgba(246, 135, 179, 0.06);
+        }
+        .cuento-caja {
+            border: 1px solid var(--auditiva-borde);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: #0e1626;
+        }
+        .cuentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .header-imagen-wrapper {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .header-imagen-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .cuento-card {
+            border: 1px dashed rgba(246, 135, 179, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #131c31;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cuento-card:hover {
+            border-color: var(--auditiva-acento);
+            box-shadow: 0 8px 25px rgba(246, 135, 179, 0.15);
+            transform: translateY(-3px);
+        }
+        .cuento-card h2 {
+            color: var(--auditiva-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+        .pilar-tag {
+            color: var(--auditiva-acento) !important;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cuento-caja > h1 {
+            color: var(--auditiva-acento) !important;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .cuento-caja p {
+            color: #d8e2dc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .cuento-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .cuento-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cuentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Menú de navegación automatizado mediante nav.js -->
+   <div id="menu-container"></div>
+
+    <main class="main-content">
+        <article class="cuento-caja">
+            
+            <div class="header-imagen-wrapper">
+                <img src="imgauditiva/portada.webp" alt="Salud auditiva infantil y detección precoz">
+            </div>
+
+            <h1>Salud auditiva infantil: detección precoz y cuidado</h1>
+            
+            <p>La capacidad auditiva es un pilar fundamental para el desarrollo del lenguaje, la comunicación y el aprendizaje durante la infancia. Detectar cualquier alteración de forma temprana permite ofrecer el acompañamiento adecuado y asegurar el bienestar evolutivo del menor. He reunido aquí los pilares esenciales para comprender el desarrollo auditivo, identificar señales de alerta y cuidar la salud de los oídos en el día a día. Pincha en cada tarjeta para profundizar en cada tema.</p>
+            
+            <div class="cuentos-grid">
+                <!-- TEMA 1 -->
+                <a href="auditiva-desarrollo.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/desarrollo.webp" alt="Desarrollo auditivo y hitos evolutivos"></div>
+                        <span class="pilar-tag">Evolución</span>
+                        <h2>Hitos del desarrollo auditivo según la edad</h2>
+                        <p>Descubre cómo evoluciona la capacidad de respuesta a los sonidos desde los primeros meses de vida hasta la etapa preescolar y escolar.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 2 -->
+                <a href="auditiva-senales.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/senales.webp" alt="Señales de alerta de pérdida auditiva"></div>
+                        <span class="pilar-tag">Detección</span>
+                        <h2>Señales de alerta de pérdida auditiva en casa y el aula</h2>
+                        <p>Aprende a identificar indicios sutiles como la falta de reacción ante ciertos tonos, subir excesivamente el volumen o retrasos en el habla.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 3 -->
+                <a href="auditiva-tamizaje.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/tamizaje.webp" alt="Pruebas de cribado auditivo neonatal y revisiones"></div>
+                        <span class="pilar-tag">Pruebas médicas</span>
+                        <h2>El papel clave de las pruebas de cribado y revisiones</h2>
+                        <p>Comprende en qué consisten las otoemisiones acústicas y los potenciales evocados, y por qué son vitales en los primeros controles de salud.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 4 -->
+                <a href="auditiva-otitis.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/otitis.webp" alt="Otitis infantiles recurrentes y audición"></div>
+                        <span class="pilar-tag">Patologías comunes</span>
+                        <h2>Otitis de repetición y su impacto temporal en la audición</h2>
+                        <p>Cómo afectan las infecciones de oído frecuentes a la transmisión del sonido y qué pautas seguir para un seguimiento médico adecuado.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 5 -->
+                <a href="auditiva-higiene.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/higiene.webp" alt="Higiene y cuidado seguro de los oídos"></div>
+                        <span class="pilar-tag">Cuidado diario</span>
+                        <h2>Higiene segura: desterrando el mito de los bastoncillos</h2>
+                        <p>Pautas correctas para la limpieza externa de los oídos y por qué los bastoncillos suponen un riesgo para los conductos y tímpanos infantiles.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 6 -->
+                <a href="auditiva-ruido.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/ruido.webp" alt="Protección frente a la contaminación acústica"></div>
+                        <span class="pilar-tag">Entorno sonoro</span>
+                        <h2>Prevención frente al ruido excesivo y pantallas</h2>
+                        <p>Medidas para moderar el volumen en dispositivos electrónicos, juguetes ruidosos y entornos urbanos para proteger la salud auditiva temprana.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 7 -->
+                <a href="auditiva-lenguaje.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/lenguaje.webp" alt="Relación entre audición y desarrollo del lenguaje"></div>
+                        <span class="pilar-tag">Comunicación</span>
+                        <h2>Audición, lenguaje y estimulación verbal en casa</h2>
+                        <p>Estrategias cotidianas para enriquecer el vocabulario, practicar la escucha activa y favorecer una comunicación clara con el menor.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+
+                <!-- TEMA 8 -->
+                <a href="auditiva-especialista.html" class="cuento-card" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="cuento-imagen-wrapper"><img src="imgauditiva/especialista.webp" alt="Cuándo acudir al otorrino o audioprotesista"></div>
+                        <span class="pilar-tag">Asistencia médica</span>
+                        <h2>Cuándo consultar al especialista y recursos de apoyo</h2>
+                        <p>Información orientativa sobre el papel del otorrino, pruebas audiológicas complementarias y el acompañamiento en caso de adaptaciones.</p>
+                    </div>
+                    <span style="display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.9rem; color: var(--auditiva-acento);">Descubrir más ➔</span>
+                </a>
+            </div>
+
+            <!-- BLOQUE DE RUTA RECOMENDADA ÚNICO -->
+            <div class="ruta-recomendada-caja" style="background: rgba(20, 29, 51, 0.7); border: 1px solid rgba(246, 135, 179, 0.3); border-radius: 12px; padding: 25px; margin-top: 40px; margin-bottom: 30px;">
+                <h3 style="color: #f687b3; font-family: 'Quicksand', sans-serif; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">🎧 Continúa profundizando en el desarrollo y bienestar infantil</h3>
+                <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">Para acompañar la crianza y la atención a las necesidades de comunicación de forma integral, te sugerimos explorar estos recursos:</p>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #f687b3;">🎙️</span>
+                        <span style="color: #f8fafc; font-size: 0.92rem;">Escucha el podcast: <a href="podcast.html" style="color: #f687b3; text-decoration: none; font-weight: 600;">Claves para estimular el lenguaje y la atención temprana (Ep. 11)</a></span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #f687b3;">📥</span>
+                        <span style="color: #f8fafc; font-size: 0.92rem;">Descarga el recurso práctico: <a href="recursos.html" style="color: #f687b3; text-decoration: none; font-weight: 600;">Mapa de Hitos Comunicativos y Auditivos (PDF)</a></span>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIN DEL BLOQUE -->
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(246, 135, 179, 0.2); text-align: left;">
+                <a href="guiasSalud.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--auditiva-acento); text-decoration: none; font-family: 'Quicksand', sans-serif; font-size: 0.95rem; font-weight: 600;">
+                    <span>← Volver a Guías de Salud y Bienestar</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+<script src="global.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
