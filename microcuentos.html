@@ -14,11 +14,18 @@
     <link rel="stylesheet" href="estilos.css">
     
     <style>
+        /* Corrección global para evitar desbordamientos en móviles */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         .cuentos-container {
             max-width: 850px;
             margin: 40px auto;
             padding: 20px;
             box-sizing: border-box;
+            width: 100%;
         }
         
         /* --- Cabecera Banner --- */
@@ -33,6 +40,7 @@
             margin-bottom: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             box-sizing: border-box;
+            width: 100%;
         }
 
         .cuentos-imagen-portada {
@@ -82,6 +90,8 @@
             overflow-x: auto;
             padding-bottom: 8px;
             -webkit-overflow-scrolling: touch;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .btn-filtro {
@@ -131,6 +141,8 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .tarjeta-cuento {
@@ -146,6 +158,7 @@
             position: relative;
             overflow: hidden;
             box-sizing: border-box;
+            width: 100%;
         }
 
         .tarjeta-cuento:hover {
@@ -163,6 +176,8 @@
             display: flex;
             align-items: flex-start;
             gap: 22px;
+            min-width: 0; /* Vital para que los textos no fuercen el ancho */
+            flex: 1;
         }
 
         .numero-cuento {
@@ -171,11 +186,17 @@
             font-weight: 700;
             line-height: 1;
             min-width: 45px;
+            flex-shrink: 0;
         }
 
         .tema-emociones .numero-cuento { color: rgba(56, 189, 248, 0.35); }
         .tema-rutinas .numero-cuento { color: rgba(168, 85, 247, 0.35); }
         .tema-salud .numero-cuento { color: rgba(52, 211, 153, 0.35); }
+
+        .cuento-textos {
+            min-width: 0; /* Evita que desborde */
+            flex: 1;
+        }
 
         .cuento-textos h3 {
             font-family: 'Quicksand', sans-serif;
@@ -183,6 +204,7 @@
             font-weight: 600;
             color: #ffffff;
             margin-bottom: 6px;
+            word-break: break-word;
         }
 
         .cuento-textos p {
@@ -190,7 +212,8 @@
             font-size: 0.9rem;
             color: #94a3b8;
             line-height: 1.5;
-            max-width: 520px;
+            margin: 0;
+            word-break: break-word;
         }
 
         .cuento-accion {
@@ -204,6 +227,8 @@
             border-radius: 20px;
             white-space: nowrap;
             transition: transform 0.2s;
+            flex-shrink: 0;
+            margin-left: 15px;
         }
 
         .tema-emociones .cuento-accion { color: #38bdf8; background: rgba(56, 189, 248, 0.1); }
@@ -220,15 +245,13 @@
         @media (max-width: 768px) {
             .tarjeta-cuento {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
                 gap: 16px;
                 padding: 20px;
             }
             .cuento-accion {
                 align-self: flex-end;
-            }
-            .cuento-textos p {
-                max-width: 100%;
+                margin-left: 0;
             }
             .cuento-info-principal {
                 gap: 15px;
