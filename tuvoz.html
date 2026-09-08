@@ -119,14 +119,15 @@
     <div id="menu-container"></div>
 
     <main class="main-content">
-        <div style="width: 100%; background-color: #120d1a; border-radius: 12px; margin-bottom: 30px; border: 1px solid #6b46c1; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center; overflow: hidden;">
-            <img src="img/imagenTuvoz.webp" alt="Tu Voz y Encuestas El Nido de Estrellas" style="width: 100%; max-height: 380px; object-fit: contain; display: block; margin: 0 auto;">
+        <!-- Imagen ajustada con altura controlada para que luzca perfecta y profesional -->
+        <div style="width: 100%; max-width: 650px; margin: 0 auto 30px auto; background-color: #120d1a; border-radius: 12px; border: 1px solid #6b46c1; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center; overflow: hidden;">
+            <img src="img/imagenTuvoz.webp" alt="Tu Voz y Encuestas El Nido de Estrellas" style="width: 100%; height: 220px; object-fit: cover; display: block;">
         </div>
         
         <div class="survey-container">
             <h1>Tu opinión guía nuestro rumbo</h1>
             <p class="intro-text">
-                En este rincón queremos crecer y mejorar contigo. Nos encantaría conocer tu experiencia para seguir creando historias y recursos que acompañen a las familias de la mejor manera posible. ¡Te llevará solo un minuto!
+                En este rincón queremos crecer y mejorar contigo. Nos encantaría conocer tu experiencia para seguir creando historias, podcasts, juegos y recursos que acompañen a las familias de la mejor manera posible. ¡Te llevará solo un minuto!
             </p>
             
             <form action="https://formspree.io/f/xgogbwja" method="POST">
@@ -155,19 +156,22 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="field-title">¿Qué contenido disfrutas más en nuestra comunidad?</label>
+                    <label class="field-title">¿Qué contenido o sección disfrutas más en nuestra comunidad?</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_leidos"> Cuentos infantiles leídos</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_video"> Cuentos en vídeo</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="recursos_crianza"> Recursos de crianza</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="podcast"> Podcast</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="puzzles"> Puzzles</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="guias_salud"> Guías de Salud</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_escuchar"> 🎧 Cuentos para Escuchar</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_leer"> 📖 Cuentos para Leer</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="microcuentos"> ✨ Microcuentos</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="podcast"> 🎙️ Podcast</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="debates"> 💬 Debates y Reflexión</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="psicologia_glosarios"> 🧠 Glosarios / Rincón de Lectura / Preguntas</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="guias_salud_orientacion"> 📋 Guías de Salud y Orientación</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="guias_crianza"> 🌟 Guías de Crianza (Embarazo, Lactancia, Dental...)</label>
+                        <label class="radio-label"><input type="radio" name="seccion" value="juegos_puzzles"> 🎮 Juegos, Puzzles y Adivinanzas</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="field-title" for="sugerencias_temas">¿Qué tema de salud o cuento te gustaría que tratemos próximamente?</label>
+                    <label class="field-title" for="sugerencias_temas">¿Qué tema de salud, cuento, juego o recurso te gustaría que tratemos próximamente?</label>
                     <textarea id="sugerencias_temas" name="sugerencias_temas" rows="2" placeholder="Escribe aquí tu sugerencia..."></textarea>
                 </div>
 
@@ -189,7 +193,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="field-title">Valora tu experiencia general</label>
+                    <label class="field-title">Valora tu experiencia general en la web</label>
                     <div class="radio-group">
                         <label class="radio-label"><input type="radio" name="estrellas" value="5"> ⭐⭐⭐⭐⭐ Excelente</label>
                         <label class="radio-label"><input type="radio" name="estrellas" value="4"> ⭐⭐⭐⭐ Muy buena</label>
@@ -199,11 +203,11 @@
                     </div>
                 </div>
 
-                <!-- CAMPO DE PRIVACIDAD AÑADIDO -->
+                <!-- CAMPO DE PRIVACIDAD -->
                 <div class="form-group" style="margin-top: 20px; font-size: 13px; color: #cbd5e0;">
                     <label class="radio-label" style="font-weight: normal; align-items: flex-start; cursor: default;">
                         <input type="checkbox" name="privacidad" required style="margin-top: 3px; cursor: pointer;">
-                        <span>He leído y acepto la <a href="privacidad.html" target="_blank" style="color: #63b3ed; text-decoration: underline;">política de privacidad</a> y el tratamiento de mis datos para gestionar esta respuesta.</span>
+                        <span>He leído y acepto la <a href="legal.html" target="_blank" style="color: #63b3ed; text-decoration: underline;">política de privacidad</a> y el tratamiento de mis datos para gestionar esta respuesta.</span>
                     </label>
                 </div>
 
@@ -211,10 +215,6 @@
             </form>
         </div>
     </main>
-
-    <footer>
-        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
-    </footer>
 
     <script>
         function toggleMejora(mostrar) {
