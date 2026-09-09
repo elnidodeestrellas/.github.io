@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <a href="memoria.html">✨ Memoria Mágica</a>
                         <a href="adivinanzas.html">🔮 Adivinanzas</a>
                         <a href="aventura.html">🧭 Aventura</a>
+                        <a href="colorear.html">🎨 Colorear Mágico</a>
                     </div>
                 </div>
                 
