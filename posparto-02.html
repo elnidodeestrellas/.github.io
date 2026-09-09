@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Mental en el Posparto (II): Depresión y Vínculo | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        /* Paleta diferenciada para la sección de salud mental (Tonos frambuesa / rosa cálido) */
+        .bloque-guia {
+            background: rgba(30, 20, 30, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 143, 162, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #d48fa2;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f2b6c6; margin-top: 0; margin-bottom: 25px; }
+        
+        /* Subtítulos con línea más gruesa (3px) y difuminada de lado a lado */
+        .bloque-guia h3 { 
+            font-family: 'Quicksand', sans-serif; 
+            color: #ffffff; 
+            margin-top: 35px; 
+            margin-bottom: 15px; 
+            padding-bottom: 12px;
+            border-bottom: none;
+            background: linear-gradient(to right, rgba(212, 143, 162, 0), rgba(212, 143, 162, 0.7) 50%, rgba(212, 143, 162, 0));
+            background-size: 100% 3px;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; border-left: 4px solid #f2b6c6; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f2b6c6; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f2b6c6; padding-left: 5px; }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(212, 143, 162, 0.15);
+            border: 1px solid rgba(212, 143, 162, 0.4);
+            color: #f2b6c6;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(212, 143, 162, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <!-- PORTADA DE LA SECCIÓN -->
+        <div class="encabezado-inicio" style="text-align: center; max-width: 900px; margin: 0 auto 40px auto; padding: 0 20px;">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f2b6c6; margin-bottom: 15px;">Salud Mental en el Posparto (II)</h1>
+            <p style="font-size: 1.3rem; color: #fce4ec; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 20px auto;">Comprender la depresión posparto, los factores de riesgo, la intensidad del malestar y la construcción del vínculo temprano.</p>
+            
+            <!-- HUECO PARA LA IMAGEN DE PORTADA DE LA PARTE 2 -->
+            <img src="imgposparto/portada02.webp" alt="Portada Salud Mental en el Posparto Parte 2" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(212, 143, 162, 0.3);">
+        </div>
+
+        <section class="bloque-guia">
+            <h2>Índice de la Parte II: Depresión y Vínculo Temprano</h2>
+            
+            <div class="indice-caja">
+                <h4>Navega directamente a los temas de este bloque:</h4>
+                <ul>
+                    <li>• <a href="#depresion">1. Depresión posparto: diferenciación clínica y persistencia en el tiempo</a></li>
+                    <li>• <a href="#sintomas">2. Síntomas clave: más allá de la tristeza y la fatiga común</a></li>
+                    <li>• <a href="#factores">3. Factores de riesgo biológicos, psicológicos y sociales</a></li>
+                    <li>• <a href="#culpa">4. El peso de la culpa silenciosa y el miedo al juicio externo</a></li>
+                    <li>• <a href="#vinculo">5. El impacto en el vínculo temprano y la construcción paulatina del apego</a></li>
+                    <li>• <a href="#desmitificar">6. Desmitificar la ambivalencia: cuando conectar requiere tiempo</a></li>
+                </ul>
+            </div>
+
+            <h3 id="depresion">1. Depresión posparto: diferenciación clínica y persistencia en el tiempo</h3>
+            <p>A diferencia del <em>baby blues</em>, que remite de forma espontánea en pocas semanas, la depresión posparto constituye un trastorno clínico más profundo, persistente e incapacitante. Puede manifestarse de forma inmediata tras el parto o desarrollarse de manera silenciosa a lo largo de los primeros meses de vida del bebé.</p>
+            <p>Este estado de malestar sostenido interfiere de manera directa en la capacidad de la madre para desenvolverse en su día a día, requiriendo atención especializada y un enfoque terapéutico riguroso que aleje cualquier atisbo de estigmatización.</p>
+
+            <h3 id="sintomas">2. Síntomas clave: más allá de la tristeza y la fatiga común</h3>
+            <p>Reconocer los sinais de alerta permite intervenir a tiempo. La depresión posparto no se limita a un llanto ocasional, sino que abarca un abanico de síntomas intensos y prolongados:</p>
+            <ul>
+                <li><strong>Apatía y desinterés:</strong> Pérdida de placer por actividades cotidianas y desconexión emocional generalizada.</li>
+                <li><strong>Fatiga extrema persistente:</strong> Un cansancio profundo que no mejora ni siquiera tras haber dormido o descansado.</li>
+                <li><strong>Pensamientos intrusivos recurrentes:</strong> Ideas persistentes de incapacidad o temores infundados sobre la seguridad del entorno.</li>
+            </ul>
+
+            <!-- HUECO PARA IMAGEN INTERMEDIA 2 -->
+            <img src="imgposparto/intermedia02.webp" alt="Ilustración sobre el acompañamiento emocional y la comprensión" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(212, 143, 162, 0.2);">
+
+            <h3 id="factores">3. Factores de riesgo biológicos, psicológicos y sociales</h3>
+            <p>El origen de la depresión posparto es multifactorial. No depende de la "fortaleza" de la mujer, sino de la confluencia de elementos vulnerabilizadores:</p>
+            <ul>
+                <li>Antecedentes personales o familiares de ansiedad o depresión.</li>
+                <li>Falta de una red de apoyo real y corresponsabilidad efectiva en el hogar.</li>
+                <li>Experiencias de parto traumáticas o complicaciones médicas sobrevenidas.</li>
+            </ul>
+
+            <h3 id="culpa">4. El peso de la culpa silenciosa y el miedo al juicio externo</h3>
+            <p>Uno de los mayores obstáculos para la recuperación es el silencio que impone la culpa. Muchas madres ocultan lo que sienten por temor a ser juzgadas, a que duden de sus capacidades o a que se cuestione su amor filial.</p>
+            <p>Poner voz a este sufrimiento en un espacio libre de juicios es el primer paso liberador para desactivar la culpa y comprender que la enfermedad no define el afecto inmenso hacia el hijo.</p>
+
+            <h3 id="vinculo">5. El impacto en el vínculo temprano y la construcción paulatina del apego</h3>
+            <p>El estado depresivo puede dificultar temporalmente la sintonía emocional entre la madre y el bebé, generando una sensación angustiosa de desconexión o frialdad durante los cuidados cotidianos.</p>
+            <p>Comprender que el apego es un proceso dinámico y bidireccional ayuda a transitar esta fase sabiendo que, con el tratamiento oportuno y el soporte adecuado, la capacidad de vinculación se recupera y florece plenamente.</p>
+
+            <h3 id="desmitificar">6. Desmitificar la ambivalencia: cuando conectar requiere tiempo</h3>
+            <p>Sentir dudas, rechazo transitorio hacia la alta demanda del bebé o morriña de la vida anterior no convierte a nadie en "mala madre". La ambivalencia emocional es una respuesta humana legítima ante un cambio vital tan radical.</p>
+            <p>Aceptar esta dualidad sin culpabilidad permite construir una maternidad más real, compasiva y ajustada a la propia condición humana.</p>
+        </section>
+
+        <!-- NAVEGACIÓN ENTRE PÁGINAS -->
+        <div class="navegacion-paginas">
+            <a href="posparto-01.html" class="btn-navegacion">
+                &larr; Parte I: El Reajuste Inicial
+            </a>
+            <a href="posparto-03.html" class="btn-navegacion">
+                Parte III: Psicosis y Entorno &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

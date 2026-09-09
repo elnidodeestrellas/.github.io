@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Mental en el Posparto (III): Psicosis y Red de Apoyo | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        /* Paleta diferenciada para la sección de salud mental (Tonos frambuesa / rosa cálido) */
+        .bloque-guia {
+            background: rgba(30, 20, 30, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 143, 162, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #d48fa2;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f2b6c6; margin-top: 0; margin-bottom: 25px; }
+        
+        /* Subtítulos con línea más gruesa (3px) y difuminada de lado a lado */
+        .bloque-guia h3 { 
+            font-family: 'Quicksand', sans-serif; 
+            color: #ffffff; 
+            margin-top: 35px; 
+            margin-bottom: 15px; 
+            padding-bottom: 12px;
+            border-bottom: none;
+            background: linear-gradient(to right, rgba(212, 143, 162, 0), rgba(212, 143, 162, 0.7) 50%, rgba(212, 143, 162, 0));
+            background-size: 100% 3px;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; border-left: 4px solid #f2b6c6; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f2b6c6; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f2b6c6; padding-left: 5px; }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(212, 143, 162, 0.15);
+            border: 1px solid rgba(212, 143, 162, 0.4);
+            color: #f2b6c6;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(212, 143, 162, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <!-- PORTADA DE LA SECCIÓN -->
+        <div class="encabezado-inicio" style="text-align: center; max-width: 900px; margin: 0 auto 40px auto; padding: 0 20px;">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f2b6c6; margin-bottom: 15px;">Salud Mental en el Posparto (III)</h1>
+            <p style="font-size: 1.3rem; color: #fce4ec; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 20px auto;">Identificación de emergencias médicas como la psicosis posparto, el papel de la pareja y la consolidación de la red de apoyo.</p>
+            
+            <!-- HUECO PARA LA IMAGEN DE PORTADA DE LA PARTE 3 -->
+            <img src="imgposparto/portada03.webp" alt="Portada Salud Mental en el Posparto Parte 3" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(212, 143, 162, 0.3);">
+        </div>
+
+        <section class="bloque-guia">
+            <h2>Índice de la Parte III: Psicosis, Pareja y Red de Apoyo</h2>
+            
+            <div class="indice-caja">
+                <h4>Navega directamente a los temas de este bloque:</h4>
+                <ul>
+                    <li>• <a href="#psicosis">1. Psicosis posparto: definición y reconocimiento de una urgencia médica</a></li>
+                    <li>• <a href="#alarmas">2. Signos de alarma inequívocos y desvinculación de la realidad</a></li>
+                    <li>• <a href="#actuacion">3. Protocolo de actuación urgente ante una crisis psiquiátrica</a></li>
+                    <li>• <a href="#pareja">4. La transformación de la pareja y la necesidad de corresponsabilidad real</a></li>
+                    <li>• <a href="#entorno">5. El papel del entorno: escuchar sin juzgar y sostener la carga mental</a></li>
+                    <li>• <a href="#red">6. Tejiendo una red de apoyo invisible pero firme y segura</a></li>
+                </ul>
+            </div>
+
+            <h3 id="psicosis">1. Psicosis posparto: definición y reconocimiento de una urgencia médica</h3>
+            <p>La psicosis posparto es un trastorno psiquiátrico grave pero infrecuente que se presenta de forma repentina, habitualmente durante las primeras dos semanas posteriores al parto. Aunque minoritaria, exige máxima claridad informativa para garantizar una respuesta rápida y sin estigmas.</p>
+            <p>Este cuadro se origina por una combinación de factores hormonales extremos, predisposición biológica y vulnerabilidad del sueño, alterando por completo la percepción de la realidad por parte de la madre.</p>
+
+            <h3 id="alarmas">2. Signos de alarma inequívocos y desvinculación de la realidad</h3>
+            <p>A diferencia de la depresión, la psicosis muestra síntomas muy marcados de ruptura con el entorno y el pensamiento lógico:</p>
+            <ul>
+                <li><strong>Alucinaciones y delirios:</strong> Percepciones falsas o creencias delirantes referidas al bebé o a la propia identidad.</li>
+                <li><strong>Confusión extrema y desorientación:</strong> Cambios bruscos e impredecibles en el comportamiento y el estado de ánimo.</li>
+                <li><strong>Insomnio severo continuado:</strong> Incapacidad absoluta para conciliar el sueño incluso cuando el bebé descansa.</li>
+            </ul>
+
+            <!-- HUECO PARA IMAGEN INTERMEDIA 3 -->
+            <img src="imgposparto/intermedia03.webp" alt="Ilustración sobre el apoyo profesional y la red de contención" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(212, 143, 162, 0.2);">
+
+            <h3 id="actuacion">3. Protocolo de actuación urgente ante una crisis psiquiátrica</h3>
+            <p>La psicosis posparto constituye una **emergencia médica absoluta** que no puede resolverse con reposo ni apoyo domiciliario convencional. Requiere intervención psiquiátrica inmediata e ingreso hospitalario especializado.</p>
+            <p>Garantizar la seguridad tanto de la madre como del recién nacido es la prioridad absoluta, contando con tratamientos farmacológicos seguros y adaptados en caso de lactancia bajo supervisión clínica estricta.</p>
+
+            <h3 id="pareja">4. La transformación de la pareja y la necesidad de corresponsabilidad real</h3>
+            <p>La llegada de un hijo sacude los cimientos de la relación de pareja. La fatiga acumulada y la asimetría inicial en las tareas pueden generar tensiones profundas si no se gestionan desde la empatía y la corresponsabilidad.</p>
+            <p>Asumir las responsabilidades del hogar y del cuidado del bebé de forma equitativa no es un favor hacia la madre, sino una base indispensable para proteger la estabilidad emocional del núcleo familiar.</p>
+
+            <h3 id="entorno">5. El papel del entorno: escuchar sin juzgar y sostener la carga mental</h3>
+            <p>El entorno cercano (familiares y amistades) cumple una función protectora clave, siempre y cuando se enfoque desde el respeto a los tiempos y decisiones de los padres:</p>
+            <ul>
+                <li>Evitar opiniones impositivas, comparaciones o críticas sobre los métodos de crianza.</li>
+                <li>Ofrecer ayuda práctica y tangible (comida preparada, recados, organización) en lugar de visitas pasivas que aumenten la carga.</li>
+                <li>Validar el cansancio expresado sin restarle importancia ni minimizarlo.</li>
+            </ul>
+
+            <h3 id="red">6. Tejiendo una red de apoyo invisible pero firme y segura</h3>
+            <p>Ninguna familia debe criar en el aislamiento. Disponer de una red de confianza —ya sea formal a través de profesionales perinatales o informal mediante grupos de crianza y allegados— es el mejor antídoto frente a la soledad del puerperio.</p>
+            <p>Reconocer la necesidad de estar sostenidos es una muestra de madurez y de protección genuina hacia el bienestar de toda la familia.</p>
+        </section>
+
+        <!-- NAVEGACIÓN ENTRE PÁGINAS -->
+        <div class="navegacion-paginas">
+            <a href="posparto-02.html" class="btn-navegacion">
+                &larr; Parte II: Depresión y Vínculo
+            </a>
+            <a href="posparto-04.html" class="btn-navegacion">
+                Parte IV: Autocuidado y Recursos &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <!-- Menú 1: Salud y Bienestar (Solo Psicología y Recursos Prácticos) -->
+                <!-- Menú 1: Salud y Bienestar (Psicología, Guías de Salud y Guía de Posparto) -->
                 <div class="dropdown" id="healthDropdown">
                     <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
                     <div class="dropdown-content">
@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             
                             <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 12px; margin-bottom: 6px;">📋 Práctico</div>
                             <a href="guiasSalud.html" style="padding: 6px 8px;">📋 Guías de Salud</a>
+                            <a href="posparto-01.html" style="padding: 6px 8px; font-weight: 500; color: #f2b6c6;">🌸 Salud Mental Posparto</a>
                             <a href="orientacion.html" style="padding: 6px 8px; font-weight: 500; color: #38bdf8;">🧭 Orientación y Apoyo</a>
                         </div>
                     </div>

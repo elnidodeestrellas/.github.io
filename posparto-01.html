@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Mental en el Posparto (I): La Base y el Baby Blues | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        /* Paleta diferenciada para la sección de salud mental (Tonos frambuesa / rosa cálido) */
+        .bloque-guia {
+            background: rgba(30, 20, 30, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 143, 162, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 6px solid #d48fa2;
+        }
+
+        .bloque-guia h2 { font-family: 'Quicksand', sans-serif; color: #f2b6c6; margin-top: 0; margin-bottom: 25px; }
+        
+        /* Subtítulos con línea más gruesa (3px) y difuminada de lado a lado */
+        .bloque-guia h3 { 
+            font-family: 'Quicksand', sans-serif; 
+            color: #ffffff; 
+            margin-top: 35px; 
+            margin-bottom: 15px; 
+            padding-bottom: 12px;
+            border-bottom: none;
+            background: linear-gradient(to right, rgba(212, 143, 162, 0), rgba(212, 143, 162, 0.7) 50%, rgba(212, 143, 162, 0));
+            background-size: 100% 3px;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+
+        .bloque-guia p { color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.8; margin-bottom: 20px; }
+        .bloque-guia ul { color: #e2e8f0; font-family: 'Inter', sans-serif; padding-left: 20px; }
+        .bloque-guia li { margin-bottom: 10px; }
+        
+        .indice-caja { background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; border-left: 4px solid #f2b6c6; margin-bottom: 35px; }
+        .indice-caja h4 { margin: 0 0 15px 0; color: #f2b6c6; font-family: 'Quicksand', sans-serif; font-size: 1.1rem; }
+        .indice-caja ul { list-style: none; padding: 0; margin: 0; }
+        .indice-caja li { margin-bottom: 10px; }
+        .indice-caja a { color: #cbd5e0; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: color 0.2s ease; display: inline-block; }
+        .indice-caja a:hover { color: #f2b6c6; padding-left: 5px; }
+
+        .navegacion-paginas {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .btn-navegacion {
+            background: rgba(212, 143, 162, 0.15);
+            border: 1px solid rgba(212, 143, 162, 0.4);
+            color: #f2b6c6;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-navegacion:hover {
+            background: rgba(212, 143, 162, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        
+        <!-- PORTADA DE LA SECCIÓN -->
+        <div class="encabezado-inicio" style="text-align: center; max-width: 900px; margin: 0 auto 40px auto; padding: 0 20px;">
+            <h1 style="font-size: 2.8rem; font-family: 'Quicksand', sans-serif; color: #f2b6c6; margin-bottom: 15px;">Salud Mental en el Posparto (I)</h1>
+            <p style="font-size: 1.3rem; color: #fce4ec; font-family: 'Quicksand', sans-serif; max-width: 800px; margin: 0 auto 20px auto;">El inicio del puerperio, la tormenta hormonal y la comprensión de la tristeza legítima de los primeros días.</p>
+            
+            <!-- HUECO PARA LA IMAGEN DE PORTADA -->
+            <img src="imgposparto/portada01.webp" alt="Portada Salud Mental en el Posparto Parte 1" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(212, 143, 162, 0.3);">
+        </div>
+
+        <section class="bloque-guia">
+            <h2>Índice de la Parte I: El Reajuste Inicial</h2>
+            
+            <div class="indice-caja">
+                <h4>Navega directamente a los temas de este bloque:</h4>
+                <ul>
+                    <li>• <a href="#base">1. Cuidando de la base: el reajuste profundo del organismo materno</a></li>
+                    <li>• <a href="#mito">2. Deconstruyendo el mito de la maternidad idílica y el posparto feliz</a></li>
+                    <li>• <a href="#hormonas">3. La caída hormonal repentina tras el alumbramiento</a></li>
+                    <li>• <a href="#fatiga">4. La privación crítica de sueño y su efecto directo en el ánimo</a></li>
+                    <li>• <a href="#baby-blues">5. Tristeza posparto o baby blues: qué es y cuánto dura</a></li>
+                    <li>• <a href="#normalizar">6. Validar la vulnerabilidad: el permiso a no poder con todo</a></li>
+                </ul>
+            </div>
+
+            <h3 id="base">1. Cuidando de la base: el reajuste profundo del organismo materno</h3>
+            <p>El nacimiento de un hijo no solo transforma la dinámica familiar cotidiana, sino que somete a la madre a un reajuste hormonal, físico y emocional de una magnitud extraordinaria. Situar el bienestar emocional en el origen del recorrido vital permite transitar esta etapa con realismo, desmontando tabús y reconociendo que cuidar de la salud mental de la madre es el primer acto de cuidado hacia el bebé.</p>
+            <p>El cuerpo pasa en cuestión de horas de sostener una gestación a activar los mecanismos de la lactancia y la protección de un recién nacido, un esfuerzo metabólico gigantesco que requiere tiempo, silencio y respeto absoluto.</p>
+
+            <h3 id="mito">2. Deconstruyendo el mito de la maternidad idílica y el posparto feliz</h3>
+            <p>Durante demasiado tiempo se ha romantizado el puerperio como un estado constante de dicha absoluta. Esta idealización social genera una brecha profunda entre lo que la madre experimenta (cansancio extremo, dudas constantes, ambivalencia) y lo que cree que "debería" sentir.</p>
+            <p>Romper con esta falsa narrativa es el pilar fundamental para evitar el aislamiento emocional. Reconocer que la alegría y el agotamiento extremo coexisten de manera natural alivia una parte importante del peso invisible que soporta la familia.</p>
+
+            <!-- HUECO PARA IMAGEN INTERMEDIA 1 -->
+            <img src="imgposparto/intermedia01.webp" alt="Ilustración sobre el descanso y la calma en familia" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(212, 143, 162, 0.2);">
+
+            <h3 id="hormonas">3. La caída hormonal repentina tras el alumbramiento</h3>
+            <p>Inmediatamente después de la expulsión de la placenta, los niveles de estrógenos y progesterona experimentan un desplome brusco y sin precedentes en el organismo femenino. Este cambio radical en la química cerebral afecta directamente a los neurotransmisores que regulan el estado de ánimo.</p>
+            <p>Comprender que esta montaña rusa química responde a una causa puramente biológica ayuda a transitar los altibajos anímicos sin interpretarlos como un fallo personal o una falta de capacidad.</p>
+
+            <h3 id="fatiga">4. La privación crítica de sueño y su efecto directo en el ánimo</h3>
+            <p>El ritmo de alimentación y atención que demanda un recién nacido fragmenta el sueño de forma implacable. La falta de descanso profundo mantenida en el tiempo altera la capacidad de concentración, incrementa la irritabilidad y reduce la tolerancia al estrés.</p>
+            <p>Proteger las horas de descanso de la madre mediante turnos conscientes con el entorno no es un lujo organizativo, sino una medida de protección neurológica y emocional indispensable en las primeras semanas.</p>
+
+            <h3 id="baby-blues">5. Tristeza posparto o baby blues: qué es y cuánto dura</h3>
+            <p>La tristeza posparto afecta aproximadamente al 70-80% de las mujeres durante los primeros días tras el nacimiento. Se manifiesta con llanto frecuente sin causa aparente, sensibilidad a flor de piel, pequeños cambios de humor y ansiedad leve.</p>
+            <p>A diferencia de los trastornos más profundos, el <em>baby blues</em> es un proceso transitorio y benigno que se autorregula por completo entre la segunda y tercera semana de vida del bebé, sin requerir intervención médica específica.</p>
+
+            <h3 id="normalizar">6. Validar la vulnerabilidad: el permiso a no poder con todo</h3>
+            <p>Aceptar el estado de vulnerabilidad implica renunciar a la autoexigencia de llegar a todo. Permitirse llorar, descansar sin remordimientos cuando el bebé duerme y aceptar que las tareas domésticas queden en un segundo plano son decisiones de salud mental.</p>
+            <p>La red más sólida empieza por el propio permiso interno a transitar el desconcierto sabiendo que la competencia maternal no se mide por la perfección, sino por la capacidad de pedir y aceptar amparo.</p>
+        </section>
+
+        <!-- NAVEGACIÓN ENTRE PÁGINAS -->
+        <div class="navegacion-paginas">
+            <span><!-- Espacio vacío por ser la primera página --></span>
+            <a href="posparto-02.html" class="btn-navegacion">
+                Parte II: Depresión Posparto &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>
