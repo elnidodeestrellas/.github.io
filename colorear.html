@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de Colorear y Descargables | El Nido de Estrellas</title>
+    <meta name="description" content="Láminas y dibujos infantiles para colorear, imprimir y aprender jugando con los más pequeños en El Nido de Estrellas.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Script de análisis (GoatCounter) -->
+    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+    
+    <!-- Importación de tipografías premium desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .colorear-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #f7f9fc;
+        }
+        .colorear-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .colorear-header h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        .colorear-header p {
+            font-size: 16px;
+            color: #cbd5e0;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* SISTEMA DE PESTAÑAS (FILTROS) */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background-color: #1a2639;
+            border: 1px solid #2c3e50;
+            color: #cbd5e0;
+            padding: 10px 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .tab-btn:hover {
+            border-color: #63b3ed;
+            color: #ffffff;
+        }
+        .tab-btn.active {
+            background-color: #3182ce;
+            border-color: #3182ce;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4);
+        }
+
+        .section-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 22px;
+            color: #63b3ed;
+            margin: 30px 0 20px 0;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 8px;
+        }
+        .grid-fichas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .ficha-card {
+            background: #1a2639;
+            border: 1px solid #2c3e50;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .ficha-card:hover {
+            transform: translateY(-4px);
+            border-color: #63b3ed;
+        }
+        .ficha-img-container {
+            background-color: #ffffff;
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #2c3e50;
+            cursor: pointer;
+            position: relative;
+        }
+        .ficha-img-container img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            display: block;
+            border-radius: 6px;
+            transition: opacity 0.2s;
+        }
+        .ficha-img-container:hover img {
+            opacity: 0.85;
+        }
+        .ver-mas-hint {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 11px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .ficha-img-container:hover .ver-mas-hint {
+            opacity: 1;
+        }
+        .ficha-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .ficha-content h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+        .download-btn {
+            background-color: #3182ce;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+            font-family: 'Quicksand', sans-serif;
+            display: block;
+            margin-top: 12px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+        .download-btn:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* ESTILOS DEL MODAL SEGUROS */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 15, 25, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .modal-content {
+            background: #1a2639;
+            border: 1px solid #4a5568;
+            border-radius: 16px;
+            max-width: 480px;
+            width: 100%;
+            padding: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+            text-align: center;
+            position: relative;
+            margin: auto;
+            animation: modalFadeIn 0.25s ease;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.93); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            background: #2c3e50;
+            border: none;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            z-index: 100000;
+        }
+        .modal-close:hover {
+            background: #e53e3e;
+        }
+        .modal-content img {
+            width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+            background: #ffffff;
+            border-radius: 8px;
+            margin: 15px 0;
+            padding: 8px;
+        }
+        .modal-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 5px;
+            padding-right: 25px;
+        }
+        .modal-instructions {
+            font-size: 12px;
+            color: #a0aec0;
+            margin-top: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegación global -->
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <div class="colorear-container">
+            
+            <div class="colorear-header">
+                <h1>🎨 Zona Creativa y de Colorear</h1>
+                <p>
+                    Haz clic en cualquier dibujo para verlo en grande, admirarlo y guardarlo o imprimirlo cómodamente para los peques.
+                </p>
+            </div>
+
+            <!-- PESTAÑAS DE FILTRADO -->
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="filtrarCategoria('todos', this)">🌟 Ver Todos</button>
+                <button class="tab-btn" onclick="filtrarCategoria('animales', this)">🐾 Animales y Amigos</button>
+                <button class="tab-btn" onclick="filtrarCategoria('numeros', this)">🔢 Aprendiendo los Números</button>
+            </div>
+
+            <!-- SECCIÓN: ANIMALES Y AMIGOS -->
+            <div class="categoria-seccion" data-categoria="animales">
+                <h2 class="section-title">🌟 Amigos del Nido y Animales</h2>
+                <div class="grid-fichas">
+                    
+                    <!-- Osito -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/animales/osito.webp', 'El osito y la estrella')">
+                            <img src="colorear/animales/osito.webp" alt="Osito con globo de estrella">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El osito y la estrella</h3>
+                            <button onclick="abrirModal('colorear/animales/osito.webp', 'El osito y la estrella')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Conejo -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/animales/conejo.webp', 'El conejito y la estrella fugaz')">
+                            <img src="colorear/animales/conejo.webp" alt="Conejo con estrella fugaz">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El conejito soñador</h3>
+                            <button onclick="abrirModal('colorear/animales/conejo.webp', 'El conejito y la estrella fugaz')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Gatito -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/animales/gatito.webp', 'El gatito mirando la luna')">
+                            <img src="colorear/animales/gatito.webp" alt="Gatito mirando la luna">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Gatito y la luna</h3>
+                            <button onclick="abrirModal('colorear/animales/gatito.webp', 'El gatito mirando la luna')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Perrito -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/animales/perrito.webp', 'Perrito jugando con lana')">
+                            <img src="colorear/animales/perrito.webp" alt="Perrito jugando con lana">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Perrito juguetón</h3>
+                            <button onclick="abrirModal('colorear/animales/perrito.webp', 'Perrito jugando con lana')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Osito Volando -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/animales/osito volando.webp', 'Osito piloto en cohete')">
+                            <img src="colorear/animales/osito volando.webp" alt="Osito piloto en cohete">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Osito astronauta</h3>
+                            <button onclick="abrirModal('colorear/animales/osito volando.webp', 'Osito piloto en cohete')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECCIÓN: APRENDIENDO LOS NÚMEROS (1 al 10) -->
+            <div class="categoria-seccion" data-categoria="numeros">
+                <h2 class="section-title">🔢 Aprendiendo los Números (Del 1 al 10)</h2>
+                <div class="grid-fichas">
+                    
+                    <!-- Número 1 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/uno.webp', 'Número 1 - El Cohete Espacial')">
+                            <img src="colorear/numeros/uno.webp" alt="Número 1 Cohete">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 1 (Cohete)</h3>
+                            <button onclick="abrirModal('colorear/numeros/uno.webp', 'Número 1 - El Cohete Espacial')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 2 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/dos.webp', 'Número 2 - El Cisne Elegante')">
+                            <img src="colorear/numeros/dos.webp" alt="Número 2 Cisne">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 2 (Cisne)</h3>
+                            <button onclick="abrirModal('colorear/numeros/dos.webp', 'Número 2 - El Cisne Elegante')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 3 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/tres.webp', 'Número 3 - El Osito Durmiente')">
+                            <img src="colorear/numeros/tres.webp" alt="Número 3 Osito">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 3 (Osito)</h3>
+                            <button onclick="abrirModal('colorear/numeros/tres.webp', 'Número 3 - El Osito Durmiente')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 4 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/cuatro.webp', 'Número 4 - El Barquito de Papel')">
+                            <img src="colorear/numeros/cuatro.webp" alt="Número 4 Barquito">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 4 (Barquito)</h3>
+                            <button onclick="abrirModal('colorear/numeros/cuatro.webp', 'Número 4 - El Barquito de Papel')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 5 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/cinco.webp', 'Número 5 - El Elefantito')">
+                            <img src="colorear/numeros/cinco.webp" alt="Número 5 Elefante">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 5 (Elefante)</h3>
+                            <button onclick="abrirModal('colorear/numeros/cinco.webp', 'Número 5 - El Elefantito')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 6 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/seis.webp', 'Número 6 - El Caracol Amigable')">
+                            <img src="colorear/numeros/seis.webp" alt="Número 6 Caracol">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 6 (Caracol)</h3>
+                            <button onclick="abrirModal('colorear/numeros/seis.webp', 'Número 6 - El Caracol Amigable')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 7 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/siete.webp', 'Número 7 - El Canguro Saltarín')">
+                            <img src="colorear/numeros/siete.webp" alt="Número 7 Canguro">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 7 (Canguro)</h3>
+                            <button onclick="abrirModal('colorear/numeros/siete.webp', 'Número 7 - El Canguro Saltarín')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 8 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/ocho.webp', 'Número 8 - El Muñeco de Nieve')">
+                            <img src="colorear/numeros/ocho.webp" alt="Número 8 Muñeco de nieve">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 8 (Nieve)</h3>
+                            <button onclick="abrirModal('colorear/numeros/ocho.webp', 'Número 8 - El Muñeco de Nieve')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 9 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/nueve.webp', 'Número 9 - La Mariposa Feliz')">
+                            <img src="colorear/numeros/nueve.webp" alt="Número 9 Mariposa">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 9 (Mariposa)</h3>
+                            <button onclick="abrirModal('colorear/numeros/nueve.webp', 'Número 9 - La Mariposa Feliz')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                    <!-- Número 10 -->
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/numeros/diez.webp', 'Número 10 - El León Valiente')">
+                            <img src="colorear/numeros/diez.webp" alt="Número 10 León">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Número 10 (León)</h3>
+                            <button onclick="abrirModal('colorear/numeros/diez.webp', 'Número 10 - El León Valiente')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- VENTANA EMERGENTE (MODAL) -->
+    <div id="imageModal" class="modal-overlay" onclick="cerrarModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="cerrarModal()" title="Cerrar ventana">&times;</button>
+            <h3 id="modalTitle" class="modal-title">Título del dibujo</h3>
+            <img id="modalImg" src="" alt="Vista ampliada">
+            <p class="modal-instructions">💡 Haz clic derecho sobre la imagen para guardarla o imprimirla.</p>
+        </div>
+    </div>
+
+    <!-- Scripts de la Interfaz (Modal y Filtrado) -->
+    <script>
+        function abrirModal(srcImage, titulo) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalTitle = document.getElementById('modalTitle');
+
+            modalImg.src = srcImage;
+            modalTitle.innerText = titulo;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function filtrarCategoria(categoria, boton) {
+            // Actualizar botones activos
+            const botones = document.querySelectorAll('.tab-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
+            boton.classList.add('active');
+
+            // Mostrar u ocultar secciones
+            const secciones = document.querySelectorAll('.categoria-seccion');
+            secciones.forEach(seccion => {
+                if (categoria === 'todos' || seccion.getAttribute('data-categoria') === categoria) {
+                    seccion.style.display = 'block';
+                } else {
+                    seccion.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>
