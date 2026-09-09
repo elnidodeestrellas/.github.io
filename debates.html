@@ -20,41 +20,57 @@
             padding: 20px;
         }
 
-        /* Contenedor de la imagen de portada del debate */
-        .debate-cover-wrapper {
+        /* Fila que une la imagen y la tarjeta de texto lado a lado */
+        .debate-grid-row {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
             width: 100%;
-            max-width: 420px;
-            margin: 0 auto 12px auto;
-            border-radius: 12px;
+            gap: 4px; /* Pequeña separación simétrica si se desea, o 0 para fundir */
+            margin-bottom: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Contenedor de la imagen de portada dentro de la fila */
+        .debate-cover-wrapper {
+            flex: 0 0 38%;
+            max-width: 38%;
+            border-top-left-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(241, 196, 66, 0.2);
+            border-right: none;
             background: #121212;
             box-sizing: border-box;
+            display: flex;
+            align-items: center;
         }
 
         .debate-cover-wrapper img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
-        /* Tarjeta de texto unida por arriba y con separación milimétrica abajo */
+        /* Tarjeta de texto ajustada al lado de la imagen */
         .debate-text-card {
-            width: 100%;
-            margin-bottom: 4px; /* Deja una línea fina de separación */
-            padding: 30px;
+            flex: 1;
+            padding: 25px 30px;
             box-sizing: border-box;
             background: #1e1b4b;
-            border-top-left-radius: 12px;
             border-top-right-radius: 12px;
+            border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             border: 1px solid rgba(241, 196, 66, 0.2);
-            border-bottom: none; /* Funde la base con la línea de separación */
-            text-align: center;
+            border-left: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
         }
 
-        /* Contenedor del reproductor de Spotify pegado casi por completo */
+        /* Contenedor del reproductor de Spotify pegado en la parte inferior */
         .spotify-full-wrapper {
             width: 100%;
             margin-bottom: 50px;
@@ -67,6 +83,25 @@
             background: #121212;
             box-sizing: border-box;
         }
+
+        /* Diseño adaptativo para pantallas móviles (se apila verticalmente) */
+        @media (max-width: 768px) {
+            .debate-grid-row {
+                flex-direction: column;
+            }
+            .debate-cover-wrapper {
+                flex: 0 0 100%;
+                max-width: 100%;
+                border-right: 1px solid rgba(241, 196, 66, 0.2);
+                border-bottom: none;
+                border-top-right-radius: 12px;
+            }
+            .debate-text-card {
+                border-left: 1px solid rgba(241, 196, 66, 0.2);
+                border-top-right-radius: 0;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -78,50 +113,66 @@
         <h1>Debates y Espacio de Reflexión</h1>
         <p style="text-align: center; color: #cbd5e1; margin-bottom: 40px;">Conversaciones profundas sobre crianza, infancia y emociones para escuchar a tu ritmo.</p>
 
-        <!-- Debate 1: Pantallas desde pequeños o desconexión digital total -->
-        <div class="debate-cover-wrapper">
-            <img src="imgdebates/debate-pantallas.webp" alt="Portada debate sobre pantallas en la infancia">
+        <!-- Debate 1: Elogios constantes o reconocimiento del esfuerzo -->
+        <div class="debate-grid-row">
+            <div class="debate-cover-wrapper">
+                <img src="imgdebates/debate-elogios.webp" alt="Portada debate sobre elogios y motivación infantil">
+            </div>
+            <div class="debate-text-card">
+                <h2 style="color: #f1c442; font-size: 1.25rem; margin-top: 0; margin-bottom: 12px;">🎧 ¿Elogiar demasiado a los niños afecta a su autoestima o les motiva a superarse?</h2>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; margin: 0;">
+                    Reflexionamos sobre el impacto de los halagos constantes frente al reconocimiento del esfuerzo y la motivación intrínseca en el desarrollo emocional de la infancia.
+                </p>
+            </div>
+        </div>
+        <div class="spotify-full-wrapper">
+            <iframe style="border-radius:0; display: block;" src="https://open.spotify.com/embed/episode/3cKCtFccFJV8FdufXyseHJ?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
-        <div class="debate-text-card">
-            <h2 style="color: #f1c442; font-size: 1.3rem; margin-top: 0; margin-bottom: 15px;">🎧 ¿Pantallas desde pequeños o desconexión digital total hasta la adolescencia?</h2>
-            <p style="font-size: 1rem; line-height: 1.6; color: #e2e8f0; margin: 0;">
-                Analizamos si es mejor una introducción guiada y gradual a los dispositivos tecnológicos o si la opción más segura es apostar por una desconexión digital total durante los primeros años de vida.
-            </p>
+        <!-- Debate 2: Pantallas desde pequeños o desconexión digital total -->
+        <div class="debate-grid-row">
+            <div class="debate-cover-wrapper">
+                <img src="imgdebates/debate-pantallas.webp" alt="Portada debate sobre pantallas en la infancia">
+            </div>
+            <div class="debate-text-card">
+                <h2 style="color: #f1c442; font-size: 1.25rem; margin-top: 0; margin-bottom: 12px;">🎧 ¿Pantallas desde pequeños o desconexión digital total hasta la adolescencia?</h2>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; margin: 0;">
+                    Analizamos si es mejor una introducción guiada y gradual a los dispositivos tecnológicos o si la opción más segura es apostar por una desconexión digital total durante los primeros años de vida.
+                </p>
+            </div>
         </div>
-        
         <div class="spotify-full-wrapper">
             <iframe style="border-radius:0; display: block;" src="https://open.spotify.com/embed/episode/68WpnERdTTW5AL5YywGB57?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
-        <!-- Debate 2: Demasiada información en crianza o una guía imprescindible -->
-        <div class="debate-cover-wrapper">
-            <img src="imgdebates/debate-informacion.webp" alt="Portada debate sobre exceso de información en crianza">
+        <!-- Debate 3: Demasiada información en crianza o una guía imprescindible -->
+        <div class="debate-grid-row">
+            <div class="debate-cover-wrapper">
+                <img src="imgdebates/debate-informacion.webp" alt="Portada debate sobre exceso de información en crianza">
+            </div>
+            <div class="debate-text-card">
+                <h2 style="color: #f1c442; font-size: 1.25rem; margin-top: 0; margin-bottom: 12px;">🎧 ¿Demasiada información en crianza o una guía imprescindible?</h2>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; margin: 0;">
+                    Analizamos si la gran cantidad de temarios y recursos disponibles en la web puede saturar a las familias o si, por el contrario, es una herramienta clave de apoyo diario.
+                </p>
+            </div>
         </div>
-
-        <div class="debate-text-card">
-            <h2 style="color: #f1c442; font-size: 1.3rem; margin-top: 0; margin-bottom: 15px;">🎧 ¿Demasiada información en crianza o una guía imprescindible?</h2>
-            <p style="font-size: 1rem; line-height: 1.6; color: #e2e8f0; margin: 0;">
-                Analizamos si la gran cantidad de temarios y recursos disponibles en la web puede saturar a las familias o si, por el contrario, es una herramienta clave de apoyo diario.
-            </p>
-        </div>
-        
         <div class="spotify-full-wrapper">
             <iframe style="border-radius:0; display: block;" src="https://open.spotify.com/embed/episode/6G67vHEqtbvDmCX8DLvWUE?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
-        <!-- Debate 3: Límites estrictos o crianza flexible -->
-        <div class="debate-cover-wrapper">
-            <img src="imgdebates/debate-limites.webp" alt="Portada debate sobre límites y crianza flexible">
+        <!-- Debate 4: Límites estrictos o crianza flexible -->
+        <div class="debate-grid-row">
+            <div class="debate-cover-wrapper">
+                <img src="imgdebates/debate-limites.webp" alt="Portada debate sobre límites y crianza flexible">
+            </div>
+            <div class="debate-text-card">
+                <h2 style="color: #f1c442; font-size: 1.25rem; margin-top: 0; margin-bottom: 12px;">🎧 ¿Límites estrictos o crianza flexible?</h2>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; margin: 0;">
+                    Analizamos el delicado equilibrio entre establecer normas claras de convivencia en casa y respetar la autonomía y el mundo emocional de los niños.
+                </p>
+            </div>
         </div>
-
-        <div class="debate-text-card">
-            <h2 style="color: #f1c442; font-size: 1.3rem; margin-top: 0; margin-bottom: 15px;">🎧 ¿Límites estrictos o crianza flexible?</h2>
-            <p style="font-size: 1rem; line-height: 1.6; color: #e2e8f0; margin: 0;">
-                Analizamos el delicado equilibrio entre establecer normas claras de convivencia en casa y respetar la autonomía y el mundo emocional de los niños.
-            </p>
-        </div>
-        
         <div class="spotify-full-wrapper">
             <iframe style="border-radius:0; display: block;" src="https://open.spotify.com/embed/episode/6nqBCPFm8TLhH6GmKD46J5?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
