@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice Maestro y Mapa del Sitio | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .mapa-contenedor {
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .mapa-titulo-principal {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            color: #f2b6c6;
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .mapa-subtitulo {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            color: #fce4ec;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            line-height: 1.5;
+        }
+
+        /* Cuadrícula estricta de 2 columnas */
+        .mapa-grid-dos-columnas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .mapa-grid-dos-columnas {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mapa-caja {
+            background: rgba(30, 20, 30, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .mapa-caja:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Variaciones de color individuales para cada tarjeta */
+        .caja-presentacion {
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-left: 5px solid #38bdf8;
+        }
+        .caja-presentacion h2 { color: #38bdf8; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
+
+        .caja-crianza {
+            border: 1px solid rgba(241, 196, 66, 0.3);
+            border-left: 5px solid #f1c442;
+        }
+        .caja-crianza h2 { color: #f1c442; border-bottom: 1px solid rgba(241, 196, 66, 0.2); }
+
+        .caja-salud {
+            border: 1px solid rgba(242, 182, 198, 0.3);
+            border-left: 5px solid #f2b6c6;
+        }
+        .caja-salud h2 { color: #f2b6c6; border-bottom: 1px solid rgba(242, 182, 198, 0.2); }
+
+        .caja-cuentos {
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-left: 5px solid #a78bfa;
+        }
+        .caja-cuentos h2 { color: #a78bfa; border-bottom: 1px solid rgba(167, 139, 250, 0.2); }
+
+        .caja-juegos {
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            border-left: 5px solid #34d399;
+            grid-column: span 2; /* Ocupa las dos columnas en pantallas grandes para equilibrar el diseño */
+        }
+        @media (max-width: 768px) {
+            .caja-juegos { grid-column: span 1; }
+        }
+        .caja-juegos h2 { color: #34d399; border-bottom: 1px solid rgba(52, 211, 153, 0.2); }
+
+        .mapa-caja h2 {
+            font-family: 'Quicksand', sans-serif;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            padding-bottom: 8px;
+        }
+
+        .mapa-lista-compacta {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mapa-lista-compacta li {
+            margin-bottom: 8px;
+        }
+
+        .mapa-lista-compacta a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .mapa-lista-compacta a:hover {
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <div class="mapa-contenedor">
+            <h1 class="mapa-titulo-principal">Índice Maestro</h1>
+            <p class="mapa-subtitulo">Brújula de navegación rápida por todo el contenido del portal.</p>
+
+            <div class="mapa-grid-dos-columnas">
+                
+                <!-- PRESENTACIÓN (AZUL) -->
+                <div class="mapa-caja caja-presentacion">
+                    <h2>✨ Presentación</h2>
+                    <ul class="mapa-lista-compacta">
+                        <li><a href="index.html">🏠 Inicio</a></li>
+                        <li><a href="bienvenida.html">✨ Bienvenida</a></li>
+                        <li><a href="proyecto.html">📊 Proyecto</a></li>
+                    </ul>
+                </div>
+
+                <!-- GUÍAS DE CRIANZA (AMARILLO / ORO) -->
+                <div class="mapa-caja caja-crianza">
+                    <h2>🌱 Recorrido Vital</h2>
+                    <ul class="mapa-lista-compacta">
+                        <li><a href="embarazo01.html">🌟 Embarazo</a></li>
+                        <li><a href="lactancia01.html">🍼 Lactancia</a></li>
+                        <li><a href="dental01.html">🦷 Salud Dental</a></li>
+                        <li><a href="crecimiento01.html">🌱 Crecimiento</a></li>
+                        <li><a href="auxilios01.html">🚨 Primeros Auxilios</a></li>
+                    </ul>
+                </div>
+
+                <!-- SALUD Y PSICOLOGÍA (FRAMBUESA / ROSA) -->
+                <div class="mapa-caja caja-salud">
+                    <h2>🩺 Salud y Psicología</h2>
+                    <ul class="mapa-lista-compacta">
+                        <li><a href="guiasSalud.html">📋 Guías de Salud</a></li>
+                        <li><a href="posparto-01.html">🌸 Salud Mental Posparto</a></li>
+                        <li><a href="glosario.html">✨ Glosario Poético</a></li>
+                        <li><a href="glosariopedagogico.html">🧠 Glosario Pedagógico</a></li>
+                        <li><a href="rinconlectura.html">📖 Rincón de Lectura</a></li>
+                        <li><a href="preguntas.html">❓ Rincón de Preguntas</a></li>
+                        <li><a href="orientacion.html">🧭 Orientación y Apoyo</a></li>
+                    </ul>
+                </div>
+
+                <!-- CUENTOS Y AUDIOS (LAVANDA / VIOLETA) -->
+                <div class="mapa-caja caja-cuentos">
+                    <h2>📁 Cuentos y Audios</h2>
+                    <ul class="mapa-lista-compacta">
+                        <li><a href="audios-lista.html">🎧 Cuentos para Escuchar</a></li>
+                        <li><a href="cuentos-texto.html">📖 Cuentos para Leer</a></li>
+                        <li><a href="microcuentos.html">✨ Microcuentos</a></li>
+                        <li><a href="podcast.html">🎙️ Podcast</a></li>
+                        <li><a href="debates.html">💬 Debates y Reflexión</a></li>
+                    </ul>
+                </div>
+
+                <!-- JUEGOS Y COMUNIDAD (VERDE MENTA - OCUPA LAS DOS COLUMNAS) -->
+                <div class="mapa-caja caja-juegos">
+                    <h2>🎮 Juegos y Comunidad</h2>
+                    <ul class="mapa-lista-compacta" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px 16px;">
+                        <li><a href="puzzles.html">🧩 Puzzles Mágicos</a></li>
+                        <li><a href="memoria.html">✨ Memoria Mágica</a></li>
+                        <li><a href="adivinanzas.html">🔮 Adivinanzas</a></li>
+                        <li><a href="aventura.html">🧭 Aventura</a></li>
+                        <li><a href="colorear.html">🎨 Colorear Mágico</a></li>
+                        <li><a href="tuvoz.html">⭐ Tu Voz</a></li>
+                        <li><a href="contacto.html">✉️ Contacto</a></li>
+                        <li><a href="legal.html">📜 Aviso Legal</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

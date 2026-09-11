@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="dropdown-content">
                         <a href="bienvenida.html">✨ Bienvenida</a>
                         <a href="proyecto.html">📊 Proyecto</a>
+                        <a href="mapa.html" style="font-weight: 500; color: #f2b6c6;">🧭 Índice Maestro</a>
                     </div>
                 </div>
 
@@ -136,8 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
     footer.innerHTML = `
         <div class="footer-content-wrapper">
             <p style="margin: 0;">&copy; 2026 El Nido de Estrellas. | Síguenos en nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank" style="color: #eab308; text-decoration: none;">Canal de YouTube</a> y en <a href="https://www.instagram.com/elnidodeestrellas" target="_blank" style="color: #eab308; text-decoration: none;">Instagram</a></p>
-            <div style="margin: 0;">
-                <a href="legal.html" style="color: #eab308; text-decoration: underline;">Aviso Legal y Privacidad</a>
+            <div style="margin: 0; display: flex; gap: 15px; justify-content: center;">
+                <a href="mapa.html" style="color: #eab308; text-decoration: underline;">🧭 Índice Maestro</a>
+                <a href="legal.html" style="color: #eab308; text-decoration: underline;">📜 Aviso Legal y Privacidad</a>
             </div>
         </div>
     `;
