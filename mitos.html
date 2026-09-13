@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitos vs. Realidad en Crianza - El Nido de Estrellas</title>
+    
+    <!-- Enlace a Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Enlace a estilos generales -->
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        :root {
+            --bg-principal: #070b14;
+            --card-bg: rgba(20, 29, 51, 0.45);
+            --dorado: #f1c442;
+            --texto-secundario: #94a3b8;
+            --borde-tarjeta: rgba(241, 196, 66, 0.18);
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mitos-container {
+            max-width: 900px;
+            /* CORREGIDO: Se ajusta a 900px para igualar el ancho de los glosarios */
+            margin: 96px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Estilo de la cabecera inspirado en el glosario */
+        .mitos-hero {
+            background-color: var(--card-bg);
+            border: 1px solid var(--borde-tarjeta);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-img-container {
+            width: 140px;
+            height: 100px;
+            border-radius: 12px;
+            border: 1px solid rgba(241, 196, 66, 0.3);
+            background-color: rgba(7, 11, 20, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-img-placeholder {
+            font-size: 0.7rem;
+            color: var(--texto-secundario);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .hero-text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .hero-icon {
+            font-size: 1.5rem;
+        }
+
+        .mitos-hero h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .mitos-hero p {
+            font-size: 0.95rem;
+            color: var(--texto-secundario);
+            margin: 0;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* Sistema de Pestañas / Filtros */
+        .filter-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            background-color: var(--card-bg);
+            border: 1px solid var(--borde-tarjeta);
+            color: var(--texto-secundario);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-tab:hover {
+            border-color: rgba(241, 196, 66, 0.5);
+            color: #ffffff;
+        }
+
+        .filter-tab.active {
+            background-color: #ffffff;
+            color: #070b14;
+            border-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bloques temáticos diferenciados por color */
+        .section-category-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bloque-sueno { color: #60a5fa; border-color: rgba(96, 165, 250, 0.3); }
+        .bloque-emocional { color: #f43f5e; border-color: rgba(244, 63, 94, 0.3); }
+        .bloque-limites { color: #f1c442; border-color: rgba(241, 196, 66, 0.3); }
+        .bloque-desarrollo { color: #10b981; border-color: rgba(16, 185, 129, 0.3); }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card-mito {
+            background-color: var(--card-bg);
+            border: 1px solid var(--borde-tarjeta);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            min-height: 180px;
+        }
+
+        .card-mito:hover {
+            transform: translateY(-4px);
+            border-color: rgba(241, 196, 66, 0.5);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-number {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+            transition: color 0.3s ease;
+        }
+
+        .card-mito:hover .card-number {
+            color: rgba(255, 255, 255, 0.06);
+        }
+
+        .card-content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-category {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .cat-sueno { color: #60a5fa; }
+        .cat-emocional { color: #f43f5e; }
+        .cat-limites { color: #f1c442; }
+        .cat-desarrollo { color: #10b981; }
+
+        .card-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .card-preview {
+            font-size: 0.85rem;
+            color: var(--texto-secundario);
+            margin-bottom: 12px;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .card-action {
+            font-size: 0.82rem;
+            color: var(--dorado);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Ventana Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(7, 11, 20, 0.85);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #141d33;
+            border: 1px solid rgba(241, 196, 66, 0.4);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+            margin: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--texto-secundario);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #ffffff;
+        }
+
+        .modal-category {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .modal-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .modal-section {
+            margin-bottom: 18px;
+            padding: 18px;
+            border-radius: 12px;
+        }
+
+        .modal-myth {
+            background-color: rgba(244, 63, 94, 0.08);
+            border-left: 4px solid #f43f5e;
+            border: 1px solid rgba(244, 63, 94, 0.2);
+        }
+
+        .modal-reality {
+            background-color: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .modal-development {
+            background-color: rgba(241, 196, 66, 0.06);
+            border-left: 4px solid var(--dorado);
+            border: 1px solid rgba(241, 196, 66, 0.2);
+        }
+
+        .modal-section-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-myth .modal-section-title { color: #f43f5e; }
+        .modal-reality .modal-section-title { color: #10b981; }
+        .modal-development .modal-section-title { color: var(--dorado); }
+
+        .modal-section p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .mitos-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .hero-title-wrapper {
+                justify-content: center;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .mitos-container {
+                margin: 84px auto 20px auto;
+                padding: 0 15px;
+            }
+            .modal-content {
+                padding: 20px;
+                max-height: 95vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegación inyectado -->
+    <div id="menu-container"></div>
+
+    <main class="mitos-container">
+        <!-- Cabecera estilo Glosario con la imagen integrada -->
+        <div class="mitos-hero">
+            <div class="hero-img-container">
+                <img src="img/mitos.webp" alt="Ilustración conceptual de mitos y realidad en crianza">
+            </div>
+            <div class="hero-text-content">
+                <div class="hero-title-wrapper">
+                    <span class="hero-icon">🧠</span>
+                    <h1>Mitos vs. Realidad en Crianza</h1>
+                </div>
+                <p>36 creencias populares de la infancia analizadas desde la neurobiología, el respeto y el desarrollo evolutivo real.</p>
+            </div>
+        </div>
+
+        <!-- Pestañas de filtrado interactivo -->
+        <div class="filter-tabs-container">
+            <button class="filter-tab active" onclick="filterCategory('todos', this)">
+                <span>☀️</span> Todos (36)
+            </button>
+            <button class="filter-tab" onclick="filterCategory('sueno', this)">
+                <span style="color: #60a5fa;">●</span> Sueño (9)
+            </button>
+            <button class="filter-tab" onclick="filterCategory('emocional', this)">
+                <span style="color: #f43f5e;">●</span> Emocional (9)
+            </button>
+            <button class="filter-tab" onclick="filterCategory('limites', this)">
+                <span style="color: #f1c442;">●</span> Límites (9)
+            </button>
+            <button class="filter-tab" onclick="filterCategory('desarrollo', this)">
+                <span style="color: #10b981;">●</span> Desarrollo (9)
+            </button>
+        </div>
+
+        <!-- BLOQUE 1: SUEÑO Y DESCANSO -->
+        <div class="category-section" data-group="sueno">
+            <h2 class="section-category-title bloque-sueno">Sueño y descanso infantil</h2>
+            <div class="grid-container">
+                <div class="card-mito" onclick="openModal('mito-1')">
+                    <div class="card-number">01</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Dejarle llorar para que aprenda a dormir solo</div>
+                        <div class="card-preview">Se cree que acudir rápido al llanto nocturno genera dependencia...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-2')">
+                    <div class="card-number">02</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Los bebés deben dormir del tirón toda la noche desde recién nacidos</div>
+                        <div class="card-preview">Se asume que despertares frecuentes indican un problema...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-3')">
+                    <div class="card-number">03</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Dormir con los padres genera dependencia y malcriadez</div>
+                        <div class="card-preview">Existe el temor de que el colecho impida la futura independencia...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-4')">
+                    <div class="card-number">04</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Si duerme mucho por el día, no dormirá por la noche</div>
+                        <div class="card-preview">Se cree que recortar las siestas obliga al cerebro a descansar mejor...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-5')">
+                    <div class="card-number">05</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Acostumbrarle a los brazos o la teta para dormir es un mal hábito</div>
+                        <div class="card-preview">Se piensa que el bebé debe aprender a autorregular su sueño...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-6')">
+                    <div class="card-number">06</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Usar oscuridad absoluta y silencio total ayuda a conciliar el sueño</div>
+                        <div class="card-preview">Se cree que cualquier estímulo impide que el niño descanse...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-7')">
+                    <div class="card-number">07</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">A mayor cansancio acumulado, más fácil será que se duerma</div>
+                        <div class="card-preview">Se busca agotar al niño para que caiga rendido rápidamente...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-8')">
+                    <div class="card-number">08</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Los horarios rígidos de siesta garantizan un buen descanso</div>
+                        <div class="card-preview">Se asume que la flexibilidad destruye los ritmos biológicos...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-9')">
+                    <div class="card-number">09</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-sueno">Sueño infantil</div>
+                        <div class="card-title">Quitar el chupete de golpe evita confusiones</div>
+                        <div class="card-preview">Se cree que la retirada drástica es la única forma efectiva...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE 2: REGULACIÓN EMOCIONAL Y CONDUCTA -->
+        <div class="category-section" data-group="emocional">
+            <h2 class="section-category-title bloque-emocional">Regulación emocional y conducta</h2>
+            <div class="grid-container">
+                <div class="card-mito" onclick="openModal('mito-10')">
+                    <div class="card-number">10</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Las rabietas son un capricho para llamar la atención</div>
+                        <div class="card-preview">Se interpreta el desborde como una manipulación consciente...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-11')">
+                    <div class="card-number">11</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Hay que castigar el mal comportamiento para que no se repita</div>
+                        <div class="card-preview">Se confunde el castigo punitivo con el aprendizaje y la enseñanza...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-12')">
+                    <div class="card-number">12</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Los niños no deben llorar por tonterías o cosas sin importancia</div>
+                        <div class="card-preview">Se tiende a minimizar el dolor infantil comparándolo...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-13')">
+                    <div class="card-number">13</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Obligar a pedir perdón enseña humildad y respeto</div>
+                        <div class="card-preview">Se cree que forzar disculpas verbales mecánicas genera empatía...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-14')">
+                    <div class="card-number">14</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Los niños tristes o enfadados deben estar solos para calmarse</div>
+                        <div class="card-preview">Se usa el aislamiento (tiempo fuera) como método de reflexión...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-15')">
+                    <div class="card-number">15</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Premiar cada buena conducta asegura que el niño se porte bien</div>
+                        <div class="card-preview">Se confía en el refuerzo material constante para motivar...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-16')">
+                    <div class="card-number">16</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Ignorar una rabieta hace que desaparezca antes</div>
+                        <div class="card-preview">Se cree que prestar atención al llanto refuerza la conducta...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-17')">
+                    <div class="card-number">17</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Los niños pequeños no tienen memoria ni sufren estrés complejo</div>
+                        <div class="card-preview">Se asume que al no recordar hechos nítidos, nada les afecta...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-18')">
+                    <div class="card-number">18</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-emocional">Regulación emocional</div>
+                        <div class="card-title">Aceptar todas las emociones significa consentir todo lo que hace</div>
+                        <div class="card-preview">Se confunde la validación de lo que se siente con la permuta...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE 3: LÍMITES, VÍNCULO Y AUTORIDAD -->
+        <div class="category-section" data-group="limites">
+            <h2 class="section-category-title bloque-limites">Límites, vínculo y autoridad</h2>
+            <div class="grid-container">
+                <div class="card-mito" onclick="openModal('mito-19')">
+                    <div class="card-number">19</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Poner límites estrictos desde pequeños previene la rebeldía</div>
+                        <div class="card-preview">Se asume que la mano dura enseña obediencia real a largo plazo...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-20')">
+                    <div class="card-number">20</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Dar demasiado afecto o atención malcría a los niños</div>
+                        <div class="card-preview">Se teme que el exceso de besos y brazos vuelva al menor dependiente...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-21')">
+                    <div class="card-number">21</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Los padres deben estar siempre de acuerdo delante de los hijos</div>
+                        <div class="card-preview">Se cree que discrepar debilita la autoridad parental...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-22')">
+                    <div class="card-number">22</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Un cachete a tiempo o una palmada educativa no hace daño</div>
+                        <div class="card-preview">Se justifica el castigo físico leve como recurso correctivo...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-23')">
+                    <div class="card-number">23</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Decir siempre la verdad en cualquier circunstancia es obligatorio</div>
+                        <div class="card-preview">Se descarta el valor evolutivo del juego simbólico y la fantasía...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-24')">
+                    <div class="card-number">24</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Los niños deben obedecer sin cuestionar porque los adultos mandan</div>
+                        <div class="card-preview">Se valora la sumisión ciega por encima del diálogo...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-25')">
+                    <div class="card-number">25</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Proteger de toda frustración prepara mejor para la vida adulta</div>
+                        <div class="card-preview">Se intenta evitar cualquier tropiezo para que no sufran...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-26')">
+                    <div class="card-number">26</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">Amenazar con retirar el cariño corrige conductas difíciles</div>
+                        <div class="card-preview">Se utiliza el chantaje afectivo como herramienta de control...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-27')">
+                    <div class="card-number">27</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-limites">Límites y autoridad</div>
+                        <div class="card-title">La disciplina positiva es sinónimo de ser permisivo</div>
+                        <div class="card-preview">Se cree que educar sin gritos equivale a dejar hacer de todo...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE 4: ALIMENTACIÓN, DESARROLLO Y SALUD -->
+        <div class="category-section" data-group="desarrollo">
+            <h2 class="section-category-title bloque-desarrollo">Alimentación, autonomía y desarrollo temprano</h2>
+            <div class="grid-container">
+                <div class="card-mito" onclick="openModal('mito-28')">
+                    <div class="card-number">28</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Desarrollo temprano</div>
+                        <div class="card-title">Estimular con pantallas y apps educativas acelera la inteligencia</div>
+                        <div class="card-preview">Se asume que la tecnología digital temprana potencia capacidades...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-29')">
+                    <div class="card-number">29</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Desarrollo temprano</div>
+                        <div class="card-title">Si un niño no gatea y camina directo, no pasa nada</div>
+                        <div class="card-preview">Se resta importancia a las etapas motrices previas a la marcha...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-30')">
+                    <div class="card-number">30</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Alimentación</div>
+                        <div class="card-title">Hay que obligar al niño a comerse todo el plato</div>
+                        <div class="card-preview">Se vigila estrictamente la cantidad ingerida ignorando la saciedad...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-31')">
+                    <div class="card-number">31</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Alimentación</div>
+                        <div class="card-title">El metodo BLW es peligroso por riesgo masivo de ahogamiento</div>
+                        <div class="card-preview">Se teme que ofrecer sólidos desde el inicio cause accidentes...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-32')">
+                    <div class="card-number">32</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Desarrollo temprano</div>
+                        <div class="card-title">Hablar con diminutivos o lenguaje infantil retrasa el habla</div>
+                        <div class="card-preview">Se cree que usar palabras simplificadas confunde el lenguaje...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-33')">
+                    <div class="card-number">33</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Desarrollo temprano</div>
+                        <div class="card-title">Ensuciarse jugando al aire libre es antihigiénico y perjudicial</div>
+                        <div class="card-preview">Se busca mantener una pulcritud extrema limitando la exploración...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-34')">
+                    <div class="card-number">34</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Desarrollo temprano</div>
+                        <div class="card-title">El uso del andador ayuda a que los bebés caminen antes</div>
+                        <div class="card-preview">Se confía en el soporte mecánico para acelerar la marcha...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-35')">
+                    <div class="card-number">35</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Desarrollo temprano</div>
+                        <div class="card-title">Aprender dos idiomas a la vez confunde y retrasa el lenguaje</div>
+                        <div class="card-preview">Se teme que el bilingüismo temprano sature la capacidad...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+
+                <div class="card-mito" onclick="openModal('mito-36')">
+                    <div class="card-number">36</div>
+                    <div class="card-content-wrapper">
+                        <div class="card-category cat-desarrollo">Desarrollo temprano</div>
+                        <div class="card-title">Controlar los esfínteres antes de los dos años demuestra inteligencia</div>
+                        <div class="card-preview">Se presiona el aprendizaje temprano del baño como un logro...</div>
+                        <div class="card-action">Ver contraste y desarrollo &rarr;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ventana Modal unificada -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-content" id="modalContentBox">
+            <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+            <div class="modal-category" id="modalCat">Categoría</div>
+            <div class="modal-title" id="modalTitle">Título</div>
+            
+            <div class="modal-section modal-myth">
+                <div class="modal-section-title">Lo que dice el mito</div>
+                <p id="modalMythText"></p>
+            </div>
+
+            <div class="modal-section modal-reality">
+                <div class="modal-section-title">Lo que revela la realidad</div>
+                <p id="modalRealityText"></p>
+            </div>
+
+            <div class="modal-section modal-development">
+                <div class="modal-section-title">Profundización y claves prácticas</div>
+                <p id="modalDevText"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="nav.js"></script>
+    <script src="global.js"></script>
+    
+    <script>
+        const data = {
+            'mito-1': { category: 'Sueño infantil', title: 'Dejarle llorar para que aprenda a dormir solo', myth: 'Se cree que acudir de inmediato al llanto nocturno malcría al bebé y fomenta la dependencia permanente.', reality: 'El llanto es una señal biológica de necesidad de apego. Responder reduce el cortisol y construye resiliencia emocional.', development: 'Neurológicamente los bebés no segregan hormonas para calmarse solos. El cese del llanto por agotamiento responde a un mecanismo de supervivencia por indefensión. Acompañar fortalece el apego seguro y la futura autonomía.' },
+            'mito-2': { category: 'Sueño infantil', title: 'Los bebés deben dormir del tirón toda la noche desde recién nacidos', myth: 'Se asume que los despertares nocturnos frecuentes indican un fallo en la lactancia o mala educación del sueño.', reality: 'Los despertares son fisiológicos, protectores frente a la apnea y necesarios para la maduración neurológica.', development: 'Los ciclos de sueño infantiles son más cortos y sus necesidades calóricas exigen tomas frecuentes. Pretender un sueño ininterrumpido prematuro choca con la biología evolutiva del lactante.' },
+            'mito-3': { category: 'Sueño infantil', title: 'Dormir con los padres genera dependencia y malcriadez', myth: 'Existe el temor de que compartir la cama impida al niño independizarse en su adolescencia o edad adulta.', reality: 'El colecho respetuoso facilita la lactancia nocturna, sincroniza ritmos cardíacos y aporta seguridad emocional.', development: 'La independencia surge de la seguridad interna, no del aislamiento temprano. Los niños que hacen colecho transicionan a su propia habitación de forma natural cuando su madurez lo demanda.' },
+            'mito-4': { category: 'Sueño infantil', title: 'Si duerme mucho por el día, no dormirá por la noche', myth: 'Se cree que recortar las siestas diurnas acumula presión de sueño para obligar a descansar por la noche.', reality: 'Un niño sobrecansado segrega cortisol y adrenalina, lo que dificulta mucho más la conciliación nocturna.', development: 'El sueño llama al sueño. Las siestas diurnas regulan el sistema nervioso y permiten que el descanso nocturno sea plácido y reparador, evitando despertares constantes por fatiga extrema.' },
+            'mito-5': { category: 'Sueño infantil', title: 'Acostumbrarle a los brazos o la teta para dormir es un mal hábito', myth: 'Se piensa que el bebé debe aprender a autorregularse sin asociar el sueño al contacto materno o paterno.', reality: 'Los brazos y el pecho son el hábitat natural del lactante; buscar consuelo en el vínculo es una necesidad evolutiva.', development: 'Asociar el sueño al afecto y la seguridad no es un vicio, es una respuesta biológica adaptativa. Conforme madura su cerebro, el niño adquiere recursos propios para adormilarse.' },
+            'mito-6': { category: 'Sueño infantil', title: 'Usar oscuridad absoluta y silencio total ayuda a conciliar el sueño', myth: 'Se cree que cualquier rayo de luz o murmurlo interrumpe el descanso profundo del menor.', reality: 'Los bebés vienen de un útero con sonidos constantes y luz tenue; el silencio absoluto no es indispensable.', development: 'Un ambiente con ruido blanco moderado o luz muy tenue suele imitar el entorno intrauterino, facilitando la transición al sueño sin requerir condiciones de aislamiento absoluto.' },
+            'mito-7': { category: 'Sueño infantil', title: 'A mayor cansancio acumulado, más fácil será que se duerma', myth: 'Se busca agotar al niño durante todo el día para que caiga rendido de golpe al llegar la noche.', reality: 'El agotamiento extremo desregula el sistema nervioso y provoca crisis de llanto e insomnia nocturna.', development: 'Identificar las primeras señales de sueño permite acostar al niño en su ventana óptima de descanso, evitando la segregación de hormonas de estrés.' },
+            'mito-8': { category: 'Sueño infantil', title: 'Los horarios rígidos de siesta garantizan un buen descanso', myth: 'Se asume que la flexibilidad estricta destruye los ritmos circadianos y la disciplina familiar.', reality: 'Cada día es diferente y las necesidades biológicas varían según la actividad y el crecimiento del menor.', development: 'Atender a las señales de fatiga interna del niño aporta mejores resultados que ceñirse a un reloj estricto que no contempla su estado físico y emocional real.' },
+            'mito-9': { category: 'Sueño infantil', title: 'Quitar el chupete de golpe evita confusiones', myth: 'Se cree que la retirada drástica y fulminante es la única forma efectiva de eliminar el hábito de succión.', reality: 'El chupete cumple una función reguladora y de calma; retirarlo bruscamente sin acompañamiento genera ansiedad.', development: 'La retirada debe ser un proceso gradual, negociado y respetuoso con la madurez emocional del niño, utilizando cuentos o rituales de despedida.' },
+            'mito-10': { category: 'Regulación emocional', title: 'Las rabietas son un capricho para llamar la atención', myth: 'Se interpreta el desborde emocional como manipulación consciente que requiere castigo y aislamiento.', reality: 'La rabieta es un colapso del sistema nervioso inmaduro ante la frustración y la saturación sensorial.', development: 'El córtex prefrontal está inmaduro. Aislar al niño bloquea el aprendizaje; lo efectivo es ofrecer presencia tranquila, contención física respetuosa y validación verbal.' },
+            'mito-11': { category: 'Regulación emocional', title: 'Hay que castigar el mal comportamiento para que no se repita', myth: 'Se confunde el castigo punitivo con la enseñanza de normas de convivencia y autocontrol.', reality: 'El castigo genera miedo, resentimiento y engaño, inhibiendo la capacidad de reflexionar sobre el error.', development: 'Los niños aprenden mejor mediante la reparación del daño, la comprensión de las consecuencias lógicas y el modelado positivo de los adultos referentes.' },
+            'mito-12': { category: 'Regulación emocional', title: 'Los niños não deben llorar por tonterías o cosas sin importancia', myth: 'Se tiende a minimizar el dolor infantil comparándolo con las preocupaciones adultas.', reality: 'Para el mundo emocional de un niño, perder un juguete o frustrarse con un juego es una vivencia genuina e intensa.', development: 'Invalidar el llanto diciendo "no es para tanto" enseña al niño a reprimir sus emociones. Validar su sentir fortalece su inteligencia emocional y su confianza.' },
+            'mito-13': { category: 'Regulación emocional', title: 'Obligar a pedir perdón enseña humildad y respeto', myth: 'Se cree que forzar disculpas verbales mecánicas enseña civismo real.', reality: 'Obligar a decir "perdón" sin comprender el acto convierte la disculpa en un trámite vacío y defensivo.', development: 'Es más útil guiar al niño a entender cómo se sintió la otra persona y proponer formas genuinas de reparación cuando esté calmado.' },
+            'mito-14': { category: 'Regulación emocional', title: 'Los niños tristes o enfadados deben estar solos para calmarse', myth: 'Se utiliza el aislamiento (tiempo fuera) como método infalible de reflexión y disciplina.', reality: 'El aislamiento en momentos de estrés activa el miedo al abandono y eleva el nivel de cortisol.', development: 'El cerebro infantil necesita co-regulación. Estar acompañado por una figura de apego calmada es lo único que permite descender la activación de la amígdala cerebral.' },
+            'mito-15': { category: 'Regulación emocional', title: 'Premiar cada buena conducta asegura que el niño se porte bien', myth: 'Se confía en el refuerzo material constante para motivar al menor en sus tareas cotidianas.', reality: 'Los premios externos erosionan la motivación intrínseca, condicionando la conducta a la obtención de objetos.', development: 'Fomentar la satisfacción interna y el reconocimiento verbal descriptivo estimula el orgullo personal y la autonomía real.' },
+            'mito-16': { category: 'Regulación emocional', title: 'Ignorar una rabieta hace que desaparezca antes', myth: 'Se cree que prestar atención al llanto desregulado refuerza la conducta manipuladora.', reality: 'Ignorar a un niño en pleno colapso emocional le transmite el mensaje de que está solo ante su sufrimiento.', development: 'Hay que distinguir entre ignorar conductas de llamada de atención superficiales y acompañar un desborde emocional genuino donde el niño sufre y necesita amparo.' },
+            'mito-17': { category: 'Regulación emocional', title: 'Los niños pequeños no tienen memoria ni sufren estrés complejo', myth: 'Se asume que al no recordar hechos nítidos de bebés, las vivencias tensas no les afectan.', reality: 'El cuerpo y el sistema nervioso almacenan memoria implícita y traumática desde la etapa perinatal.', development: 'Aunque no recuerden conscientemente episodios de estrés temprano, su cerebro en desarrollo registra el impacto emocional, de ahí la importancia de entornos seguros.' },
+            'mito-18': { category: 'Regulación emocional', title: 'Aceptar todas las emociones significa consentir todo lo que hace', myth: 'Se confunde la validación incondicional del sentimiento con la permuta de conductas dañinas.', reality: 'Todas las emociones son aceptables; no todas las conductas lo son.', development: 'Se puede validar el enfado mientras se establece un límite firme en la acción (ej. "entiendo que estés rabioso, pero no se puede pegar").' },
+            'mito-19': { category: 'Límites y autoridad', title: 'Poner límites estrictos desde pequeños previene la rebeldía', myth: 'Se asume que la mano dura, la severidad y las normas rígidas garantizan la obediencia.', reality: 'Los límites basados en el miedo generan sumisión temporal u ocultamiento, minando la confianza.', development: 'Los límites saludables se basan en la firmeza unida al respeto, explicando el sentido de las normas y manteniendo el vínculo afectivo.' },
+            'mito-20': { category: 'Límites y autoridad', title: 'Dar demasiado afecto o atención malcría a los niños', myth: 'Se teme que el exceso de besos, abrazos y atenciones vuelva al menor caprichoso.', reality: 'El afecto incondicional es el cimiento de la seguridad emocional y la autoestima saludable.', development: 'Nadie se malcría por recibir demasiado amor; se malcría cuando se sustituyen los límites claros y el respeto por indulgencia material.' },
+            'mito-21': { category: 'Límites y autoridad', title: 'Los padres deben estar siempre de acuerdo delante de los hijos', myth: 'Se cree que discrepar en una norma debilita la autoridad frente al menor.', reality: 'Discutir con respeto y llegar a acuerdos muestra a los hijos habilidades de negociación y resolución de conflictos.', development: 'La discrepancia sana y constructiva enseña que las diferencias de opinión son normales y se pueden gestionar desde el diálogo.' },
+            'mito-22': { category: 'Límites y autoridad', title: 'Un cachete a tiempo o una palmada educativa no hace daño', myth: 'Se justifica el castigo físico leve como un recurso correctivo rápido y tradicional.', reality: 'Cualquier forma de violencia física vulnera los derechos del niño y daña su desarrollo cerebral y emocional.', development: 'El castigo físico enseña que el conflicto se resuelve con agresión, incrementando la probabilidad de conductas violentas futuras.' },
+            'mito-23': { category: 'Límites y autoridad', title: 'Decir siempre la verdad en cualquier circunstancia es obligatorio', myth: 'Se descarta el valor evolutivo del pensamiento mágico, los cuentos y la fantasía.', reality: 'La fantasía y el juego simbólico son pilares fundamentales del desarrollo cognitivo y creativo en la infancia.', development: 'Acompañar mitos culturales infantiles de forma respetuosa alimenta la imaginación sin comprometer la confianza ni la honestidad a largo plazo.' },
+            'mito-24': { category: 'Límites y autoridad', title: 'Los niños deben obedecer sin cuestionar porque los adultos mandan', myth: 'Se valora la sumisión ciega como máxima expresión del respeto filial.', reality: 'Fomentar el pensamiento crítico y la capacidad de cuestionar protege al menor y le empodera.', development: 'Educar para la cooperación y el entendimiento mutuo crea adultos capaces de tomar decisiones éticas y autónomas.' },
+            'mito-25': { category: 'Límites y autoridad', title: 'Proteger de toda frustración prepara mejor para la vida adulta', myth: 'Se intenta evitar cualquier obstáculo para que el menor no sufra ningún malestar.', reality: 'La frustración dosificada y acompañada es la vacuna natural para desarrollar resiliencia y tolerancia.', development: 'Superar pequeñas frustraciones con el apoyo de los padres dota al niño de herramientas para afrontar los retos complejos de la vida real.' },
+            'mito-26': { category: 'Límites y autoridad', title: 'Amenazar con retirar el cariño corrige conductas difíciles', myth: 'Se utiliza el chantaje afectivo ("si te portas así, ya no te quiero") para doblegar la voluntad.', reality: 'Amenazar el amor incondicional genera terror al abandono e inseguridad afectiva profunda.', development: 'El afecto nunca debe ser moneda de cambio. Se rechaza la conducta inadecuada, dejando claro que el amor permanece intacto.' },
+            'mito-27': { category: 'Límites y autoridad', title: 'La disciplina positiva es sinónimo de ser permisivo', myth: 'Se cree que educar sin gritos ni castigos equivale a dejar hacer al niño lo que quiera.', reality: 'La disciplina positiva combina una alta exigencia en los límites con un alto nivel de afecto y respeto.', development: 'Lejos de ser permisiva, establece normas claras basadas en la firmeza amable, enseñando responsabilidad y autocontrol.' },
+            'mito-28': { category: 'Desarrollo temprano', title: 'Estimular con pantallas y apps educativas acelera la inteligencia', myth: 'Se asume que la exposición tecnológica digital temprana potencia las capacidades cognitivas.', reality: 'Las pantallas pasivas saturan el cerebro inmaduro y retrasan el desarrollo del lenguaje y la atención.', development: 'El cerebro infantil aprende a través de la manipulación física del entorno, el movimiento libre y la interacción social directa.' },
+            'mito-29': { category: 'Desarrollo temprano', title: 'Si un niño no gatea y camina directo, no pasa nada', myth: 'Se resta importancia a las etapas motrices previas a la marcha erguida.', reality: 'El gateo es fundamental para la coordinación bilateral, la convergencia visual y la integración neurológica.', development: 'Aunque muchos niños caminan sin gatear, saltarse esta etapa puede privar al sistema nervioso de conexiones clave para la lectoescritura.' },
+            'mito-30': { category: 'Alimentación', title: 'Hay que obligar al niño a comerse todo el plato', myth: 'Se vigila estrictamente la cantidad ingerida ignorando las señales internas de saciedad del menor.', reality: 'Obligar a comer rompe la autorregulación natural del apetito, fomentando trastornos alimentarios futuros.', development: 'Los adultos deciden qué se ofrece y el niño decides cuánto come según sus necesidades reales de energía y crecimiento.' },
+            'mito-31': { category: 'Alimentación', title: 'El metodo BLW es peligroso por riesgo masivo de ahogamiento', myth: 'Se teme que ofrecer sólidos en trozos desde el inicio cause accidentes graves inevitables.', reality: 'Con pautas de seguridad adecuadas y alimentos adaptados, el riesgo de atragantamiento no es mayor que con purés.', development: 'El BLW fomenta la autonomía, la coordinación óculo-manual y el reconocimiento de texturas y sabores de forma natural.' },
+            'mito-32': { category: 'Desarrollo temprano', title: 'Hablar con diminutivos o lenguaje infantil retrasa el habla', myth: 'Se cree que usar palabras simplificadas confunde el desarrollo lingüístico del menor.', reality: 'El tono afectivo y la modulación melódica captan la atención del bebé y facilitan la asimilación fonética.', development: 'Los niños evolucionan de forma natural hacia el lenguaje adulto siempre que existan conversaciones ricas y estimulantes.' },
+            'mito-33': { category: 'Desarrollo temprano', title: 'Ensuciarse jugando al aire libre es antihigiénico y perjudicial', myth: 'Se busca mantener una pulcritud extrema limitando la exploración con tierra, agua y barro.', reality: 'El contacto con la naturaleza y la suciedad fortalece el sistema inmunológico (hipótesis de la higiene).', development: 'Jugar al aire libre estimula los sentidos, reduce el estrés y previene alergias, permitiendo un desarrollo físico robusto.' },
+            'mito-34': { category: 'Desarrollo temprano', title: 'El uso del andador ayuda a que los bebés caminen antes', myth: 'Se confía en el soporte mecánico para acelerar la marcha autónoma.', reality: 'El andador altera el patrón de marcha natural, retrasa el equilibrio y multiplica el riesgo de accidentes.', development: 'Los dispositivos de contención impiden el desarrollo libre de la musculatura y la postura, desaconsejados por pediatras.' },
+            'mito-35': { category: 'Desarrollo temprano', title: 'Aprender dos idiomas a la vez confunde y retrasa el lenguaje', myth: 'Se teme que el bilingüismo temprano sature la capacidad cognitiva del menor.', reality: 'El cerebro infantil tiene una plasticidad asombrosa para procesar y separar múltiples lenguas de forma simultánea.', development: 'Lejos de causar retraso, el bilingüismo potencia la flexibilidad mental, la atención ejecutiva y las habilidades metalingüísticas.' },
+            'mito-36': { category: 'Desarrollo temprano', title: 'Controlar los esfínteres antes de los dos años demuestra inteligencia', myth: 'Se presiona el aprendizaje temprano del baño como un logro de precocidad y triunfo educativo.', reality: 'El control de esfínteres depende de la maduración neurológica y física, que suele darse entre los dos y cuatro años.', development: 'Forzar el control antes de que el sistema nervioso esté preparado genera estrés y problemas urológicos.' }
+        };
+
+        function openModal(id) {
+            const item = data[id];
+            document.getElementById('modalCat').innerText = item.category;
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalMythText').innerText = item.myth;
+            document.getElementById('modalRealityText').innerText = item.reality;
+            document.getElementById('modalDevText').innerText = item.development;
+            
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event.target.id === 'modalOverlay') {
+                document.getElementById('modalOverlay').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function closeModalDirect() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Lógica de filtrado por pestañas
+        function filterCategory(category, buttonElement) {
+            document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            document.querySelectorAll('.category-section').forEach(section => {
+                if (category === 'todos' || section.getAttribute('data-group') === category) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

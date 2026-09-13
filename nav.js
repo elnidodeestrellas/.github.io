@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🧠 Psicología</div>
                             <a href="glosario.html" style="padding: 6px 8px;">✨ Glosario Poético</a>
                             <a href="glosariopedagogico.html" style="padding: 6px 8px;">🧠 Glosario Pedagógico</a>
+                            <a href="mitos.html" style="padding: 6px 8px; font-weight: 500; color: #f1c442;">💡 Mitos vs. Realidad</a>
                             <a href="rinconlectura.html" style="padding: 6px 8px;">📖 Rincón de Lectura</a>
                             <a href="preguntas.html" style="padding: 6px 8px;">❓ Rincón de Preguntas</a>
                             
