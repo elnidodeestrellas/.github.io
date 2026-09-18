@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Nombres para Bebés | El Nido de Estrellas</title>
+    <meta name="description" content="Descubre nuestra amplia selección de nombres para bebés ordenados alfabéticamente en varias categorías con significado en ventana emergente.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .nombres-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 25px;
+        }
+        .nombres-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .nombres-intro h1 {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dorado-botones);
+            font-size: 2.6rem;
+            margin-bottom: 20px;
+        }
+        .nombres-intro p {
+            color: #e2e8f0;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            max-width: 750px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Pestañas de categorías múltiples (ajuste fluido para móvil) */
+        .tabs-navegacion {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: rgba(20, 29, 51, 0.6);
+            border: 1px solid rgba(241, 196, 66, 0.3);
+            color: #cbd5e0;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+        .tab-btn:hover {
+            background: rgba(241, 196, 66, 0.15);
+            color: #ffffff;
+            border-color: rgba(241, 196, 66, 0.6);
+        }
+        .tab-btn.activo {
+            background: var(--dorado-botones);
+            color: var(--azul-cosmos);
+            border-color: var(--dorado-botones);
+            box-shadow: 0 4px 15px rgba(241, 196, 66, 0.3);
+        }
+
+        .categoria-tab-contenido {
+            display: none;
+            background: rgba(20, 29, 51, 0.45);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(241, 196, 66, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeInSuave 0.4s ease-out forwards;
+        }
+        .categoria-tab-contenido.activo {
+            display: block;
+        }
+        .categoria-tab-contenido h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dorado-botones);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .categoria-tab-contenido > p {
+            color: var(--texto-secundario);
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        /* Rejilla de bloques compactos (4 columnas en escritorio, 2 en móvil) */
+        .nombres-grid-compacto {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        @media (max-width: 900px) {
+            .nombres-grid-compacto {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .nombres-grid-compacto {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tarjeta individual del nombre con efecto emergente */
+        .nombre-chip {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            transition: var(--transicion);
+        }
+        .nombre-chip:hover {
+            background: rgba(241, 196, 66, 0.12);
+            border-color: rgba(241, 196, 66, 0.5);
+            color: var(--dorado-botones);
+            transform: translateY(-2px);
+        }
+
+        /* Ventana emergente (Tooltip flotante) */
+        .nombre-popup {
+            display: none;
+            position: absolute;
+            bottom: 115%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            background: #141d33;
+            border: 1px solid var(--dorado-botones);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 100;
+            text-align: left;
+            pointer-events: none;
+            animation: fadeInSuave 0.2s ease-out forwards;
+        }
+        .nombre-chip.activo-popup .nombre-popup {
+            display: block;
+        }
+        .nombre-popup strong {
+            display: block;
+            color: var(--dorado-botones);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .nombre-popup p {
+            color: var(--texto-secundario);
+            font-size: 0.82rem;
+            line-height: 1.4;
+            margin: 0;
+            font-weight: 300;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .consejos-nombres {
+            background: linear-gradient(135deg, rgba(42, 35, 86, 0.5), rgba(22, 33, 62, 0.7));
+            border-radius: 20px;
+            border: 1px solid rgba(241, 196, 66, 0.3);
+            padding: 40px;
+            margin-top: 50px;
+        }
+        .consejos-nombres h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dorado-botones);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .consejos-lista {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        @media (max-width: 768px) {
+            .consejos-lista {
+                grid-template-columns: 1fr;
+            }
+        }
+        .consejo-item h3 {
+            font-family: 'Quicksand', sans-serif;
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .consejo-item p {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu-container"></div>
+
+    <main class="nombres-container">
+        <div class="nombres-intro">
+            <h1>Guía de Nombres para Bebés</h1>
+            <p>Explora nuestras categorías con más de 400 nombres ordenados alfabéticamente. Pulsa sobre cualquiera de ellos para ver su significado en una ventana emergente.</p>
+        </div>
+
+        <!-- PESTAÑAS SUPERIORES -->
+        <div class="tabs-navegacion">
+            <button class="tab-btn activo" data-target="naturaleza">🌱 Naturaleza (80)</button>
+            <button class="tab-btn" data-target="clasicos">✨ Clásicos (80)</button>
+            <button class="tab-btn" data-target="tradicion">🏔️ Tradición (80)</button>
+            <button class="tab-btn" data-target="modernos">💫 Modernos (80)</button>
+            <button class="tab-btn" data-target="asiaticos">🌸 Asiáticos (80)</button>
+        </div>
+
+        <!-- SECCIÓN 1: NATURALEZA (80 NOMBRES) -->
+        <div id="naturaleza" class="categoria-tab-contenido activo">
+            <h2>🌱 Inspirados en la Naturaleza</h2>
+            <p>Nombres conectados con la tierra, el cielo y el agua (Orden alfabético estricto)</p>
+            <div class="nombres-grid-compacto">
+                <div class="nombre-chip">Aimar<div class="nombre-popup"><strong>Origen vasco</strong><p>Casa fuerte o afortunado por la luna.</p></div></div>
+                <div class="nombre-chip">Alba<div class="nombre-popup"><strong>Origen latino</strong><p>Primera luz del día y el renacer.</p></div></div>
+                <div class="nombre-chip">Aldo<div class="nombre-popup"><strong>Origen germánico</strong><p>Sabio, prudente y experimentado.</p></div></div>
+                <div class="nombre-chip">Amaro<div class="nombre-popup"><strong>Origen latín</strong><p>Fortaleza y resistencia ante los retos.</p></div></div>
+                <div class="nombre-chip">Amaya<div class="nombre-popup"><strong>Origen vasco</strong><p>Principio del fin o alta cumbre.</p></div></div>
+                <div class="nombre-chip">Ander<div class="nombre-popup"><strong>Origen griego</strong><p>Valentía y hombre viril.</p></div></div>
+                <div class="nombre-chip">Aria<div class="nombre-popup"><strong>Origen hebreo</strong><p>Leona o melodía pura del viento.</p></div></div>
+                <div class="nombre-chip">Aritz<div class="nombre-popup"><strong>Origen vasco</strong><p>Roble fuerte y centenario.</p></div></div>
+                <div class="nombre-chip">Arnau<div class="nombre-popup"><strong>Origen germánico</strong><p>Fuerza y protección del águila.</p></div></div>
+                <div class="nombre-chip">Asia<div class="nombre-popup"><strong>Origen griego</strong><p>Amanecer y tierra del este.</p></div></div>
+                <div class="nombre-chip">Axel<div class="nombre-popup"><strong>Origen escandinavo</strong><p>Fuente de paz y equilibrio universal.</p></div></div>
+                <div class="nombre-chip">Bala<div class="nombre-popup"><strong>Origen sánscrito</strong><p>Juventud y energía de la tierra.</p></div></div>
+                <div class="nombre-chip">Biel<div class="nombre-popup"><strong>Origen hebreo</strong><p>Siervo de Dios y conexión espiritual.</p></div></div>
+                <div class="nombre-chip">Blanca<div class="nombre-popup"><strong>Origen germánico</strong><p>Pureza de la nieve y la luz.</p></div></div>
+                <div class="nombre-chip">Bora<div class="nombre-popup"><strong>Origen eslavo</strong><p>Fuerza del viento y la tempestad.</p></div></div>
+                <div class="nombre-chip">Brais<div class="nombre-popup"><strong>Origen celta</strong><p>Fluidez del agua y claridad.</p></div></div>
+                <div class="nombre-chip">Brisa<div class="nombre-popup"><strong>Origen español</strong><p>Viento suave y fresco del mar.</p></div></div>
+                <div class="nombre-chip">Bruno<div class="nombre-popup"><strong>Origen germánico</strong><p>Fuerza protectora de la tierra.</p></div></div>
+                <div class="nombre-chip">Cala<div class="nombre-popup"><strong>Origen griego</strong><p>Belleza y serenidad de la cala marina.</p></div></div>
+                <div class="nombre-chip">Ciro<div class="nombre-popup"><strong>Origen persa</strong><p>El sol, radiante y dador de vida.</p></div></div>
+                <div class="nombre-chip">Cloe<div class="nombre-popup"><strong>Origen griego</strong><p>Brotes verdes y vegetación naciente.</p></div></div>
+                <div class="nombre-chip">Dalia<div class="nombre-popup"><strong>Origen lituano</strong><p>Flor elegante de los valles.</p></div></div>
+                <div class="nombre-chip">Dante<div class="nombre-popup"><strong>Origen latino</strong><p>El que persevera y resiste con firmeza.</p></div></div>
+                <div class="nombre-chip">Daria<div class="nombre-popup"><strong>Origen persa</strong><p>Aquella que protege los bienes de la tierra.</p></div></div>
+                <div class="nombre-chip">Delfín<div class="nombre-popup"><strong>Origen griego</strong><p>Libertad e inteligencia del mar.</p></div></div>
+                <div class="nombre-chip">Duna<div class="nombre-popup"><strong>Origen celta</strong><p>Colinas de arena moldeadas por el viento.</p></div></div>
+                <div class="nombre-chip">Eder<div class="nombre-popup"><strong>Origen vasco</strong><p>Hermoso, bello y en armonía.</p></div></div>
+                <div class="nombre-chip">Eki<div class="nombre-popup"><strong>Origen vasco</strong><p>Sol, luz y calor vital.</p></div></div>
+                <div class="nombre-chip">Elaia<div class="nombre-popup"><strong>Origen griego</strong><p>Golondrina y olivo protector.</p></div></div>
+                <div class="nombre-chip">Elio<div class="nombre-popup"><strong>Origen griego</strong><p>Dios del sol y energía lumínica.</p></div></div>
+                <div class="nombre-chip">Enea<div class="nombre-popup"><strong>Origen griego</strong><p>El que es alabado y noble.</p></div></div>
+                <div class="nombre-chip">Enzo<div class="nombre-popup"><strong>Origen germánico</strong><p>Príncipe y protector del hogar.</p></div></div>
+                <div class="nombre-chip">Eol<div class="nombre-popup"><strong>Origen mitológico</strong><p>Señor de los vientos abiertos.</p></div></div>
+                <div class="nombre-chip">Eos<div class="nombre-popup"><strong>Origen mitológico</strong><p>Diosa de la aurora y nuevos comienzos.</p></div></div>
+                <div class="nombre-chip">Ernesto<div class="nombre-popup"><strong>Origen germánico</strong><p>Firme, perseverante y con arraigo.</p></div></div>
+                <div class="nombre-chip">Esaú<div class="nombre-popup"><strong>Origen hebreo</strong><p>Naturaleza agreste de la tierra.</p></div></div>
+                <div class="nombre-chip">Estela<div class="nombre-popup"><strong>Origen latino</strong><p>Brillo de las estrellas del firmamento.</p></div></div>
+                <div class="nombre-chip">Etna<div class="nombre-popup"><strong>Origen siciliano</strong><p>Fuerza volcánica de la tierra.</p></div></div>
+                <div class="nombre-chip">Eudoxia<div class="nombre-popup"><strong>Origen griego</strong><p>Poseedora de gran bienestar.</p></div></div>
+                <div class="nombre-chip">Euna<div class="nombre-popup"><strong>Origen gaélico</strong><p>Suavidad de los campos.</p></div></div>
+                <div class="nombre-chip">Fabiola<div class="nombre-popup"><strong>Origen latino</strong><p>Campos de cultivo de habas.</p></div></div>
+                <div class="nombre-chip">Fawn<div class="nombre-popup"><strong>Origen latino</strong><p>Cervatillos tiernos de los bosques.</p></div></div>
+                <div class="nombre-chip">Fay<div class="nombre-popup"><strong>Origen inglés</strong><p>Hada protectora de los bosques.</p></div></div>
+                <div class="nombre-chip">Fidel<div class="nombre-popup"><strong>Origen latino</strong><p>Leal y de confianza inquebrantable.</p></div></div>
+                <div class="nombre-chip">Flora<div class="nombre-popup"><strong>Origen latino</strong><p>Diosa de las flores y la primavera.</p></div></div>
+                <div class="nombre-chip">Gala<div class="nombre-popup"><strong>Origen germánico</strong><p>Alegría festiva y elegancia natural.</p></div></div>
+                <div class="nombre-chip">Gema<div class="nombre-popup"><strong>Origen latino</strong><p>Piedra preciosa de la tierra.</p></div></div>
+                <div class="nombre-chip">Gia<div class="nombre-popup"><strong>Origen italiano</strong><p>Regalo de la tierra.</p></div></div>
+                <div class="nombre-chip">Gilda<div class="nombre-popup"><strong>Origen germánico</strong><p>Protegida por los elementos.</p></div></div>
+                <div class="nombre-chip">Gino<div class="nombre-popup"><strong>Origen italiano</strong><p>Brotes nobles y jardín cultivado.</p></div></div>
+                <div class="nombre-chip">Guillermo<div class="nombre-popup"><strong>Origen germánico</strong><p>Protector decidido ante la adversidad.</p></div></div>
+                <div class="nombre-chip">Hada<div class="nombre-popup"><strong>Origen latino</strong><p>Protectora mágica de los bosques.</p></div></div>
+                <div class="nombre-chip">Hana<div class="nombre-popup"><strong>Origen japonés</strong><p>Flor floreciente y gracia divina.</p></div></div>
+                <div class="nombre-chip">Haru<div class="nombre-popup"><strong>Origen japonés</strong><p>Primavera, sol y claridad estacional.</p></div></div>
+                <div class="nombre-chip">Helia<div class="nombre-popup"><strong>Origen griego</strong><p>Hija del sol, brillante y cálida.</p></div></div>
+                <div class="nombre-chip">Hera<div class="nombre-popup"><strong>Origen griego</strong><p>Protectora de la familia y reinos.</p></div></div>
+                <div class="nombre-chip">Hugo<div class="nombre-popup"><strong>Origen germánico</strong><p>Mente lúcida y conectada al entorno.</p></div></div>
+                <div class="nombre-chip">Ilan<div class="nombre-popup"><strong>Origen hebreo</strong><p>Árbol frondoso que da frutos.</p></div></div>
+                <div class="nombre-chip">Iris<div class="nombre-popup"><strong>Origen griego</strong><p>Arco iris del cielo y mensajera.</p></div></div>
+                <div class="nombre-chip">Irma<div class="nombre-popup"><strong>Origen germánico</strong><p>Universal y sostenida por la tierra.</p></div></div>
+                <div class="nombre-chip">Irati<div class="nombre-popup"><strong>Origen vasco</strong><p>Majestuoso bosque de abetos.</p></div></div>
+                <div class="nombre-chip">Isla<div class="nombre-popup"><strong>Origen escocés</strong><p>Tierra rodeada de agua.</p></div></div>
+                <div class="nombre-chip">Iván<div class="nombre-popup"><strong>Origen hebreo</strong><p>Regalo clementísimo de la naturaleza.</p></div></div>
+                <div class="nombre-chip">Jara<div class="nombre-popup"><strong>Origen botánico</strong><p>Arbusto silvestre de flores blancas.</p></div></div>
+                <div class="nombre-chip">Jaspe<div class="nombre-popup"><strong>Origen persa</strong><p>Piedra preciosa moteada.</p></div></div>
+                <div class="nombre-chip">Javier<div class="nombre-popup"><strong>Origen vasco</strong><p>Casa nueva rodeada de campo.</p></div></div>
+                <div class="nombre-chip">Jelena<div class="nombre-popup"><strong>Origen eslavo</strong><p>Luz brillante del amanecer.</p></div></div>
+                <div class="nombre-chip">Jon<div class="nombre-popup"><strong>Origen hebreo</strong><p>Favorecido por la gracia natural.</p></div></div>
+                <div class="nombre-chip">Jordi<div class="nombre-popup"><strong>Origen griego</strong><p>El que trabaja la tierra.</p></div></div>
+                <div class="nombre-chip">Kira<div class="nombre-popup"><strong>Origen persa</strong><p>Radiante como el sol en su esplendor.</p></div></div>
+                <div class="nombre-chip">Koldo<div class="nombre-popup"><strong>Origen vasco</strong><p>Ilustre protector del pueblo.</p></div></div>
+                <div class="nombre-chip">Leire<div class="nombre-popup"><strong>Origen vasco</strong><p>Valle y entorno natural circundante.</p></div></div>
+                <div class="nombre-chip">Leo<div class="nombre-popup"><strong>Origen latino</strong><p>Fuerza indómita de la sabana.</p></div></div>
+                <div class="nombre-chip">Lia<div class="nombre-popup"><strong>Origen hebreo</strong><p>Portadora de buenas noticias.</p></div></div>
+                <div class="nombre-chip">Lina<div class="nombre-popup"><strong>Origen griego</strong><p>Delicadeza del lino natural.</p></div></div>
+                <div class="nombre-chip">Luna<div class="nombre-popup"><strong>Origen latino</strong><p>Astro nocturno que regula mareas.</p></div></div>
+                <div class="nombre-chip">Maia<div class="nombre-popup"><strong>Origen mitológico</strong><p>Madre de la tierra y fertilidad.</p></div></div>
+                <div class="nombre-chip">Malik<div class="nombre-popup"><strong>Origen semítico</strong><p>Guardián de espacios abiertos.</p></div></div>
+                <div class="nombre-chip">Mar<div class="nombre-popup"><strong>Origen latino</strong><p>Inmensidad y profundidad del océano.</p></div></div>
+                <div class="nombre-chip">Maya<div class="nombre-popup"><strong>Origen sánscrito</strong><p>Belleza natural del cosmos.</p></div></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: CLÁSICOS (80 NOMBRES) -->
+        <div id="clasicos" class="categoria-tab-contenido">
+            <h2>✨ Clásicos y Atemporales</h2>
+            <p>Nombres con historia y solera que nunca pasan de moda (Orden alfabético estricto)</p>
+            <div class="nombres-grid-compacto">
+                <div class="nombre-chip">Adela<div class="nombre-popup"><strong>Origen germánico</strong><p>Noble, hidalguía y gran rectitud.</p></div></div>
+                <div class="nombre-chip">Adrián<div class="nombre-popup"><strong>Origen latino</strong><p>Aquel procedente de la antigua Hadria.</p></div></div>
+                <div class="nombre-chip">Agustín<div class="nombre-popup"><strong>Origen latino</strong><p>Venerable y de gran sabiduría.</p></div></div>
+                <div class="nombre-chip">Alberto<div class="nombre-popup"><strong>Origen germánico</strong><p>Nobleza brillante y honor destacado.</p></div></div>
+                <div class="nombre-chip">Alejandro<div class="nombre-popup"><strong>Origen griego</strong><p>Defensor y protector de los hombres.</p></div></div>
+                <div class="nombre-chip">Alicia<div class="nombre-popup"><strong>Origen griego</strong><p>Verdadera, honesta y de noble cuna.</p></div></div>
+                <div class="nombre-chip">Alonso<div class="nombre-popup"><strong>Origen germánico</strong><p>Preparado para el combate y valor.</p></div></div>
+                <div class="nombre-chip">Amalia<div class="nombre-popup"><strong>Origen germánico</strong><p>Trabajadora incansable y tierna.</p></div></div>
+                <div class="nombre-chip">Andrés<div class="nombre-popup"><strong>Origen griego</strong><p>Hombre valiente y de gran fortaleza.</p></div></div>
+                <div class="nombre-chip">Antonia<div class="nombre-popup"><strong>Origen latino</strong><p>Aquella que se enfrenta con valor.</p></div></div>
+                <div class="nombre-chip">Antonio<div class="nombre-popup"><strong>Origen latino</strong><p>Digno de elogio y gran presencia.</p></div></div>
+                <div class="nombre-chip">Beatriz<div class="nombre-popup"><strong>Origen latino</strong><p>La que aporta dicha a su entorno.</p></div></div>
+                <div class="nombre-chip">Belén<div class="nombre-popup"><strong>Origen hebreo</strong><p>Casa del pan y hospitalidad.</p></div></div>
+                <div class="nombre-chip">Benjamín<div class="nombre-popup"><strong>Origen hebreo</strong><p>Hijo de la mano derecha.</p></div></div>
+                <div class="nombre-chip">Blas<div class="nombre-popup"><strong>Origen latino</strong><p>El que avanza firme pese a todo.</p></div></div>
+                <div class="nombre-chip">Borja<div class="nombre-popup"><strong>Origen árabe</strong><p>Torre fuerte y de gran linaje.</p></div></div>
+                <div class="nombre-chip">Camilo<div class="nombre-popup"><strong>Origen latino</strong><p>Ministro y de carácter noble.</p></div></div>
+                <div class="nombre-chip">Candela<div class="nombre-popup"><strong>Origen latino</strong><p>Aquella que brilla con luz propia.</p></div></div>
+                <div class="nombre-chip">Carlota<div class="nombre-popup"><strong>Origen germánico</strong><p>Libre y de gran inteligencia.</p></div></div>
+                <div class="nombre-chip">Carlos<div class="nombre-popup"><strong>Origen germánico</strong><p>Hombre libre e independiente.</p></div></div>
+                <div class="nombre-chip">Carmen<div class="nombre-popup"><strong>Origen hebreo</strong><p>Jardín de Dios y poesía musical.</p></div></div>
+                <div class="nombre-chip">Catalina<div class="nombre-popup"><strong>Origen griego</strong><p>Pura y de gran claridad.</p></div></div>
+                <div class="nombre-chip">Cecilia<div class="nombre-popup"><strong>Origen latino</strong><p>Sensibilidad artística y claridad.</p></div></div>
+                <div class="nombre-chip">César<div class="nombre-popup"><strong>Origen latino</strong><p>Líder nato y estratega.</p></div></div>
+                <div class="nombre-chip">Clara<div class="nombre-popup"><strong>Origen latino</strong><p>Luminosa, transparente y brillante.</p></div></div>
+                <div class="nombre-chip">Claudia<div class="nombre-popup"><strong>Origen latino</strong><p>Distinguida y de sólida reputación.</p></div></div>
+                <div class="nombre-chip">Cristina<div class="nombre-popup"><strong>Origen griego</strong><p>Seguidora de la luz y principios.</p></div></div>
+                <div class="nombre-chip">Daniel<div class="nombre-popup"><strong>Origen hebreo</strong><p>Símbolo de justicia y equidad.</p></div></div>
+                <div class="nombre-chip">Daniela<div class="nombre-popup"><strong>Origen hebreo</strong><p>Justicia divina y sensibilidad.</p></div></div>
+                <div class="nombre-chip">David<div class="nombre-popup"><strong>Origen hebreo</strong><p>El amado y de gran carisma.</p></div></div>
+                <div class="nombre-chip">Diana<div class="nombre-popup"><strong>Origen latino</strong><p>Naturaleza luminosa y ágil.</p></div></div>
+                <div class="nombre-chip">Diego<div class="nombre-popup"><strong>Origen griego</strong><p>Instruido, docto y protector.</p></div></div>
+                <div class="nombre-chip">Eduardo<div class="nombre-popup"><strong>Origen germánico</strong><p>Guardián de la prosperidad.</p></div></div>
+                <div class="nombre-chip">Elena<div class="nombre-popup"><strong>Origen griego</strong><p>Antorcha resplandeciente y elegante.</p></div></div>
+                <div class="nombre-chip">Elisa<div class="nombre-popup"><strong>Origen hebreo</strong><p>Juramento fiel y bondadoso.</p></div></div>
+                <div class="nombre-chip">Emilio<div class="nombre-popup"><strong>Origen latino</strong><p>Superación constante y afecto.</p></div></div>
+                <div class="nombre-chip">Enrique<div class="nombre-popup"><strong>Origen germánico</strong><p>Señor de la casa y gobernante.</p></div></div>
+                <div class="nombre-chip">Ernesto<div class="nombre-popup"><strong>Origen germánico</strong><p>Firme, fiel y de palabra segura.</p></div></div>
+                <div class="nombre-chip">Esteban<div class="nombre-popup"><strong>Origen griego</strong><p>Coronado de gloria y honores.</p></div></div>
+                <div class="nombre-chip">Eva<div class="nombre-popup"><strong>Origen hebreo</strong><p>Madre de todos los vivientes.</p></div></div>
+                <div class="nombre-chip">Fabián<div class="nombre-popup"><strong>Origen latino</strong><p>Noble, trabajador y constante.</p></div></div>
+                <div class="nombre-chip">Felipe<div class="nombre-popup"><strong>Origen griego</strong><p>Amigo de los caballos y libre.</p></div></div>
+                <div class="nombre-chip">Fernando<div class="nombre-popup"><strong>Origen germánico</strong><p>Viajero audaz y protector.</p></div></div>
+                <div class="nombre-chip">Francisco<div class="nombre-popup"><strong>Origen germánico</strong><p>Hombre libre y generoso.</p></div></div>
+                <div class="nombre-chip">Gabriel<div class="nombre-popup"><strong>Origen hebreo</strong><p>Fuerza y mensajero protector.</p></div></div>
+                <div class="nombre-chip">Gonzalo<div class="nombre-popup"><strong>Origen germánico</strong><p>Preparado para la batalla.</p></div></div>
+                <div class="nombre-chip">Guillermo<div class="nombre-popup"><strong>Origen germánico</strong><p>Férrea voluntad y protección.</p></div></div>
+                <div class="nombre-chip">Gustavo<div class="nombre-popup"><strong>Origen sueco</strong><p>Soporte firme y protector.</p></div></div>
+                <div class="nombre-chip">Héctor<div class="nombre-popup"><strong>Origen griego</strong><p>Defensor tenaz y de honor.</p></div></div>
+                <div class="nombre-chip">Helena<div class="nombre-popup"><strong>Origen griego</strong><p>Radiante y de elegancia clásica.</p></div></div>
+                <div class="nombre-chip">Ignacio<div class="nombre-popup"><strong>Origen latino</strong><p>Fuego interior y pasión ardiente.</p></div></div>
+                <div class="nombre-chip">Irene<div class="nombre-popup"><strong>Origen griego</strong><p>Diosa de la paz y el sosiego.</p></div></div>
+                <div class="nombre-chip">Isabel<div class="nombre-popup"><strong>Origen hebreo</strong><p>Promesa sagrada de firmeza.</p></div></div>
+                <div class="nombre-chip">Ismael<div class="nombre-popup"><strong>Origen hebreo</strong><p>Atento y compasivo.</p></div></div>
+                <div class="nombre-chip">Iván<div class="nombre-popup"><strong>Origen eslavo</strong><p>Misericordia y lealtad.</p></div></div>
+                <div class="nombre-chip">Jacobo<div class="nombre-popup"><strong>Origen hebreo</strong><p>El que sostiene con constancia.</p></div></div>
+                <div class="nombre-chip">Jaime<div class="nombre-popup"><strong>Origen hebreo</strong><p>Protector fiel y cercano.</p></div></div>
+                <div class="nombre-chip">Javier<div class="nombre-popup"><strong>Origen vasco</strong><p>Casa nueva, brillante y próspera.</p></div></div>
+                <div class="nombre-chip">Jorge<div class="nombre-popup"><strong>Origen griego</strong><p>Labrador constante y honesto.</p></div></div>
+                <div class="nombre-chip">José<div class="nombre-popup"><strong>Origen hebreo</strong><p>Generoso y de gran entrega.</p></div></div>
+                <div class="nombre-chip">Juana<div class="nombre-popup"><strong>Origen hebreo</strong><p>Llena de gracia divina.</p></div></div>
+                <div class="nombre-chip">Julia<div class="nombre-popup"><strong>Origen latino</strong><p>Juventud y vitalidad eterna.</p></div></div>
+                <div class="nombre-chip">Julio<div class="nombre-popup"><strong>Origen latino</strong><p>Maduro de espíritu y fuerte.</p></div></div>
+                <div class="nombre-chip">Laura<div class="nombre-popup"><strong>Origen latino</strong><p>Victoriosa y brillante.</p></div></div>
+                <div class="nombre-chip">Leandro<div class="nombre-popup"><strong>Origen griego</strong><p>Apacible, sabio y sereno.</p></div></div>
+                <div class="nombre-chip">Leonardo<div class="nombre-popup"><strong>Origen germánico</strong><p>Fuerte como un león y audaz.</p></div></div>
+                <div class="nombre-chip">Leonor<div class="nombre-popup"><strong>Origen provenzal</strong><p>Compasiva y de distinción real.</p></div></div>
+                <div class="nombre-chip">Leticia<div class="nombre-popup"><strong>Origen latino</strong><p>Fuente de gozo y bienestar.</p></div></div>
+                <div class="nombre-chip">Lucas<div class="nombre-popup"><strong>Origen latino</strong><p>El que trae la luz y clarividencia.</p></div></div>
+                <div class="nombre-chip">Lucía<div class="nombre-popup"><strong>Origen latino</strong><p>Luminosa y de dicción impecable.</p></div></div>
+                <div class="nombre-chip">Luis<div class="nombre-popup"><strong>Origen germánico</strong><p>Guerrero ilustre y brillante.</p></div></div>
+                <div class="nombre-chip">Luisa<div class="nombre-popup"><strong>Origen germánico</strong><p>Guerrera noble y de gran coraje.</p></div></div>
+                <div class="nombre-chip">Manuel<div class="nombre-popup"><strong>Origen hebreo</strong><p>Protector cercano y solidario.</p></div></div>
+                <div class="nombre-chip">Marcos<div class="nombre-popup"><strong>Origen latino</strong><p>Consagrado a Marte y fuerte.</p></div></div>
+                <div class="nombre-chip">Margarita<div class="nombre-popup"><strong>Origen griego</strong><p>Perla fina y delicada.</p></div></div>
+                <div class="nombre-chip">María<div class="nombre-popup"><strong>Origen hebreo</strong><p>Excelsa y llena de gracia.</p></div></div>
+                <div class="nombre-chip">Mario<div class="nombre-popup"><strong>Origen latino</strong><p>Hombre fuerte, viril y constante.</p></div></div>
+                <div class="nombre-chip">Marta<div class="nombre-popup"><strong>Origen arameo</strong><p>Trabajadora y firme en el hogar.</p></div></div>
+                <div class="nombre-chip">Martín<div class="nombre-popup"><strong>Origen latino</strong><p>Fuerte y de gran tradición.</p></div></div>
+                <div class="nombre-chip">Mateo<div class="nombre-popup"><strong>Origen hebreo</strong><p>Regalo divino y entrañable.</p></div></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: TRADICIÓN (80 NOMBRES) -->
+        <div id="tradicion" class="categoria-tab-contenido">
+            <h2>🏔️ Raíces y Tradición</h2>
+            <p>Nombres que rescatan la riqueza cultural y la identidad (Orden alfabético estricto)</p>
+            <div class="nombres-grid-compacto">
+                <div class="nombre-chip">Adur<div class="nombre-popup"><strong>Origen vasco</strong><p>Antigua fuerza y deidad mitológica.</p></div></div>
+                <div class="nombre-chip">Aintzane<div class="nombre-popup"><strong>Origen vasco</strong><p>Gloria y honor local.</p></div></div>
+                <div class="nombre-chip">Aitziber<div class="nombre-popup"><strong>Origen vasco</strong><p>Santuarios y peñascos históricos.</p></div></div>
+                <div class="nombre-chip">Aizea<div class="nombre-popup"><strong>Origen vasco</strong><p>Brisa suave de la montaña.</p></div></div>
+                <div class="nombre-chip">Alaitz<div class="nombre-popup"><strong>Origen vasco</strong><p>Lugar de alegría compartida.</p></div></div>
+                <div class="nombre-chip">Alazne<div class="nombre-popup"><strong>Origen vasco</strong><p>Milagro, portento y bendición.</p></div></div>
+                <div class="nombre-chip">Amaia<div class="nombre-popup"><strong>Origen vasco</strong><p>Cumbre sagrada o término deseado.</p></div></div>
+                <div class="nombre-chip">Amets<div class="nombre-popup"><strong>Origen vasco</strong><p>Sueño, ilusión y deseo cumplido.</p></div></div>
+                <div class="nombre-chip">Ane<div class="nombre-popup"><strong>Origen vasco</strong><p>Grácil, puro y tradicional.</p></div></div>
+                <div class="nombre-chip">Antxon<div class="nombre-popup"><strong>Origen vasco</strong><p>Variante entrañable de Antonio.</p></div></div>
+                <div class="nombre-chip">Ainhoa<div class="nombre-popup"><strong>Origen vasco</strong><p>Inspirado en el valle y advocación.</p></div></div>
+                <div class="nombre-chip">Arantxa<div class="nombre-popup"><strong>Origen vasco</strong><p>Espino florido y naturaleza.</p></div></div>
+                <div class="nombre-chip">Arkaitz<div class="nombre-popup"><strong>Origen vasco</strong><p>Peña y roca inquebrantable.</p></div></div>
+                <div class="nombre-chip">Arrate<div class="nombre-popup"><strong>Origen vasco</strong><p>Puerto de montaña histórico.</p></div></div>
+                <div class="nombre-chip">Asier<div class="nombre-popup"><strong>Origen vasco</strong><p>El que conoce la verdad.</p></div></div>
+                <div class="nombre-chip">Bakarne<div class="nombre-popup"><strong>Origen vasco</strong><p>Soledad sagrada y paz interior.</p></div></div>
+                <div class="nombre-chip">Begoña<div class="nombre-popup"><strong>Origen vasco</strong><p>Colina alta orientada al monte.</p></div></div>
+                <div class="nombre-chip">Beñat<div class="nombre-popup"><strong>Origen vasco</strong><p>Fuerte y noble.</p></div></div>
+                <div class="nombre-chip">Danel<div class="nombre-popup"><strong>Origen vasco</strong><p>Justicia y equidad local.</p></div></div>
+                <div class="nombre-chip">Edurne<div class="nombre-popup"><strong>Origen vasco</strong><p>Nieve y blancura invernal.</p></div></div>
+                <div class="nombre-chip">Eider<div class="nombre-popup"><strong>Origen vasco</strong><p>Belleza y gracia de las aves.</p></div></div>
+                <div class="nombre-chip">Ekaitz<div class="nombre-popup"><strong>Origen vasco</strong><p>Tempestad y tormenta.</p></div></div>
+                <div class="nombre-chip">Elixabete<div class="nombre-popup"><strong>Origen vasco</strong><p>Consagrada y tradicional.</p></div></div>
+                <div class="nombre-chip">Enara<div class="nombre-popup"><strong>Origen vasco</strong><p>Golondrina, hogar y viaje.</p></div></div>
+                <div class="nombre-chip">Endika<div class="nombre-popup"><strong>Origen vasco</strong><p>Gobernante de la casa.</p></div></div>
+                <div class="nombre-chip">Eneko<div class="nombre-popup"><strong>Origen vasco</strong><p>Pequeño amado y de gran arraigo.</p></div></div>
+                <div class="nombre-chip">Ernesto<div class="nombre-popup"><strong>Origen vasco</strong><p>Firmeza y lealtad.</p></div></div>
+                <div class="nombre-chip">Estibaliz<div class="nombre-popup"><strong>Origen vasco</strong><p>Miel dulce y acogedora.</p></div></div>
+                <div class="nombre-chip">Eunate<div class="nombre-popup"><strong>Origen vasco</strong><p>Ermita histórica de cien puertas.</p></div></div>
+                <div class="nombre-chip">Gaizka<div class="nombre-popup"><strong>Origen vasco</strong><p>Salvador y libertador.</p></div></div>
+                <div class="nombre-chip">Garbiñe<div class="nombre-popup"><strong>Origen vasco</strong><p>La limpia, pura e inmaculada.</p></div></div>
+                <div class="nombre-chip">Gorka<div class="nombre-popup"><strong>Origen vasco</strong><p>Labrador fiel y constante.</p></div></div>
+                <div class="nombre-chip">Gotzone<div class="nombre-popup"><strong>Origen vasco</strong><p>Ángel mensajero de paz.</p></div></div>
+                <div class="nombre-chip">Gurutze<div class="nombre-popup"><strong>Origen vasco</strong><p>Devoción tradicional.</p></div></div>
+                <div class="nombre-chip">Haritza<div class="nombre-popup"><strong>Origen vasco</strong><p>Roble fuerte ante el clima.</p></div></div>
+                <div class="nombre-chip">Hegoi<div class="nombre-popup"><strong>Origen vasco</strong><p>Viento sur cálido.</p></div></div>
+                <div class="nombre-chip">Iban<div class="nombre-popup"><strong>Origen vasco</strong><p>Gracia y bondad.</p></div></div>
+                <div class="nombre-chip">Idoia<div class="nombre-popup"><strong>Origen vasco</strong><p>Estanque de agua del monte.</p></div></div>
+                <div class="nombre-chip">Iker<div class="nombre-popup"><strong>Origen vasco</strong><p>Portador de buenas noticias.</p></div></div>
+                <div class="nombre-chip">Iñaki<div class="nombre-popup"><strong>Origen vasco</strong><p>Fuego interior y pasión.</p></div></div>
+                <div class="nombre-chip">Iñigo<div class="nombre-popup"><strong>Origen vasco</strong><p>Pequeño sol querido.</p></div></div>
+                <div class="nombre-chip">Iratxe<div class="nombre-popup"><strong>Origen vasco</strong><p>Helechos y parajes naturales.</p></div></div>
+                <div class="nombre-chip">Irune<div class="nombre-popup"><strong>Origen vasco</strong><p>Armonía comunitaria.</p></div></div>
+                <div class="nombre-chip">Itxaso<div class="nombre-popup"><strong>Origen vasco</strong><p>Mar abierto y profundo.</p></div></div>
+                <div class="nombre-chip">Itziar<div class="nombre-popup"><strong>Origen vasco</strong><p>Altura mirando al mar.</p></div></div>
+                <div class="nombre-chip">Izaro<div class="nombre-popup"><strong>Origen vasco</strong><p>Isla emblemática de la costa.</p></div></div>
+                <div class="nombre-chip">Izei<div class="nombre-popup"><strong>Origen vasco</strong><p>Abeto esbelto y verde.</p></div></div>
+                <div class="nombre-chip">Josu<div class="nombre-popup"><strong>Origen vasco</strong><p>Variante afectuosa de salvador.</p></div></div>
+                <div class="nombre-chip">Jone<div class="nombre-popup"><strong>Origen vasco</strong><p>Gracia fiel.</p></div></div>
+                <div class="nombre-chip">June<div class="nombre-popup"><strong>Origen vasco</strong><p>Mes estival y flores silvestres.</p></div></div>
+                <div class="nombre-chip">Kerman<div class="nombre-popup"><strong>Origen vasco</strong><p>Germano y de arraigo.</p></div></div>
+                <div class="nombre-chip">Koldo<div class="nombre-popup"><strong>Origen vasco</strong><p>Protector audaz.</p></div></div>
+                <div class="nombre-chip">Kontxi<div class="nombre-popup"><strong>Origen vasco</strong><p>Forma tradicional cariñosa.</p></div></div>
+                <div class="nombre-chip">Lander<div class="nombre-popup"><strong>Origen vasco</strong><p>Peregrino de los caminos.</p></div></div>
+                <div class="nombre-chip">Leire<div class="nombre-popup"><strong>Origen vasco</strong><p>Valle histórico de paz.</p></div></div>
+                <div class="nombre-chip">Lide<div class="nombre-popup"><strong>Origen vasco</strong><p>Amada y de gran dulzura.</p></div></div>
+                <div class="nombre-chip">Lore<div class="nombre-popup"><strong>Origen vasco</strong><p>Flor y belleza silvestre.</p></div></div>
+                <div class="nombre-chip">Maialen<div class="nombre-popup"><strong>Origen vasco</strong><p>Torre fuerte.</p></div></div>
+                <div class="nombre-chip">Maite<div class="nombre-popup"><strong>Origen vasco</strong><p>Amada y afectuosa.</p></div></div>
+                <div class="nombre-chip">Markel<div class="nombre-popup"><strong>Origen vasco</strong><p>Guerrero noble.</p></div></div>
+                <div class="nombre-chip">Miren<div class="nombre-popup"><strong>Origen vasco</strong><p>Excelsa y tradicional.</p></div></div>
+                <div class="nombre-chip">Naroa<div class="nombre-popup"><strong>Origen vasco</strong><p>Abundante, tranquila y fecunda.</p></div></div>
+                <div class="nombre-chip">Nagore<div class="nombre-popup"><strong>Origen vasco</strong><p>Santuario de la altura.</p></div></div>
+                <div class="nombre-chip">Nekane<div class="nombre-popup"><strong>Origen vasco</strong><p>Fortaleza ante la superación.</p></div></div>
+                <div class="nombre-chip">Oihane<div class="nombre-popup"><strong>Origen vasco</strong><p>Habitante de los bosques.</p></div></div>
+                <div class="nombre-chip">Oier<div class="nombre-popup"><strong>Origen vasco</strong><p>Piadoso y de gran empuje.</p></div></div>
+                <div class="nombre-chip">Olaia<div class="nombre-popup"><strong>Origen vasco</strong><p>Elocuente y apacible.</p></div></div>
+                <div class="nombre-chip">Onaindia<div class="nombre-popup"><strong>Origen vasco</strong><p>De casa buena y respetada.</p></div></div>
+                <div class="nombre-chip">Oskia<div class="nombre-popup"><strong>Origen vasco</strong><p>Puerto de montaña histórico.</p></div></div>
+                <div class="nombre-chip">Patxi<div class="nombre-popup"><strong>Origen vasco</strong><p>Hombre libre.</p></div></div>
+                <div class="nombre-chip">Peru<div class="nombre-popup"><strong>Origen vasco</strong><p>Roca firme.</p></div></div>
+                <div class="nombre-chip">Txomin<div class="nombre-popup"><strong>Origen vasco</strong><p>Consagrado tradicional.</p></div></div>
+                <div class="nombre-chip">Unai<div class="nombre-popup"><strong>Origen vasco</strong><p>Pastor del entorno rural.</p></div></div>
+                <div class="nombre-chip">Urko<div class="nombre-popup"><strong>Origen vasco</strong><p>Aguas bravas y montes altos.</p></div></div>
+                <div class="nombre-chip">Urtzi<div class="nombre-popup"><strong>Origen vasco</strong><p>Antiguo firmamento y cielo.</p></div></div>
+                <div class="nombre-chip">Xabier<div class="nombre-popup"><strong>Origen vasco</strong><p>Nuevo hogar luminoso.</p></div></div>
+                <div class="nombre-chip">Xoan<div class="nombre-popup"><strong>Origen vasco</strong><p>Gracia de la naturaleza.</p></div></div>
+                <div class="nombre-chip">Zuri<div class="nombre-popup"><strong>Origen vasco</strong><p>Blancura y pureza.</p></div></div>
+                <div class="nombre-chip">Zuria<div class="nombre-popup"><strong>Origen vasco</strong><p>Reina blanca y ancestral.</p></div></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: MODERNOS (80 NOMBRES) -->
+        <div id="modernos" class="categoria-tab-contenido">
+            <h2>💫 Nombres Modernos y Actuales</h2>
+            <p>Tendencias contemporáneas con gran fuerza expresiva (Orden alfabético estricto)</p>
+            <div class="nombres-grid-compacto">
+                <div class="nombre-chip">Aiden<div class="nombre-popup"><strong>Origen gaélico</strong><p>Pequeño fuego y vitalidad.</p></div></div>
+                <div class="nombre-chip">Airam<div class="nombre-popup"><strong>Origen moderno</strong><p>Originalidad y sonoridad abierta.</p></div></div>
+                <div class="nombre-chip">Alana<div class="nombre-popup"><strong>Origen celta</strong><p>Armonía y claridad contemporánea.</p></div></div>
+                <div class="nombre-chip">Aleksander<div class="nombre-popup"><strong>Origen eslavo</strong><p>Protector moderno de personas.</p></div></div>
+                <div class="nombre-chip">Amir<div class="nombre-popup"><strong>Origen árabe</strong><p>Príncipe, líder y persona influyente.</p></div></div>
+                <div class="nombre-chip">Ania<div class="nombre-popup"><strong>Origen eslavo</strong><p>Gracia y frescura actual.</p></div></div>
+                <div class="nombre-chip">Apolo<div class="nombre-popup"><strong>Origen griego</strong><p>Dios de la luz, música y belleza.</p></div></div>
+                <div class="nombre-chip">Arya<div class="nombre-popup"><strong>Origen sánscrito</strong><p>Noble, fuerte e independiente.</p></div></div>
+                <div class="nombre-chip">Bastian<div class="nombre-popup"><strong>Origen griego</strong><p>Venerado, ilustre y con gancho.</p></div></div>
+                <div class="nombre-chip">Caelen<div class="nombre-popup"><strong>Origen gaélico</strong><p>Guerrero victorioso y moderno.</p></div></div>
+                <div class="nombre-chip">Cala<div class="nombre-popup"><strong>Origen moderno</strong><p>Pureza y sencillez geométrica.</p></div></div>
+                <div class="nombre-chip">Chloe<div class="nombre-popup"><strong>Origen griego</strong><p>Brotes de juventud y vitalidad.</p></div></div>
+                <div class="nombre-chip">Dánizel<div class="nombre-popup"><strong>Origen moderno</strong><p>Innovación y equilibrio armónico.</p></div></div>
+                <div class="nombre-chip">Darío<div class="nombre-popup"><strong>Origen persa</strong><p>El que mantiene el bien.</p></div></div>
+                <div class="nombre-chip">Dayan<div class="nombre-popup"><strong>Origen hebreo</strong><p>Juez, sabio y equilibrado.</p></div></div>
+                <div class="nombre-chip">Destiny<div class="nombre-popup"><strong>Origen inglés</strong><p>Destino y gran fortuna.</p></div></div>
+                <div class="nombre-chip">Dorian<div class="nombre-popup"><strong>Origen griego</strong><p>Perteneciente al mar y arte.</p></div></div>
+                <div class="nombre-chip">Dylan<div class="nombre-popup"><strong>Origen galés</strong><p>Hijo del mar y la marea.</p></div></div>
+                <div class="nombre-chip">Elan<div class="nombre-popup"><strong>Origen hebreo</strong><p>Árbol de gran energía vital.</p></div></div>
+                <div class="nombre-chip">Elián<div class="nombre-popup"><strong>Origen griego</strong><p>Brillo solar y dinamismo.</p></div></div>
+                <div class="nombre-chip">Eloy<div class="nombre-popup"><strong>Origen latino</strong><p>El elegido, de gran valor.</p></div></div>
+                <div class="nombre-chip">Enzo<div class="nombre-popup"><strong>Origen italiano</strong><p>Señor de su hogar y audaz.</p></div></div>
+                <div class="nombre-chip">Eric<div class="nombre-popup"><strong>Origen escandinavo</strong><p>Gobernante solitario y eterno.</p></div></div>
+                <div class="nombre-chip">Ezio<div class="nombre-popup"><strong>Origen griego</strong><p>Águila, fuerza y libertad.</p></div></div>
+                <div class="nombre-chip">Fabio<div class="nombre-popup"><strong>Origen latino</strong><p>Cultivador ágil y moderno.</p></div></div>
+                <div class="nombre-chip">Finn<div class="nombre-popup"><strong>Origen irlandés</strong><p>Justo, blanco y brillante.</p></div></div>
+                <div class="nombre-chip">Gael<div class="nombre-popup"><strong>Origen bretón</strong><p>Generoso, virtuoso y actual.</p></div></div>
+                <div class="nombre-chip">Gia<div class="nombre-popup"><strong>Origen italiano</strong><p>Dios es gracioso, moderno.</p></div></div>
+                <div class="nombre-chip">Gian<div class="nombre-popup"><strong>Origen italiano</strong><p>Versión actual de Juan.</p></div></div>
+                <div class="nombre-chip">Hadley<div class="nombre-popup"><strong>Origen inglés</strong><p>Campo de brezo luminoso.</p></div></div>
+                <div class="nombre-chip">Hana<div class="nombre-popup"><strong>Origen asiático</strong><p>Flor y elegancia minimalista.</p></div></div>
+                <div class="nombre-chip">Harley<div class="nombre-popup"><strong>Origen inglés</strong><p>Prado de liebres, actual.</p></div></div>
+                <div class="nombre-chip">Ian<div class="nombre-popup"><strong>Origen escocés</strong><p>Regalo de gran pureza.</p></div></div>
+                <div class="nombre-chip">Igor<div class="nombre-popup"><strong>Origen escandinavo</strong><p>Guerrero de paz.</p></div></div>
+                <div class="nombre-chip">Iván<div class="nombre-popup"><strong>Origen eslavo</strong><p>Digno y actual.</p></div></div>
+                <div class="nombre-chip">Jade<div class="nombre-popup"><strong>Origen español</strong><p>Piedra preciosa verde y bella.</p></div></div>
+                <div class="nombre-chip">Jayson<div class="nombre-popup"><strong>Origen griego</strong><p>Curador y sanador.</p></div></div>
+                <div class="nombre-chip">Jenna<div class="nombre-popup"><strong>Origen inglés</strong><p>Onda blanca y pura.</p></div></div>
+                <div class="nombre-chip">Joël<div class="nombre-popup"><strong>Origen hebreo</strong><p>Yahveh es Dios, moderno.</p></div></div>
+                <div class="nombre-chip">Kai<div class="nombre-popup"><strong>Origen hawaiano</strong><p>Mar, océano y libertad.</p></div></div>
+                <div class="nombre-chip">Kala<div class="nombre-popup"><strong>Origen hawaiano</strong><p>El sol y el cielo abierto.</p></div></div>
+                <div class="nombre-chip">Kelian<div class="nombre-popup"><strong>Origen celta</strong><p>Guerrero esbelto.</p></div></div>
+                <div class="nombre-chip">Kilian<div class="nombre-popup"><strong>Origen celta</strong><p>Pequeño guerrero audaz.</p></div></div>
+                <div class="nombre-chip">Kira<div class="nombre-popup"><strong>Origen persa</strong><p>Señora radiante de luz propia.</p></div></div>
+                <div class="nombre-chip">Kyra<div class="nombre-popup"><strong>Origen persa</strong><p>Sol brillante.</p></div></div>
+                <div class="nombre-chip">Kyian<div class="nombre-popup"><strong>Origen moderno</strong><p>Fuerza y rapidez.</p></div></div>
+                <div class="nombre-chip">Laila<div class="nombre-popup"><strong>Origen árabe</strong><p>Noche hermosa y estrellada.</p></div></div>
+                <div class="nombre-chip">Lars<div class="nombre-popup"><strong>Origen escandinavo</strong><p>Coronado de laurel.</p></div></div>
+                <div class="nombre-chip">Liam<div class="nombre-popup"><strong>Origen irlandés</strong><p>Protector firme y decidido.</p></div></div>
+                <div class="nombre-chip">Lola<div class="nombre-popup"><strong>Origen hebreo</strong><p>Fuerza femenina y cercanía.</p></div></div>
+                <div class="nombre-chip">Luca<div class="nombre-popup"><strong>Origen italiano</strong><p>Luminoso y moderno.</p></div></div>
+                <div class="nombre-chip">Mael<div class="nombre-popup"><strong>Origen celta</strong><p>Príncipe y líder inspirador.</p></div></div>
+                <div class="nombre-chip">Maya<div class="nombre-popup"><strong>Origen sánscrito</strong><p>Ilusión y belleza.</p></div></div>
+                <div class="nombre-chip">Mila<div class="nombre-popup"><strong>Origen eslavo</strong><p>Graciosa, querida y entrañable.</p></div></div>
+                <div class="nombre-chip">Nadir<div class="nombre-popup"><strong>Origen árabe</strong><p>Raro, excepcional y brillante.</p></div></div>
+                <div class="nombre-chip">Nael<div class="nombre-popup"><strong>Origen árabe</strong><p>Manantial de éxito.</p></div></div>
+                <div class="nombre-chip">Nico<div class="nombre-popup"><strong>Origen griego</strong><p>Victoria del pueblo.</p></div></div>
+                <div class="nombre-chip">Noa<div class="nombre-popup"><strong>Origen hebreo</strong><p>Movimiento, paz y delicia.</p></div></div>
+                <div class="nombre-chip">Nolan<div class="nombre-popup"><strong>Origen irlandés</strong><p>Campeón noble.</p></div></div>
+                <div class="nombre-chip">Odin<div class="nombre-popup"><strong>Origen nórdico</strong><p>Sabiduría y furia inspiradora.</p></div></div>
+                <div class="nombre-chip">Oliver<div class="nombre-popup"><strong>Origen latino</strong><p>Olivo de paz y fortaleza.</p></div></div>
+                <div class="nombre-chip">Oriol<div class="nombre-popup"><strong>Origen latino</strong><p>Dorado como el amanecer.</p></div></div>
+                <div class="nombre-chip">Orson<div class="nombre-popup"><strong>Origen latino</strong><p>Pequeño oso fuerte.</p></div></div>
+                <div class="nombre-chip">Owen<div class="nombre-popup"><strong>Origen galés</strong><p>Bien nacido y joven.</p></div></div>
+                <div class="nombre-chip">Paris<div class="nombre-popup"><strong>Origen griego</strong><p>Arte y sofisticación.</p></div></div>
+                <div class="nombre-chip">Rayan<div class="nombre-popup"><strong>Origen árabe</strong><p>Frondoso y lleno de vida.</p></div></div>
+                <div class="nombre-chip">Remi<div class="nombre-popup"><strong>Origen francés</strong><p>Remero y constancia.</p></div></div>
+                <div class="nombre-chip">Rian<div class="nombre-popup"><strong>Origen celta</strong><p>Rey pequeño y audaz.</p></div></div>
+                <div class="nombre-chip">Roma<div class="nombre-popup"><strong>Origen latino</strong><p>Fuerza y eternidad.</p></div></div>
+                <div class="nombre-chip">Roy<div class="nombre-popup"><strong>Origen celta</strong><p>Rojo y apasionado.</p></div></div>
+                <div class="nombre-chip">Sasha<div class="nombre-popup"><strong>Origen griego</strong><p>Defensor de la humanidad.</p></div></div>
+                <div class="nombre-chip">Sky<div class="nombre-popup"><strong>Origen inglés</strong><p>Cielo abierto y libertad.</p></div></div>
+                <div class="nombre-chip">Sven<div class="nombre-popup"><strong>Origen nórdico</strong><p>Joven guerrero libre.</p></div></div>
+                <div class="nombre-chip">Tadeo<div class="nombre-popup"><strong>Origen arameo</strong><p>Valiente y de gran corazón.</p></div></div>
+                <div class="nombre-chip">Theo<div class="nombre-popup"><strong>Origen griego</strong><p>Regalo divino, corto y actual.</p></div></div>
+                <div class="nombre-chip">Thiago<div class="nombre-popup"><strong>Origen hebreo</strong><p>Protegido por la divinidad.</p></div></div>
+                <div class="nombre-chip">Vera<div class="nombre-popup"><strong>Origen latino</strong><p>Verdad, fe y autenticidad.</p></div></div>
+                <div class="nombre-chip">Yago<div class="nombre-popup"><strong>Origen hebreo</strong><p>Sustento y protección.</p></div></div>
+                <div class="nombre-chip">Zian<div class="nombre-popup"><strong>Origen moderno</strong><p>Fuerza y luz propia.</p></div></div>
+                <div class="nombre-chip">Zoe<div class="nombre-popup"><strong>Origen griego</strong><p>Vida en su máxima expresión.</p></div></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 5: ASIÁTICOS (80 NOMBRES ORDENADOS A-Z) -->
+        <div id="asiaticos" class="categoria-tab-contenido">
+            <h2>🌸 Nombres Asiáticos</h2>
+            <p>Inspirados en la cultura oriental, la naturaleza y la filosofía milenaria (Orden alfabético estricto)</p>
+            <div class="nombres-grid-compacto">
+                <div class="nombre-chip">Akane<div class="nombre-popup"><strong>Origen japonés</strong><p>Rojo intenso y brillante del atardecer.</p></div></div>
+                <div class="nombre-chip">Akira<div class="nombre-popup"><strong>Origen japonés</strong><p>Brillante, claro e inteligente.</p></div></div>
+                <div class="nombre-chip">Aoi<div class="nombre-popup"><strong>Origen japonés</strong><p>Inspirado en la flor azul malva.</p></div></div>
+                <div class="nombre-chip">Ayaka<div class="nombre-popup"><strong>Origen japonés</strong><p>Flor colorida y hermosa.</p></div></div>
+                <div class="nombre-chip">Ayano<div class="nombre-popup"><strong>Origen japonés</strong><p>Mi color o diseño de gran belleza.</p></div></div>
+                <div class="nombre-chip">Bao<div class="nombre-popup"><strong>Origen chino</strong><p>Tesoro, joya preciada y protegida.</p></div></div>
+                <div class="nombre-chip">Chen<div class="nombre-popup"><strong>Origen chino</strong><p>Amanecer, mañana y gran vitalidad.</p></div></div>
+                <div class="nombre-chip">Chiyo<div class="nombre-popup"><strong>Origen japonés</strong><p>Mil generaciones y eternidad.</p></div></div>
+                <div class="nombre-chip">Cho<div class="nombre-popup"><strong>Origen coreano / japonés</strong><p>Mariposa libre y delicada.</p></div></div>
+                <div class="nombre-chip">Daichi<div class="nombre-popup"><strong>Origen japonés</strong><p>Gran tierra firme y estable.</p></div></div>
+                <div class="nombre-chip">Dai<div class="nombre-popup"><strong>Origen chino / japonés</strong><p>Grande, ilustre y distinguido.</p></div></div>
+                <div class="nombre-chip">Emi<div class="nombre-popup"><strong>Origen japonés</strong><p>Hermosa bendición y sonrisa.</p></div></div>
+                <div class="nombre-chip">Eun<div class="nombre-popup"><strong>Origen coreano</strong><p>Gracia, bondad y caridad.</p></div></div>
+                <div class="nombre-chip">Fuyuko<div class="nombre-popup"><strong>Origen japonés</strong><p>Niña nacida en la estación invernal.</p></div></div>
+                <div class="nombre-chip">Gina<div class="nombre-popup"><strong>Origen coreano</strong><p>Plata pura y brillante.</p></div></div>
+                <div class="nombre-chip">Hana<div class="nombre-popup"><strong>Origen japonés</strong><p>Flor silvestre y floreciente.</p></div></div>
+                <div class="nombre-chip">Haru<div class="nombre-popup"><strong>Origen japonés</strong><p>Primavera, sol y claridad.</p></div></div>
+                <div class="nombre-chip">Hideaki<div class="nombre-popup"><strong>Origen japonés</strong><p>Brillo excelente y sabiduría.</p></div></div>
+                <div class="nombre-chip">Hikari<div class="nombre-popup"><strong>Origen japonés</strong><p>Luz pura que guía el camino.</p></div></div>
+                <div class="nombre-chip">Hina<div class="nombre-popup"><strong>Origen japonés</strong><p>Sol naciente y vegetales tiernos.</p></div></div>
+                <div class="nombre-chip">Hiroshi<div class="nombre-popup"><strong>Origen japonés</strong><p>Generoso, tolerante y amplio.</p></div></div>
+                <div class="nombre-chip">Ho<div class="nombre-popup"><strong>Origen coreano</strong><p>Bondad y espíritu bondadoso.</p></div></div>
+                <div class="nombre-chip">Hoshi<div class="nombre-popup"><strong>Origen japonés</strong><p>Estrella brillante del cielo nocturno.</p></div></div>
+                <div class="nombre-chip">In-Ha<div class="nombre-popup"><strong>Origen coreano</strong><p>Sabiduría y río caudaloso.</p></div></div>
+                <div class="nombre-chip">Isamu<div class="nombre-popup"><strong>Origen japonés</strong><p>Valor, coraje y valentía.</p></div></div>
+                <div class="nombre-chip">Jian<div class="nombre-popup"><strong>Origen chino</strong><p>Saludable, vigoroso y estable.</p></div></div>
+                <div class="nombre-chip">Jin<div class="nombre-popup"><strong>Origen coreano / chino</strong><p>Precioso, oro y benevolencia.</p></div></div>
+                <div class="nombre-chip">Joo<div class="nombre-popup"><strong>Origen coreano</strong><p>Joya y piedra preciosa.</p></div></div>
+                <div class="nombre-chip">Jun<div class="nombre-popup"><strong>Origen asiático</strong><p>obediente, talentoso y puro.</p></div></div>
+                <div class="nombre-chip">Kaida<div class="nombre-popup"><strong>Origen japonés</strong><p>Pequeño dragón de agua.</p></div></div>
+                <div class="nombre-chip">Kaori<div class="nombre-popup"><strong>Origen japonés</strong><p>Aroma suave y fragancia floral.</p></div></div>
+                <div class="nombre-chip">Kato<div class="nombre-popup"><strong>Origen japonés</strong><p>Persona pura y sin maldad.</p></div></div>
+                <div class="nombre-chip">Kazuki<div class="nombre-popup"><strong>Origen japonés</strong><p>Esperanza armoniosa.</p></div></div>
+                <div class="nombre-chip">Ken<div class="nombre-popup"><strong>Origen japonés</strong><p>Saludable, fuerte y sabio.</p></div></div>
+                <div class="nombre-chip">Kenji<div class="nombre-popup"><strong>Origen japonés</strong><p>Segundo hijo inteligente y sano.</p></div></div>
+                <div class="nombre-chip">Kiara<div class="nombre-popup"><strong>Origen asiático moderno</strong><p>Gran claridad y pureza.</p></div></div>
+                <div class="nombre-chip">Kiku<div class="nombre-popup"><strong>Origen japonés</strong><p>Inspirado en la flor de crisantemo.</p></div></div>
+                <div class="nombre-chip">Kimi<div class="nombre-popup"><strong>Origen japonés</strong><p>Noble, historia y realeza.</p></div></div>
+                <div class="nombre-chip">Kohaku<div class="nombre-popup"><strong>Origen japonés</strong><p>Ámbar brillante y precioso.</p></div></div>
+                <div class="nombre-chip">Koji<div class="nombre-popup"><strong>Origen japonés</strong><p>Filial, pacífico y luminoso.</p></div></div>
+                <div class="nombre-chip">Lan<div class="nombre-popup"><strong>Origen chino</strong><p>Orquídea elegante y silvestre.</p></div></div>
+                <div class="nombre-chip">Lei<div class="nombre-popup"><strong>Origen chino</strong><p>Capullo de flor y delicadeza.</p></div></div>
+                <div class="nombre-chip">Li<div class="nombre-popup"><strong>Origen chino</strong><p>Fuerza, vigor y belleza natural.</p></div></div>
+                <div class="nombre-chip">Lien<div class="nombre-popup"><strong>Origen asiático</strong><p>Flor de loto pura del agua.</p></div></div>
+                <div class="nombre-chip">Mei<div class="nombre-popup"><strong>Origen chino</strong><p>Ciruela hermosa y primaveral.</p></div></div>
+                <div class="nombre-chip">Mika<div class="nombre-popup"><strong>Origen japonés</strong><p>Nueva fragancia hermosa.</p></div></div>
+                <div class="nombre-chip">Miku<div class="nombre-popup"><strong>Origen japonés</strong><p>Futuro hermoso y radiante.</p></div></div>
+                <div class="nombre-chip">Min-Ho<div class="nombre-popup"><strong>Origen coreano</strong><p>Valiente, inteligente y brillante.</p></div></div>
+                <div class="nombre-chip">Mio<div class="nombre-popup"><strong>Origen japonés</strong><p>Vía acuática hermosa y clara.</p></div></div>
+                <div class="nombre-chip">Miyu<div class="nombre-popup"><strong>Origen japonés</strong><p>Hermosa gentileza y verdad.</p></div></div>
+                <div class="nombre-chip">Naomi<div class="nombre-popup"><strong>Origen japonés</strong><p>Por encima de la belleza.</p></div></div>
+                <div class="nombre-chip">Nari<div class="nombre-popup"><strong>Origen coreano</strong><p>Inspirado en la flor de azucena.</p></div></div>
+                <div class="nombre-chip">Nori<div class="nombre-popup"><strong>Origen japonés</strong><p>Creencia firme y doctrina.</p></div></div>
+                <div class="nombre-chip">Qing<div class="nombre-popup"><strong>Origen chino</strong><p>Claro, azul verdoso y puro.</p></div></div>
+                <div class="nombre-chip">Ren<div class="nombre-popup"><strong>Origen japonés</strong><p>Flor de loto pacífica y pura.</p></div></div>
+                <div class="nombre-chip">Riku<div class="nombre-popup"><strong>Origen japonés</strong><p>Tierra firme y sólida.</p></div></div>
+                <div class="nombre-chip">Rin<div class="nombre-popup"><strong>Origen japonés</strong><p>Digno, frío y de gran pureza.</p></div></div>
+                <div class="nombre-chip">Ryo<div class="nombre-popup"><strong>Origen japonés</strong><p>Excelente, fresco y rápido.</p></div></div>
+                <div class="nombre-chip">Sakura<div class="nombre-popup"><strong>Origen japonés</strong><p>Flor de cerezo y renacer.</p></div></div>
+                <div class="nombre-chip">Sora<div class="nombre-popup"><strong>Origen japonés</strong><p>Cielo azul, vasto y libre.</p></div></div>
+                <div class="nombre-chip">Suki<div class="nombre-popup"><strong>Origen japonés</strong><p>Amada, querida y afectuosa.</p></div></div>
+                <div class="nombre-chip">Sun<div class="nombre-popup"><strong>Origen coreano</strong><p>Bondad, bondadoso y puro.</p></div></div>
+                <div class="nombre-chip">Taiki<div class="nombre-popup"><strong>Origen japonés</strong><p>Gran árbol y radiante sol.</p></div></div>
+                <div class="nombre-chip">Taka<div class="nombre-popup"><strong>Origen japonés</strong><p>Noble, halcón y elevado.</p></div></div>
+                <div class="nombre-chip">Takashi<div class="nombre-popup"><strong>Origen japonés</strong><p>Próspero y noble de espíritu.</p></div></div>
+                <div class="nombre-chip">Tan<div class="nombre-popup"><strong>Origen asiático</strong><p>Amanecer y salida del sol.</p></div></div>
+                <div class="nombre-chip">Toshi<div class="nombre-popup"><strong>Origen japonés</strong><p>Año próspero y sabio.</p></div></div>
+                <div class="nombre-chip">Tse<div class="nombre-popup"><strong>Origen chino</strong><p>Hijo del agua y la tierra.</p></div></div>
+                <div class="nombre-chip">Umi<div class="nombre-popup"><strong>Origen japonés</strong><p>Océano inmenso y calmado.</p></div></div>
+                <div class="nombre-chip">Wei<div class="nombre-popup"><strong>Origen chino</strong><p>Valioso, extraordinario y sólido.</p></div></div>
+                <div class="nombre-chip">Xiao<div class="nombre-popup"><strong>Origen chino</strong><p>Amanecer y pequeña madrugada.</p></div></div>
+                <div class="nombre-chip">Xin<div class="nombre-popup"><strong>Origen chino</strong><p>Corazón puro, elegante y leal.</p></div></div>
+                <div class="nombre-chip">Xiu<div class="nombre-popup"><strong>Origen chino</strong><p>Elegante, florido y hermoso.</p></div></div>
+                <div class="nombre-chip">Yasu<div class="nombre-popup"><strong>Origen japonés</strong><p>Tranquilo, pacífico y sereno.</p></div></div>
+                <div class="nombre-chip">Ying<div class="nombre-popup"><strong>Origen chino</strong><p>Valiente, inteligente y brillante.</p></div></div>
+                <div class="nombre-chip">Yoko<div class="nombre-popup"><strong>Origen japonés</strong><p>Niña del océano o sol.</p></div></div>
+                <div class="nombre-chip">Yoshi<div class="nombre-popup"><strong>Origen japonés</strong><p>Justo, bueno y virtuoso.</p></div></div>
+                <div class="nombre-chip">Yuki<div class="nombre-popup"><strong>Origen japonés</strong><p>Nieve pura y felicidad.</p></div></div>
+                <div class="nombre-chip">Yuto<div class="nombre-popup"><strong>Origen japonés</strong><p>Gentil, sobresaliente y libre.</p></div></div>
+                <div class="nombre-chip">Zhi<div class="nombre-popup"><strong>Origen chino</strong><p>Sabiduría, voluntad y estudio.</p></div></div>
+            </div>
+        </div>
+
+        <!-- CONSEJOS PRÁCTICOS -->
+        <section class="consejos-nombres">
+            <h2>Consejos para la Elección</h2>
+            <div class="consejos-lista">
+                <div class="consejo-item">
+                    <h3>La prueba del tiempo</h3>
+                    <p>Imaginad el nombre pronunciado en un contexto profesional, en la infancia y en la madurez. Los nombres sencillos envejecen con naturalidad.</p>
+                </div>
+                <div class="consejo-item">
+                    <h3>La armonía sonora</h3>
+                    <p>Probad en voz alta cómo fluye el nombre completo junto con vuestros apellidos, prestando atención a las consonantes.</p>
+                </div>
+                <div class="consejo-item">
+                    <h3>Proteged vuestra intimidad</h3>
+                    <p>Las opiniones externas durante el embarazo generan dudas. La decisión final pertenece únicamente al núcleo familiar.</p>
+                </div>
+                <div class="consejo-item">
+                    <h3>La intuición como brújula</h3>
+                    <p>Más allá de modas, el nombre perfecto es aquel que os transmite paz y una sonrisa interior cuando lo pronunciáis.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <!-- Script de Pestañas y Ventana Emergente Interactiva -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContenidos = document.querySelectorAll('.categoria-tab-contenido');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    tabBtns.forEach(b => b.classList.remove('activo'));
+                    tabContenidos.forEach(c => c.classList.remove('activo'));
+                    btn.classList.add('activo');
+                    document.getElementById(targetId).classList.add('activo');
+                });
+            });
+
+            const chips = document.querySelectorAll('.nombre-chip');
+            chips.forEach(chip => {
+                chip.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const estaActivo = chip.classList.contains('activo-popup');
+                    chips.forEach(c => c.classList.remove('activo-popup'));
+                    if (!estaActivo) {
+                        chip.classList.add('activo-popup');
+                    }
+                });
+            });
+
+            window.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('activo-popup'));
+            });
+        });
+    </script>
+
+    <script src="global.js" defer></script>
+    <script src="nav.js" defer></script>
+</body>
+</html>
