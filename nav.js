@@ -6,15 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
         <style>
             /* Estilo adaptativo para los menús desplegables en una sola columna vertical */
             @media (min-width: 969px) {
-                #healthDropdown .dropdown-content, #parentingDropdown .dropdown-content {
-                    min-width: 240px !important;
+                #healthDropdown .dropdown-content, 
+                #parentingDropdown .dropdown-content, 
+                #resourcesGamesDropdown .dropdown-content {
+                    min-width: 250px !important;
                     display: flex !important;
                     flex-direction: column !important;
                     padding: 16px !important;
                 }
             }
             @media (max-width: 968px) {
-                #healthDropdown .dropdown-content, #parentingDropdown .dropdown-content {
+                #healthDropdown .dropdown-content, 
+                #parentingDropdown .dropdown-content, 
+                #resourcesGamesDropdown .dropdown-content {
                     display: flex !important;
                     flex-direction: column !important;
                     position: static !important;
@@ -48,17 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <!-- Menú desplegable de Cuentos unificado -->
+                <!-- Menú desplegable de Cuentos -->
                 <div class="dropdown" id="storiesDropdown">
                     <button class="dropbtn" type="button">📁 Cuentos ▾</button>
                     <div class="dropdown-content">
-                     <a href="audios-lista.html">🎧 Cuentos para Escuchar</a>
-                     <a href="cuentos-texto.html">📖 Cuentos para Leer</a>
-                     <a href="microcuentos.html">✨ Microcuentos</a>
+                        <a href="audios-lista.html">🎧 Cuentos para Escuchar</a>
+                        <a href="cuentos-texto.html">📖 Cuentos para Leer</a>
+                        <a href="microcuentos.html">✨ Microcuentos</a>
                     </div>
                 </div>
 
-                <!-- Menú desplegable de Audios unificado (Podcast y Debates) -->
+                <!-- Menú desplegable de Audios -->
                 <div class="dropdown" id="audiosDropdown">
                     <button class="dropbtn" type="button">🎧 Audios ▾</button>
                     <div class="dropdown-content">
@@ -67,9 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <!-- Menú 1: Salud y Bienestar (En una columna vertical) -->
+                <!-- Menú 1: Salud (Ajustado para ganar espacio) -->
                 <div class="dropdown" id="healthDropdown">
-                    <button class="dropbtn" type="button">🩺 Salud y Bienestar ▾</button>
+                    <button class="dropbtn" type="button">🩺 Salud ▾</button>
                     <div class="dropdown-content">
                         <div style="width: 100%;">
                             <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🧠 Psicología</div>
@@ -87,13 +91,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <!-- Menú 2: Guías de Crianza (En una columna vertical) -->
+                <!-- Menú 2: Guías de Crianza -->
                 <div class="dropdown" id="parentingDropdown">
                     <button class="dropbtn" type="button">🌟 Guías de Crianza ▾</button>
                     <div class="dropdown-content">
                         <div style="width: 100%; display: flex; flex-direction: column;">
                             <div style="color: #f1c442; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🌱 El Recorrido Vital</div>
-                            <a href="nombres.html" style="padding: 6px 8px; font-weight: 500; color: #f2b6c6; display: block; width: 100%;">👶 Guía de Nombres</a>
+                            
+                            <a href="calculadora.html" style="padding: 6px 8px; font-weight: 500; color: #38bdf8; display: block; width: 100%;">🧭 Guía de Desarrollo</a>
+                            
+                            <a href="nombres.html" style="padding: 6px 8px; font-weight: 500; color: #f2b6c6; display: block; width: 100%; margin-top: 4px;">👶 Guía de Nombres</a>
                             <a href="embarazo01.html" style="padding: 6px 8px; font-weight: 500; margin-top: 4px; display: block; width: 100%;">🌟 Embarazo</a>
                             <a href="lactancia01.html" style="padding: 6px 8px; font-weight: 500; margin-top: 4px; display: block; width: 100%;">🍼 Lactancia</a>
                             <a href="dental01.html" style="padding: 6px 8px; font-weight: 500; margin-top: 4px; display: block; width: 100%; text-decoration: none;">🦷 Dental</a>
@@ -103,14 +110,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <div class="dropdown" id="gamesDropdown">
-                    <button class="dropbtn" type="button">🎮 Juegos ▾</button>
+                <!-- Menú 3: Recursos y Juegos -->
+                <div class="dropdown" id="resourcesGamesDropdown">
+                    <button class="dropbtn" type="button">🎨 Recursos y Juegos ▾</button>
                     <div class="dropdown-content">
-                        <a href="puzzles.html">🧩 Puzzles Mágicos</a>
-                        <a href="memoria.html">✨ Memoria Mágica</a>
-                        <a href="adivinanzas.html">🔮 Adivinanzas</a>
-                        <a href="aventura.html">🧭 Aventura</a>
-                        <a href="colorear.html">🎨 Colorear Mágico</a>
+                        <div style="width: 100%; display: flex; flex-direction: column;">
+                            <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">📥 Material Práctico</div>
+                            <a href="rutinas.html" style="padding: 6px 8px;">📅 Rutinas y Calendarios</a>
+
+                            <div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 12px; margin-bottom: 6px;">🎮 Zona Lúdica</div>
+                            <a href="puzzles.html" style="padding: 6px 8px;">🧩 Puzzles Mágicos</a>
+                            <a href="memoria.html" style="padding: 6px 8px;">✨ Memoria Mágica</a>
+                            <a href="adivinanzas.html" style="padding: 6px 8px;">🔮 Adivinanzas</a>
+                            <a href="aventura.html" style="padding: 6px 8px;">🧭 Aventura</a>
+                            <a href="colorear.html" style="padding: 6px 8px;">🎨 Colorear Mágico</a>
+                        </div>
                     </div>
                 </div>
                 

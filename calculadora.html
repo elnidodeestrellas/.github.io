@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva de Desarrollo | El Nido de Estrellas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+        
+        .calc-contenedor {
+            max-width: 950px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Contenedor para la imagen de título superior */
+        .calc-banner-imagen {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .calc-banner-imagen img {
+            max-width: 100%;
+            height: auto;
+            max-height: 180px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .calc-titulo-principal {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            color: #f1c442;
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .calc-subtitulo {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            color: #fce4ec;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            line-height: 1.5;
+        }
+
+        .calc-tarjeta-selector {
+            background: rgba(30, 20, 30, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 196, 66, 0.3);
+            border-left: 5px solid #f1c442;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .calc-tarjeta-selector label {
+            font-family: 'Quicksand', sans-serif;
+            color: #fff;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .calc-select {
+            background: rgba(20, 10, 20, 0.8);
+            border: 1px solid rgba(241, 196, 66, 0.5);
+            color: #fce4ec;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .calc-select:focus {
+            border-color: #f1c442;
+        }
+
+        /* Resultados en cuadrícula de 2x2 */
+        .calc-resultados {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .calc-resultados {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calc-caja-resultado {
+            background: rgba(30, 20, 30, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Estilos de colores independientes por tarjeta */
+        .caja-hitos {
+            border: 1px solid rgba(241, 196, 66, 0.3);
+            border-left: 5px solid #f1c442;
+        }
+        .caja-hitos h3 { color: #f1c442; border-bottom: 1px solid rgba(241, 196, 66, 0.2); }
+
+        .caja-sueno {
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-left: 5px solid #38bdf8;
+        }
+        .caja-sueno h3 { color: #38bdf8; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
+
+        .caja-nutricion {
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            border-left: 5px solid #34d399;
+        }
+        .caja-nutricion h3 { color: #34d399; border-bottom: 1px solid rgba(52, 211, 153, 0.2); }
+
+        .caja-juego {
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-left: 5px solid #a78bfa;
+        }
+        .caja-juego h3 { color: #a78bfa; border-bottom: 1px solid rgba(167, 139, 250, 0.2); }
+
+        .calc-caja-resultado h3 {
+            font-family: 'Quicksand', sans-serif;
+            margin-top: 0;
+            font-size: 1.2rem;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .calc-caja-resultado ul {
+            padding-left: 20px;
+            margin: 10px 0 0 0;
+            color: #cbd5e1;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .calc-caja-resultado p {
+            color: #cbd5e1;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 10px 0 0 0;
+        }
+
+        .nota-destacada {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #f2b6c6;
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <div class="calc-contenedor">
+            
+            <!-- Hueco para la imagen de título -->
+            <div class="calc-banner-imagen">
+                <!-- Reemplaza 'imagen-titulo.jpg' por la ruta de tu gráfico o ilustración -->
+                <img src="imagen-titulo.jpg" alt="Iluminando la Crianza" onerror="this.style.display='none'">
+            </div>
+
+            <h1 class="calc-titulo-principal">Guía Interactiva de Desarrollo</h1>
+            <p class="calc-subtitulo">Selecciona la etapa de tu peque para consultar las pautas de desarrollo, descanso, nutrición y juego respetuoso.</p>
+
+            <div class="calc-tarjeta-selector">
+                <label for="etapaSelect">👶 Selecciona la edad o etapa del peque:</label>
+                <select id="etapaSelect" class="calc-select" onchange="actualizarInformacion()">
+                    <option value="0-3">0 a 3 meses (Recién nacido)</option>
+                    <option value="3-6">3 a 6 meses (Exploración temprana)</option>
+                    <option value="6-9">6 a 9 meses (Sentado y primeros desplazamientos)</option>
+                    <option value="9-12">9 a 12 meses (Camino al primer año)</option>
+                    <option value="12-18" selected>12 a 18 meses (Primeros pasos y autonomía)</option>
+                    <option value="18-24">18 a 24 meses (Explosión del lenguaje)</option>
+                    <option value="24-36">2 a 3 años (Afirmación del "yo" y juego simbólico)</option>
+                </select>
+            </div>
+
+            <div class="calc-resultados">
+                <!-- Hitos de Desarrollo -->
+                <div class="calc-caja-resultado caja-hitos">
+                    <h3>🌱 Hitos de Desarrollo</h3>
+                    <div id="hitosContenido"></div>
+                </div>
+
+                <!-- Pautas de Sueño -->
+                <div class="calc-caja-resultado caja-sueno">
+                    <h3>🌙 Sueño y Descanso</h3>
+                    <div id="suenoContenido"></div>
+                </div>
+
+                <!-- Nutrición -->
+                <div class="calc-caja-resultado caja-nutricion">
+                    <h3>🍼 Nutrición y Alimentación</h3>
+                    <div id="nutricionContenido"></div>
+                </div>
+
+                <!-- Juego y Estimulación -->
+                <div class="calc-caja-resultado caja-juego">
+                    <h3>🎨 Juego y Estimulación</h3>
+                    <div id="juegoContenido"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Nido de Estrellas. | Visita nuestro <a href="https://www.youtube.com/@elnidodeestrellas" target="_blank">Canal de YouTube</a></p>
+    </footer>
+
+    <script src="global.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        const datosDesarrollo = {
+            "0-3": {
+                hitos: [
+                    "Fija la mirada en los rostros y sigue objetos en un radio corto.",
+                    "Sonríe como respuesta a estímulos y voces familiares.",
+                    "Empieza a emitir pequeños sonidos guturales y balbuceos.",
+                    "Levanta levemente la cabeza al estar boca abajo."
+                ],
+                sueno: "<strong>Duración:</strong> 14 a 17 horas diarias fragmentadas.<br><strong>Características:</strong> Ciclos de sueño muy cortos de 2 a 4 horas sin diferenciar el día de la noche. Necesitan contacto estrecho y regulación externa para conciliar el sueño.",
+                nutricion: "<strong>Base láctea:</strong> Lactancia materna exclusiva o fórmula adaptada a demanda estricta.<br><strong>Pautas:</strong> Tomas frecuentes cada 2-3 horas, sin horarios rígidos. Las tomas nocturnas son fundamentales para la ganancia de peso y el establecimiento de la producción láctea.",
+                juego: "Contacto piel con piel, miradas cómplices, canciones de cuna y portabebés ergonómico."
+            },
+            "3-6": {
+                hitos: [
+                    "Se sostiene apoyándose en los antebrazos y gira de lado a lado.",
+                    "Reconoce voces y rostros conocidos con risas sonoras.",
+                    "Agarra objetos con ambas manos y los lleva a la boca.",
+                    "Responde a su nombre y comienza a imitar expresiones."
+                ],
+                sueno: "<strong>Duración:</strong> 12 a 15 horas diarias.<br><strong>Características:</strong> De 3 a 4 siestas diurnas y maduración progresiva del ritmo circadiano. Comienzan a consolidar tramos nocturnos un poco más largos (de 4 a 6 horas seguidas en algunos casos).",
+                nutricion: "<strong>Base láctea:</strong> Continuación exclusiva de leche materna o fórmula a demanda.<br><strong>Pautas:</strong> Las tomas se vuelven más eficientes y rápidas. Se recomienda observar las señales tempranas de hambre (chuparse las manos, búsqueda con la cabeza).",
+                juego: "Móviles visuales de alto contraste, juguetes texturizados ligeros y tiempo boca abajo interactivo."
+            },
+            "6-9": {
+                hitos: [
+                    "Se mantiene sentado sin apoyo firme o con leve soporte.",
+                    "Inicia el gateo clásico, arrastre o giros autónomos.",
+                    "Dice sílabas repetidas ('mama', 'tapa') y comprende palabras habituales.",
+                    "Preferencia clara por figuras de apego y timidez ante extraños."
+                ],
+                sueno: "<strong>Duración:</strong> 12 a 14 horas al día.<br><strong>Características:</strong> Transición consolidada a 2 siestas bien diferenciadas (mañana y media tarde). El sueño nocturno abarca unas 10-11 horas, pudiendo haber despertares puntuales por desarrollo cognitivo o ansiedad por separación.",
+                nutricion: "<strong>Alimentación Complementaria:</strong> Inicio de sólidos en purés, papillas o trozos (BLW) según criterio familiar.<br><strong>Pautas:</strong> Introducción progresiva de alimentos de uno en uno para descartar alergias. La leche sigue siendo el alimento principal durante el primer año.",
+                juego: "Juegos de 'cucú-tras', recipientes para trasvasar objetos sencillos y juguetes de tela sensoriales."
+            },
+            "9-12": {
+                hitos: [
+                    "Se pone de pie en muebles y da primeros pasos con soporte.",
+                    "Utiliza la pinza digital (pulgar e índice) para coger objetos pequeños.",
+                    "Comprende órdenes sencillas y señala con el dedo índice.",
+                    "Imita juegos sencillos y tira besos."
+                ],
+                sueno: "<strong>Duración:</strong> 12 a 14 horas diarias.<br><strong>Características:</strong> Se mantienen 2 siestas diurnas estables (aunque algunos peques empiezan a eliminar la de la tarde). El descanso nocturno es más continuado, favoreciendo rutinas predecibles antes de dormir.",
+                nutricion: "<strong>Alimentación Complementaria:</strong> Mayor variedad de texturas (machacados y trocitos fundentes).<br><strong>Pautas:</strong> Se incorporan más alimentos de la olla familiar reduciendo la sal. Fomento gradual de la manipulación autónoma de los alimentos con las manos.",
+                juego: "Cajas de sorpresas, juguetes musicales de pulsar y cubos apilables sencillos."
+            },
+            "12-18": {
+                hitos: [
+                    "Camina con seguridad y sube pequeños escalones con ayuda.",
+                    "Vocabulario activo en crecimiento (5 a 20 palabras funcionales).",
+                    "Come de forma semi-autónoma con cuchara y bebe en vaso.",
+                    "Disfruta imitando tareas cotidianas de los adultos."
+                ],
+                sueno: "<strong>Duración:</strong> 11 a 14 horas totales.<br><strong>Características:</strong> Transición clave hacia una **única siesta** al mediodía (de 1.5 a 2.5 horas). Es normal que durante esta etapa de ajuste aparezca cierta fatiga o irritabilidad vespertina.",
+                nutricion: "<strong>Alimentación Familiar:</strong> Integración total en los menús de casa.<br><strong>Pautas:</strong> Evitar azúcares añadidos y alimentos de riesgo de asfixia (frutos secos enteros, uvas enteras). Se fomenta el uso de cuchara y vaso abierto o de aprendizaje.",
+                juego: "Arrastre de juguetes, primeros juegos simbólicos imitando roles y bloques grandes de construcción."
+            },
+            "18-24": {
+                hitos: [
+                    "Corre con estabilidad, trepa a sofás y patea pelotas.",
+                    "Combina dos palabras para formar frases muy sencillas ('más agua').",
+                    "Manifiesta autonomía y aparecen las primeras rabietas evolutivas.",
+                    "Identifica partes de su cuerpo al nombrarlas."
+                ],
+                sueno: "<strong>Duración:</strong> 11 a 14 horas diarias.<br><strong>Características:</strong> Una única siesta estable después de comer. Pueden darse resistencia a ir a la cama debido a la reafirmación de su autonomía y la aparición de pesadillas o terrores nocturnos evolutivos.",
+                nutricion: "<strong>Alimentación Familiar:</strong> Dieta variada rica en nutrientes, verduras, frutas y proteínas de calidad.<br><strong>Pautas:</strong> Respetar la autorregulación del apetito (los peques comen por necesidad de crecimiento y sus ingestas pueden ser muy variables de un día para otro).",
+                juego: "Cuentos ilustrados interactivos, plastilina casera segura y juegos de imitación del hogar."
+            },
+            "24-36": {
+                hitos: [
+                    "Sube y baja escaleras alternando los pies con apoyo.",
+                    "Forma frases de 3 o más palabras y entabla pequeños diálogos.",
+                    "Participa en juegos simbólicos complejos (cocinita, médicos).",
+                    "Comienza el interés por el control de esfínteres a su propio ritmo."
+                ],
+                sueno: "<strong>Duración:</strong> 11 a 13 horas diarias.<br><strong>Características:</strong> La siesta diurna comienza a acortarse progresivamente y, hacia los 3 años o más, algunos niños empiezan a abandonarla de forma natural descansando solo por la noche.",
+                nutricion: "<strong>Hábitos saludables:</strong> Consolidación de rutinas en la mesa familiar.<br><strong>Pautas:</strong> Asegurar hidratación constante con agua y una buena variedad de alimentos ricos en calcio, hierro y fibra. Evitar distracciones con pantallas durante las comidas.",
+                juego: "Puzzles sencillos de madera, juegos cooperativos básicos y dibujo libre con ceras gruesas."
+            }
+        };
+
+        function actualizarInformacion() {
+            const etapaSeleccionada = document.getElementById("etapaSelect").value;
+            const datos = datosDesarrollo[etapaSeleccionada];
+
+            // Hitos
+            let listaHitos = "<ul>";
+            datos.hitos.forEach(hito => {
+                listaHitos += `<li>${hito}</li>`;
+            });
+            listaHitos += "</ul>";
+            document.getElementById("hitosContenido").innerHTML = listaHitos;
+
+            // Sueño
+            document.getElementById("suenoContenido").innerHTML = `<p>${datos.sueno}</p>`;
+
+            // Nutrición
+            document.getElementById("nutricionContenido").innerHTML = `<p>${datos.nutricion}</p>`;
+
+            // Juego
+            document.getElementById("juegoContenido").innerHTML = `<p>${datos.juego}</p><div class="nota-destacada">💡 <em>Nota respetuosa:</em> Cada peque tiene su propio ritmo evolutivo. Esta guía es puramente orientativa.</div>`;
+        }
+
+        document.addEventListener("DOMContentLoaded", actualizarInformacion);
+    </script>
+</body>
+</html>
