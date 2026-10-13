@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.elnidodeestrellas.com/sitemap.xml
+Sitemap: https://www.elnidodeestrellas.com/sitemap-extra.xml
