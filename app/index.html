@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Nido de Estrellas</title>
+<meta name="description" content="Cuentos infantiles para dormir, guías de crianza y debates en audio. El Nido de Estrellas, gratis para familias.">
+<meta name="theme-color" content="#0b1437">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nido de Estrellas">
+<style>
+:root{
+  --noche:#0b1437; --noche2:#111d4e; --dorado:#e3b94e; --dorado2:#f5d97e;
+  --texto:#f4f1e6; --suave:#b9c2e8; --tarjeta:#16225c;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:radial-gradient(1200px 800px at 50% -10%, #1b2a6b 0%, var(--noche) 55%) fixed, var(--noche);
+  color:var(--texto); min-height:100vh; padding-bottom:86px;
+}
+a{color:inherit;}
+.app{max-width:520px;margin:0 auto;min-height:100vh;}
+header.hero{
+  padding:26px 20px 18px; text-align:center;
+  background:linear-gradient(180deg, rgba(227,185,78,.14), transparent);
+}
+header.hero img.logo{width:120px;height:auto;filter:drop-shadow(0 4px 14px rgba(227,185,78,.35));}
+header.hero h1{font-size:1.5rem;margin:10px 0 4px;letter-spacing:.5px;color:var(--dorado2);}
+header.hero p{margin:0;color:var(--suave);font-size:.92rem;}
+main{padding:0 14px;}
+.pagina{display:none;animation:fade .25s ease;}
+.pagina.activa{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+h2.seccion{font-size:1.12rem;color:var(--dorado2);margin:20px 4px 10px;display:flex;align-items:center;gap:8px;}
+.tarjeta{
+  background:linear-gradient(180deg,var(--tarjeta),#101a4d);
+  border:1px solid rgba(227,185,78,.25); border-radius:16px;
+  padding:14px 15px; margin:10px 0; box-shadow:0 4px 18px rgba(0,0,0,.25);
+}
+.tarjeta h3{margin:0 0 6px;font-size:1.02rem;color:#fff;}
+.tarjeta p{margin:0 0 10px;color:var(--suave);font-size:.9rem;line-height:1.45;}
+.fila-botones{display:flex;gap:8px;flex-wrap:wrap;}
+.boton{
+  display:inline-block;background:linear-gradient(180deg,var(--dorado2),var(--dorado));
+  color:#3a2c07;font-weight:700;font-size:.88rem;text-decoration:none;
+  padding:9px 16px;border-radius:999px;border:none;cursor:pointer;
+}
+.boton.fantasma{background:transparent;color:var(--dorado2);border:1.5px solid var(--dorado);}
+.boton.chico{padding:7px 12px;font-size:.8rem;}
+.accesos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;}
+.acceso{
+  background:linear-gradient(180deg,var(--tarjeta),#101a4d);
+  border:1px solid rgba(227,185,78,.25);border-radius:16px;padding:16px 12px;
+  text-align:center;cursor:pointer;
+}
+.acceso .ico{font-size:1.7rem;display:block;margin-bottom:6px;}
+.acceso b{font-size:.92rem;color:#fff;display:block;}
+.acceso span{font-size:.76rem;color:var(--suave);}
+.pestanas{display:flex;gap:8px;margin:6px 0 4px;}
+.pestana{
+  flex:1;text-align:center;padding:10px;border-radius:12px;cursor:pointer;
+  background:#101a4d;border:1px solid rgba(227,185,78,.2);color:var(--suave);font-weight:600;font-size:.9rem;
+}
+.pestana.activa{background:linear-gradient(180deg,var(--dorado2),var(--dorado));color:#3a2c07;border-color:transparent;}
+.item{
+  display:flex;gap:12px;align-items:center;background:linear-gradient(180deg,var(--tarjeta),#101a4d);
+  border:1px solid rgba(227,185,78,.18);border-radius:14px;padding:12px;margin:8px 0;text-decoration:none;
+}
+.item .num{
+  flex:0 0 38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(227,185,78,.15);color:var(--dorado2);font-weight:800;
+}
+.item b{font-size:.93rem;color:#fff;display:block;}
+.item small{color:var(--suave);font-size:.8rem;display:block;margin-top:2px;line-height:1.35;}
+.item .flecha{margin-left:auto;color:var(--dorado);font-size:1.2rem;}
+input.buscador{
+  width:100%;padding:12px 16px;border-radius:999px;border:1px solid rgba(227,185,78,.35);
+  background:#0e1845;color:var(--texto);font-size:.95rem;margin:6px 0 4px;outline:none;
+}
+input.buscador::placeholder{color:#7d88b8;}
+nav.tabs{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(10,17,48,.96);backdrop-filter:blur(8px);
+  border-top:1px solid rgba(227,185,78,.25);
+  display:flex;max-width:520px;margin:0 auto;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+nav.tabs button{
+  flex:1;background:none;border:none;color:var(--suave);font-size:.68rem;
+  padding:10px 4px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;
+}
+nav.tabs button .ti{font-size:1.35rem;}
+nav.tabs button.activa{color:var(--dorado2);}
+.banner-instalar{
+  margin:12px 4px;background:linear-gradient(180deg,#2a3a86,#1a2560);
+  border:1.5px solid var(--dorado);border-radius:16px;padding:14px;text-align:center;display:none;
+}
+.banner-instalar.mostrar{display:block;}
+.banner-instalar p{margin:0 0 10px;font-size:.9rem;color:var(--texto);}
+.grupo-cat{margin:4px 0 2px;font-size:.85rem;color:var(--dorado);font-weight:700;text-transform:uppercase;letter-spacing:.6px;}
+.pie{text-align:center;color:#7d88b8;font-size:.78rem;padding:22px 20px 8px;line-height:1.6;}
+.pie a{color:var(--dorado2);}
+.oculto{display:none !important;}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <img class="logo" src="./icon-192.png" alt="Estrellita, mascota de El Nido de Estrellas">
+    <h1>El Nido de Estrellas</h1>
+    <p>Cuentos para dormir · Guías de crianza · Audios para familias</p>
+  </header>
 
+  <div class="banner-instalar" id="bannerInstalar">
+    <p>📲 <b>Instala la app</b> para tenerla siempre a mano, como una app normal.</p>
+    <button class="boton" id="btnInstalar">Instalar ahora</button>
+    <div style="margin-top:8px"><button class="boton fantasma chico" id="btnInstalarCerrar">Ahora no</button></div>
+  </div>
+
+  <main>
+    <section class="pagina activa" id="pag-inicio">
+      <div class="tarjeta" id="destacadoNoche"></div>
+      <h2 class="seccion">✨ ¿Qué quieres hacer?</h2>
+      <div class="accesos">
+        <div class="acceso" data-ir="cuentos"><span class="ico">🌙</span><b>Cuentos</b><span>para leer y escuchar</span></div>
+        <div class="acceso" data-ir="mas" data-sub="micro"><span class="ico">💫</span><b>Microcuentos</b><span>15 historias breves</span></div>
+        <div class="acceso" data-ir="guias"><span class="ico">🩺</span><b>Guías de salud</b><span>35 temas de crianza</span></div>
+        <div class="acceso" data-ir="escuchar"><span class="ico">🎧</span><b>Escuchar</b><span>debates y podcast</span></div>
+      </div>
+      <div class="tarjeta">
+        <h3>🌟 El Nido también está en la web</h3>
+        <p>Todo el contenido completo, juegos, calculadora de desarrollo y más de 400 nombres de bebé en www.elnidodeestrellas.com</p>
+        <div class="fila-botones">
+          <a class="boton chico" href="https://www.elnidodeestrellas.com" target="_blank" rel="noopener">Visitar la web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagina" id="pag-cuentos">
+      <h2 class="seccion">🌙 Cuentos para dormir</h2>
+      <div class="pestanas">
+        <div class="pestana activa" id="tabLeer">📖 Para leer</div>
+        <div class="pestana" id="tabEscuchar">🔊 Para escuchar</div>
+      </div>
+      <div id="listaLeer"></div>
+      <div id="listaEscuchar" class="oculto"></div>
+    </section>
+
+    <section class="pagina" id="pag-guias">
+      <h2 class="seccion">🩺 Guías de salud infantil</h2>
+      <input class="buscador" id="buscarGuia" type="search" placeholder="🔍 Buscar: fiebre, sueño, rabietas…">
+      <div id="listaGuias"></div>
+    </section>
+
+    <section class="pagina" id="pag-escuchar">
+      <h2 class="seccion">🎧 Debates de Crianza</h2>
+      <p style="color:var(--suave);font-size:.88rem;margin:0 4px 6px;">11 conversaciones en audio sobre colecho, pantallas, límites, rabietas… Disponibles en la web y en Spotify.</p>
+      <div id="listaDebates"></div>
+      <h2 class="seccion">🎙️ Podcast El Nido de Estrellas</h2>
+      <div id="listaPodcast"></div>
+    </section>
+
+    <section class="pagina" id="pag-mas">
+      <h2 class="seccion">💫 Microcuentos</h2>
+      <p style="color:var(--suave);font-size:.88rem;margin:0 4px 6px;">15 historias breves para calmar, acompañar rutinas y preparar visitas al médico. Léelas completas en la web:</p>
+      <div id="listaMicro"></div>
+      <div class="fila-botones" style="margin:6px 4px 0;">
+        <a class="boton chico" href="https://www.elnidodeestrellas.com/microcuentos.html" target="_blank" rel="noopener">Leer los microcuentos 📖</a>
+      </div>
+      <h2 class="seccion">🌱 Recorrido vital</h2>
+      <div id="listaRecorrido"></div>
+      <h2 class="seccion">🎮 Juegos</h2>
+      <div class="accesos" id="listaJuegos"></div>
+      <h2 class="seccion">💌 El Nido</h2>
+      <div class="tarjeta">
+        <h3>Síguenos y escríbenos</h3>
+        <p>El Nido de Estrellas es un proyecto gratuito de apoyo a las familias.</p>
+        <div class="fila-botones">
+          <a class="boton fantasma chico" href="https://www.instagram.com/elnidodeestrellas" target="_blank" rel="noopener">Instagram</a>
+          <a class="boton fantasma chico" href="https://www.youtube.com/@ElNidoDeEstrellas" target="_blank" rel="noopener">YouTube</a>
+          <a class="boton fantasma chico" href="https://www.elnidodeestrellas.com/contacto.html" target="_blank" rel="noopener">Contacto</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="pie">
+      Hecho con 💛 por <a href="https://www.elnidodeestrellas.com" target="_blank" rel="noopener">El Nido de Estrellas</a><br>
+      Contenido divulgativo gratuito para familias.
+    </div>
+  </main>
+
+  <nav class="tabs">
+    <button class="activa" data-pag="inicio"><span class="ti">🏠</span>Inicio</button>
+    <button data-pag="cuentos"><span class="ti">🌙</span>Cuentos</button>
+    <button data-pag="guias"><span class="ti">🩺</span>Guías</button>
+    <button data-pag="escuchar"><span class="ti">🎧</span>Escuchar</button>
+    <button data-pag="mas"><span class="ti">✨</span>Más</button>
+  </nav>
+</div>
+
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js').catch(function(){});
+  });
+}
+</script>
+</body>
+</html>
