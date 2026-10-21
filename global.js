@@ -9,38 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(faviconLink);
 
     // ----------------------------------------------------
-    // 2. MODO NOCTURNO
-    // ----------------------------------------------------
-    if (!document.getElementById('btn-modo-nocturno')) {
-        const btn = document.createElement('button');
-        btn.id = 'btn-modo-nocturno';
-        btn.setAttribute('aria-label', 'activar modo lectura nocturna');
-        btn.textContent = '🌙';
-        document.body.appendChild(btn);
-    }
-
-    const btnNocturno = document.getElementById('btn-modo-nocturno');
-    
-    if (localStorage.getItem('modoNocturno') === 'activo') {
-        document.body.classList.add('modo-nocturno-profundo');
-        if (btnNocturno) btnNocturno.textContent = '☀️';
-    }
-
-    if (btnNocturno) {
-        btnNocturno.addEventListener('click', () => {
-            document.body.classList.toggle('modo-nocturno-profundo');
-            const esActivo = document.body.classList.contains('modo-nocturno-profundo');
-            if (esActivo) {
-                localStorage.setItem('modoNocturno', 'activo');
-                btnNocturno.textContent = '☀️';
-            } else {
-                localStorage.setItem('modoNocturno', 'inactivo');
-                btnNocturno.textContent = '🌙';
-            }
-        });
-    }
-
-    // ----------------------------------------------------
     // 3. REPRODUCTOR FLOTANTE DE AUDIO
     // ----------------------------------------------------
     const reproductorHTML = `
