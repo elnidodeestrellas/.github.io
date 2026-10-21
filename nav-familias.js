@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
             </p>
             <div style="margin: 0; display: flex; gap: 15px; justify-content: center;">
+                <a href="peques.html" style="color: #eab308; text-decoration: underline;">👶 Zona de peques</a>
                 <a href="mapa.html" style="color: #eab308; text-decoration: underline;">🧭 Índice Maestro</a>
                 <a href="legal.html" style="color: #eab308; text-decoration: underline;">📜 Aviso Legal y Privacidad</a>
             </div>
