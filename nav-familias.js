@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="nido-desplegable">
                 <button type="button">Crianza <span class="nido-flecha">▼</span></button>
                 <div class="nido-panel">
-                  <a href="desarrollo.html">Guía de Desarrollo</a>
+                  <a href="desarrolloinfantil.html">Guía de Desarrollo</a>
                   <a href="calculadora.html">Calculadora 0–3 años</a>
                   <a href="nombres.html">Guía de Nombres</a>
                   <div class="nido-grupo">Recorrido vital</div>
