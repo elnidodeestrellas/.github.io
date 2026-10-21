@@ -35,11 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-desplegable > button:hover { transform: none; box-shadow: none; border-color: transparent; }
             @media (max-width: 1080px) {
                 .nido-hamburguesa { display: block; }
-                .nido-enlaces { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; background: rgba(9, 13, 24, 0.98); padding: 12px 18px 18px; border-bottom: 1px solid rgba(241, 196, 66, 0.28); }
+                .nido-enlaces { display: none; position: fixed !important; top: 66px; left: 0 !important; right: 0 !important; max-height: calc(100vh - 66px); overflow-y: auto; flex-direction: column; align-items: stretch; background: #0a1120 !important; padding: 10px 18px 20px; border-bottom: 2px solid rgba(241, 196, 66, 0.4); box-shadow: 0 30px 50px rgba(0,0,0,0.55); z-index: 999; }
                 .nido-enlaces.visible { display: flex; }
                 .nido-enlaces > a, .nido-desplegable > button { text-align: left; padding: 12px 8px; width: 100%; }
-                .nido-panel { position: static; transform: none; opacity: 1; visibility: visible; display: none; box-shadow: none; border: none; background: transparent; padding: 0 0 6px 12px; }
+                .nido-panel { position: static !important; transform: none !important; opacity: 1 !important; visibility: visible !important; display: none; box-shadow: none; border: 1px solid rgba(241, 196, 66, 0.22); background: rgba(241, 196, 66, 0.07) !important; border-radius: 10px; padding: 6px 8px 8px 14px; margin: 0 0 8px; }
                 .nido-desplegable.abierto .nido-panel { display: block; }
+                .nido-panel a { color: #f3ecd9 !important; }
                 .nido-enlaces > a.nido-boton-app { margin: 10px 0 0; text-align: center; }
             }
         </style>

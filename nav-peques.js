@@ -29,10 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-barra-peques .nido-hamburguesa::after { content: none; }
             .nido-barra-peques .nido-hamburguesa:hover { transform: none; box-shadow: none; }
             @media (max-width: 1024px) {
-                .nido-botones-peques { display: none; width: 100%; flex-direction: column; align-items: stretch; margin-left: 0; }
+                .nido-botones-peques { display: none; position: fixed !important; top: 74px; left: 0 !important; right: 0 !important; width: auto; max-height: calc(100vh - 74px); overflow-y: auto; flex-direction: column; align-items: stretch; margin-left: 0; background: #16264a !important; padding: 12px 16px 20px; border-bottom: 3px solid rgba(255, 217, 77, 0.55); box-shadow: 0 30px 50px rgba(0,0,0,0.5); z-index: 999; }
                 .nido-botones-peques.visible { display: flex; }
                 .nido-botones-peques > a, .nido-botones-peques .nido-desplegable > button { text-align: center; width: 100%; }
-                .nido-botones-peques .nido-panel { position: static; transform: none; opacity: 1; visibility: visible; display: none; box-shadow: none; }
+                .nido-botones-peques .nido-panel { position: static !important; transform: none !important; opacity: 1 !important; visibility: visible !important; display: none; box-shadow: none; background: #ffffff !important; border-radius: 14px; padding: 8px; margin: 6px 0 4px; }
+                .nido-botones-peques .nido-panel a { color: #1c2b4a !important; }
                 .nido-botones-peques .nido-desplegable.abierto .nido-panel { display: block; }
                 .nido-hamburguesa { display: block; margin-left: auto; background: #ffd94d; border: none; border-radius: 999px; color: #1c2b4a; font-size: 1.1rem; padding: 7px 14px; cursor: pointer; }
             }            /* FONDO INFANTIL ZONA DE PEQUES v2 — decoración en los costados */
