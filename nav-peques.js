@@ -19,8 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-botones-peques .nido-juegos { background: #ffe3ec !important; }
             .nido-botones-peques .nido-colorear { background: #e2f5e3 !important; }
             .nido-botones-peques .nido-desplegable { position: relative; }
-            .nido-botones-peques .nido-panel { position: absolute; top: calc(100% + 12px); left: 50%; transform: translate(-50%, 6px); min-width: 230px; background: #ffffff; border-radius: 18px; padding: 10px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease; box-shadow: 0 18px 36px rgba(0,0,0,0.35); z-index: 1001; }
-            .nido-botones-peques .nido-desplegable:hover .nido-panel, .nido-botones-peques .nido-desplegable.abierto .nido-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+            .nido-botones-peques .nido-panel { position: absolute; top: calc(100% + 12px); left: 50%; transform: translate(-50%, 6px); min-width: 230px; background: #ffffff; border-radius: 18px; padding: 10px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.25s; box-shadow: 0 18px 36px rgba(0,0,0,0.35); z-index: 1001; }
+            .nido-botones-peques .nido-panel::before { content: ""; position: absolute; top: -16px; left: 0; right: 0; height: 16px; }
+            .nido-botones-peques .nido-desplegable:hover .nido-panel, .nido-botones-peques .nido-desplegable.abierto .nido-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s; }
             .nido-botones-peques .nido-panel a { display: block; padding: 9px 12px; border-radius: 10px; color: #1c2b4a; text-decoration: none; font-family: 'Quicksand', sans-serif; font-weight: 600; }
             .nido-botones-peques .nido-panel a:hover { background: #fdf6df; }
             .nido-hamburguesa { display: none; }

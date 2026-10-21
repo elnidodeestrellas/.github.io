@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-enlaces > a.nido-activo::after { transform: scaleX(1); }
             .nido-desplegable { position: relative; }
             .nido-flecha { font-size: 0.6rem; margin-left: 4px; color: #f1c442; }
-            .nido-panel { position: absolute; top: calc(100% + 10px); left: 50%; transform: translate(-50%, 6px); min-width: 250px; background: rgba(13, 19, 34, 0.98); border: 1px solid rgba(241, 196, 66, 0.25); border-radius: 12px; padding: 10px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease; box-shadow: 0 22px 44px rgba(0,0,0,0.5); z-index: 1001; }
-            .nido-desplegable:hover .nido-panel, .nido-desplegable.abierto .nido-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+            .nido-panel { position: absolute; top: calc(100% + 10px); left: 50%; transform: translate(-50%, 6px); min-width: 250px; background: rgba(13, 19, 34, 0.98); border: 1px solid rgba(241, 196, 66, 0.25); border-radius: 12px; padding: 10px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.25s; box-shadow: 0 22px 44px rgba(0,0,0,0.5); z-index: 1001; }
+            .nido-panel::before { content: ""; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+            .nido-desplegable:hover .nido-panel, .nido-desplegable.abierto .nido-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s; }
             .nido-grupo { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #f1c442; margin: 8px 10px 4px; font-family: 'Inter', sans-serif; }
             .nido-panel a { display: block; padding: 7px 10px; border-radius: 8px; color: #e9e4d6; text-decoration: none; font-size: 0.92rem; font-family: 'Inter', sans-serif; }
             .nido-panel a:hover { background: rgba(241, 196, 66, 0.1); color: #f1c442; }
