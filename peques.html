@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zona de Peques | El Nido de Estrellas</title>
+<meta name="description" content="El rincón de Estrellita: cuentos para leer y escuchar, juegos tranquilos, colorear y rutinas con dibujos para los más pequeños.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Zona de Peques | El Nido de Estrellas">
+<meta property="og:description" content="Cuentos, juegos y dibujos para los más pequeños, con Estrellita de anfitriona.">
+<meta property="og:url" content="https://www.elnidodeestrellas.com/peques.html">
+<meta property="og:image" content="https://www.elnidodeestrellas.com/img/logo3dlimpio.png">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+<style>
+  .pq-pagina { min-height: 100vh; padding: 118px 22px 80px; text-align: center;
+    background: radial-gradient(ellipse at 15% 0%, rgba(255,217,77,0.13) 0%, transparent 45%), radial-gradient(ellipse at 90% 100%, rgba(120,170,255,0.15) 0%, transparent 50%), linear-gradient(rgba(22,38,74,0.88), rgba(13,23,48,0.94)); }
+  .pq-pagina .pq-estrella { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #ffd94d; box-shadow: 0 14px 34px rgba(0,0,0,0.4), 0 0 34px rgba(255,217,77,0.3); }
+  .pq-pagina h1.pq-titulo { font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: clamp(1.9rem, 4.4vw, 2.8rem); margin: 20px 0 10px; color: #ffffff; }
+  .pq-pagina h1.pq-titulo em { color: #ffd94d; font-style: normal; }
+  .pq-pagina .pq-intro { color: #c9d6f2; max-width: 560px; margin: 0 auto 40px; line-height: 1.65; font-size: 1.05rem; }
+  .pq-rejilla { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 880px; margin: 0 auto; text-align: left; }
+  @media (max-width: 700px) { .pq-rejilla { grid-template-columns: 1fr; } }
+  .pq-ficha { border-radius: 26px; padding: 28px; color: #1c2b4a; }
+  .pq-ficha h3 { font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 1.45rem; margin: 0 0 8px; color: #1c2b4a; }
+  .pq-ficha p { margin: 0 0 18px; line-height: 1.6; color: #3c4c6b; }
+  .pq-btn { display: inline-block; font-family: 'Quicksand', sans-serif; font-weight: 700; background: #1c2b4a; color: #ffd94d; text-decoration: none; padding: 11px 24px; border-radius: 999px; margin: 0 8px 8px 0; }
+  .pq-btn:hover { background: #27396a; }
+  .pq-leer { background: linear-gradient(160deg, #fdf6df, #fdeec3); }
+  .pq-escuchar { background: linear-gradient(160deg, #dceeff, #c3ddff); }
+  .pq-juegos { background: linear-gradient(160deg, #ffe3ec, #ffd3e2); }
+  .pq-colorear { background: linear-gradient(160deg, #e2f5e3, #cdf0d2); }
+  .pq-cambio { margin: 50px auto 0; color: #aebadd; font-size: 0.95rem; text-align: center; }
+  .pq-cambio a { color: #f1c442; font-weight: 600; text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="menu-container"></div>
+
+<main class="pq-pagina">
+  <img class="pq-estrella" src="img/estrellita.jpg" alt="Estrellita, la mascota del Nido">
+  <h1 class="pq-titulo">¡Hola! Soy <em>Estrellita</em></h1>
+  <p class="pq-intro">Este es mi rincón del Nido: cuentos para soñar, juegos tranquilos y dibujos para pintar. Elige qué hacemos hoy.</p>
+
+  <div class="pq-rejilla">
+    <article class="pq-ficha pq-leer">
+      <h3>Cuentos para leer</h3>
+      <p>Historias cortitas y dulces para leer en voz alta antes de dormir. Y si te quedas con ganas, también hay microcuentos.</p>
+      <a class="pq-btn" href="cuentos-texto.html">Leer un cuento</a>
+      <a class="pq-btn" href="microcuentos.html">Microcuentos</a>
+    </article>
+    <article class="pq-ficha pq-escuchar">
+      <h3>Cuentos para escuchar</h3>
+      <p>Pulsa y escucha: cuentos contados con calma para cerrar los ojitos.</p>
+      <a class="pq-btn" href="audios-lista.html">Escuchar un cuento</a>
+    </article>
+    <article class="pq-ficha pq-juegos">
+      <h3>Juegos tranquilos</h3>
+      <p>Juegos para jugar sin prisa: puzzles, memoria, adivinanzas y una aventura.</p>
+      <a class="pq-btn" href="puzzles.html">Puzzles</a>
+      <a class="pq-btn" href="memoria.html">Memoria</a>
+      <a class="pq-btn" href="adivinanzas.html">Adivinanzas</a>
+      <a class="pq-btn" href="aventura.html">Aventura</a>
+    </article>
+    <article class="pq-ficha pq-colorear">
+      <h3>Colorear y rutinas</h3>
+      <p>Dibujos para pintar y rutinas con dibujos para saber qué toca ahora.</p>
+      <a class="pq-btn" href="colorear.html">A pintar</a>
+      <a class="pq-btn" href="rutinas.html">Mis rutinas</a>
+    </article>
+  </div>
+
+  <p class="pq-cambio">¿Eres mamá, papá o profe? Tu sitio es la <a href="familias.html">zona de familias</a>.</p>
+</main>
+
+<script src="global.js" defer></script>
+<script src="nav-peques.js" defer></script>
+</body>
+</html>
