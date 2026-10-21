@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-botones-peques .nido-juegos { background: #ffe3ec !important; }
             .nido-botones-peques .nido-colorear { background: #e2f5e3 !important; }
             .nido-botones-peques .nido-desplegable { position: relative; }
-            .nido-botones-peques .nido-panel { position: absolute; top: calc(100% + 12px); left: 50%; transform: translate(-50%, 6px); min-width: 230px; background: #ffffff; border-radius: 18px; padding: 10px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.25s; box-shadow: 0 18px 36px rgba(0,0,0,0.35); z-index: 1001; }
+            .nido-botones-peques .nido-panel { position: absolute; top: calc(100% + 12px); left: 50%; transform: translate(-50%, 6px); min-width: 230px; max-width: calc(100vw - 16px); background: #ffffff; border-radius: 18px; padding: 10px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.25s; box-shadow: 0 18px 36px rgba(0,0,0,0.35); z-index: 1001; }
             .nido-botones-peques .nido-panel::before { content: ""; position: absolute; top: -16px; left: 0; right: 0; height: 16px; }
             .nido-botones-peques .nido-desplegable:hover .nido-panel, .nido-botones-peques .nido-desplegable.abierto .nido-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s; }
             .nido-botones-peques .nido-panel a { display: block; padding: 9px 12px; border-radius: 10px; color: #1c2b4a; text-decoration: none; font-family: 'Quicksand', sans-serif; font-weight: 600; }
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-botones-peques .nido-desplegable > button::after { content: none; }
             .nido-barra-peques .nido-hamburguesa::after { content: none; }
             .nido-barra-peques .nido-hamburguesa:hover { transform: none; box-shadow: none; }
-            @media (max-width: 860px) {
+            @media (max-width: 1024px) {
                 .nido-botones-peques { display: none; width: 100%; flex-direction: column; align-items: stretch; margin-left: 0; }
                 .nido-botones-peques.visible { display: flex; }
                 .nido-botones-peques > a, .nido-botones-peques .nido-desplegable > button { text-align: center; width: 100%; }
@@ -129,8 +129,30 @@ document.addEventListener("DOMContentLoaded", () => {
             const drop = btn.closest('.nido-desplegable');
             const estaba = drop.classList.contains('abierto');
             document.querySelectorAll('.nido-desplegable').forEach(d => d.classList.remove('abierto'));
-            if (!estaba) drop.classList.add('abierto');
+            if (!estaba) { drop.classList.add('abierto'); ajustarPanel(drop); }
         });
+    });
+
+    // Blindaje de paneles: si un panel flotante se saldría de la pantalla
+    // (móvil, tableta o navegador en modo escritorio), se desplaza lo justo
+    // para quedar entero dentro, con 8 px de margen a cada lado.
+    function ajustarPanel(drop) {
+        const p = drop.querySelector('.nido-panel');
+        if (!p) return;
+        if (getComputedStyle(p).position !== 'absolute') { p.style.transform = ''; return; }
+        p.style.transform = '';
+        const r = p.getBoundingClientRect();
+        const vw = document.documentElement.clientWidth;
+        let dx = 0;
+        if (r.left < 8) dx = Math.ceil(8 - r.left);
+        else if (r.right > vw - 8) dx = -Math.ceil(r.right - (vw - 8));
+        if (dx !== 0) p.style.transform = 'translate(calc(-50% + ' + dx + 'px), 0)';
+    }
+    document.querySelectorAll('.nido-desplegable').forEach(drop => {
+        drop.addEventListener('mouseenter', () => ajustarPanel(drop));
+    });
+    window.addEventListener('resize', () => {
+        document.querySelectorAll('.nido-panel').forEach(p => { p.style.transform = ''; });
     });
 
     window.addEventListener('click', (e) => {
