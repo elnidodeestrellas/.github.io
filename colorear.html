@@ -195,8 +195,10 @@
             background: #1a2639;
             border: 1px solid #4a5568;
             border-radius: 16px;
-            max-width: 480px;
+            max-width: 520px;
             width: 100%;
+            max-height: 94vh;
+            overflow-y: auto;
             padding: 24px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.7);
             text-align: center;
@@ -231,13 +233,16 @@
             background: #e53e3e;
         }
         .modal-content img {
-            width: 100%;
-            max-height: 360px;
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 62vh;
             object-fit: contain;
             background: #ffffff;
             border-radius: 8px;
-            margin: 15px 0;
+            margin: 15px auto;
             padding: 8px;
+            box-sizing: border-box;
         }
         .modal-title {
             font-family: 'Quicksand', sans-serif;
@@ -265,7 +270,7 @@
             <div class="colorear-header">
                 <h1>🎨 Zona Creativa y de Colorear</h1>
                 <p>
-                    Haz clic en cualquier dibujo para verlo en grande, admirarlo y guardarlo o imprimirlo cómodamente para los peques.
+                    Ya tenéis 27 láminas para elegir. Haz clic en cualquier dibujo para verlo en grande, admirarlo y guardarlo o imprimirlo cómodamente para los peques.
                 </p>
             </div>
 
@@ -274,6 +279,57 @@
                 <button class="tab-btn active" onclick="filtrarCategoria('todos', this)">🌟 Ver Todos</button>
                 <button class="tab-btn" onclick="filtrarCategoria('animales', this)">🐾 Animales y Amigos</button>
                 <button class="tab-btn" onclick="filtrarCategoria('numeros', this)">🔢 Aprendiendo los Números</button>
+                <button class="tab-btn" onclick="filtrarCategoria('cielo', this)">🌙 El cielo</button>
+                <button class="tab-btn" onclick="filtrarCategoria('mar', this)">🌊 El mar</button>
+                <button class="tab-btn" onclick="filtrarCategoria('naturaleza', this)">🌸 Naturaleza</button>
+
+            </div>
+
+            <!-- SECCIÓN: CIELO -->
+            <div class="categoria-seccion" data-categoria="cielo">
+                <h2 class="section-title">🌙 El cielo y el Nido</h2>
+                <div class="grid-fichas">
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/cielo-luna.webp', 'Estrellita y la luna')">
+                            <img src="colorear/cielo-luna.webp" alt="Estrellita durmiendo sobre la luna">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>Estrellita y la luna</h3>
+                            <button onclick="abrirModal('colorear/cielo-luna.webp', 'Estrellita y la luna')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/cielo-cohete.webp', 'El cohete espacial')">
+                            <img src="colorear/cielo-cohete.webp" alt="Cohete volando entre estrellas y planetas">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El cohete espacial</h3>
+                            <button onclick="abrirModal('colorear/cielo-cohete.webp', 'El cohete espacial')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/cielo-buho.webp', 'El búho de la noche')">
+                            <img src="colorear/cielo-buho.webp" alt="Búho despierto en su rama bajo la luna">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El búho de la noche</h3>
+                            <button onclick="abrirModal('colorear/cielo-buho.webp', 'El búho de la noche')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/cielo-nido.webp', 'El nido en el árbol')">
+                            <img src="colorear/cielo-nido.webp" alt="Nido con huevos en un árbol y un pajarito">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El nido en el árbol</h3>
+                            <button onclick="abrirModal('colorear/cielo-nido.webp', 'El nido en el árbol')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- SECCIÓN: ANIMALES Y AMIGOS -->
@@ -345,6 +401,100 @@
             </div>
 
             <!-- SECCIÓN: APRENDIENDO LOS NÚMEROS (1 al 10) -->
+            <!-- SECCIÓN: MAR -->
+            <div class="categoria-seccion" data-categoria="mar">
+                <h2 class="section-title">🌊 El mar</h2>
+                <div class="grid-fichas">
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/mar-barco.webp', 'El barco velero')">
+                            <img src="colorear/mar-barco.webp" alt="Barco de vela navegando entre olas">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El barco velero</h3>
+                            <button onclick="abrirModal('colorear/mar-barco.webp', 'El barco velero')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/mar-faro.webp', 'El faro')">
+                            <img src="colorear/mar-faro.webp" alt="Faro junto al mar con nubes">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El faro</h3>
+                            <button onclick="abrirModal('colorear/mar-faro.webp', 'El faro')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/mar-pez.webp', 'El pez sonriente')">
+                            <img src="colorear/mar-pez.webp" alt="Pez nadando entre burbujas y algas">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El pez sonriente</h3>
+                            <button onclick="abrirModal('colorear/mar-pez.webp', 'El pez sonriente')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/mar-medusa.webp', 'La medusa bailarina')">
+                            <img src="colorear/mar-medusa.webp" alt="Medusa flotando en el mar">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>La medusa bailarina</h3>
+                            <button onclick="abrirModal('colorear/mar-medusa.webp', 'La medusa bailarina')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN: NATURALEZA -->
+            <div class="categoria-seccion" data-categoria="naturaleza">
+                <h2 class="section-title">🌸 La naturaleza</h2>
+                <div class="grid-fichas">
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/naturaleza-arbol.webp', 'El árbol de las manzanas')">
+                            <img src="colorear/naturaleza-arbol.webp" alt="Manzano con columpio y un pajarito">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El árbol de las manzanas</h3>
+                            <button onclick="abrirModal('colorear/naturaleza-arbol.webp', 'El árbol de las manzanas')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/naturaleza-flor.webp', 'La flor y la abeja')">
+                            <img src="colorear/naturaleza-flor.webp" alt="Flor grande con una abeja volando">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>La flor y la abeja</h3>
+                            <button onclick="abrirModal('colorear/naturaleza-flor.webp', 'La flor y la abeja')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/naturaleza-sol.webp', 'El sol y el arcoíris')">
+                            <img src="colorear/naturaleza-sol.webp" alt="Sol sonriente sobre un arcoíris con nubes">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>El sol y el arcoíris</h3>
+                            <button onclick="abrirModal('colorear/naturaleza-sol.webp', 'El sol y el arcoíris')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                    <div class="ficha-card">
+                        <div class="ficha-img-container" onclick="abrirModal('colorear/naturaleza-mariposa.webp', 'La mariposa')">
+                            <img src="colorear/naturaleza-mariposa.webp" alt="Mariposa de alas grandes entre flores">
+                            <span class="ver-mas-hint">🔍 Ver ampliado</span>
+                        </div>
+                        <div class="ficha-content">
+                            <h3>La mariposa</h3>
+                            <button onclick="abrirModal('colorear/naturaleza-mariposa.webp', 'La mariposa')" class="download-btn">🔍 Ver e Imprimir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="categoria-seccion" data-categoria="numeros">
                 <h2 class="section-title">🔢 Aprendiendo los Números (Del 1 al 10)</h2>
                 <div class="grid-fichas">
