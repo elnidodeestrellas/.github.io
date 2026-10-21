@@ -4,180 +4,221 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu voz | El Nido de Estrellas</title>
-    <meta name="description" content="Ayúdanos a mejorar el rincón de estrellas con tu opinión en un par de clics.">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <!-- Script de análisis (GoatCounter) -->
-    <script data-goatcounter="https://elnidodeestrellas.goatcounter.com/count"
-        async src="https://gc.zgo.at/count.js"></script>
-    <!-- Importación de tipografías premium desde Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
-    
     <style>
-        .survey-container {
-            max-width: 650px;
-            margin: 40px auto;
-            background: #1a2639;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid #2c3e50;
-            color: #f7f9fc;
+        .main-content { background-color: transparent !important; }
+
+        .tv-contenedor {
+            max-width: 760px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
         }
-        .survey-container h1 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 26px;
-            margin-bottom: 12px;
-            color: #ffffff;
+
+        .tv-titulo {
             text-align: center;
-        }
-        .survey-container p.intro-text {
-            font-size: 15px;
-            color: #cbd5e0;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 24px;
-        }
-        .survey-container label.field-title {
-            display: block;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #edf2f7;
+            font-size: 2.7rem;
+            letter-spacing: 0.02em;
+            background: linear-gradient(120deg, #f6cf4f, #e9c46a 45%, #c9962e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #e9c46a;
+            margin: 10px 0 6px 0;
         }
-        .survey-container input[type="text"],
-        .survey-container input[type="email"],
-        .survey-container select,
-        .survey-container textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #4a5568;
-            border-radius: 8px;
-            font-size: 14px;
-            box-sizing: border-box;
-            background-color: #243348;
-            color: #ffffff;
+
+        .tv-filete {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e9c46a, transparent);
+            margin: 0 auto 16px auto;
+        }
+
+        .tv-intro {
+            text-align: center;
             font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #d6deee;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0 auto 34px auto;
         }
-        .survey-container input[type="text"]:focus,
-        .survey-container input[type="email"]:focus,
-        .survey-container select:focus,
-        .survey-container textarea:focus {
+
+        .tv-tarjeta {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(233, 196, 106, 0.22);
+            border-radius: 16px;
+            padding: 30px 32px 26px 32px;
+        }
+
+        @media (max-width: 640px) {
+            .tv-tarjeta { padding: 24px 20px 20px 20px; }
+            .tv-titulo { font-size: 2.2rem; }
+        }
+
+        .tv-campo { margin-bottom: 24px; }
+
+        .tv-etiqueta {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.22rem;
+            color: #e9c46a;
+            margin-bottom: 9px;
+        }
+
+        .tv-entrada, .tv-area, .tv-select {
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(233, 196, 106, 0.28);
+            border-radius: 10px;
+            color: #f3ecd9;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem;
+            padding: 11px 13px;
             outline: none;
-            border-color: #63b3ed;
         }
-        .radio-group {
+
+        .tv-entrada:focus, .tv-area:focus, .tv-select:focus {
+            border-color: #e9c46a;
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .tv-area { min-height: 84px; resize: vertical; }
+
+        .tv-select option { color: #1c2b4a; }
+
+        .tv-opciones {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 7px;
         }
-        .radio-label {
-            font-weight: normal;
-            font-size: 14px;
+
+        .tv-opcion {
             display: flex;
             align-items: center;
             gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.97rem;
+            color: #e9e4d6;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(233, 196, 106, 0.14);
+            border-radius: 10px;
+            padding: 9px 13px;
             cursor: pointer;
-            color: #e2e8f0;
         }
-        #campo-mejora {
-            display: none;
-            margin-top: 12px;
-            animation: fadeIn 0.3s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        button.submit-btn {
-            background-color: #3182ce;
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 8px;
+
+        .tv-opcion:hover { background: rgba(241, 196, 66, 0.08); }
+
+        .tv-opcion input { accent-color: #dda51d; width: 17px; height: 17px; flex-shrink: 0; }
+
+        .tv-estrellas { color: #f1c442; letter-spacing: 2px; }
+
+        .tv-privacidad {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            color: #c6cede;
+            line-height: 1.5;
+            margin: 6px 0 24px 0;
             cursor: pointer;
+        }
+
+        .tv-privacidad input { accent-color: #dda51d; width: 17px; height: 17px; margin-top: 2px; flex-shrink: 0; }
+
+        .tv-privacidad a { color: #e9c46a; }
+
+        .tv-boton {
+            display: block;
             width: 100%;
-            transition: background-color 0.2s;
-            font-family: 'Quicksand', sans-serif;
-            margin-top: 10px;
+            background: linear-gradient(135deg, #f6cf4f, #dda51d);
+            color: #0f1626;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.02rem;
+            border: none;
+            border-radius: 999px;
+            padding: 14px 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(241, 196, 66, 0.3);
         }
-        button.submit-btn:hover {
-            background-color: #2b6cb0;
-        }
+
+        .tv-boton:hover { filter: brightness(1.07); }
     </style>
 </head>
 <body>
 
-    <div id="menu-container"></div>
-
     <main class="main-content">
-        <!-- Imagen ajustada con altura controlada para que luzca perfecta y profesional -->
-        <div style="width: 100%; max-width: 650px; margin: 0 auto 30px auto; background-color: #120d1a; border-radius: 12px; border: 1px solid #6b46c1; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center; overflow: hidden;">
-            <img src="img/imagenTuvoz.webp" alt="Tu Voz y Encuestas El Nido de Estrellas" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-        </div>
-        
-        <div class="survey-container">
-            <h1>Tu opinión guía nuestro rumbo</h1>
-            <p class="intro-text">
-                En este rincón queremos crecer y mejorar contigo. Nos encantaría conocer tu experiencia para seguir creando historias, podcasts, juegos y recursos que acompañen a las familias de la mejor manera posible. ¡Te llevará solo un minuto!
-            </p>
-            
-            <form action="https://formspree.io/f/xgogbwja" method="POST">
-                <div class="form-group">
-                    <label class="field-title" for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+        <div class="tv-contenedor">
+
+            <h1 class="tv-titulo">Tu Voz</h1>
+            <div class="tv-filete"></div>
+            <p class="tv-intro">Tu opinión guía nuestro rumbo. En este rincón queremos crecer y mejorar contigo: cuéntanos tu experiencia para seguir creando historias, podcasts, juegos y recursos que acompañen a las familias de la mejor manera posible. ¡Te llevará solo un minuto!</p>
+
+            <form class="tv-tarjeta" action="https://formspree.io/f/xgogbwja" method="POST">
+
+                <div class="tv-campo">
+                    <label class="tv-etiqueta" for="tv-nombre">Nombre</label>
+                    <input class="tv-entrada" type="text" id="tv-nombre" name="nombre">
                 </div>
 
-                <div class="form-group">
-                    <label class="field-title" for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="tu@correo.com">
+                <div class="tv-campo">
+                    <label class="tv-etiqueta" for="tv-email">Correo electrónico</label>
+                    <input class="tv-entrada" type="email" id="tv-email" name="email">
                 </div>
 
-                <div class="form-group">
-                    <label class="field-title">¿Qué te parece el diseño y la facilidad para moverte por la página?</label>
-                    <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="diseno" value="intuitiva" onclick="toggleMejora(false)"> Muy intuitiva</label>
-                        <label class="radio-label"><input type="radio" name="diseno" value="normal" onclick="toggleMejora(false)"> Normal</label>
-                        <label class="radio-label"><input type="radio" name="diseno" value="mejorable" onclick="toggleMejora(true)"> Mejorable</label>
-                    </div>
-                    
-                    <div id="campo-mejora">
-                        <label class="field-title" for="detalle_mejora" style="margin-top: 12px; font-weight: normal; color: #cbd5e0;">¿En qué podríamos mejorar brevemente?</label>
-                        <textarea id="detalle_mejora" name="detalle_mejora" rows="3" placeholder="Cuéntanos brevemente qué te gustaría cambiar o mejorar..."></textarea>
+                <div class="tv-campo">
+                    <span class="tv-etiqueta">¿Qué te parece el diseño y la facilidad para moverte por la página?</span>
+                    <div class="tv-opciones">
+                        <label class="tv-opcion"><input type="radio" name="diseno" value="intuitiva"> Muy intuitiva</label>
+                        <label class="tv-opcion"><input type="radio" name="diseno" value="normal"> Normal</label>
+                        <label class="tv-opcion"><input type="radio" name="diseno" value="mejorable"> Mejorable</label>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="field-title">¿Qué contenido o sección disfrutas más en nuestra comunidad?</label>
-                    <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_escuchar"> 🎧 Cuentos para Escuchar</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="cuentos_leer"> 📖 Cuentos para Leer</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="microcuentos"> ✨ Microcuentos</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="podcast"> 🎙️ Podcast</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="debates"> 💬 Debates y Reflexión</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="psicologia_glosarios"> 🧠 Glosarios / Rincón de Lectura / Preguntas</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="guias_salud_orientacion"> 📋 Guías de Salud y Orientación</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="guias_crianza"> 🌟 Guías de Crianza (Embarazo, Lactancia, Dental...)</label>
-                        <label class="radio-label"><input type="radio" name="seccion" value="juegos_puzzles"> 🎮 Juegos, Puzzles y Adivinanzas</label>
+                <div class="tv-campo">
+                    <label class="tv-etiqueta" for="tv-mejora">¿En qué podríamos mejorar brevemente?</label>
+                    <textarea class="tv-area" id="tv-mejora" name="detalle_mejora"></textarea>
+                </div>
+
+                <div class="tv-campo">
+                    <span class="tv-etiqueta">¿Qué contenido o sección disfrutas más en nuestra comunidad?</span>
+                    <div class="tv-opciones">
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="cuentos_escuchar"> Cuentos para Escuchar</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="cuentos_leer"> Cuentos para Leer</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="microcuentos"> Microcuentos</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="videocuentos"> Videocuentos de YouTube</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="podcast"> Podcast</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="debates"> Debates y Reflexión</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="psicologia_glosarios"> Glosarios · Rincón de Lectura · Preguntas</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="guias_salud_orientacion"> Guías de Salud y Orientación</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="guias_crianza"> Guías de Crianza (Embarazo, Lactancia, Dental...)</label>
+                        <label class="tv-opcion"><input type="radio" name="seccion" value="juegos_puzzles"> Juegos, Puzzles y Adivinanzas</label>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="field-title" for="sugerencias_temas">¿Qué tema de salud, cuento, juego o recurso te gustaría que tratemos próximamente?</label>
-                    <textarea id="sugerencias_temas" name="sugerencias_temas" rows="2" placeholder="Escribe aquí tu sugerencia..."></textarea>
+                <div class="tv-campo">
+                    <label class="tv-etiqueta" for="tv-sugerencias">¿Qué tema de salud, cuento, juego o recurso te gustaría que tratemos próximamente?</label>
+                    <textarea class="tv-area" id="tv-sugerencias" name="sugerencias_temas"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label class="field-title" for="youtube_rating">Si has visitado nuestro canal de YouTube, ¿cómo valorarías la experiencia del 1 al 10?</label>
-                    <select id="youtube_rating" name="youtube_rating">
+                <div class="tv-campo">
+                    <span class="tv-etiqueta">¿Has probado nuestra App gratuita?</span>
+                    <div class="tv-opciones">
+                        <label class="tv-opcion"><input type="radio" name="app" value="la_uso"> Sí, la uso</label>
+                        <label class="tv-opcion"><input type="radio" name="app" value="la_conozco"> La conozco, pero no la uso</label>
+                        <label class="tv-opcion"><input type="radio" name="app" value="no_la_conocia"> No la conocía</label>
+                    </div>
+                </div>
+
+                <div class="tv-campo">
+                    <label class="tv-etiqueta" for="tv-youtube">Si has visitado nuestro canal de YouTube, ¿cómo valorarías la experiencia del 1 al 10?</label>
+                    <select class="tv-select" id="tv-youtube" name="youtube_rating">
                         <option value="">Selecciona una puntuación (opcional)</option>
                         <option value="10">10 - Excelente</option>
                         <option value="9">9</option>
@@ -192,41 +233,28 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label class="field-title">Valora tu experiencia general en la web</label>
-                    <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="estrellas" value="5"> ⭐⭐⭐⭐⭐ Excelente</label>
-                        <label class="radio-label"><input type="radio" name="estrellas" value="4"> ⭐⭐⭐⭐ Muy buena</label>
-                        <label class="radio-label"><input type="radio" name="estrellas" value="3"> ⭐⭐⭐ Buena</label>
-                        <label class="radio-label"><input type="radio" name="estrellas" value="2"> ⭐⭐ Regular</label>
-                        <label class="radio-label"><input type="radio" name="estrellas" value="1"> ⭐ Necesita mejora</label>
+                <div class="tv-campo">
+                    <span class="tv-etiqueta">Valora tu experiencia general en la web</span>
+                    <div class="tv-opciones">
+                        <label class="tv-opcion"><input type="radio" name="estrellas" value="5"> <span class="tv-estrellas">★★★★★</span> Excelente</label>
+                        <label class="tv-opcion"><input type="radio" name="estrellas" value="4"> <span class="tv-estrellas">★★★★</span> Muy buena</label>
+                        <label class="tv-opcion"><input type="radio" name="estrellas" value="3"> <span class="tv-estrellas">★★★</span> Buena</label>
+                        <label class="tv-opcion"><input type="radio" name="estrellas" value="2"> <span class="tv-estrellas">★★</span> Regular</label>
+                        <label class="tv-opcion"><input type="radio" name="estrellas" value="1"> <span class="tv-estrellas">★</span> Necesita mejora</label>
                     </div>
                 </div>
 
-                <!-- CAMPO DE PRIVACIDAD -->
-                <div class="form-group" style="margin-top: 20px; font-size: 13px; color: #cbd5e0;">
-                    <label class="radio-label" style="font-weight: normal; align-items: flex-start; cursor: default;">
-                        <input type="checkbox" name="privacidad" required style="margin-top: 3px; cursor: pointer;">
-                        <span>He leído y acepto la <a href="legal.html" target="_blank" style="color: #63b3ed; text-decoration: underline;">política de privacidad</a> y el tratamiento de mis datos para gestionar esta respuesta.</span>
-                    </label>
-                </div>
+                <label class="tv-privacidad">
+                    <input type="checkbox" name="privacidad" required>
+                    <span>He leído y acepto la <a href="legal.html">política de privacidad</a> y el tratamiento de mis datos para gestionar esta respuesta.</span>
+                </label>
 
-                <button type="submit" class="submit-btn">Enviar mis respuestas</button>
+                <button class="tv-boton" type="submit">Enviar mis respuestas</button>
+
             </form>
         </div>
     </main>
 
-    <script>
-        function toggleMejora(mostrar) {
-            const campoMejora = document.getElementById('campo-mejora');
-            if (mostrar) {
-                campoMejora.style.display = 'block';
-            } else {
-                campoMejora.style.display = 'none';
-                document.getElementById('detalle_mejora').value = '';
-            }
-        }
-    </script>
     <script src="global.js"></script>
     <script src="nav-familias.js"></script>
 </body>
