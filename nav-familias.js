@@ -35,6 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-desplegable > button:hover { transform: none; box-shadow: none; border-color: transparent; }
             @media (max-width: 1080px) {
                 .nido-hamburguesa { display: block; }
+                /* Cabecera compacta en móvil: que quepa sin mover la página */
+                .nido-barra-interior { padding: 10px 14px; gap: 10px; }
+                .nido-marca img { width: 40px; height: 40px; }
+                .nido-marca span { font-size: 1.2rem; }
                 .nido-enlaces { display: none; position: fixed !important; top: 66px; left: 0 !important; right: 0 !important; max-height: calc(100vh - 66px); overflow-y: auto; flex-direction: column; align-items: stretch; background: #0a1120 !important; padding: 10px 18px 20px; border-bottom: 2px solid rgba(241, 196, 66, 0.4); box-shadow: 0 30px 50px rgba(0,0,0,0.55); z-index: 999; }
                 .nido-enlaces.visible { display: flex; }
                 .nido-enlaces > a, .nido-desplegable > button { text-align: left; padding: 12px 8px; width: 100%; }
