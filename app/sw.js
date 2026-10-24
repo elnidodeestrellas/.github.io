@@ -1,5 +1,5 @@
 /* El Nido de Estrellas — service worker */
-var CACHE = 'nido-estrellas-v2';
+var CACHE = 'nido-estrellas-v3';
 var ARCHIVOS = [
   './',
   './index.html',
