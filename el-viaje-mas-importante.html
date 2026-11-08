@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Viaje Más Importante · El libro | El Nido de Estrellas</title>
+    <meta name="description" content="El Viaje Más Importante, de Alberto P.G.: manual práctico para el recorrido vital de la infancia. Embarazo, lactancia, crecimiento, desarrollo dental y primeros auxilios. Tapa blanda, 16,99 €.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+
+        .lv-contenedor {
+            max-width: 1000px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .lv-hero {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .lv-portada {
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+
+        .lv-portada img {
+            width: 280px;
+            max-width: 72vw;
+            border-radius: 12px;
+            border: 2px solid rgba(241, 196, 66, 0.6);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+            display: block;
+        }
+
+        .lv-texto { flex: 1; min-width: 280px; }
+
+        .lv-ojo {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f1c442;
+            margin-bottom: 10px;
+        }
+
+        .lv-titulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 3rem;
+            line-height: 1.1;
+            color: #f3ecd9;
+            margin: 0 0 8px 0;
+        }
+
+        .lv-subtitulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.35rem;
+            color: #e9c46a;
+            margin: 0 0 16px 0;
+        }
+
+        .lv-descripcion {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #d6deee;
+            font-size: 1.02rem;
+            line-height: 1.65;
+            margin: 0 0 18px 0;
+        }
+
+        .lv-precio {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #f1c442;
+            margin: 0 0 4px 0;
+        }
+
+        .lv-formato {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #aab4c8;
+            margin: 0 0 20px 0;
+        }
+
+        .lv-boton {
+            display: inline-block;
+            background: linear-gradient(135deg, #f6cf4f, #dda51d);
+            color: #0f1626;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.02rem;
+            text-decoration: none;
+            padding: 13px 30px;
+            border-radius: 999px;
+            box-shadow: 0 6px 20px rgba(241, 196, 66, 0.3);
+            cursor: default;
+        }
+
+        .lv-nota {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #aab4c8;
+            margin: 12px 0 0 0;
+            line-height: 1.5;
+        }
+
+        .lv-caja {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(233, 196, 106, 0.22);
+            border-radius: 16px;
+            padding: 28px 30px;
+            margin-bottom: 24px;
+        }
+
+        .lv-caja h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.7rem;
+            color: #e9c46a;
+            margin: 0 0 14px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(233, 196, 106, 0.2);
+        }
+
+        .lv-caja p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #d6deee;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0 0 12px 0;
+        }
+
+        .lv-lista { list-style: none; margin: 0; padding: 0; }
+
+        .lv-lista li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #d6deee;
+            font-size: 1rem;
+            line-height: 1.6;
+            padding: 9px 0 9px 4px;
+            border-bottom: 1px solid rgba(233, 196, 106, 0.1);
+        }
+
+        .lv-lista li:last-child { border-bottom: none; }
+
+        .lv-lista li::before {
+            content: "★";
+            color: #f1c442;
+            margin-right: 10px;
+        }
+
+        .lv-lista strong { color: #f3ecd9; font-weight: 600; }
+
+        .lv-cita {
+            border-left: 3px solid #e9c46a;
+            padding: 6px 0 6px 20px;
+            margin: 18px 0 0 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            color: #f3ecd9;
+            line-height: 1.5;
+        }
+
+        .lv-datos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 32px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #c6cede;
+        }
+
+        .lv-datos strong { color: #f1c442; font-weight: 600; }
+
+        .lv-volver {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            color: #e9c46a;
+            text-decoration: none;
+            margin-top: 6px;
+        }
+
+        .lv-volver:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .lv-titulo { font-size: 2.3rem; }
+            .lv-hero { gap: 24px; }
+            .lv-caja { padding: 22px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <div class="lv-contenedor">
+
+            <div class="lv-hero">
+                <div class="lv-portada">
+                    <img src="img/portada-viaje-frontal.jpg" alt="Portada de El Viaje Más Importante, de Alberto P.G.">
+                </div>
+                <div class="lv-texto">
+                    <div class="lv-ojo">El Nido de Estrellas presenta</div>
+                    <h1 class="lv-titulo">El Viaje Más Importante</h1>
+                    <p class="lv-subtitulo">Manual práctico para el recorrido vital de la infancia</p>
+                    <p class="lv-descripcion">La crianza y el desarrollo temprano no vienen con un manual bajo el brazo. Este libro nace para romper con esa dinámica: una herramienta de consulta rigurosa, estructurada y libre de paja verbal, para ofrecerte claridad absoluta cuando más lo necesitas.</p>
+                    <p class="lv-precio">16,99 €</p>
+                    <p class="lv-formato">Tapa blanda · En español · Alberto P.G.</p>
+                    <span class="lv-boton">Disponible muy pronto en Amazon</span>
+                    <p class="lv-nota">El libro está en revisión en Amazon. En cuanto lo aprueben, este botón llevará directo a la compra.</p>
+                </div>
+            </div>
+
+            <div class="lv-caja">
+                <h2>¿Y ahora qué hacemos?</h2>
+                <p>Desde el embarazo hasta los primeros pasos, las familias se enfrentan a un aluvión constante de opiniones, mitos y sobreinformación que genera dudas y fatiga mental. «El Viaje Más Importante» es una herramienta de consulta rigurosa, estructurada y libre de paja verbal diseñada para ofrecerte claridad absoluta cuando más lo necesitas.</p>
+                <p>Un mapa de ruta honesto, clínico y directo para acompañar el desarrollo de tus hijos con la tranquilidad de saber exactamente qué hacer en cada momento.</p>
+                <blockquote class="lv-cita">«La mejor herramienta no es el miedo, sino la información clara, el sentido común y la capacidad de actuar con calma.»</blockquote>
+            </div>
+
+            <div class="lv-caja">
+                <h2>Lo que encontrarás en este manual</h2>
+                <ul class="lv-lista">
+                    <li><strong>Embarazo:</strong> Cimientos biológicos, control de cambios, plan de parto y señales de alerta médica.</li>
+                    <li><strong>Lactancia:</strong> Fisiología real, superación de dificultades, desterrando mitos sobre la leche y pautas de nutrición segura.</li>
+                    <li><strong>Crecimiento:</strong> Desarrollo motor, respeto a los ritmos evolutivos, percentiles sin obsesiones y seguridad en el hogar.</li>
+                    <li><strong>Desarrollo dental:</strong> Odontopediatría preventiva, higiene desde el primer diente y el peligro de los azúcares nocturnos.</li>
+                    <li><strong>Primeros auxilios pediátricos:</strong> Protocolos claros de actuación ante atragantamientos (OVACE), fiebre, crisis convulsivas, golpes en la cabeza y quemaduras.</li>
+                </ul>
+            </div>
+
+            <div class="lv-caja">
+                <h2>El libro</h2>
+                <div class="lv-datos">
+                    <span><strong>Autor:</strong> Alberto P.G.</span>
+                    <span><strong>Formato:</strong> Tapa blanda</span>
+                    <span><strong>Idioma:</strong> Español</span>
+                    <span><strong>Precio:</strong> 16,99 €</span>
+                    <span><strong>Editorial:</strong> El Nido de Estrellas</span>
+                </div>
+            </div>
+
+            <a class="lv-volver" href="familias.html">← Volver a inicio</a>
+
+        </div>
+    </main>
+
+    <script src="global.js"></script>
+    <script src="nav-familias.js"></script>
+</body>
+</html>
