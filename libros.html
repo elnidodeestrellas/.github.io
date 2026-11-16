@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros libros · El Nido de Estrellas</title>
+    <meta name="description" content="Los libros de El Nido de Estrellas: El Viaje Más Importante, Buenas noches, animalitos y Buenas noches, frutas y verduras. Tapa blanda, a la venta en Amazon.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .main-content { background-color: transparent !important; }
+
+        .lb-contenedor {
+            max-width: 1100px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .lb-ojo {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f1c442;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .lb-titulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 3rem;
+            line-height: 1.1;
+            color: #f3ecd9;
+            margin: 0 0 12px 0;
+            text-align: center;
+        }
+
+        .lb-intro {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #d6deee;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            max-width: 680px;
+            margin: 0 auto 36px auto;
+            text-align: center;
+        }
+
+        /* Una sola tarjeta repetida por libro: para añadir un libro nuevo,
+           se copia un <article class="libro-card"> entero y se cambian
+           portada, título, descripción, precio y enlace. Nada más. */
+        .lb-lista {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .libro-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(233, 196, 106, 0.22);
+            border-radius: 16px;
+            padding: 24px 24px 28px 24px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .libro-card img {
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto 20px auto;
+            border-radius: 12px;
+            border: 2px solid rgba(241, 196, 66, 0.6);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+            display: block;
+        }
+
+        .libro-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.65rem;
+            line-height: 1.2;
+            color: #f3ecd9;
+            margin: 0 0 6px 0;
+        }
+
+        .libro-card .libro-subtitulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #e9c46a;
+            margin: 0 0 12px 0;
+        }
+
+        .libro-card .libro-descripcion {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #d6deee;
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin: 0 0 16px 0;
+        }
+
+        .libro-card .libro-precio {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.9rem;
+            color: #f1c442;
+            margin: auto 0 4px 0;
+        }
+
+        .libro-card .libro-formato {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            color: #aab4c8;
+            margin: 0 0 18px 0;
+        }
+
+        .libro-card .lv-boton {
+            display: inline-block;
+            background: linear-gradient(135deg, #f6cf4f, #dda51d);
+            color: #0f1626;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            padding: 12px 26px;
+            border-radius: 999px;
+            box-shadow: 0 6px 20px rgba(241, 196, 66, 0.3);
+            cursor: pointer;
+        }
+
+        .lb-nota {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #aab4c8;
+            text-align: center;
+            margin: 36px 0 0 0;
+            line-height: 1.6;
+        }
+
+        .lb-volver {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            color: #e9c46a;
+            text-decoration: none;
+            margin-top: 24px;
+        }
+
+        .lb-volver:hover { text-decoration: underline; }
+
+        @media (max-width: 1020px) {
+            .lb-lista { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .lb-titulo { font-size: 2.3rem; }
+            .lb-lista { grid-template-columns: 1fr; }
+            .libro-card { padding: 22px 20px 26px 20px; }
+            .libro-card img { max-width: 240px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="menu-container"></div>
+
+    <main class="main-content">
+        <div class="lb-contenedor">
+
+            <div class="lb-ojo">El Nido de Estrellas presenta</div>
+            <h1 class="lb-titulo">Nuestros libros</h1>
+            <p class="lb-intro">Libros para acompañar a las familias: un manual práctico para el recorrido vital de la infancia y cuentos tranquilos para leer despacio antes de dormir. Todos en tapa blanda, a la venta en Amazon.</p>
+
+            <div class="lb-lista">
+
+                <article class="libro-card">
+                    <img src="img/portada-viaje-frontal.jpg" alt="Portada de El Viaje Más Importante, de Alberto P.G.">
+                    <h2>El Viaje Más Importante</h2>
+                    <p class="libro-subtitulo">Manual práctico para el recorrido vital de la infancia</p>
+                    <p class="libro-descripcion">Embarazo, lactancia, crecimiento, desarrollo dental y primeros auxilios. Una herramienta de consulta rigurosa y clara para acompañar el desarrollo de tus hijos con tranquilidad.</p>
+                    <p class="libro-precio">17,67 €</p>
+                    <p class="libro-formato">Tapa blanda · En español · Alberto P.G.</p>
+                    <a class="lv-boton" href="https://www.amazon.es/dp/B0HR6486S1?th=1" target="_blank" rel="noopener">Comprar en Amazon</a>
+                </article>
+
+                <article class="libro-card">
+                    <img src="img/portada-animalitos.jpg" alt="Portada de Buenas noches, animalitos: Seis cuentos para dormir, de Alberto P.G.">
+                    <h2>Buenas noches, animalitos</h2>
+                    <p class="libro-subtitulo">Seis cuentos para dormir</p>
+                    <p class="libro-descripcion">Seis cuentos tranquilos para leer despacio antes de dormir, con ilustraciones suaves y letra clara, para niños de 2 a 6 años. El osito, el caracol, el gato, el búho, la coneja y el zorro se preparan para dormir.</p>
+                    <p class="libro-precio">11,43 €</p>
+                    <p class="libro-formato">Tapa blanda · 10,99 € + IVA · Alberto P.G.</p>
+                    <a class="lv-boton" href="https://www.amazon.es/dp/B0HRSR784C" target="_blank" rel="noopener">Comprar en Amazon</a>
+                </article>
+
+                <article class="libro-card">
+                    <img src="img/portada-frutas-verduras.jpg" alt="Portada de Buenas noches, frutas y verduras: Seis cuentos para dormir, de Alberto P.G.">
+                    <h2>Buenas noches, frutas y verduras</h2>
+                    <p class="libro-subtitulo">Seis cuentos para dormir</p>
+                    <p class="libro-descripcion">Fresita cuenta semillas, Platanito se columpia con la luna, Zanahorita riega las estrellas, Manzanita mira las estrellas, Uvita cuenta racimos y Tomatito se duerme con la luna. Seis cuentos tranquilos, para leer despacio antes de dormir, para niños de 2 a 6 años.</p>
+                    <p class="libro-precio">11,43 €</p>
+                    <p class="libro-formato">Tapa blanda · 10,99 € + IVA · Alberto P.G.</p>
+                    <a class="lv-boton" href="https://www.amazon.es/dp/B0HRSJRFJL" target="_blank" rel="noopener">Comprar en Amazon</a>
+                </article>
+
+            </div>
+
+            <p class="lb-nota">Próximamente, más libros de El Nido de Estrellas en esta misma página.</p>
+
+            <a class="lb-volver" href="familias.html">← Volver a inicio</a>
+
+        </div>
+    </main>
+
+    <script src="global.js"></script>
+    <script src="nav-familias.js"></script>
+</body>
+</html>

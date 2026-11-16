@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="nido-hamburguesa" id="nidoBtnMenu" aria-label="Abrir menú" type="button">☰</button>
             <nav class="nido-enlaces" id="nidoMenuEnlaces">
               <a href="familias.html">Inicio</a>
+              <a href="libros.html">Libros</a>
               <div class="nido-desplegable">
                 <button type="button">Salud <span class="nido-flecha">▼</span></button>
                 <div class="nido-panel">
