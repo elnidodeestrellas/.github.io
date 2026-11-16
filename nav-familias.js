@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
         headerContainer.innerHTML = `
         <style>
             .nido-barra { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(9, 13, 24, 0.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(241, 196, 66, 0.28); }
-            .nido-barra-interior { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 18px; padding: 10px 22px; }
-            .nido-marca { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+            .nido-barra-interior { max-width: 1360px; margin: 0 auto; display: flex; align-items: center; gap: 12px; padding: 10px 14px; }
+            .nido-marca { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
             .nido-marca img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(241, 196, 66, 0.75); box-shadow: 0 0 14px rgba(241, 196, 66, 0.25); }
-            .nido-marca span { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.55rem; font-weight: 600; color: #f1c442; letter-spacing: 0.03em; white-space: nowrap; }
+            .nido-marca span { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.45rem; font-weight: 600; color: #f1c442; letter-spacing: 0.03em; white-space: nowrap; }
             .nido-enlaces { position: static; width: auto; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: none; box-shadow: none; padding: 0; justify-content: flex-end; }
             .nido-enlaces { display: flex; align-items: center; gap: 4px; margin-left: auto; flex-wrap: nowrap; }
-            .nido-enlaces > a, .nido-desplegable > button { font-family: 'Inter', system-ui, sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: #e9e4d6; background: none; border: none; cursor: pointer; padding: 9px 11px; text-decoration: none; position: relative; white-space: nowrap; }
-            .nido-enlaces > a::after, .nido-desplegable > button::after { content: ""; position: absolute; left: 11px; right: 11px; bottom: 4px; height: 1.5px; width: auto; top: auto; opacity: 1; pointer-events: none; background: #f1c442; transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+            .nido-enlaces > a, .nido-desplegable > button { font-family: 'Inter', system-ui, sans-serif; font-size: 0.84rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: #e9e4d6; background: none; border: none; cursor: pointer; padding: 9px 8px; text-decoration: none; position: relative; white-space: nowrap; }
+            .nido-enlaces > a::after, .nido-desplegable > button::after { content: ""; position: absolute; left: 8px; right: 8px; bottom: 4px; height: 1.5px; width: auto; top: auto; opacity: 1; pointer-events: none; background: #f1c442; transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
             .nido-enlaces > a:hover, .nido-desplegable > button:hover { color: #f1c442; }
             .nido-enlaces > a:hover::after, .nido-desplegable:hover > button::after, .nido-desplegable.abierto > button::after { transform: scaleX(1); }
             .nido-enlaces > a.nido-activo { color: #f1c442; }
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-grupo { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #f1c442; margin: 8px 10px 4px; font-family: 'Inter', sans-serif; }
             .nido-panel a { display: block; padding: 7px 10px; border-radius: 8px; color: #e9e4d6; text-decoration: none; font-size: 0.92rem; font-family: 'Inter', sans-serif; }
             .nido-panel a:hover { background: rgba(241, 196, 66, 0.1); color: #f1c442; }
-            .nido-enlaces > a.nido-boton-app { margin-left: 10px; flex-shrink: 0; background: linear-gradient(135deg, #f6cf4f, #dda51d); color: #0f1626; font-weight: 700; padding: 9px 18px; border-radius: 999px; box-shadow: 0 4px 16px rgba(241, 196, 66, 0.35); }
+            .nido-enlaces > a.nido-boton-app { margin-left: 6px; flex-shrink: 0; background: linear-gradient(135deg, #f6cf4f, #dda51d); color: #0f1626; font-weight: 700; padding: 9px 14px; border-radius: 999px; box-shadow: 0 4px 16px rgba(241, 196, 66, 0.35); }
             .nido-enlaces > a.nido-boton-app::after { display: none; }
             .nido-enlaces > a.nido-boton-app:hover { filter: brightness(1.08); color: #0f1626; }
             .nido-hamburguesa { display: none; margin-left: auto; background: none; border: 1px solid rgba(241,196,66,0.4); border-radius: 8px; color: #f1c442; font-size: 1.15rem; padding: 6px 12px; cursor: pointer; }
