@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-botones-peques .nido-desplegable:hover .nido-panel, .nido-botones-peques .nido-desplegable.abierto .nido-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s; }
             .nido-botones-peques .nido-panel a { display: block; padding: 9px 12px; border-radius: 10px; color: #1c2b4a; text-decoration: none; font-family: 'Quicksand', sans-serif; font-weight: 600; }
             .nido-botones-peques .nido-panel a:hover { background: #fdf6df; }
+            .nido-buscar-peques { display: flex; align-items: center; gap: 6px; }
+            .nido-buscar-peques input { width: 160px; padding: 10px 14px; border-radius: 999px; border: 2px solid #ffd94d; background: #ffffff; color: #1c2b4a; font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 0.95rem; }
+            .nido-buscar-peques input:focus { outline: none; box-shadow: 0 0 0 3px rgba(255,217,77,0.45); }
+            .nido-buscar-peques button { background: #ffd94d; border: none; border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem; line-height: 1; flex-shrink: 0; box-shadow: 0 4px 0 rgba(0,0,0,0.22); }
             .nido-hamburguesa { display: none; }
             .nido-botones-peques .nido-desplegable > button::after { content: none; }
             .nido-barra-peques .nido-hamburguesa::after { content: none; }
@@ -35,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 .nido-botones-peques .nido-panel { position: static !important; transform: none !important; opacity: 1 !important; visibility: visible !important; display: none; box-shadow: none; background: #ffffff !important; border-radius: 14px; padding: 8px; margin: 6px 0 4px; }
                 .nido-botones-peques .nido-panel a { color: #1c2b4a !important; }
                 .nido-botones-peques .nido-desplegable.abierto .nido-panel { display: block; }
+                .nido-buscar-peques { width: 100%; margin-top: 6px; }
+                .nido-buscar-peques input { flex: 1; width: auto; }
                 .nido-hamburguesa { display: block; margin-left: auto; background: #ffd94d; border: none; border-radius: 999px; color: #1c2b4a; font-size: 1.1rem; padding: 7px 14px; cursor: pointer; }
             }            /* FONDO INFANTIL ZONA DE PEQUES v2 — decoración en los costados */
               body {
@@ -77,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
               </div>
               <a href="colorear.html" class="nido-colorear">🎨 Colorear</a>
+              <form class="nido-buscar-peques" action="buscar.html" method="get" role="search"><input type="search" name="q" placeholder="Buscar..." aria-label="Buscar en la web"><button type="submit" aria-label="Buscar">🔍</button></form>
             </nav>
           </div>
         </header>

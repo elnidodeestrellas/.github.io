@@ -1,4 +1,4 @@
-// nav-familias.js — menú de zona · El Nido de Estrellas (versión de taller, sin subir)
+// nav-familias.js — menú de zona · El Nido de Estrellas (con buscador; versión de taller, sin subir)
 document.addEventListener("DOMContentLoaded", () => {
     const headerContainer = document.getElementById("menu-container");
 
@@ -29,6 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
             .nido-enlaces > a.nido-boton-app { margin-left: 6px; flex-shrink: 0; background: linear-gradient(135deg, #f6cf4f, #dda51d); color: #0f1626; font-weight: 700; padding: 9px 14px; border-radius: 999px; box-shadow: 0 4px 16px rgba(241, 196, 66, 0.35); }
             .nido-enlaces > a.nido-boton-app::after { display: none; }
             .nido-enlaces > a.nido-boton-app:hover { filter: brightness(1.08); color: #0f1626; }
+            .nido-buscar { display: flex; align-items: center; gap: 6px; margin-left: 10px; flex-shrink: 0; }
+            .nido-buscar input { width: 170px; padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(241,196,66,0.55); background: rgba(255,255,255,0.08); color: #f3ecd9; font-family: 'Inter', sans-serif; font-size: 0.85rem; }
+            .nido-buscar input::placeholder { color: rgba(233,228,214,0.6); }
+            .nido-buscar input:focus { outline: none; border-color: #f1c442; background: rgba(255,255,255,0.14); }
+            .nido-buscar button { background: linear-gradient(135deg, #f6cf4f, #dda51d); border: none; border-radius: 999px; width: 34px; height: 34px; cursor: pointer; font-size: 1rem; line-height: 1; flex-shrink: 0; }
             .nido-hamburguesa { display: none; margin-left: auto; background: none; border: 1px solid rgba(241,196,66,0.4); border-radius: 8px; color: #f1c442; font-size: 1.15rem; padding: 6px 12px; cursor: pointer; }
             .nido-hamburguesa::after { content: none; }
             .nido-hamburguesa:hover { transform: none; box-shadow: none; border-color: rgba(241,196,66,0.4); }
@@ -46,6 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 .nido-desplegable.abierto .nido-panel { display: block; }
                 .nido-panel a { color: #f3ecd9 !important; }
                 .nido-enlaces > a.nido-boton-app { margin: 10px 0 0; text-align: center; }
+                .nido-buscar { width: 100%; margin: 12px 0 0; }
+                .nido-buscar input { flex: 1; width: auto; }
+
             }
         </style>
         <header class="nido-barra">
@@ -112,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
               </div>
               <a href="https://www.elnidodeestrellas.com/app/" class="nido-boton-app">App gratuita</a>
+              <form class="nido-buscar" action="buscar.html" method="get" role="search"><input type="search" name="q" placeholder="Buscar en la web..." aria-label="Buscar en la web"><button type="submit" aria-label="Buscar">🔍</button></form>
             </nav>
           </div>
         </header>
