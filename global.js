@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const reglasFondos = [
+        { inicio: [1, 1], fin: [1, 6], archivo: "navidad.webp" },
         { inicio: [1, 1], fin: [2, 10], archivo: "invierno.webp" },
         { inicio: [2, 11], fin: [2, 20], archivo: "sanValentin.webp" },
         { inicio: [3, 1], fin: [3, 31], archivo: "semanaSanta.webp" },
@@ -181,7 +182,9 @@ document.addEventListener("DOMContentLoaded", function() {
         { inicio: [7, 1], fin: [8, 31], archivo: "verano.webp" },
         { inicio: [9, 1], fin: [9, 20], archivo: "vueltaalcole.webp" },
         { inicio: [9, 21], fin: [10, 24], archivo: "otoño.webp" },
-        { inicio: [10, 25], fin: [11, 5], archivo: "Halloween.webp" }
+        { inicio: [10, 25], fin: [11, 5], archivo: "Halloween.webp" },
+        { inicio: [11, 6], fin: [12, 14], archivo: "invierno.webp" },
+        { inicio: [12, 15], fin: [12, 31], archivo: "navidad.webp" }
     ];
 
     let archivoSeleccionado = "verano.webp";
